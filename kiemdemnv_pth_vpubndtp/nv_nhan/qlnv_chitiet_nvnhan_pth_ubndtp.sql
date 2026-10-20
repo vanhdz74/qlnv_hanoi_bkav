@@ -7,6 +7,10 @@ INSERT INTO `datamart_hanoi`.`qlnv_chitiet_nvnhan_pth_ubndtp` (
     `ma_nhiem_vu`,
     `ten_nhiem_vu`,
     `chu_de`,
+    `id_don_vi_giao`,
+    `don_vi_giao`,
+    `id_nguoi_giao`,
+    `nguoi_giao`,
     `id_don_vi_chu_tri`,
     `ten_don_vi_chu_tri`,
     `ten_don_vi_thuc_hien`,
@@ -39,6 +43,12 @@ SELECT
     t.Code                                                  AS ma_nhiem_vu,
     t.Title                                                 AS ten_nhiem_vu,
     COALESCE(NULLIF(t.NameGroup, ''), 'Chưa phân loại')     AS chu_de,
+
+    /* ĐƠN VỊ GIAO & NGƯỜI GIAO */
+    t.AssignDepartment                                      AS id_don_vi_giao,
+    COALESCE(d_assign.name, NULLIF(t.AssignOrganization, '')) AS don_vi_giao,
+    t.AssignUser                                            AS id_nguoi_giao,
+    u_assign.eGovUserFullname                               AS nguoi_giao,
 
     /* 4. ĐƠN VỊ THỰC HIỆN / CHỦ TRÌ & NGƯỜI THỰC HIỆN */
     t.TargetDepartment                                      AS id_don_vi_chu_tri,
@@ -152,6 +162,19 @@ LEFT JOIN `db_theodoinv_hn`.`department` d_assign_cap2
           END
       AND d_assign_cap2.IsDelete = 0
 
+/* JOIN ĐƠN VỊ GIAO (BÓC TÁCH ID TỪ T.ASSIGNDEPARTMENT ĐỂ LẤY TÊN) */
+LEFT JOIN `db_theodoinv_hn`.`department` d_assign
+       ON d_assign.id = CASE
+            WHEN SUBSTRING_INDEX(t.AssignDepartment, '.', -1) REGEXP '^[0-9]+$'
+            THEN CAST(SUBSTRING_INDEX(t.AssignDepartment, '.', -1) AS UNSIGNED)
+            ELSE NULL
+          END
+      AND d_assign.IsDelete = 0
+
+/* JOIN NGƯỜI GIAO NHIỆM VỤ */
+LEFT JOIN `db_theodoinv_hn`.`qlnv_user` u_assign
+       ON u_assign.eGovUserId = t.AssignUser
+
 /* JOIN DANH MỤC PHÒNG BAN ĐƠN VỊ NHẬN */
 LEFT JOIN `db_theodoinv_hn`.`department` d_cap
        ON d_cap.id = CASE
@@ -191,5 +214,17 @@ WHERE
 
     /* CHẶN ĐIỀU KIỆN NHÓM VĂN BẢN */
     AND r.ResolutionGroupId IN (55, 111, 132, 129)
+    /* NHIỆM VỤ THÀNH ỦY GIAO (490.695%): chỉ lấy khi số ký hiệu văn bản thuộc danh sách */
+    AND (
+        COALESCE(t.AssignDepartment, '') NOT LIKE '490.695%'
+        OR (
+               t.DocCode LIKE '%TB/KL%'     -- TBKL Thành ủy
+            OR t.DocCode LIKE '%TB/TU%'     -- TBKL Thành ủy
+            OR t.DocCode LIKE '%TB/VPTU%'   -- TBKL Thành ủy
+            OR t.DocCode LIKE '%CV/TU%'     -- CV Thành ủy
+            OR t.DocCode LIKE '%CV/VPTU%'   -- CV Thành ủy
+            OR t.DocCode LIKE '%BCĐ%'       -- Triển khai thực hiện Nghị quyết số 57-NQ/TW
+        )
+    )
 
 GROUP BY t.TaskId;

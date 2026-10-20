@@ -156,4 +156,16 @@ WHERE
 
     /* CHẶN ĐIỀU KIỆN NHÓM VĂN BẢN */
     AND r.ResolutionGroupId IN (55, 111, 132, 129)
+    /* NHIỆM VỤ THÀNH ỦY GIAO (490.695%): chỉ lấy khi số ký hiệu văn bản thuộc danh sách */
+    AND (
+        COALESCE(t.AssignDepartment, '') NOT LIKE '490.695%'
+        OR (
+               t.DocCode LIKE '%TB/KL%'     -- TBKL Thành ủy
+            OR t.DocCode LIKE '%TB/TU%'     -- TBKL Thành ủy
+            OR t.DocCode LIKE '%TB/VPTU%'   -- TBKL Thành ủy
+            OR t.DocCode LIKE '%CV/TU%'     -- CV Thành ủy
+            OR t.DocCode LIKE '%CV/VPTU%'   -- CV Thành ủy
+            OR t.DocCode LIKE '%BCĐ%'       -- Triển khai thực hiện Nghị quyết số 57-NQ/TW
+        )
+    )
 

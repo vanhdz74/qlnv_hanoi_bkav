@@ -50,15 +50,30 @@ SELECT
     /* =====================================================
        4. PHÒNG BAN GIAO & CÁN BỘ GIAO (ID TRƯỚC TÊN)
        ===================================================== */
-    -- TH1: Giao trực tiếp từ 490.698.752% -> lấy AssignDepartment
-    -- TH2: Bên khác giao qua -> lấy DepartmentPath của CreateUser
+    -- TH1: Giao trực tiếp từ 490.698.752% -> lấy AssignDepartment (5 cấp thì lùi về cấp 4)
+    -- TH2: Bên khác giao qua -> lấy DepartmentPath của CreateUser (5 cấp thì lùi về cấp 4)
     CASE 
-        WHEN t.AssignDepartment LIKE '490.698.752%' THEN t.AssignDepartment
-        ELSE MAX(u_create.DepartmentPath)
+        WHEN t.AssignDepartment LIKE '490.698.752%' THEN
+            CASE 
+                WHEN (LENGTH(t.AssignDepartment) - LENGTH(REPLACE(t.AssignDepartment, '.', ''))) >= 4 
+                THEN SUBSTRING_INDEX(t.AssignDepartment, '.', 4)
+                ELSE t.AssignDepartment 
+            END
+        ELSE 
+            CASE 
+                WHEN (LENGTH(MAX(u_create.DepartmentPath)) - LENGTH(REPLACE(MAX(u_create.DepartmentPath), '.', ''))) >= 4 
+                THEN SUBSTRING_INDEX(MAX(u_create.DepartmentPath), '.', 4)
+                ELSE MAX(u_create.DepartmentPath)
+            END
     END                                                     AS id_phong_ban_giao,
 
     CASE 
-        WHEN t.AssignDepartment LIKE '490.698.752%' THEN COALESCE(NULLIF(t.AssignOrganization, ''), MAX(d_assign.name))
+        WHEN t.AssignDepartment LIKE '490.698.752%' THEN 
+            CASE
+                WHEN (LENGTH(t.AssignDepartment) - LENGTH(REPLACE(t.AssignDepartment, '.', ''))) >= 4 
+                THEN COALESCE(MAX(d_assign.name), NULLIF(t.AssignOrganization, ''))
+                ELSE COALESCE(NULLIF(t.AssignOrganization, ''), MAX(d_assign.name))
+            END
         ELSE MAX(d_create_dept.name)
     END                                                     AS phong_ban_giao,
 
@@ -81,7 +96,7 @@ SELECT
     )                                                       AS don_vi_chu_tri,
 
     t.TargetDepartment                                      AS id_don_vi_thuc_hien,
-    NULL                                                    AS don_vi_thuc_hien,
+    MAX(d_donvi.name)                                       AS don_vi_thuc_hien,
 
     /* =====================================================
        6. NGƯỜI THỰC HIỆN (ID TRƯỚC TÊN)
@@ -140,11 +155,25 @@ LEFT JOIN `db_theodoinv_hn`.`qlnv_resolution` r
        ON r.ResolutionId = t.ResolutionId
       AND r.DeletedDate IS NULL
 
-/* JOIN PHÒNG BAN GIAO (TH1) */
+/* JOIN PHÒNG BAN GIAO (TH1: NẾU CÓ 5 CẤP THÌ LẤY ID CẤP 4) */
 LEFT JOIN `db_theodoinv_hn`.`department` d_assign
        ON d_assign.id = CASE 
-            WHEN SUBSTRING_INDEX(t.AssignDepartment, '.', -1) REGEXP '^[0-9]+$' 
-            THEN CAST(SUBSTRING_INDEX(t.AssignDepartment, '.', -1) AS UNSIGNED) 
+            WHEN SUBSTRING_INDEX(
+                CASE 
+                    WHEN (LENGTH(t.AssignDepartment) - LENGTH(REPLACE(t.AssignDepartment, '.', ''))) >= 4 
+                    THEN SUBSTRING_INDEX(t.AssignDepartment, '.', 4)
+                    ELSE t.AssignDepartment 
+                END, '.', -1
+            ) REGEXP '^[0-9]+$' 
+            THEN CAST(
+                SUBSTRING_INDEX(
+                    CASE 
+                        WHEN (LENGTH(t.AssignDepartment) - LENGTH(REPLACE(t.AssignDepartment, '.', ''))) >= 4 
+                        THEN SUBSTRING_INDEX(t.AssignDepartment, '.', 4)
+                        ELSE t.AssignDepartment 
+                    END, '.', -1
+                ) AS UNSIGNED
+            ) 
             ELSE NULL 
           END
       AND d_assign.IsDelete = 0
@@ -153,11 +182,25 @@ LEFT JOIN `db_theodoinv_hn`.`department` d_assign
 LEFT JOIN `db_theodoinv_hn`.`qlnv_user` u_create
        ON u_create.eGovUserId = t.CreateUser
 
-/* JOIN PHÒNG BAN CỦA CÁN BỘ TẠO TASK (TH2) */
+/* JOIN PHÒNG BAN CỦA CÁN BỘ TẠO TASK (TH2: NẾU CÓ 5 CẤP THÌ LẤY ID CẤP 4) */
 LEFT JOIN `db_theodoinv_hn`.`department` d_create_dept
        ON d_create_dept.id = CASE 
-            WHEN SUBSTRING_INDEX(u_create.DepartmentPath, '.', -1) REGEXP '^[0-9]+$' 
-            THEN CAST(SUBSTRING_INDEX(u_create.DepartmentPath, '.', -1) AS UNSIGNED) 
+            WHEN SUBSTRING_INDEX(
+                CASE 
+                    WHEN (LENGTH(u_create.DepartmentPath) - LENGTH(REPLACE(u_create.DepartmentPath, '.', ''))) >= 4 
+                    THEN SUBSTRING_INDEX(u_create.DepartmentPath, '.', 4)
+                    ELSE u_create.DepartmentPath 
+                END, '.', -1
+            ) REGEXP '^[0-9]+$' 
+            THEN CAST(
+                SUBSTRING_INDEX(
+                    CASE 
+                        WHEN (LENGTH(u_create.DepartmentPath) - LENGTH(REPLACE(u_create.DepartmentPath, '.', ''))) >= 4 
+                        THEN SUBSTRING_INDEX(u_create.DepartmentPath, '.', 4)
+                        ELSE u_create.DepartmentPath 
+                    END, '.', -1
+                ) AS UNSIGNED
+            ) 
             ELSE NULL 
           END
       AND d_create_dept.IsDelete = 0

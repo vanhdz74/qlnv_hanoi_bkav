@@ -1,4 +1,3 @@
-
 SELECT
     b.task_id,
     b.loai_nhiem_vu,
@@ -17,7 +16,14 @@ SELECT
     (
         SELECT d.name 
         FROM db_theodoinv_hn.department d 
-        WHERE d.id = CAST(SUBSTRING_INDEX(b.final_ben_nhan_id, '.', -1) AS UNSIGNED)
+        WHERE d.id = CAST(
+            CASE 
+                /* Nếu thuộc 490.695.1558.% thì lấy ID của cấp 4 */
+                WHEN b.final_ben_nhan_id LIKE '490.695.1558.%'
+                THEN SUBSTRING_INDEX(SUBSTRING_INDEX(b.final_ben_nhan_id, '.', 4), '.', -1)
+                ELSE SUBSTRING_INDEX(b.final_ben_nhan_id, '.', -1)
+            END AS UNSIGNED
+        )
           AND d.IsDelete = 0 
         LIMIT 1
     ) AS ben_nhan_name,
@@ -47,53 +53,160 @@ SELECT
     b.tinh_trang,
     rp.Content AS tinh_hinh_ket_qua_thuc_hien,
 
-    /* 3. LÃNH ĐẠO UBND: Đúng đích danh cấp '490.698', chức danh Lãnh đạo, Level = 2
-       Chức vụ hiển thị: ông Vũ Đại Thắng = 'Chủ tịch', còn lại = 'Phó Chủ tịch' */
-    (
-        SELECT 
-            NULLIF(
-                TRIM(
-                    CONCAT_WS(' - ',
-                        CASE
-                            WHEN TRIM(u.eGovUserFullname) LIKE '%Vũ Đại Thắng%' THEN 'Chủ tịch'
-                            ELSE 'Phó Chủ tịch'
-                        END,
-                        NULLIF(TRIM(u.eGovUserFullname), '')
+    /* 3. LÃNH ĐẠO UBND: đúng đích danh cấp '490.698', chức danh Lãnh đạo, Level = 2
+       Chức vụ hiển thị: JobTitlesName (user_department_position_jobtitle + jobtitles)
+       - Nối tất cả user thỏa điều kiện trong qlnv_task_user
+       - Cộng thêm TargetUser nếu thỏa cùng điều kiện (đơn vị: TargetDepartment thay cho tu.DepartmentId),
+         bỏ qua nếu TargetUser đã khớp trong qlnv_task_user để tránh trùng */
+    NULLIF(
+        CONCAT_WS(', ',
+            (
+                SELECT
+                    GROUP_CONCAT(
+                        DISTINCT NULLIF(
+                            TRIM(
+                                CONCAT_WS(' - ',
+                                    /* VAI TRÒ: JobTitlesName (ưu tiên chức danh đúng phòng ban hiện tại của user, rồi bản ghi chính) */
+                                    (
+                                        SELECT NULLIF(TRIM(jt.JobTitlesName), '')
+                                        FROM db_theodoinv_hn.user_department_position_jobtitle udpj
+                                        INNER JOIN db_theodoinv_hn.jobtitles jt
+                                            ON jt.JobTitlesId = udpj.jobtitle_id
+                                        WHERE udpj.user_id = u.eGovUserId
+                                          AND COALESCE(udpj.status, 1) = 1
+                                        ORDER BY (CAST(udpj.department_id AS CHAR) = SUBSTRING_INDEX(u.DepartmentPath, '.', -1)) DESC,
+                                                 udpj.is_primary DESC,
+                                                 udpj.id DESC
+                                        LIMIT 1
+                                    ),
+                                    NULLIF(TRIM(u.eGovUserFullname), '')
+                                )
+                            ), ''
+                        )
+                        ORDER BY tu.Role DESC, tu.Id DESC
+                        SEPARATOR ', '
                     )
-                ), ''
+                FROM db_theodoinv_hn.qlnv_task_user tu
+                INNER JOIN db_theodoinv_hn.qlnv_user u
+                    ON u.eGovUserId = tu.UserId
+                WHERE tu.TaskId = b.task_id
+                  AND COALESCE(NULLIF(tu.DepartmentId, ''), u.DepartmentPath) = '490.698'
+                  AND LOWER(u.eGovUserPositionName) LIKE '%lãnh đạo%'
+                  AND u.eGovUserPositionLevel = 2
+            ),
+            (
+                SELECT
+                    NULLIF(
+                        TRIM(
+                            CONCAT_WS(' - ',
+                                /* VAI TRÒ: JobTitlesName (ưu tiên chức danh đúng phòng ban hiện tại của user, rồi bản ghi chính) */
+                                (
+                                    SELECT NULLIF(TRIM(jt.JobTitlesName), '')
+                                    FROM db_theodoinv_hn.user_department_position_jobtitle udpj
+                                    INNER JOIN db_theodoinv_hn.jobtitles jt
+                                        ON jt.JobTitlesId = udpj.jobtitle_id
+                                    WHERE udpj.user_id = u.eGovUserId
+                                      AND COALESCE(udpj.status, 1) = 1
+                                    ORDER BY (CAST(udpj.department_id AS CHAR) = SUBSTRING_INDEX(u.DepartmentPath, '.', -1)) DESC,
+                                             udpj.is_primary DESC,
+                                             udpj.id DESC
+                                    LIMIT 1
+                                ),
+                                NULLIF(TRIM(u.eGovUserFullname), '')
+                            )
+                        ), ''
+                    )
+                FROM db_theodoinv_hn.qlnv_user u
+                WHERE u.eGovUserId = b.TargetUser
+                  AND COALESCE(NULLIF(b.TargetDepartment_Goc, ''), u.DepartmentPath) = '490.698'
+                  AND LOWER(u.eGovUserPositionName) LIKE '%lãnh đạo%'
+                  AND u.eGovUserPositionLevel = 2
+                  AND NOT EXISTS (
+                      SELECT 1
+                      FROM db_theodoinv_hn.qlnv_task_user tu_dup
+                      WHERE tu_dup.TaskId = b.task_id
+                        AND tu_dup.UserId = b.TargetUser
+                        AND COALESCE(NULLIF(tu_dup.DepartmentId, ''), u.DepartmentPath) = '490.698'
+                  )
+                LIMIT 1
             )
-        FROM db_theodoinv_hn.qlnv_task_user tu
-        INNER JOIN db_theodoinv_hn.qlnv_user u 
-            ON u.eGovUserId = tu.UserId
-        WHERE tu.TaskId = b.task_id
-          AND COALESCE(NULLIF(tu.DepartmentId, ''), u.DepartmentPath) = '490.698'
-          AND LOWER(u.eGovUserPositionName) LIKE '%lãnh đạo%'
-          AND u.eGovUserPositionLevel = 2
-        ORDER BY tu.Role DESC, tu.Id DESC
-        LIMIT 1
+        ), ''
     ) AS ld_ubnd,
 
-    /* LÃNH ĐẠO VĂN PHÒNG:
-       - Check qlnv_task_user của nhiệm vụ, nếu có user thuộc ban LIKE '490.698.752%' thì lấy user đó
+    /* LÃNH ĐẠO VĂN PHÒNG: user thuộc ban LIKE '490.698.752'
        - Ưu tiên phòng ban thật của user (u.DepartmentPath), fallback tu.DepartmentId
-     */
-    (
-        SELECT 
-            NULLIF(
-                TRIM(
-                    CONCAT_WS(' - ',
-                        NULLIF(TRIM(u.eGovUserPositionName), ''),
-                        NULLIF(TRIM(u.eGovUserFullname), '')
+       - Nối tất cả user thỏa điều kiện trong qlnv_task_user
+       - Cộng thêm TargetUser nếu thỏa cùng điều kiện (đơn vị: TargetDepartment thay cho tu.DepartmentId),
+         bỏ qua nếu TargetUser đã khớp trong qlnv_task_user để tránh trùng */
+    NULLIF(
+        CONCAT_WS(', ',
+            (
+                SELECT
+                    GROUP_CONCAT(
+                        DISTINCT NULLIF(
+                            TRIM(
+                                CONCAT_WS(' - ',
+                                    /* VAI TRÒ: JobTitlesName (ưu tiên chức danh đúng phòng ban hiện tại của user, rồi bản ghi chính) */
+                                    (
+                                        SELECT NULLIF(TRIM(jt.JobTitlesName), '')
+                                        FROM db_theodoinv_hn.user_department_position_jobtitle udpj
+                                        INNER JOIN db_theodoinv_hn.jobtitles jt
+                                            ON jt.JobTitlesId = udpj.jobtitle_id
+                                        WHERE udpj.user_id = u.eGovUserId
+                                          AND COALESCE(udpj.status, 1) = 1
+                                        ORDER BY (CAST(udpj.department_id AS CHAR) = SUBSTRING_INDEX(u.DepartmentPath, '.', -1)) DESC,
+                                                 udpj.is_primary DESC,
+                                                 udpj.id DESC
+                                        LIMIT 1
+                                    ),
+                                    NULLIF(TRIM(u.eGovUserFullname), '')
+                                )
+                            ), ''
+                        )
+                        ORDER BY tu.Role DESC, tu.Id DESC
+                        SEPARATOR ', '
                     )
-                ), ''
+                FROM db_theodoinv_hn.qlnv_task_user tu
+                INNER JOIN db_theodoinv_hn.qlnv_user u
+                    ON u.eGovUserId = tu.UserId
+                WHERE tu.TaskId = b.task_id
+                  AND COALESCE(NULLIF(u.DepartmentPath, ''), NULLIF(tu.DepartmentId, '')) LIKE '490.698.752'
+            ),
+            (
+                SELECT
+                    NULLIF(
+                        TRIM(
+                            CONCAT_WS(' - ',
+                                /* VAI TRÒ: JobTitlesName (ưu tiên chức danh đúng phòng ban hiện tại của user, rồi bản ghi chính) */
+                                (
+                                    SELECT NULLIF(TRIM(jt.JobTitlesName), '')
+                                    FROM db_theodoinv_hn.user_department_position_jobtitle udpj
+                                    INNER JOIN db_theodoinv_hn.jobtitles jt
+                                        ON jt.JobTitlesId = udpj.jobtitle_id
+                                    WHERE udpj.user_id = u.eGovUserId
+                                      AND COALESCE(udpj.status, 1) = 1
+                                    ORDER BY (CAST(udpj.department_id AS CHAR) = SUBSTRING_INDEX(u.DepartmentPath, '.', -1)) DESC,
+                                             udpj.is_primary DESC,
+                                             udpj.id DESC
+                                    LIMIT 1
+                                ),
+                                NULLIF(TRIM(u.eGovUserFullname), '')
+                            )
+                        ), ''
+                    )
+                FROM db_theodoinv_hn.qlnv_user u
+                WHERE u.eGovUserId = b.TargetUser
+                  AND COALESCE(NULLIF(u.DepartmentPath, ''), NULLIF(b.TargetDepartment_Goc, '')) LIKE '490.698.752'
+                  AND NOT EXISTS (
+                      SELECT 1
+                      FROM db_theodoinv_hn.qlnv_task_user tu_dup
+                      WHERE tu_dup.TaskId = b.task_id
+                        AND tu_dup.UserId = b.TargetUser
+                        AND COALESCE(NULLIF(u.DepartmentPath, ''), NULLIF(tu_dup.DepartmentId, '')) LIKE '490.698.752'
+                  )
+                LIMIT 1
             )
-        FROM db_theodoinv_hn.qlnv_task_user tu
-        INNER JOIN db_theodoinv_hn.qlnv_user u 
-            ON u.eGovUserId = tu.UserId
-        WHERE tu.TaskId = b.task_id
-          AND COALESCE(NULLIF(u.DepartmentPath, ''), NULLIF(tu.DepartmentId, '')) LIKE '490.698.752'
-        ORDER BY tu.Role DESC, tu.Id DESC
-        LIMIT 1
+        ), ''
     ) AS ld_van_phong_ubnd,
 
     /* 4. BAN CHUYÊN MÔN: Phòng của chuyên viên theo dõi.
@@ -139,6 +252,7 @@ FROM (
         t.AssignDepartment AS ben_giao_id,
         t.AssignUser,
         t.CreateUser,
+        t.TargetUser,
         t.TargetDepartment AS TargetDepartment_Goc,
 
         /* LOẠI NHIỆM VỤ */
@@ -174,6 +288,10 @@ FROM (
 
         /* ID BÊN NHẬN */
         CASE 
+            /* Nhánh 490.695.1558.% chuẩn hóa về cấp 4 */
+            WHEN t.TargetDepartment LIKE '490.695.1558.%'
+            THEN SUBSTRING_INDEX(t.TargetDepartment, '.', 4)
+
             WHEN (t.AssignDepartment = '490.695.1558.1814' OR t.AssignDepartment = '490.695.1558.1814.1815')
                  AND t.TargetDepartment LIKE '490.698%'
                  AND t.AssignDepartment <> t.TargetDepartment THEN
@@ -310,10 +428,7 @@ LEFT JOIN (
 ) rv
     ON rv.TaskId = b.task_id
 
-/* LÃNH ĐẠO ĐƠN VỊ VÀ CHUYÊN VIÊN: user trong qlnv_task_user thuộc 490.698
-   - Ưu tiên phòng ban THẬT của user (u.DepartmentPath), chỉ fallback tu.DepartmentId khi user không có phòng
-   - So khớp chính xác '490.698' hoặc con của nó '490.698.%' để không lọt đơn vị khác (vd Thành ủy 490.695)
-   - Chỉ lấy user thuộc chính đơn vị chủ trì hoặc cấp dưới của nó (áp dụng khi nhiệm vụ hướng về nhánh 490.698) */
+/* LÃNH ĐẠO ĐƠN VỊ VÀ CHUYÊN VIÊN */
 LEFT JOIN (
     SELECT
         x.TaskId,
@@ -329,7 +444,19 @@ LEFT JOIN (
             NULLIF(
                 TRIM(
                     CONCAT_WS(' - ',
-                        NULLIF(TRIM(u.eGovUserPositionName), ''),
+                        /* VAI TRÒ: JobTitlesName (ưu tiên chức danh đúng phòng ban hiện tại của user, rồi bản ghi chính) */
+                        (
+                            SELECT NULLIF(TRIM(jt.JobTitlesName), '')
+                            FROM db_theodoinv_hn.user_department_position_jobtitle udpj
+                            INNER JOIN db_theodoinv_hn.jobtitles jt
+                                ON jt.JobTitlesId = udpj.jobtitle_id
+                            WHERE udpj.user_id = u.eGovUserId
+                              AND COALESCE(udpj.status, 1) = 1
+                            ORDER BY (CAST(udpj.department_id AS CHAR) = SUBSTRING_INDEX(u.DepartmentPath, '.', -1)) DESC,
+                                     udpj.is_primary DESC,
+                                     udpj.id DESC
+                            LIMIT 1
+                        ),
                         NULLIF(TRIM(u.eGovUserFullname), ''),
                         NULLIF(TRIM(u.PhoneNumber), '')
                     )
@@ -345,7 +472,6 @@ LEFT JOIN (
                OR COALESCE(NULLIF(u.DepartmentPath, ''), NULLIF(tu.DepartmentId, '')) LIKE '490.698.%'
               )
           AND (
-                  /* Nhiệm vụ không hướng về nhánh 490.698 (vd giao cho Đảng ủy) -> không thu hẹp thêm */
                   t_sub.TargetDepartment NOT LIKE '490.698%'
                OR COALESCE(NULLIF(u.DepartmentPath, ''), NULLIF(tu.DepartmentId, '')) LIKE CONCAT(
                       CASE

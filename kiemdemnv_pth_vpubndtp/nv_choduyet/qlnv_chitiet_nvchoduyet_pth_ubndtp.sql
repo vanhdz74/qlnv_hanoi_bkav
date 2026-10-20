@@ -7,6 +7,10 @@ INSERT INTO `datamart_hanoi`.`qlnv_chitiet_nvchoduyet_pth_ubndtp` (
     `ma_nhiem_vu`,
     `ten_nhiem_vu`,
     `chu_de`,
+    `id_don_vi_giao`,
+    `don_vi_giao`,
+    `id_nguoi_giao`,
+    `nguoi_giao`,
     `id_don_vi_chu_tri`,
     `ten_don_vi_chu_tri`,
     `ten_don_vi_thuc_hien`,
@@ -50,6 +54,12 @@ SELECT
     t.Code                                                  AS ma_nhiem_vu,
     t.Title                                                 AS ten_nhiem_vu,
     COALESCE(NULLIF(t.NameGroup, ''), 'Chưa phân loại')     AS chu_de,
+
+    /* ĐƠN VỊ GIAO & NGƯỜI GIAO */
+    t.AssignDepartment                                      AS id_don_vi_giao,
+    COALESCE(MAX(d_assign.name), NULLIF(t.AssignOrganization, '')) AS don_vi_giao,
+    t.AssignUser                                            AS id_nguoi_giao,
+    MAX(u_nguoi_giao.eGovUserFullname)                      AS nguoi_giao,
 
     /* 4. ĐƠN VỊ THỰC HIỆN / CHỦ TRÌ (LÙI VỀ CẤP 4 NẾU CÓ >= 4 DẤU CHẤM) */
     CASE 
@@ -212,6 +222,10 @@ LEFT JOIN `db_theodoinv_hn`.`qlnv_user` u_assign
 
 LEFT JOIN `db_theodoinv_hn`.`qlnv_user` u_target
        ON u_target.eGovUserId = t.TargetUser
+
+/* JOIN NGƯỜI GIAO NHIỆM VỤ (AssignUser; u_assign ở trên là CreateUser) */
+LEFT JOIN `db_theodoinv_hn`.`qlnv_user` u_nguoi_giao
+       ON u_nguoi_giao.eGovUserId = t.AssignUser
 
 WHERE
     t.DeletedDate IS NULL

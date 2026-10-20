@@ -7,6 +7,10 @@ INSERT INTO `datamart_hanoi`.`qlnv_chitiet_nvgiao_pth_ubndtp` (
     `ma_nhiem_vu`,
     `ten_nhiem_vu`,
     `chu_de`,
+    `id_don_vi_giao`,
+    `don_vi_giao`,
+    `id_nguoi_giao`,
+    `nguoi_giao`,
     `id_don_vi_chu_tri`,
     `ten_don_vi_chu_tri`,
     `ten_don_vi_thuc_hien`,
@@ -25,7 +29,6 @@ INSERT INTO `datamart_hanoi`.`qlnv_chitiet_nvgiao_pth_ubndtp` (
     `sync_date`
 )
 
-
 SELECT
     /* 1. KHÓA HỆ THỐNG & TRẠNG THÁI */
     t.TaskId                                                AS task_id,
@@ -40,6 +43,12 @@ SELECT
     t.Code                                                  AS ma_nhiem_vu,
     t.Title                                                 AS ten_nhiem_vu,
     COALESCE(NULLIF(t.NameGroup, ''), 'Chưa phân loại')     AS chu_de,
+
+    /* ĐƠN VỊ GIAO & NGƯỜI GIAO */
+    t.AssignDepartment                                      AS id_don_vi_giao,
+    COALESCE(MAX(d_assign.name), NULLIF(t.AssignOrganization, '')) AS don_vi_giao,
+    t.AssignUser                                            AS id_nguoi_giao,
+    MAX(u_assign.eGovUserFullname)                          AS nguoi_giao,
 
     /* 4. ĐƠN VỊ THỰC HIỆN / CHỦ TRÌ (CHUẨN HÓA CẤP) */
     CASE
@@ -146,7 +155,7 @@ FROM `db_theodoinv_hn`.`qlnv_task` t
 INNER JOIN `db_theodoinv_hn`.`qlnv_resolution` r
         ON r.ResolutionId = t.ResolutionId
        AND r.DeletedDate IS NULL
-       AND r.ResolutionGroupId IN (55, 132)
+    --    AND r.ResolutionGroupId IN (55, 132)
 
 /* JOIN TÊN ĐƠN VỊ TRỤC GIAO CẤP 2 */
 LEFT JOIN `db_theodoinv_hn`.`department` d_assign_cap2
@@ -156,6 +165,19 @@ LEFT JOIN `db_theodoinv_hn`.`department` d_assign_cap2
             ELSE NULL
           END
       AND d_assign_cap2.IsDelete = 0
+
+/* JOIN ĐƠN VỊ GIAO (BÓC TÁCH ID TỪ T.ASSIGNDEPARTMENT ĐỂ LẤY TÊN) */
+LEFT JOIN `db_theodoinv_hn`.`department` d_assign
+       ON d_assign.id = CASE
+            WHEN SUBSTRING_INDEX(t.AssignDepartment, '.', -1) REGEXP '^[0-9]+$'
+            THEN CAST(SUBSTRING_INDEX(t.AssignDepartment, '.', -1) AS UNSIGNED)
+            ELSE NULL
+          END
+      AND d_assign.IsDelete = 0
+
+/* JOIN NGƯỜI GIAO NHIỆM VỤ */
+LEFT JOIN `db_theodoinv_hn`.`qlnv_user` u_assign
+       ON u_assign.eGovUserId = t.AssignUser
 
 /* JOIN ĐƠN VỊ CHỦ TRÌ (theo id cấp đã chuẩn hóa) */
 LEFT JOIN `db_theodoinv_hn`.`department` d_chutri
@@ -198,30 +220,16 @@ LEFT JOIN `db_theodoinv_hn`.`department` d_donvi
 LEFT JOIN `db_theodoinv_hn`.`qlnv_user` u_target 
        ON u_target.eGovUserId = t.TargetUser
 
-WHERE
-    t.DeletedDate IS NULL
-    AND t.Status <> 5
-    AND (
-        t.Status IN (-1, 0, 1, 2)
-        OR (
-            t.Status IN (3, 4)
-            AND (t.ExpireDate IS NULL OR COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL)
-        )
-    )
-
-    /* ĐIỀU KIỆN ĐƠN VỊ GIAO CHÍNH XÁC 490.698 */
-    AND t.AssignDepartment = '490.698'
-    AND t.TargetDepartment like '490.698.%'
-
-    /* LOẠI TRỪ ĐƠN VỊ NHẬN THUỘC 1307 VÀ 1310 VÀ 1841*/
-	AND COALESCE(t.TargetDepartment, '') NOT IN ('490.698.1307', '490.698.1841', '490.698.1310')
-
-    /* BỎ TASK KHÔNG CÓ ĐƠN VỊ NHẬN, VÀ TASK MÀ ĐƠN VỊ NHẬN CHÍNH LÀ UBND (490.698) */
-    AND COALESCE(t.TargetDepartment, '') <> ''
-    AND COALESCE(t.TargetDepartment, '') <> '490.698'
-
-    /* CHẶN ĐIỀU KIỆN NHÓM VĂN BẢN 55, 132 */
-    AND r.ResolutionGroupId IN (55, 132)
+/* ĐIỀU KIỆN LẤY TASK: đồng bộ với qlnv_tonghop_chitiet_nvgiao_pth_ubndtp */
+WHERE t.DeletedDate IS NULL
+  AND (   t.Status IN (-1, 0, 1, 2)
+       OR (t.Status IN (3, 4) AND (t.ExpireDate IS NULL OR COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL)))
+  /* UBND giao (đúng 490.698) cho đơn vị con 490.698.x, trừ 1307 / 1841 / 1310 */
+  AND t.AssignDepartment = '490.698'
+  AND t.TargetDepartment LIKE '490.698.%'
+  AND t.TargetDepartment NOT IN ('490.698.1307', '490.698.1841', '490.698.1310')
+  /* Loại nhóm văn bản 82, 109 */
+--   AND r.ResolutionGroupId NOT IN (82, 109)
 
 /* GOM NHÓM THEO TASK_ID ĐỂ KHỬ TRÙNG LẶP */
 GROUP BY t.TaskId;

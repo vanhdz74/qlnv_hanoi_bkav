@@ -91,6 +91,7 @@ LEFT JOIN `db_theodoinv_hn`.`qlnv_resolution_group` rg
 LEFT JOIN `db_theodoinv_hn`.`qlnv_sector` s
        ON s.SectorId = r.SectorId
       AND s.DeletedDate IS NULL
+      AND s.IsActive = 1
 
 /* Cấp cha (segment 2 từ DepartmentPath của người tạo) */
 LEFT JOIN `db_theodoinv_hn`.`department` d_capcha

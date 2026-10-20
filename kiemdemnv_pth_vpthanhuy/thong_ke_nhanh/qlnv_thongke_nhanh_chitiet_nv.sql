@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `datamart_hanoi`.`qlnv_thongke_nhanh_chitiet_nv_vptha
     id_don_vi_chu_tri        VARCHAR(50)   NULL,       -- task.TargetDepartment (mã Part)
     ten_don_vi_chu_tri       VARCHAR(500)  NULL,
 
-    linh_vuc                 VARCHAR(256)  NULL,       -- task.Sector, thiếu thì NameGroup
+    linh_vuc                 VARCHAR(256)  NULL,       -- qlnv_sector.SectorName (qua resolution), thiếu thì 'Khác'
     id_chuyen_vien           INT           NULL,       -- eGovUserId (task.TargetUser)
     chuyen_vien              VARCHAR(255)  NULL,
 
@@ -106,11 +106,8 @@ SELECT
     t.TargetDepartment                                      AS id_don_vi_chu_tri,
     COALESCE(NULLIF(MAX(d.name), ''), t.TargetDepartment)   AS ten_don_vi_chu_tri,
 
-    /* 3. LĨNH VỰC — Sector là cột "Lĩnh vực"; rỗng thì lấy tạm NameGroup */
-    COALESCE(
-        NULLIF(t.Sector, ''),
-        NULLIF(t.NameGroup, '')
-    )                                                       AS linh_vuc,
+    /* 3. LĨNH VỰC: lĩnh vực văn bản (qlnv_sector qua resolution.SectorId); rỗng thì 'Khác' */
+    COALESCE(NULLIF(MAX(s.SectorName), ''), 'Khác')        AS linh_vuc,
 
     /* 4. CHUYÊN VIÊN = người thực hiện (TargetUser); tra không ra thì lấy
           ChargeUser (cột text tên người phụ trách) */
@@ -152,6 +149,15 @@ SELECT
     NOW()                                                   AS sync_date
 
 FROM `db_theodoinv_hn`.`qlnv_task` t
+
+/* VĂN BẢN & LĨNH VỰC VĂN BẢN */
+LEFT JOIN `db_theodoinv_hn`.`qlnv_resolution` r
+       ON r.ResolutionId = t.ResolutionId
+      AND r.DeletedDate IS NULL
+LEFT JOIN `db_theodoinv_hn`.`qlnv_sector` s
+       ON s.SectorId = r.SectorId
+      AND s.DeletedDate IS NULL
+      AND s.IsActive = 1
 
 /* TÊN ĐƠN VỊ — join department.id = ĐOẠN CUỐI của mã, giống hệt bảng task.
    REGEXP chặn CAST lỗi khi đoạn cuối không phải số. */

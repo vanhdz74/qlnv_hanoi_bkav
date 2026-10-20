@@ -22,7 +22,7 @@ SELECT
     /* =====================================================
        LĨNH VỰC
        ===================================================== */
-    s.SectorName AS LinhVuc,
+    COALESCE(NULLIF(s.SectorName, ''), 'Khác') AS LinhVuc,
 
     /* =====================================================
        NGÀY VĂN BẢN
@@ -142,6 +142,8 @@ LEFT JOIN db_theodoinv_hn.qlnv_resolution_group rg
    ========================================================= */
 LEFT JOIN db_theodoinv_hn.qlnv_sector s
        ON s.SectorId = r.SectorId
+      AND s.DeletedDate IS NULL
+      AND s.IsActive = 1
 
 /* =========================================================
    NGƯỜI TẠO

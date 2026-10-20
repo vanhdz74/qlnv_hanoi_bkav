@@ -21,7 +21,6 @@ SELECT
     COALESCE(d_assign_cap2.name)           AS nguon_giao_nhiem_vu,
     NULL                                                    AS nguon_nhiem_vu,
     CASE 
-        WHEN t.AssignDepartment = '490.698.1310.1496' THEN 'Đơn vị giao'
         WHEN t.ParentId IS NULL OR t.ParentId = 0     THEN 'Chủ trì'
         ELSE 'Phối hợp'
     END                                                     AS vai_tro_don_vi,

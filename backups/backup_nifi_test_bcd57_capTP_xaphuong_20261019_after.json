@@ -1,0 +1,3339 @@
+{
+  "flowContents": {
+    "identifier": "8cf3a7fc-8efb-3965-9638-fac506dd1a5a",
+    "instanceIdentifier": "5ebe3d34-c913-1f31-8eb9-10b6b15afd2e",
+    "name": "TEST QLNV - Ban chỉ đạo 57 chi tiết",
+    "comments": "",
+    "position": {
+      "x": 2696,
+      "y": -808
+    },
+    "processGroups": [
+      {
+        "identifier": "0d657c3d-9c84-3c75-8c3f-4b43444dd18a",
+        "instanceIdentifier": "5ebe3d66-c913-1f31-6197-4f2dcdca4624",
+        "name": "nv_cap_tp",
+        "comments": "",
+        "position": {
+          "x": 2018.9998360211566,
+          "y": -135.99997108549906
+        },
+        "processGroups": [
+          {
+            "identifier": "ebf4ef0e-7dc5-30dd-99e1-53f4faed549c",
+            "instanceIdentifier": "5ebe3d6a-c913-1f31-8f24-bda2bfd25927",
+            "name": "BTH - Chi tiết",
+            "comments": "",
+            "position": {
+              "x": 672,
+              "y": 296
+            },
+            "processGroups": [],
+            "remoteProcessGroups": [],
+            "processors": [
+              {
+                "identifier": "32a7174d-495d-3be8-9402-29306ee53fed",
+                "instanceIdentifier": "5ebe3d6c-c913-1f31-1fcf-7aec7da5a2d4",
+                "name": "ReplaceText",
+                "comments": "",
+                "position": {
+                  "x": 472,
+                  "y": 224
+                },
+                "type": "org.apache.nifi.processors.standard.ReplaceText",
+                "bundle": {
+                  "group": "org.apache.nifi",
+                  "artifact": "nifi-standard-nar",
+                  "version": "1.27.0"
+                },
+                "properties": {
+                  "Regular Expression": "(?s)(^.*$)",
+                  "Replacement Value": "/* Bảng đích cho qlnv_chitiet_bcd57_cap_tp.sql (chạy 1 lần, KHÔNG dán vào NiFi)\n   task_id KHÔNG để PK: nhánh 2 (API) dùng row_id/CRC32, có thể đụng TaskId nhánh 1 */\nCREATE TABLE IF NOT EXISTS `db_theodoinv_hn_test_data`.`qlnv_chitiet_bcd57_cap_tp` (\n    `task_id`                 BIGINT        NOT NULL,\n    `status`                  INT           NULL,\n    `id_truc_giao`            VARCHAR(100)  NULL,\n    `truc_giao`               VARCHAR(500)  NULL,\n    `nguon_giao`              VARCHAR(50)   NULL,\n    `van_ban_giao`            VARCHAR(500)  NULL,\n    `loai_van_ban`            VARCHAR(100)  NULL,\n    `ma_nhiem_vu`             VARCHAR(255)  NULL,\n    `ten_nhiem_vu`            TEXT          NULL,\n    `chu_de`                  VARCHAR(500)  NULL,\n    `nhom_nhiem_vu`           VARCHAR(500)  NULL,\n    `id_don_vi_giao`          VARCHAR(100)  NULL,\n    `don_vi_giao`             VARCHAR(500)  NULL,\n    `id_nguoi_giao`           VARCHAR(100)  NULL,\n    `nguoi_giao`              VARCHAR(255)  NULL,\n    `id_don_vi_chu_tri`       VARCHAR(100)  NULL,\n    `ten_don_vi_chu_tri`      VARCHAR(500)  NULL,\n    `ten_don_vi_thuc_hien`    VARCHAR(500)  NULL,\n    `id_nguoi_thuc_hien`      VARCHAR(100)  NULL,\n    `nguoi_thuc_hien`         VARCHAR(255)  NULL,\n    `lanh_dao_ban_phu_trach`  VARCHAR(500)  NULL,\n    `ngay_giao`               VARCHAR(10)   NULL,\n    `han_xu_ly`               VARCHAR(10)   NULL,\n    `ngay_hoan_thanh`         VARCHAR(10)   NULL,\n    `ngay_chap_nhan`          VARCHAR(10)   NULL,\n    `ngay_xoa`                VARCHAR(10)   NULL,\n    `tinh_trang`              VARCHAR(50)   NULL,\n    `tien_do`                 INT           NULL,\n    `ket_qua_thuc_hien`       LONGTEXT      NULL,\n    `kho_khan_vuong_mac`      LONGTEXT      NULL,\n    `de_xuat_kien_nghi`       LONGTEXT      NULL,\n    `sync_date`               DATETIME      NULL,\n    KEY `idx_task`       (`task_id`),\n    KEY `idx_nguon_giao` (`nguon_giao`),\n    KEY `idx_truc_giao`  (`id_truc_giao`),\n    KEY `idx_tinh_trang` (`tinh_trang`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;\n\nTRUNCATE TABLE `db_theodoinv_hn_test_data`.`qlnv_chitiet_bcd57_cap_tp`;\n",
+                  "Evaluation Mode": "Entire text",
+                  "Text to Prepend": null,
+                  "Line-by-Line Evaluation Mode": "All",
+                  "Character Set": "UTF-8",
+                  "Maximum Buffer Size": "1 MB",
+                  "Replacement Strategy": "Always Replace",
+                  "Text to Append": null
+                },
+                "propertyDescriptors": {
+                  "Regular Expression": {
+                    "name": "Regular Expression",
+                    "displayName": "Search Value",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Replacement Value": {
+                    "name": "Replacement Value",
+                    "displayName": "Replacement Value",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Evaluation Mode": {
+                    "name": "Evaluation Mode",
+                    "displayName": "Evaluation Mode",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Text to Prepend": {
+                    "name": "Text to Prepend",
+                    "displayName": "Text to Prepend",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Line-by-Line Evaluation Mode": {
+                    "name": "Line-by-Line Evaluation Mode",
+                    "displayName": "Line-by-Line Evaluation Mode",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Character Set": {
+                    "name": "Character Set",
+                    "displayName": "Character Set",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Maximum Buffer Size": {
+                    "name": "Maximum Buffer Size",
+                    "displayName": "Maximum Buffer Size",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Replacement Strategy": {
+                    "name": "Replacement Strategy",
+                    "displayName": "Replacement Strategy",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Text to Append": {
+                    "name": "Text to Append",
+                    "displayName": "Text to Append",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 25,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [
+                  "failure"
+                ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "ebf4ef0e-7dc5-30dd-99e1-53f4faed549c"
+              },
+              {
+                "identifier": "f3ad4b6a-d3ed-34a5-a43e-e46820a0db48",
+                "instanceIdentifier": "5ebe3d70-c913-1f31-becb-cea4d38daada",
+                "name": "LogAttribute",
+                "comments": "",
+                "position": {
+                  "x": 1600,
+                  "y": 640
+                },
+                "type": "org.apache.nifi.processors.standard.LogAttribute",
+                "bundle": {
+                  "group": "org.apache.nifi",
+                  "artifact": "nifi-standard-nar",
+                  "version": "1.27.0"
+                },
+                "properties": {
+                  "Log prefix": null,
+                  "character-set": "US-ASCII",
+                  "Log FlowFile Properties": "true",
+                  "Log Level": "info",
+                  "attributes-to-ignore-regex": null,
+                  "Attributes to Ignore": null,
+                  "Attributes to Log": null,
+                  "attributes-to-log-regex": ".*",
+                  "Output Format": "Line per Attribute",
+                  "Log Payload": "false"
+                },
+                "propertyDescriptors": {
+                  "Log prefix": {
+                    "name": "Log prefix",
+                    "displayName": "Log prefix",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "character-set": {
+                    "name": "character-set",
+                    "displayName": "Character Set",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Log FlowFile Properties": {
+                    "name": "Log FlowFile Properties",
+                    "displayName": "Log FlowFile Properties",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Log Level": {
+                    "name": "Log Level",
+                    "displayName": "Log Level",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "attributes-to-ignore-regex": {
+                    "name": "attributes-to-ignore-regex",
+                    "displayName": "Attributes to Ignore by Regular Expression",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Attributes to Ignore": {
+                    "name": "Attributes to Ignore",
+                    "displayName": "Attributes to Ignore",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Attributes to Log": {
+                    "name": "Attributes to Log",
+                    "displayName": "Attributes to Log",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "attributes-to-log-regex": {
+                    "name": "attributes-to-log-regex",
+                    "displayName": "Attributes to Log by Regular Expression",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Output Format": {
+                    "name": "Output Format",
+                    "displayName": "Output Format",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Log Payload": {
+                    "name": "Log Payload",
+                    "displayName": "Log Payload",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 25,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [],
+                "scheduledState": "DISABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "ebf4ef0e-7dc5-30dd-99e1-53f4faed549c"
+              },
+              {
+                "identifier": "57eff423-3d27-3cb4-a596-6b3360042b27",
+                "instanceIdentifier": "5ebe3d6e-c913-1f31-660c-6550069c7258",
+                "name": "PutSQL",
+                "comments": "",
+                "position": {
+                  "x": 1007.4949336110061,
+                  "y": 889.4860589800969
+                },
+                "type": "org.apache.nifi.processors.standard.PutSQL",
+                "bundle": {
+                  "group": "org.apache.nifi",
+                  "artifact": "nifi-standard-nar",
+                  "version": "1.27.0"
+                },
+                "properties": {
+                  "Support Fragmented Transactions": "true",
+                  "putsql-sql-statement": null,
+                  "Transaction Timeout": null,
+                  "Batch Size": "100",
+                  "Obtain Generated Keys": "false",
+                  "JDBC Connection Pool": "84e917c7-a439-343e-9704-bf4e8c476fc9",
+                  "database-session-autocommit": "false",
+                  "rollback-on-failure": "false"
+                },
+                "propertyDescriptors": {
+                  "Support Fragmented Transactions": {
+                    "name": "Support Fragmented Transactions",
+                    "displayName": "Support Fragmented Transactions",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "putsql-sql-statement": {
+                    "name": "putsql-sql-statement",
+                    "displayName": "SQL Statement",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Transaction Timeout": {
+                    "name": "Transaction Timeout",
+                    "displayName": "Transaction Timeout",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Batch Size": {
+                    "name": "Batch Size",
+                    "displayName": "Batch Size",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Obtain Generated Keys": {
+                    "name": "Obtain Generated Keys",
+                    "displayName": "Obtain Generated Keys",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "JDBC Connection Pool": {
+                    "name": "JDBC Connection Pool",
+                    "displayName": "JDBC Connection Pool",
+                    "identifiesControllerService": true,
+                    "sensitive": false
+                  },
+                  "database-session-autocommit": {
+                    "name": "database-session-autocommit",
+                    "displayName": "Database Session AutoCommit",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "rollback-on-failure": {
+                    "name": "rollback-on-failure",
+                    "displayName": "Rollback On Failure",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 0,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [
+                  "success"
+                ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "ebf4ef0e-7dc5-30dd-99e1-53f4faed549c"
+              },
+              {
+                "identifier": "c7ebf1ee-2ba1-31a3-802e-f071889113e0",
+                "instanceIdentifier": "5ebe3d6f-c913-1f31-ce62-94a26120b901",
+                "name": "PutSQL",
+                "comments": "",
+                "position": {
+                  "x": 1016,
+                  "y": 408
+                },
+                "type": "org.apache.nifi.processors.standard.PutSQL",
+                "bundle": {
+                  "group": "org.apache.nifi",
+                  "artifact": "nifi-standard-nar",
+                  "version": "1.27.0"
+                },
+                "properties": {
+                  "Support Fragmented Transactions": "true",
+                  "putsql-sql-statement": null,
+                  "Transaction Timeout": null,
+                  "Batch Size": "100",
+                  "Obtain Generated Keys": "false",
+                  "JDBC Connection Pool": "b5756ef0-6685-3776-a9c5-132af984527c",
+                  "database-session-autocommit": "false",
+                  "rollback-on-failure": "false"
+                },
+                "propertyDescriptors": {
+                  "Support Fragmented Transactions": {
+                    "name": "Support Fragmented Transactions",
+                    "displayName": "Support Fragmented Transactions",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "putsql-sql-statement": {
+                    "name": "putsql-sql-statement",
+                    "displayName": "SQL Statement",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Transaction Timeout": {
+                    "name": "Transaction Timeout",
+                    "displayName": "Transaction Timeout",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Batch Size": {
+                    "name": "Batch Size",
+                    "displayName": "Batch Size",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Obtain Generated Keys": {
+                    "name": "Obtain Generated Keys",
+                    "displayName": "Obtain Generated Keys",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "JDBC Connection Pool": {
+                    "name": "JDBC Connection Pool",
+                    "displayName": "JDBC Connection Pool",
+                    "identifiesControllerService": true,
+                    "sensitive": false
+                  },
+                  "database-session-autocommit": {
+                    "name": "database-session-autocommit",
+                    "displayName": "Database Session AutoCommit",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "rollback-on-failure": {
+                    "name": "rollback-on-failure",
+                    "displayName": "Rollback On Failure",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 0,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [
+                  "failure",
+                  "retry"
+                ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "ebf4ef0e-7dc5-30dd-99e1-53f4faed549c"
+              },
+              {
+                "identifier": "cd2786f8-da73-3afe-b035-23e40c916363",
+                "instanceIdentifier": "5ebe3d6b-c913-1f31-9cf1-79481ad97e39",
+                "name": "ReplaceText",
+                "comments": "",
+                "position": {
+                  "x": 512,
+                  "y": 608
+                },
+                "type": "org.apache.nifi.processors.standard.ReplaceText",
+                "bundle": {
+                  "group": "org.apache.nifi",
+                  "artifact": "nifi-standard-nar",
+                  "version": "1.27.0"
+                },
+                "properties": {
+                  "Regular Expression": "(?s)(^.*$)",
+                  "Replacement Value": "INSERT INTO `db_theodoinv_hn_test_data`.`qlnv_chitiet_bcd57_cap_tp` (\n    `task_id`,\n    `status`,\n    `id_truc_giao`,\n    `truc_giao`,\n    `nguon_giao`,\n    `van_ban_giao`,\n    `loai_van_ban`,\n    `ma_nhiem_vu`,\n    `ten_nhiem_vu`,\n    `chu_de`,\n    `nhom_nhiem_vu`,\n    `id_don_vi_giao`,\n    `don_vi_giao`,\n    `id_nguoi_giao`,\n    `nguoi_giao`,\n    `id_don_vi_chu_tri`,\n    `ten_don_vi_chu_tri`,\n    `ten_don_vi_thuc_hien`,\n    `id_nguoi_thuc_hien`,\n    `nguoi_thuc_hien`,\n    `lanh_dao_ban_phu_trach`,\n    `ngay_giao`,\n    `han_xu_ly`,\n    `ngay_hoan_thanh`,\n    `ngay_chap_nhan`,\n    `ngay_xoa`,\n    `tinh_trang`,\n    `tien_do`,\n    `ket_qua_thuc_hien`,\n    `kho_khan_vuong_mac`,\n    `de_xuat_kien_nghi`,\n    `sync_date`\n)\n\n/* =======================================================================\n   NHÁNH 1: NHIỆM VỤ BCĐ 57 TỪ HỆ THỐNG QLNV (qlnv_task)\n   ======================================================================= */\nSELECT\n    /* 1. KHÓA HỆ THỐNG & TRẠNG THÁI */\n    t.TaskId                                                AS task_id,\n    t.Status                                                AS status,\n\n    /* 2. TRỤC GIAO & VĂN BẢN GIAO */\n    SUBSTRING_INDEX(t.AssignDepartment, '.', 2)             AS id_truc_giao,\n    COALESCE(NULLIF(t.AssignOrganization, ''), d_assign_cap2.name) AS truc_giao,\n\n    /* NGUỒN GIAO (nhánh 1 chỉ có BCĐ / Thành phố; Trung ương lấy ở nhánh 2) */\n    CASE\n        /* Ban Chỉ đạo giao / bút phê, chỉ đạo */\n        WHEN CONCAT_WS(' ', t.AssignOrganization, d_assign.name, u_assign.eGovUserPositionName)\n                 LIKE '%Ban Chỉ đạo%'\n          OR t.DocCode LIKE '%BCĐ%'\n        THEN 'Nhiệm vụ Ban Chỉ đạo'\n\n        /* Còn lại: Thành ủy, HĐND, UBND TP, sở ngành TP giao */\n        ELSE 'Nhiệm vụ Thành phố'\n    END                                                     AS nguon_giao,\n    t.DocCode                                               AS van_ban_giao,\n    /* Loại văn bản: tách ký hiệu sau dấu '/' của số văn bản (vd 12/KH-UBND -> KH) */\n    CASE\n        WHEN NULLIF(TRIM(t.DocCode), '') IS NULL OR t.DocCode NOT LIKE '%/%' THEN 'Khác'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(t.DocCode, '/', -1), '-', 1))) = 'NQ'              THEN 'Nghị quyết'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(t.DocCode, '/', -1), '-', 1))) = 'KL'              THEN 'Kết luận'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(t.DocCode, '/', -1), '-', 1))) = 'CT'              THEN 'Chỉ thị'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(t.DocCode, '/', -1), '-', 1))) = 'QĐ'              THEN 'Quyết định'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(t.DocCode, '/', -1), '-', 1))) = 'KH'              THEN 'Kế hoạch'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(t.DocCode, '/', -1), '-', 1))) = 'TB'              THEN 'Thông báo'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(t.DocCode, '/', -1), '-', 1))) = 'HD'              THEN 'Hướng dẫn'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(t.DocCode, '/', -1), '-', 1))) = 'CTR'             THEN 'Chương trình'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(t.DocCode, '/', -1), '-', 1))) = 'BC'              THEN 'Báo cáo'\n        /* dạng 123/UBND-KGVX, 45/VP-TH ... = công văn */\n        ELSE 'Công văn'\n    END                                                     AS loai_van_ban,\n\n    /* 3. THÔNG TIN NHIỆM VỤ, TIÊU ĐỀ & CHỦ ĐỀ */\n    t.Code                                                  AS ma_nhiem_vu,\n    t.Title                                                 AS ten_nhiem_vu,\n    COALESCE(NULLIF(tp.TopicName, ''), 'Chưa phân loại')    AS chu_de,\n    COALESCE(NULLIF(t.NameGroup, ''), 'Chưa phân loại')     AS nhom_nhiem_vu,\n\n    /* ĐƠN VỊ GIAO & NGƯỜI GIAO */\n    t.AssignDepartment                                      AS id_don_vi_giao,\n    COALESCE(d_assign.name, NULLIF(t.AssignOrganization, '')) AS don_vi_giao,\n    t.AssignUser                                            AS id_nguoi_giao,\n    u_assign.eGovUserFullname                               AS nguoi_giao,\n\n    /* 4. ĐƠN VỊ THỰC HIỆN / CHỦ TRÌ & NGƯỜI THỰC HIỆN */\n    t.TargetDepartment                                      AS id_don_vi_chu_tri,\n    COALESCE(\n        NULLIF(t.ResponsibleUnit, ''), \n        NULLIF(t.TargetOrganization, ''), \n        d_cap.name,\n        d_donvi.name\n    )                                                       AS ten_don_vi_chu_tri,\n    \n    COALESCE(\n        d_donvi.name,\n        NULLIF(t.ResponsibleUnit, ''),\n        NULLIF(t.TargetOrganization, '')\n    )                                                       AS ten_don_vi_thuc_hien,\n\n    t.TargetUser                                            AS id_nguoi_thuc_hien,\n    u_target.eGovUserFullname                               AS nguoi_thuc_hien,\n\n    /* Lãnh đạo ban phụ trách */\n    CONCAT_WS(' · ',\n        COALESCE(u_target.eGovUserPositionName, NULLIF(t.ChargeUser, ''))\n    )                                                       AS lanh_dao_ban_phu_trach,\n\n    /* 5. CÁC MỐC THỜI GIAN */\n    DATE_FORMAT(t.StartedDate, '%d/%m/%Y')                  AS ngay_giao,\n    DATE_FORMAT(t.ExpireDate, '%d/%m/%Y')                   AS han_xu_ly,\n    DATE_FORMAT(t.CompletedDate, '%d/%m/%Y')                AS ngay_hoan_thanh,\n    DATE_FORMAT(t.ApprovedDate, '%d/%m/%Y')                 AS ngay_chap_nhan,\n    DATE_FORMAT(t.DeletedDate, '%d/%m/%Y')                  AS ngay_xoa,\n\n    /* 6. PHÂN LOẠI 4 TÌNH TRẠNG CHUẨN */\n    CASE\n        /* 1. Đã hoàn thành (đúng hạn hoặc quá hạn) */\n        WHEN t.Status IN (3, 4)\n             AND t.ExpireDate IS NOT NULL\n             AND COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL\n        THEN 'Đã hoàn thành'\n\n        /* 2. Thường xuyên (nhiệm vụ không có hạn) */\n        WHEN t.ExpireDate IS NULL\n        THEN 'Thường xuyên'\n\n        /* 3. Chưa hoàn thành trong hạn */\n        WHEN t.Status IN (-1, 0, 1, 2)\n             AND t.ExpireDate IS NOT NULL\n             AND DATE(t.ExpireDate) >= CURDATE()\n        THEN 'Chưa hoàn thành trong hạn'\n\n        /* 4. Chưa hoàn thành quá hạn */\n        WHEN t.Status IN (-1, 0, 1, 2)\n             AND t.ExpireDate IS NOT NULL\n             AND DATE(t.ExpireDate) < CURDATE()\n        THEN 'Chưa hoàn thành quá hạn'\n    END                                                     AS tinh_trang,\n\n    /* Tiến độ (%): đã hoàn thành/kết thúc tính 100 */\n    IF(t.Status IN (3, 4), 100, COALESCE(t.Progress, 0))    AS tien_do,\n\n    /* 7. CHI TIẾT TÌNH HÌNH & BÁO CÁO (Lấy bản ghi mới nhất) */\n    COALESCE(\n        (\n            SELECT rp.Content \n            FROM `db_theodoinv_hn_test_data`.`qlnv_report` rp \n            WHERE rp.TaskId = t.TaskId \n              AND rp.DeletedDate IS NULL \n            ORDER BY rp.CreatedDate DESC, rp.ReportId DESC \n            LIMIT 1\n        ), \n        t.Content,\n        '—'\n    )                                                       AS ket_qua_thuc_hien,\n\n    COALESCE(\n        (\n            SELECT NULLIF(rp.Difficulty, '') \n            FROM `db_theodoinv_hn_test_data`.`qlnv_report` rp \n            WHERE rp.TaskId = t.TaskId \n              AND rp.DeletedDate IS NULL \n            ORDER BY rp.CreatedDate DESC, rp.ReportId DESC \n            LIMIT 1\n        ), \n        '—'\n    )                                                       AS kho_khan_vuong_mac,\n\n    COALESCE(\n        (\n            SELECT NULLIF(rp.Suggestion, '') \n            FROM `db_theodoinv_hn_test_data`.`qlnv_report` rp \n            WHERE rp.TaskId = t.TaskId \n              AND rp.DeletedDate IS NULL \n            ORDER BY rp.CreatedDate DESC, rp.ReportId DESC \n            LIMIT 1\n        ), \n        '—'\n    )                                                       AS de_xuat_kien_nghi,\n\n    NOW()                                                   AS sync_date\n\nFROM `db_theodoinv_hn_test_data`.`qlnv_task` t\n\n/* CHỦ ĐỀ (1 TopicId / task -> không nhân dòng) */\nLEFT JOIN `db_theodoinv_hn_test_data`.`qlnv_task_topic` tp\n       ON tp.TopicId = t.TopicId\n\n/* JOIN TÊN ĐƠN VỊ TRỤC GIAO CẤP 2 */\nLEFT JOIN `db_theodoinv_hn_test_data`.`department` d_assign_cap2\n       ON d_assign_cap2.id = CASE\n            WHEN SUBSTRING_INDEX(SUBSTRING_INDEX(t.AssignDepartment, '.', 2), '.', -1) REGEXP '^[0-9]+$'\n            THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(t.AssignDepartment, '.', 2), '.', -1) AS UNSIGNED)\n            ELSE NULL\n          END\n      AND d_assign_cap2.IsDelete = 0\n\n/* JOIN ĐƠN VỊ GIAO (BÓC TÁCH ID TỪ T.ASSIGNDEPARTMENT ĐỂ LẤY TÊN) */\nLEFT JOIN `db_theodoinv_hn_test_data`.`department` d_assign\n       ON d_assign.id = CASE\n            WHEN SUBSTRING_INDEX(t.AssignDepartment, '.', -1) REGEXP '^[0-9]+$'\n            THEN CAST(SUBSTRING_INDEX(t.AssignDepartment, '.', -1) AS UNSIGNED)\n            ELSE NULL\n          END\n      AND d_assign.IsDelete = 0\n\n/* JOIN NGƯỜI GIAO NHIỆM VỤ */\nLEFT JOIN `db_theodoinv_hn_test_data`.`qlnv_user` u_assign\n       ON u_assign.eGovUserId = t.AssignUser\n\n/* JOIN DANH MỤC PHÒNG BAN ĐƠN VỊ NHẬN */\nLEFT JOIN `db_theodoinv_hn_test_data`.`department` d_cap\n       ON d_cap.id = CASE\n            WHEN SUBSTRING_INDEX(SUBSTRING_INDEX(t.TargetDepartment, '.', 3), '.', -1) REGEXP '^[0-9]+$'\n            THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(t.TargetDepartment, '.', 3), '.', -1) AS UNSIGNED)\n            ELSE NULL\n          END\n      AND d_cap.IsDelete = 0\n\nLEFT JOIN `db_theodoinv_hn_test_data`.`department` d_donvi\n       ON d_donvi.id = CASE\n            WHEN SUBSTRING_INDEX(t.TargetDepartment, '.', -1) REGEXP '^[0-9]+$'\n            THEN CAST(SUBSTRING_INDEX(t.TargetDepartment, '.', -1) AS UNSIGNED)\n            ELSE NULL\n          END\n      AND d_donvi.IsDelete = 0\n\n/* JOIN USER NHẬN */\nLEFT JOIN `db_theodoinv_hn_test_data`.`qlnv_user` u_target \n       ON u_target.eGovUserId = t.TargetUser\n\n/* ĐIỀU KIỆN LẤY TASK: giữ nguyên logic BCĐ 57 cũ (qlnv_tonghop_chitiet_bcd57) */\nWHERE t.DeletedDate IS NULL\n  AND t.Status <> 5\n\n  /* Tương đương tinh_trang <> 'Chưa xác định' của bản cũ */\n  AND (   t.Status IN (-1, 0, 1, 2)\n       OR (t.Status IN (3, 4)\n           AND (   COALESCE(t.IsRecurring, 0) = 1\n                OR t.ExpireDate IS NULL\n                OR COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL)))\n\n  /* Task thuộc nghị quyết nhóm 55 (qua qlnv_task_resolution), EXISTS để không nhân dòng */\n  AND EXISTS (\n      SELECT 1\n      FROM `db_theodoinv_hn_test_data`.`qlnv_task_resolution` tr\n      INNER JOIN `db_theodoinv_hn_test_data`.`qlnv_resolution` r\n              ON r.ResolutionId = tr.ResolutionId\n      WHERE tr.TaskId = t.TaskId\n        AND r.ResolutionGroupId = 55\n        AND r.DeletedDate IS NULL\n  )\n\n  /* Xã/phường (490.698.1310.%) tách sang tab 2 -> qlnv_chitiet_bcd57_xaphuong */\n  AND COALESCE(t.TargetDepartment, '') NOT LIKE '490.698.1310.%'\n\n  AND (\n      /* Nhánh giao */\n      t.AssignDepartment LIKE '490.698%'\n\n      OR\n\n      /* Nhánh nhận trực tiếp của UBND TP */\n      t.TargetDepartment = '490.698'\n\n      OR\n\n      /* Nhánh nhận thuộc các phòng ban của Văn phòng (490.698.752.%) */\n      (\n          t.TargetDepartment LIKE '490.698.752.%'\n          AND EXISTS (\n              SELECT 1\n              FROM `db_theodoinv_hn_test_data`.`qlnv_task_user` tu_chk\n              WHERE tu_chk.TaskId = t.TaskId\n                AND tu_chk.DepartmentId = '490.698.752'\n          )\n      )\n\n      OR\n\n      /* Nhánh nhận qua UBND TP chung */\n      (\n          t.TargetDepartment LIKE '490.698.%'\n          AND t.TargetDepartment NOT LIKE '490.698.752.%'\n          AND EXISTS (\n              SELECT 1\n              FROM `db_theodoinv_hn_test_data`.`qlnv_task_user` tu_chk\n              WHERE tu_chk.TaskId = t.TaskId\n                AND tu_chk.DepartmentId = '490.698'\n          )\n      )\n  )\n\nGROUP BY t.TaskId\n\nUNION ALL\n\n/* -----------------------------------------------------------------------\n   NHÁNH 2: BẢNG db_theodoinv_hn_test_data.api_theodoinq_danh_sach_nhiem_vu_chi_tiet\n   ----------------------------------------------------------------------- */\nSELECT\n    /* 1. KHÓA HỆ THỐNG & TRẠNG THÁI */\n    CAST(\n        COALESCE(\n            NULLIF(nq.row_id, ''), \n            NULLIF(nq.source_row_id, ''),\n            CRC32(CONCAT(COALESCE(nq.ma_nhiem_vu, ''), COALESCE(nq.ten_nhiem_vu, '')))\n        ) AS SIGNED\n    )                                                       AS task_id,\n    CAST(NULL AS SIGNED)                                    AS status,\n\n    /* 2. TRỤC GIAO & VĂN BẢN GIAO */\n    NULL                                                    AS id_truc_giao,\n    'Trung ương'                                            AS truc_giao,\n    'Nhiệm vụ Trung ương'                                   AS nguon_giao,\n    nq.van_ban_giao_nhiem_vu                                AS van_ban_giao,\n    /* Loại văn bản: tách ký hiệu sau dấu '/' của số văn bản (vd 12/KH-UBND -> KH) */\n    CASE\n        WHEN NULLIF(TRIM(nq.van_ban_giao_nhiem_vu), '') IS NULL OR nq.van_ban_giao_nhiem_vu NOT LIKE '%/%' THEN 'Khác'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(nq.van_ban_giao_nhiem_vu, '/', -1), '-', 1))) = 'NQ'              THEN 'Nghị quyết'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(nq.van_ban_giao_nhiem_vu, '/', -1), '-', 1))) = 'KL'              THEN 'Kết luận'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(nq.van_ban_giao_nhiem_vu, '/', -1), '-', 1))) = 'CT'              THEN 'Chỉ thị'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(nq.van_ban_giao_nhiem_vu, '/', -1), '-', 1))) = 'QĐ'              THEN 'Quyết định'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(nq.van_ban_giao_nhiem_vu, '/', -1), '-', 1))) = 'KH'              THEN 'Kế hoạch'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(nq.van_ban_giao_nhiem_vu, '/', -1), '-', 1))) = 'TB'              THEN 'Thông báo'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(nq.van_ban_giao_nhiem_vu, '/', -1), '-', 1))) = 'HD'              THEN 'Hướng dẫn'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(nq.van_ban_giao_nhiem_vu, '/', -1), '-', 1))) = 'CTR'             THEN 'Chương trình'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(nq.van_ban_giao_nhiem_vu, '/', -1), '-', 1))) = 'BC'              THEN 'Báo cáo'\n        /* dạng 123/UBND-KGVX, 45/VP-TH ... = công văn */\n        ELSE 'Công văn'\n    END                                                     AS loai_van_ban,\n\n    /* 3. THÔNG TIN NHIỆM VỤ, TIÊU ĐỀ & CHỦ ĐỀ */\n    nq.ma_nhiem_vu                                          AS ma_nhiem_vu,\n    nq.ten_nhiem_vu                                         AS ten_nhiem_vu,\n    'Chưa phân loại'                                        AS chu_de,\n    'Chưa phân loại'                                        AS nhom_nhiem_vu,\n\n    /* ĐƠN VỊ GIAO & NGƯỜI GIAO (bảng nguồn không có) */\n    NULL                                                    AS id_don_vi_giao,\n    'Trung ương'                                            AS don_vi_giao,\n    NULL                                                    AS id_nguoi_giao,\n    NULL                                                    AS nguoi_giao,\n\n    /* 4. ĐƠN VỊ THỰC HIỆN / CHỦ TRÌ & NGƯỜI THỰC HIỆN */\n    NULL                                                    AS id_don_vi_chu_tri,\n    nq.don_vi_chu_tri                                       AS ten_don_vi_chu_tri,\n    nq.don_vi_chu_tri                                       AS ten_don_vi_thuc_hien,\n\n    CAST(NULL AS SIGNED)                                    AS id_nguoi_thuc_hien,\n    NULL                                                    AS nguoi_thuc_hien,\n    NULL                                                    AS lanh_dao_ban_phu_trach,\n\n    /* 5. CÁC MỐC THỜI GIAN: PHÂN LOẠI RÕ TỪNG DẠNG CHUỖI */\n    CASE \n        WHEN nq.thoi_gian_giao_nhiem_vu IS NULL \n             OR TRIM(nq.thoi_gian_giao_nhiem_vu) = '' \n             OR nq.thoi_gian_giao_nhiem_vu LIKE '1970%' \n             OR nq.thoi_gian_giao_nhiem_vu LIKE '0000%'\n        THEN NULL\n\n        -- Dạng dd/mm/yyyy -> Giữ nguyên\n        WHEN nq.thoi_gian_giao_nhiem_vu LIKE '%/%'\n        THEN SUBSTRING(TRIM(nq.thoi_gian_giao_nhiem_vu), 1, 10)\n\n        -- Dạng dd-mm-yyyy (dấu gạch ngang ở vị trí thứ 3)\n        WHEN SUBSTRING(TRIM(nq.thoi_gian_giao_nhiem_vu), 3, 1) = '-'\n        THEN REPLACE(SUBSTRING(TRIM(nq.thoi_gian_giao_nhiem_vu), 1, 10), '-', '/')\n\n        -- Dạng yyyy-mm-dd (dấu gạch ngang ở vị trí thứ 5)\n        WHEN SUBSTRING(TRIM(nq.thoi_gian_giao_nhiem_vu), 5, 1) = '-'\n        THEN DATE_FORMAT(\n            STR_TO_DATE(SUBSTRING(TRIM(nq.thoi_gian_giao_nhiem_vu), 1, 10), '%Y-%m-%d'), \n            '%d/%m/%Y'\n        )\n\n        ELSE SUBSTRING(TRIM(nq.thoi_gian_giao_nhiem_vu), 1, 10)\n    END                                                     AS ngay_giao,\n\n    CASE \n        WHEN nq.thoi_han_hoan_thanh IS NULL \n             OR TRIM(nq.thoi_han_hoan_thanh) = '' \n             OR nq.thoi_han_hoan_thanh LIKE '1970%' \n             OR nq.thoi_han_hoan_thanh LIKE '0000%'\n        THEN NULL\n\n        -- Dạng dd/mm/yyyy -> Giữ nguyên\n        WHEN nq.thoi_han_hoan_thanh LIKE '%/%'\n        THEN SUBSTRING(TRIM(nq.thoi_han_hoan_thanh), 1, 10)\n\n        -- Dạng dd-mm-yyyy (dấu gạch ngang ở vị trí thứ 3)\n        WHEN SUBSTRING(TRIM(nq.thoi_han_hoan_thanh), 3, 1) = '-'\n        THEN REPLACE(SUBSTRING(TRIM(nq.thoi_han_hoan_thanh), 1, 10), '-', '/')\n\n        -- Dạng yyyy-mm-dd (dấu gạch ngang ở vị trí thứ 5)\n        WHEN SUBSTRING(TRIM(nq.thoi_han_hoan_thanh), 5, 1) = '-'\n        THEN DATE_FORMAT(\n            STR_TO_DATE(SUBSTRING(TRIM(nq.thoi_han_hoan_thanh), 1, 10), '%Y-%m-%d'), \n            '%d/%m/%Y'\n        )\n\n        ELSE SUBSTRING(TRIM(nq.thoi_han_hoan_thanh), 1, 10)\n    END                                                     AS han_xu_ly,\n\n    NULL                                                    AS ngay_hoan_thanh,\n    NULL                                                    AS ngay_chap_nhan,\n    NULL                                                    AS ngay_xoa,\n\n    /* 6. TÌNH TRẠNG LẤY TỪ TRANG_THAI */\n    nq.trang_thai                                           AS tinh_trang,\n    CAST(NULL AS SIGNED)                                    AS tien_do,     -- API không có tiến độ\n\n    /* 7. KẾT QUẢ THỰC HIỆN (bảng nguồn không có khó khăn / đề xuất) */\n    COALESCE(NULLIF(nq.ket_qua_thuc_hien, ''), '—')         AS ket_qua_thuc_hien,\n    '—'                                                     AS kho_khan_vuong_mac,\n    '—'                                                     AS de_xuat_kien_nghi,\n\n    NOW()                                                   AS sync_date\n\n/* Mỗi row_id giữ 1 dòng = dòng có NGÀY GIAO MỚI NHẤT.\n   MySQL 5.7 không có ROW_NUMBER(), nên dựng \"khóa sắp xếp\" <yyyymmdd><source_row_id>\n   rồi JOIN với MAX(khóa) theo row_id -> chỉ dòng mới nhất khớp. */\nFROM `db_theodoinv_hn_test_data`.`api_theodoinq_danh_sach_nhiem_vu_chi_tiet` nq\n\nINNER JOIN (\n    SELECT nq0.row_id                                       AS row_id,\n           MAX(CONCAT(\n                   CASE                                                 -- ngày giao -> yyyymmdd để so sánh chuỗi đúng thứ tự\n                       WHEN SUBSTRING(TRIM(nq0.thoi_gian_giao_nhiem_vu), 5, 1) = '-'                  -- yyyy-mm-dd\n                       THEN REPLACE(SUBSTRING(TRIM(nq0.thoi_gian_giao_nhiem_vu), 1, 10), '-', '')\n                       WHEN SUBSTRING(TRIM(nq0.thoi_gian_giao_nhiem_vu), 3, 1) IN ('/', '-')          -- dd/mm/yyyy hoặc dd-mm-yyyy\n                       THEN CONCAT(SUBSTRING(TRIM(nq0.thoi_gian_giao_nhiem_vu), 7, 4), SUBSTRING(TRIM(nq0.thoi_gian_giao_nhiem_vu), 4, 2), SUBSTRING(TRIM(nq0.thoi_gian_giao_nhiem_vu), 1, 2))\n                       ELSE '00000000'                                  -- NULL/rỗng/hỏng -> xếp cuối\n                   END,\n                   LPAD(COALESCE(nq0.source_row_id, 0), 20, '0')        -- tie-break khi trùng ngày giao\n               ))                            AS sort_key\n    FROM `db_theodoinv_hn_test_data`.`api_theodoinq_danh_sach_nhiem_vu_chi_tiet` nq0\n    WHERE nq0.ten_nhiem_vu IS NOT NULL\n    GROUP BY nq0.row_id\n) pick\n    ON  pick.row_id   = nq.row_id\n    AND pick.sort_key = CONCAT(\n                            CASE                                                 -- ngày giao -> yyyymmdd để so sánh chuỗi đúng thứ tự\n                                WHEN SUBSTRING(TRIM(nq.thoi_gian_giao_nhiem_vu), 5, 1) = '-'                  -- yyyy-mm-dd\n                                THEN REPLACE(SUBSTRING(TRIM(nq.thoi_gian_giao_nhiem_vu), 1, 10), '-', '')\n                                WHEN SUBSTRING(TRIM(nq.thoi_gian_giao_nhiem_vu), 3, 1) IN ('/', '-')          -- dd/mm/yyyy hoặc dd-mm-yyyy\n                                THEN CONCAT(SUBSTRING(TRIM(nq.thoi_gian_giao_nhiem_vu), 7, 4), SUBSTRING(TRIM(nq.thoi_gian_giao_nhiem_vu), 4, 2), SUBSTRING(TRIM(nq.thoi_gian_giao_nhiem_vu), 1, 2))\n                                ELSE '00000000'                                  -- NULL/rỗng/hỏng -> xếp cuối\n                            END,\n                            LPAD(COALESCE(nq.source_row_id, 0), 20, '0')        -- tie-break khi trùng ngày giao\n                        )\n\nWHERE nq.ten_nhiem_vu IS NOT NULL;\n",
+                  "Evaluation Mode": "Entire text",
+                  "Text to Prepend": null,
+                  "Line-by-Line Evaluation Mode": "All",
+                  "Character Set": "UTF-8",
+                  "Maximum Buffer Size": "1 MB",
+                  "Replacement Strategy": "Always Replace",
+                  "Text to Append": null
+                },
+                "propertyDescriptors": {
+                  "Regular Expression": {
+                    "name": "Regular Expression",
+                    "displayName": "Search Value",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Replacement Value": {
+                    "name": "Replacement Value",
+                    "displayName": "Replacement Value",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Evaluation Mode": {
+                    "name": "Evaluation Mode",
+                    "displayName": "Evaluation Mode",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Text to Prepend": {
+                    "name": "Text to Prepend",
+                    "displayName": "Text to Prepend",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Line-by-Line Evaluation Mode": {
+                    "name": "Line-by-Line Evaluation Mode",
+                    "displayName": "Line-by-Line Evaluation Mode",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Character Set": {
+                    "name": "Character Set",
+                    "displayName": "Character Set",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Maximum Buffer Size": {
+                    "name": "Maximum Buffer Size",
+                    "displayName": "Maximum Buffer Size",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Replacement Strategy": {
+                    "name": "Replacement Strategy",
+                    "displayName": "Replacement Strategy",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Text to Append": {
+                    "name": "Text to Append",
+                    "displayName": "Text to Append",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 25,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [
+                  "failure"
+                ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "ebf4ef0e-7dc5-30dd-99e1-53f4faed549c"
+              },
+              {
+                "identifier": "a80d4b3b-f2e6-3292-a852-68226ef77297",
+                "instanceIdentifier": "5ebe3d6d-c913-1f31-8a38-47d938506aef",
+                "name": "GenerateFlowFile",
+                "comments": "",
+                "position": {
+                  "x": 1000,
+                  "y": -8
+                },
+                "type": "org.apache.nifi.processors.standard.GenerateFlowFile",
+                "bundle": {
+                  "group": "org.apache.nifi",
+                  "artifact": "nifi-standard-nar",
+                  "version": "1.27.0"
+                },
+                "properties": {
+                  "character-set": "UTF-8",
+                  "File Size": "0B",
+                  "mime-type": null,
+                  "generate-ff-custom-text": null,
+                  "Batch Size": "1",
+                  "Unique FlowFiles": "false",
+                  "Data Format": "Text"
+                },
+                "propertyDescriptors": {
+                  "character-set": {
+                    "name": "character-set",
+                    "displayName": "Character Set",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "File Size": {
+                    "name": "File Size",
+                    "displayName": "File Size",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "mime-type": {
+                    "name": "mime-type",
+                    "displayName": "Mime Type",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "generate-ff-custom-text": {
+                    "name": "generate-ff-custom-text",
+                    "displayName": "Custom Text",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Batch Size": {
+                    "name": "Batch Size",
+                    "displayName": "Batch Size",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Unique FlowFiles": {
+                    "name": "Unique FlowFiles",
+                    "displayName": "Unique FlowFiles",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Data Format": {
+                    "name": "Data Format",
+                    "displayName": "Data Format",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  }
+                },
+                "style": {},
+                "schedulingPeriod": "5 min",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 0,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "ebf4ef0e-7dc5-30dd-99e1-53f4faed549c"
+              }
+            ],
+            "inputPorts": [],
+            "outputPorts": [],
+            "connections": [
+              {
+                "identifier": "ae2616d6-3e41-3b86-befd-22fac97e8c9b",
+                "instanceIdentifier": "5ebe3d73-c913-1f31-9411-5bd304ca85ba",
+                "name": "",
+                "source": {
+                  "id": "57eff423-3d27-3cb4-a596-6b3360042b27",
+                  "type": "PROCESSOR",
+                  "groupId": "ebf4ef0e-7dc5-30dd-99e1-53f4faed549c",
+                  "name": "PutSQL",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d6e-c913-1f31-660c-6550069c7258"
+                },
+                "destination": {
+                  "id": "f3ad4b6a-d3ed-34a5-a43e-e46820a0db48",
+                  "type": "PROCESSOR",
+                  "groupId": "ebf4ef0e-7dc5-30dd-99e1-53f4faed549c",
+                  "name": "LogAttribute",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d70-c913-1f31-becb-cea4d38daada"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                  "failure",
+                  "retry"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "ebf4ef0e-7dc5-30dd-99e1-53f4faed549c"
+              },
+              {
+                "identifier": "48bc9aca-5f57-320a-98f5-0e2c4fde78f1",
+                "instanceIdentifier": "5ebe3d71-c913-1f31-b822-4cd4f082168b",
+                "name": "",
+                "source": {
+                  "id": "cd2786f8-da73-3afe-b035-23e40c916363",
+                  "type": "PROCESSOR",
+                  "groupId": "ebf4ef0e-7dc5-30dd-99e1-53f4faed549c",
+                  "name": "ReplaceText",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d6b-c913-1f31-9cf1-79481ad97e39"
+                },
+                "destination": {
+                  "id": "57eff423-3d27-3cb4-a596-6b3360042b27",
+                  "type": "PROCESSOR",
+                  "groupId": "ebf4ef0e-7dc5-30dd-99e1-53f4faed549c",
+                  "name": "PutSQL",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d6e-c913-1f31-660c-6550069c7258"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                  "success"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "ebf4ef0e-7dc5-30dd-99e1-53f4faed549c"
+              },
+              {
+                "identifier": "8f034818-0c3b-3be2-a797-a1aa4dfb8ee6",
+                "instanceIdentifier": "5ebe3d74-c913-1f31-8b2c-ad846dfb668b",
+                "name": "",
+                "source": {
+                  "id": "c7ebf1ee-2ba1-31a3-802e-f071889113e0",
+                  "type": "PROCESSOR",
+                  "groupId": "ebf4ef0e-7dc5-30dd-99e1-53f4faed549c",
+                  "name": "PutSQL",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d6f-c913-1f31-ce62-94a26120b901"
+                },
+                "destination": {
+                  "id": "cd2786f8-da73-3afe-b035-23e40c916363",
+                  "type": "PROCESSOR",
+                  "groupId": "ebf4ef0e-7dc5-30dd-99e1-53f4faed549c",
+                  "name": "ReplaceText",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d6b-c913-1f31-9cf1-79481ad97e39"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                  "success"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "ebf4ef0e-7dc5-30dd-99e1-53f4faed549c"
+              },
+              {
+                "identifier": "ac1570b3-532c-3f91-93b5-ef831f1cf46b",
+                "instanceIdentifier": "5ebe3d72-c913-1f31-1d45-ee8e7a3cabb4",
+                "name": "",
+                "source": {
+                  "id": "32a7174d-495d-3be8-9402-29306ee53fed",
+                  "type": "PROCESSOR",
+                  "groupId": "ebf4ef0e-7dc5-30dd-99e1-53f4faed549c",
+                  "name": "ReplaceText",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d6c-c913-1f31-1fcf-7aec7da5a2d4"
+                },
+                "destination": {
+                  "id": "c7ebf1ee-2ba1-31a3-802e-f071889113e0",
+                  "type": "PROCESSOR",
+                  "groupId": "ebf4ef0e-7dc5-30dd-99e1-53f4faed549c",
+                  "name": "PutSQL",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d6f-c913-1f31-ce62-94a26120b901"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                  "success"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "ebf4ef0e-7dc5-30dd-99e1-53f4faed549c"
+              },
+              {
+                "identifier": "f116d98f-85c0-3384-8251-1a8f0c971227",
+                "instanceIdentifier": "5ebe3d75-c913-1f31-b7a2-0c7e41c46fce",
+                "name": "",
+                "source": {
+                  "id": "a80d4b3b-f2e6-3292-a852-68226ef77297",
+                  "type": "PROCESSOR",
+                  "groupId": "ebf4ef0e-7dc5-30dd-99e1-53f4faed549c",
+                  "name": "GenerateFlowFile",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d6d-c913-1f31-8a38-47d938506aef"
+                },
+                "destination": {
+                  "id": "32a7174d-495d-3be8-9402-29306ee53fed",
+                  "type": "PROCESSOR",
+                  "groupId": "ebf4ef0e-7dc5-30dd-99e1-53f4faed549c",
+                  "name": "ReplaceText",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d6c-c913-1f31-1fcf-7aec7da5a2d4"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                  "success"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "ebf4ef0e-7dc5-30dd-99e1-53f4faed549c"
+              }
+            ],
+            "labels": [],
+            "funnels": [],
+            "controllerServices": [],
+            "variables": {},
+            "parameterContextName": "Server0",
+            "defaultFlowFileExpiration": "0 sec",
+            "defaultBackPressureObjectThreshold": 10000,
+            "defaultBackPressureDataSizeThreshold": "1 GB",
+            "logFileSuffix": "",
+            "flowFileConcurrency": "UNBOUNDED",
+            "flowFileOutboundPolicy": "STREAM_WHEN_AVAILABLE",
+            "componentType": "PROCESS_GROUP",
+            "groupIdentifier": "0d657c3d-9c84-3c75-8c3f-4b43444dd18a"
+          },
+          {
+            "identifier": "64afc170-3be4-34a9-850b-e6771201b835",
+            "instanceIdentifier": "5ebe3d77-c913-1f31-0d5b-0f4f51367225",
+            "name": "BTH - Lịch sử tiến độ",
+            "comments": "",
+            "position": {
+              "x": 1088,
+              "y": 296
+            },
+            "processGroups": [],
+            "remoteProcessGroups": [],
+            "processors": [
+              {
+                "identifier": "32a7174d-495d-3be8-9402-29306ee53fed",
+                "instanceIdentifier": "5ebe3d7b-c913-1f31-a20b-fe007f83ecf4",
+                "name": "ReplaceText",
+                "comments": "",
+                "position": {
+                  "x": 472,
+                  "y": 224
+                },
+                "type": "org.apache.nifi.processors.standard.ReplaceText",
+                "bundle": {
+                  "group": "org.apache.nifi",
+                  "artifact": "nifi-standard-nar",
+                  "version": "1.27.0"
+                },
+                "properties": {
+                  "Regular Expression": "(?s)(^.*$)",
+                  "Replacement Value": "CREATE TABLE IF NOT EXISTS `db_theodoinv_hn_test_data`.`qlnv_lichsutiendo_bcd57_cap_tp` (\n    timeline_id              INT           NOT NULL,\n    task_id                  INT           NULL,\n    ma_nhiem_vu              VARCHAR(255)  NULL,      -- task.Code\n\n    nguoi_xu_ly_id           INT           NULL,      -- eGovUserId\n    nguoi_xu_ly_name         VARCHAR(255)  NULL,\n    nguoi_xu_ly_vai_tro_id   INT           NULL,      -- eGovUserPositionId\n    nguoi_xu_ly_vai_tro_name VARCHAR(255)  NULL,\n\n    nguoi_nhan_id            INT           NULL,      -- eGovUserId\n    nguoi_nhan_name          VARCHAR(255)  NULL,\n    nguoi_nhan_vai_tro_id    INT           NULL,\n    nguoi_nhan_vai_tro_name  VARCHAR(255)  NULL,\n\n    `role`                   TINYINT       NULL,      -- từ khóa MySQL 8 -> backtick\n    action_type              TINYINT       NULL,      -- 0..28, xem CASE trong SELECT\n    ten_action_type          VARCHAR(64)   NULL,\n\n    noi_dung                 LONGTEXT      NULL,      -- timeline.Content\n    action_date              DATETIME      NULL,      -- ActionDate / CreatedDate\n    sync_date                DATETIME      NULL,\n    PRIMARY KEY (timeline_id),                          -- mỗi timeline 1 dòng (user đã khử trùng)\n    KEY idx_task   (task_id),\n    KEY idx_action (action_type, action_date)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;\n\nTRUNCATE TABLE `db_theodoinv_hn_test_data`.`qlnv_lichsutiendo_bcd57_cap_tp`;\n",
+                  "Evaluation Mode": "Entire text",
+                  "Text to Prepend": null,
+                  "Line-by-Line Evaluation Mode": "All",
+                  "Character Set": "UTF-8",
+                  "Maximum Buffer Size": "1 MB",
+                  "Replacement Strategy": "Always Replace",
+                  "Text to Append": null
+                },
+                "propertyDescriptors": {
+                  "Regular Expression": {
+                    "name": "Regular Expression",
+                    "displayName": "Search Value",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Replacement Value": {
+                    "name": "Replacement Value",
+                    "displayName": "Replacement Value",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Evaluation Mode": {
+                    "name": "Evaluation Mode",
+                    "displayName": "Evaluation Mode",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Text to Prepend": {
+                    "name": "Text to Prepend",
+                    "displayName": "Text to Prepend",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Line-by-Line Evaluation Mode": {
+                    "name": "Line-by-Line Evaluation Mode",
+                    "displayName": "Line-by-Line Evaluation Mode",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Character Set": {
+                    "name": "Character Set",
+                    "displayName": "Character Set",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Maximum Buffer Size": {
+                    "name": "Maximum Buffer Size",
+                    "displayName": "Maximum Buffer Size",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Replacement Strategy": {
+                    "name": "Replacement Strategy",
+                    "displayName": "Replacement Strategy",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Text to Append": {
+                    "name": "Text to Append",
+                    "displayName": "Text to Append",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 25,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [
+                  "failure"
+                ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "64afc170-3be4-34a9-850b-e6771201b835"
+              },
+              {
+                "identifier": "f3ad4b6a-d3ed-34a5-a43e-e46820a0db48",
+                "instanceIdentifier": "5ebe3d79-c913-1f31-7ef7-7eb577b659f7",
+                "name": "LogAttribute",
+                "comments": "",
+                "position": {
+                  "x": 1600,
+                  "y": 640
+                },
+                "type": "org.apache.nifi.processors.standard.LogAttribute",
+                "bundle": {
+                  "group": "org.apache.nifi",
+                  "artifact": "nifi-standard-nar",
+                  "version": "1.27.0"
+                },
+                "properties": {
+                  "Log prefix": null,
+                  "character-set": "US-ASCII",
+                  "Log FlowFile Properties": "true",
+                  "Log Level": "info",
+                  "attributes-to-ignore-regex": null,
+                  "Attributes to Ignore": null,
+                  "Attributes to Log": null,
+                  "attributes-to-log-regex": ".*",
+                  "Output Format": "Line per Attribute",
+                  "Log Payload": "false"
+                },
+                "propertyDescriptors": {
+                  "Log prefix": {
+                    "name": "Log prefix",
+                    "displayName": "Log prefix",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "character-set": {
+                    "name": "character-set",
+                    "displayName": "Character Set",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Log FlowFile Properties": {
+                    "name": "Log FlowFile Properties",
+                    "displayName": "Log FlowFile Properties",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Log Level": {
+                    "name": "Log Level",
+                    "displayName": "Log Level",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "attributes-to-ignore-regex": {
+                    "name": "attributes-to-ignore-regex",
+                    "displayName": "Attributes to Ignore by Regular Expression",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Attributes to Ignore": {
+                    "name": "Attributes to Ignore",
+                    "displayName": "Attributes to Ignore",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Attributes to Log": {
+                    "name": "Attributes to Log",
+                    "displayName": "Attributes to Log",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "attributes-to-log-regex": {
+                    "name": "attributes-to-log-regex",
+                    "displayName": "Attributes to Log by Regular Expression",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Output Format": {
+                    "name": "Output Format",
+                    "displayName": "Output Format",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Log Payload": {
+                    "name": "Log Payload",
+                    "displayName": "Log Payload",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 25,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [],
+                "scheduledState": "DISABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "64afc170-3be4-34a9-850b-e6771201b835"
+              },
+              {
+                "identifier": "57eff423-3d27-3cb4-a596-6b3360042b27",
+                "instanceIdentifier": "5ebe3d7a-c913-1f31-98d4-40257c9283fc",
+                "name": "PutSQL",
+                "comments": "",
+                "position": {
+                  "x": 1007.4949336110061,
+                  "y": 889.4860589800969
+                },
+                "type": "org.apache.nifi.processors.standard.PutSQL",
+                "bundle": {
+                  "group": "org.apache.nifi",
+                  "artifact": "nifi-standard-nar",
+                  "version": "1.27.0"
+                },
+                "properties": {
+                  "Support Fragmented Transactions": "true",
+                  "putsql-sql-statement": null,
+                  "Transaction Timeout": null,
+                  "Batch Size": "100",
+                  "Obtain Generated Keys": "false",
+                  "JDBC Connection Pool": "84e917c7-a439-343e-9704-bf4e8c476fc9",
+                  "database-session-autocommit": "false",
+                  "rollback-on-failure": "false"
+                },
+                "propertyDescriptors": {
+                  "Support Fragmented Transactions": {
+                    "name": "Support Fragmented Transactions",
+                    "displayName": "Support Fragmented Transactions",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "putsql-sql-statement": {
+                    "name": "putsql-sql-statement",
+                    "displayName": "SQL Statement",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Transaction Timeout": {
+                    "name": "Transaction Timeout",
+                    "displayName": "Transaction Timeout",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Batch Size": {
+                    "name": "Batch Size",
+                    "displayName": "Batch Size",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Obtain Generated Keys": {
+                    "name": "Obtain Generated Keys",
+                    "displayName": "Obtain Generated Keys",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "JDBC Connection Pool": {
+                    "name": "JDBC Connection Pool",
+                    "displayName": "JDBC Connection Pool",
+                    "identifiesControllerService": true,
+                    "sensitive": false
+                  },
+                  "database-session-autocommit": {
+                    "name": "database-session-autocommit",
+                    "displayName": "Database Session AutoCommit",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "rollback-on-failure": {
+                    "name": "rollback-on-failure",
+                    "displayName": "Rollback On Failure",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 0,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [
+                  "success"
+                ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "64afc170-3be4-34a9-850b-e6771201b835"
+              },
+              {
+                "identifier": "cd2786f8-da73-3afe-b035-23e40c916363",
+                "instanceIdentifier": "5ebe3d7d-c913-1f31-0de5-7f320572dbb9",
+                "name": "ReplaceText",
+                "comments": "",
+                "position": {
+                  "x": 512,
+                  "y": 608
+                },
+                "type": "org.apache.nifi.processors.standard.ReplaceText",
+                "bundle": {
+                  "group": "org.apache.nifi",
+                  "artifact": "nifi-standard-nar",
+                  "version": "1.27.0"
+                },
+                "properties": {
+                  "Regular Expression": "(?s)(^.*$)",
+                  "Replacement Value": "INSERT INTO `db_theodoinv_hn_test_data`.`qlnv_lichsutiendo_bcd57_cap_tp` (\n    `timeline_id`,\n    `task_id`,\n    `ma_nhiem_vu`,\n\n    `nguoi_xu_ly_id`,\n    `nguoi_xu_ly_name`,\n    `nguoi_xu_ly_vai_tro_id`,\n    `nguoi_xu_ly_vai_tro_name`,\n\n    `nguoi_nhan_id`,\n    `nguoi_nhan_name`,\n    `nguoi_nhan_vai_tro_id`,\n    `nguoi_nhan_vai_tro_name`,\n\n    `role`,\n    `action_type`,\n    `ten_action_type`,\n\n    `noi_dung`,\n    `action_date`,\n    `sync_date`\n)\n\n\nSELECT\n    tl.TimelineId                                           AS timeline_id,\n    tl.TaskId                                               AS task_id,\n    t.Code                                                  AS ma_nhiem_vu,\n\n    COALESCE(tl.UserId, tl.CreateUser)                      AS nguoi_xu_ly_id,\n    COALESCE(\n        NULLIF(u_action.fullname, ''),\n        NULLIF(u_create.fullname, ''),\n        CAST(COALESCE(tl.UserId, tl.CreateUser) AS CHAR)\n    )                                                       AS nguoi_xu_ly_name,\n\n    COALESCE(u_action.position_id, u_create.position_id)    AS nguoi_xu_ly_vai_tro_id,\n\n    COALESCE(\n        NULLIF(u_action.position_name, ''),\n        NULLIF(u_create.position_name, '')\n    )                                                       AS nguoi_xu_ly_vai_tro_name,\n\n    tl.TargetUserId                                         AS nguoi_nhan_id,\n    COALESCE(\n        NULLIF(u_target.fullname, ''),\n        CAST(tl.TargetUserId AS CHAR)\n    )                                                       AS nguoi_nhan_name,\n\n    u_target.position_id                                    AS nguoi_nhan_vai_tro_id,\n    NULLIF(u_target.position_name, '')                      AS nguoi_nhan_vai_tro_name,\n\n    tl.Role                                                 AS role,\n    tl.ActionType                                           AS action_type,\n\n    /* Map Description từ Enum Notification */\n    CASE tl.ActionType\n        WHEN 0 THEN 'Giao nhiệm vụ'\n        WHEN 1 THEN 'Chỉnh sửa nhiệm vụ'\n        WHEN 2 THEN 'Báo cáo công việc'\n        WHEN 3 THEN 'Báo cáo % tiến độ'\n        WHEN 4 THEN 'Duyệt báo cáo công việc'\n        WHEN 5 THEN 'Từ chối báo cáo công việc'\n        WHEN 6 THEN 'Trả lại nhiệm vụ'\n        WHEN 7 THEN 'Gửi ý kiến xử lý'\n        WHEN 8 THEN 'Xin gia hạn'\n        WHEN 9 THEN 'Báo cáo hoàn thành'\n        WHEN 10 THEN 'Kết thúc nhiệm vụ'\n        WHEN 11 THEN 'Chuyển xử lý'\n        WHEN 12 THEN 'Thu hồi báo cáo hoàn thành'\n        WHEN 13 THEN 'Yêu cầu báo cáo tiến độ'\n        WHEN 14 THEN 'Gửi báo cáo'\n        WHEN 15 THEN 'Xóa nhiệm vụ'\n        WHEN 16 THEN 'Duyệt báo cáo tiến độ'\n        WHEN 17 THEN 'Duyệt xin gia hạn nhiệm vụ'\n        WHEN 18 THEN 'Duyệt báo cáo hoàn thành'\n        WHEN 19 THEN 'Từ chối báo cáo tiến độ'\n        WHEN 20 THEN 'Từ chối xin gia hạn nhiệm vụ'\n        WHEN 21 THEN 'Từ chối báo cáo hoàn thành'\n        WHEN 22 THEN 'Thu hồi báo cáo hoàn thành'\n        WHEN 23 THEN 'Thu hồi xin gia hạn'\n        WHEN 24 THEN 'Báo cáo lộ trình triển khai'\n        WHEN 25 THEN 'Duyệt báo cáo lộ trình'\n        WHEN 26 THEN 'Từ chối báo cáo lộ trình'\n        WHEN 27 THEN 'Thu hồi báo cáo lộ trình'\n        WHEN 28 THEN 'Được tạo bởi AI bóc tách nhiệm vụ'\n        ELSE 'Khác'\n    END                                                     AS ten_action_type,\n\n    tl.Content                                              AS noi_dung,\n    COALESCE(tl.ActionDate, tl.CreatedDate)                 AS action_date,\n    NOW()                                                   AS sync_date\n\nFROM `db_theodoinv_hn_test_data`.`qlnv_task` t\n\nINNER JOIN `db_theodoinv_hn_test_data`.`qlnv_timeline` tl\n        ON tl.TaskId = t.TaskId\n\n/* DANH BẠ USER ĐÃ KHỬ TRÙNG eGovUserId - CHỈ GIỮ 4 CỘT CẦN DÙNG.\n   Nhờ vậy 3 LEFT JOIN dưới đây không thể nhân dòng, bỏ được GROUP BY ở ngoài. */\nLEFT JOIN (\n    SELECT\n        eGovUserId,\n        MAX(eGovUserFullname)     AS fullname,\n        MAX(eGovUserPositionId)   AS position_id,\n        MAX(eGovUserPositionName) AS position_name\n    FROM `db_theodoinv_hn_test_data`.`qlnv_user`\n    GROUP BY eGovUserId\n) u_action\n       ON u_action.eGovUserId = tl.UserId\n\nLEFT JOIN (\n    SELECT\n        eGovUserId,\n        MAX(eGovUserFullname)     AS fullname,\n        MAX(eGovUserPositionId)   AS position_id,\n        MAX(eGovUserPositionName) AS position_name\n    FROM `db_theodoinv_hn_test_data`.`qlnv_user`\n    GROUP BY eGovUserId\n) u_create\n       ON u_create.eGovUserId = tl.CreateUser\n\nLEFT JOIN (\n    SELECT\n        eGovUserId,\n        MAX(eGovUserFullname)     AS fullname,\n        MAX(eGovUserPositionId)   AS position_id,\n        MAX(eGovUserPositionName) AS position_name\n    FROM `db_theodoinv_hn_test_data`.`qlnv_user`\n    GROUP BY eGovUserId\n) u_target\n       ON u_target.eGovUserId = tl.TargetUserId\n\n/* ĐIỀU KIỆN LẤY TASK: đồng bộ với qlnv_chitiet_bcd57_cap_tp (nhánh 1). Nhánh API Trung ương không có timeline */\nWHERE t.DeletedDate IS NULL\n  AND t.Status <> 5\n\n  /* Tương đương x.tinh_trang <> 'Chưa xác định' bên chitiet */\n  AND (   t.Status IN (-1, 0, 1, 2)\n       OR (t.Status IN (3, 4)\n           AND (   COALESCE(t.IsRecurring, 0) = 1\n                OR t.ExpireDate IS NULL\n                OR COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL)))\n\n  /* Task thuộc nghị quyết nhóm 55 (qua qlnv_task_resolution), EXISTS để không nhân dòng */\n  AND EXISTS (\n      SELECT 1\n      FROM `db_theodoinv_hn_test_data`.`qlnv_task_resolution` tr\n      INNER JOIN `db_theodoinv_hn_test_data`.`qlnv_resolution` r\n              ON r.ResolutionId = tr.ResolutionId\n      WHERE tr.TaskId = t.TaskId\n        AND r.ResolutionGroupId = 55\n        AND r.DeletedDate IS NULL\n  )\n\n  /* Xã/phường (490.698.1310.%) tách sang tab 2 -> qlnv_chitiet_bcd57_xaphuong */\n  AND COALESCE(t.TargetDepartment, '') NOT LIKE '490.698.1310.%'\n\n  AND (\n      /* Nhánh giao */\n      t.AssignDepartment LIKE '490.698%'\n\n      OR\n\n      /* Nhánh nhận trực tiếp của UBND TP */\n      t.TargetDepartment = '490.698'\n\n      OR\n\n      /* Nhánh nhận thuộc các phòng ban của Văn phòng (490.698.752.%) */\n      (\n          t.TargetDepartment LIKE '490.698.752.%'\n          AND EXISTS (\n              SELECT 1\n              FROM `db_theodoinv_hn_test_data`.`qlnv_task_user` tu_chk\n              WHERE tu_chk.TaskId = t.TaskId\n                AND tu_chk.DepartmentId = '490.698.752'\n          )\n      )\n\n      OR\n\n      /* Nhánh nhận qua UBND TP chung */\n      (\n          t.TargetDepartment LIKE '490.698.%'\n          AND t.TargetDepartment NOT LIKE '490.698.752.%'\n          AND EXISTS (\n              SELECT 1\n              FROM `db_theodoinv_hn_test_data`.`qlnv_task_user` tu_chk\n              WHERE tu_chk.TaskId = t.TaskId\n                AND tu_chk.DepartmentId = '490.698'\n          )\n      )\n  )\n;\n",
+                  "Evaluation Mode": "Entire text",
+                  "Text to Prepend": null,
+                  "Line-by-Line Evaluation Mode": "All",
+                  "Character Set": "UTF-8",
+                  "Maximum Buffer Size": "1 MB",
+                  "Replacement Strategy": "Always Replace",
+                  "Text to Append": null
+                },
+                "propertyDescriptors": {
+                  "Regular Expression": {
+                    "name": "Regular Expression",
+                    "displayName": "Search Value",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Replacement Value": {
+                    "name": "Replacement Value",
+                    "displayName": "Replacement Value",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Evaluation Mode": {
+                    "name": "Evaluation Mode",
+                    "displayName": "Evaluation Mode",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Text to Prepend": {
+                    "name": "Text to Prepend",
+                    "displayName": "Text to Prepend",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Line-by-Line Evaluation Mode": {
+                    "name": "Line-by-Line Evaluation Mode",
+                    "displayName": "Line-by-Line Evaluation Mode",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Character Set": {
+                    "name": "Character Set",
+                    "displayName": "Character Set",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Maximum Buffer Size": {
+                    "name": "Maximum Buffer Size",
+                    "displayName": "Maximum Buffer Size",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Replacement Strategy": {
+                    "name": "Replacement Strategy",
+                    "displayName": "Replacement Strategy",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Text to Append": {
+                    "name": "Text to Append",
+                    "displayName": "Text to Append",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 25,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [
+                  "failure"
+                ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "64afc170-3be4-34a9-850b-e6771201b835"
+              },
+              {
+                "identifier": "c7ebf1ee-2ba1-31a3-802e-f071889113e0",
+                "instanceIdentifier": "5ebe3d78-c913-1f31-c9f2-b7cb27ae69e2",
+                "name": "PutSQL",
+                "comments": "",
+                "position": {
+                  "x": 1016,
+                  "y": 408
+                },
+                "type": "org.apache.nifi.processors.standard.PutSQL",
+                "bundle": {
+                  "group": "org.apache.nifi",
+                  "artifact": "nifi-standard-nar",
+                  "version": "1.27.0"
+                },
+                "properties": {
+                  "Support Fragmented Transactions": "true",
+                  "putsql-sql-statement": null,
+                  "Transaction Timeout": null,
+                  "Batch Size": "100",
+                  "Obtain Generated Keys": "false",
+                  "JDBC Connection Pool": "b5756ef0-6685-3776-a9c5-132af984527c",
+                  "database-session-autocommit": "false",
+                  "rollback-on-failure": "false"
+                },
+                "propertyDescriptors": {
+                  "Support Fragmented Transactions": {
+                    "name": "Support Fragmented Transactions",
+                    "displayName": "Support Fragmented Transactions",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "putsql-sql-statement": {
+                    "name": "putsql-sql-statement",
+                    "displayName": "SQL Statement",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Transaction Timeout": {
+                    "name": "Transaction Timeout",
+                    "displayName": "Transaction Timeout",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Batch Size": {
+                    "name": "Batch Size",
+                    "displayName": "Batch Size",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Obtain Generated Keys": {
+                    "name": "Obtain Generated Keys",
+                    "displayName": "Obtain Generated Keys",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "JDBC Connection Pool": {
+                    "name": "JDBC Connection Pool",
+                    "displayName": "JDBC Connection Pool",
+                    "identifiesControllerService": true,
+                    "sensitive": false
+                  },
+                  "database-session-autocommit": {
+                    "name": "database-session-autocommit",
+                    "displayName": "Database Session AutoCommit",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "rollback-on-failure": {
+                    "name": "rollback-on-failure",
+                    "displayName": "Rollback On Failure",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 0,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [
+                  "failure",
+                  "retry"
+                ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "64afc170-3be4-34a9-850b-e6771201b835"
+              },
+              {
+                "identifier": "a80d4b3b-f2e6-3292-a852-68226ef77297",
+                "instanceIdentifier": "5ebe3d7c-c913-1f31-1f91-69c6604cedd3",
+                "name": "GenerateFlowFile",
+                "comments": "",
+                "position": {
+                  "x": 1000,
+                  "y": -8
+                },
+                "type": "org.apache.nifi.processors.standard.GenerateFlowFile",
+                "bundle": {
+                  "group": "org.apache.nifi",
+                  "artifact": "nifi-standard-nar",
+                  "version": "1.27.0"
+                },
+                "properties": {
+                  "character-set": "UTF-8",
+                  "File Size": "0B",
+                  "mime-type": null,
+                  "generate-ff-custom-text": null,
+                  "Batch Size": "1",
+                  "Unique FlowFiles": "false",
+                  "Data Format": "Text"
+                },
+                "propertyDescriptors": {
+                  "character-set": {
+                    "name": "character-set",
+                    "displayName": "Character Set",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "File Size": {
+                    "name": "File Size",
+                    "displayName": "File Size",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "mime-type": {
+                    "name": "mime-type",
+                    "displayName": "Mime Type",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "generate-ff-custom-text": {
+                    "name": "generate-ff-custom-text",
+                    "displayName": "Custom Text",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Batch Size": {
+                    "name": "Batch Size",
+                    "displayName": "Batch Size",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Unique FlowFiles": {
+                    "name": "Unique FlowFiles",
+                    "displayName": "Unique FlowFiles",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Data Format": {
+                    "name": "Data Format",
+                    "displayName": "Data Format",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  }
+                },
+                "style": {},
+                "schedulingPeriod": "5 min",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 0,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "64afc170-3be4-34a9-850b-e6771201b835"
+              }
+            ],
+            "inputPorts": [],
+            "outputPorts": [],
+            "connections": [
+              {
+                "identifier": "ae2616d6-3e41-3b86-befd-22fac97e8c9b",
+                "instanceIdentifier": "5ebe3d7f-c913-1f31-97d7-108964acfa3c",
+                "name": "",
+                "source": {
+                  "id": "57eff423-3d27-3cb4-a596-6b3360042b27",
+                  "type": "PROCESSOR",
+                  "groupId": "64afc170-3be4-34a9-850b-e6771201b835",
+                  "name": "PutSQL",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d7a-c913-1f31-98d4-40257c9283fc"
+                },
+                "destination": {
+                  "id": "f3ad4b6a-d3ed-34a5-a43e-e46820a0db48",
+                  "type": "PROCESSOR",
+                  "groupId": "64afc170-3be4-34a9-850b-e6771201b835",
+                  "name": "LogAttribute",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d79-c913-1f31-7ef7-7eb577b659f7"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                  "failure",
+                  "retry"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "64afc170-3be4-34a9-850b-e6771201b835"
+              },
+              {
+                "identifier": "48bc9aca-5f57-320a-98f5-0e2c4fde78f1",
+                "instanceIdentifier": "5ebe3d82-c913-1f31-b73b-81f3842e8e0c",
+                "name": "",
+                "source": {
+                  "id": "cd2786f8-da73-3afe-b035-23e40c916363",
+                  "type": "PROCESSOR",
+                  "groupId": "64afc170-3be4-34a9-850b-e6771201b835",
+                  "name": "ReplaceText",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d7d-c913-1f31-0de5-7f320572dbb9"
+                },
+                "destination": {
+                  "id": "57eff423-3d27-3cb4-a596-6b3360042b27",
+                  "type": "PROCESSOR",
+                  "groupId": "64afc170-3be4-34a9-850b-e6771201b835",
+                  "name": "PutSQL",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d7a-c913-1f31-98d4-40257c9283fc"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                  "success"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "64afc170-3be4-34a9-850b-e6771201b835"
+              },
+              {
+                "identifier": "8f034818-0c3b-3be2-a797-a1aa4dfb8ee6",
+                "instanceIdentifier": "5ebe3d7e-c913-1f31-b831-25e6444ec466",
+                "name": "",
+                "source": {
+                  "id": "c7ebf1ee-2ba1-31a3-802e-f071889113e0",
+                  "type": "PROCESSOR",
+                  "groupId": "64afc170-3be4-34a9-850b-e6771201b835",
+                  "name": "PutSQL",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d78-c913-1f31-c9f2-b7cb27ae69e2"
+                },
+                "destination": {
+                  "id": "cd2786f8-da73-3afe-b035-23e40c916363",
+                  "type": "PROCESSOR",
+                  "groupId": "64afc170-3be4-34a9-850b-e6771201b835",
+                  "name": "ReplaceText",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d7d-c913-1f31-0de5-7f320572dbb9"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                  "success"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "64afc170-3be4-34a9-850b-e6771201b835"
+              },
+              {
+                "identifier": "ac1570b3-532c-3f91-93b5-ef831f1cf46b",
+                "instanceIdentifier": "5ebe3d80-c913-1f31-81f5-8242f4c00441",
+                "name": "",
+                "source": {
+                  "id": "32a7174d-495d-3be8-9402-29306ee53fed",
+                  "type": "PROCESSOR",
+                  "groupId": "64afc170-3be4-34a9-850b-e6771201b835",
+                  "name": "ReplaceText",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d7b-c913-1f31-a20b-fe007f83ecf4"
+                },
+                "destination": {
+                  "id": "c7ebf1ee-2ba1-31a3-802e-f071889113e0",
+                  "type": "PROCESSOR",
+                  "groupId": "64afc170-3be4-34a9-850b-e6771201b835",
+                  "name": "PutSQL",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d78-c913-1f31-c9f2-b7cb27ae69e2"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                  "success"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "64afc170-3be4-34a9-850b-e6771201b835"
+              },
+              {
+                "identifier": "f116d98f-85c0-3384-8251-1a8f0c971227",
+                "instanceIdentifier": "5ebe3d81-c913-1f31-eed9-0ebed329bb39",
+                "name": "",
+                "source": {
+                  "id": "a80d4b3b-f2e6-3292-a852-68226ef77297",
+                  "type": "PROCESSOR",
+                  "groupId": "64afc170-3be4-34a9-850b-e6771201b835",
+                  "name": "GenerateFlowFile",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d7c-c913-1f31-1f91-69c6604cedd3"
+                },
+                "destination": {
+                  "id": "32a7174d-495d-3be8-9402-29306ee53fed",
+                  "type": "PROCESSOR",
+                  "groupId": "64afc170-3be4-34a9-850b-e6771201b835",
+                  "name": "ReplaceText",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d7b-c913-1f31-a20b-fe007f83ecf4"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                  "success"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "64afc170-3be4-34a9-850b-e6771201b835"
+              }
+            ],
+            "labels": [],
+            "funnels": [],
+            "controllerServices": [],
+            "variables": {},
+            "parameterContextName": "Server0",
+            "defaultFlowFileExpiration": "0 sec",
+            "defaultBackPressureObjectThreshold": 10000,
+            "defaultBackPressureDataSizeThreshold": "1 GB",
+            "logFileSuffix": "",
+            "flowFileConcurrency": "UNBOUNDED",
+            "flowFileOutboundPolicy": "STREAM_WHEN_AVAILABLE",
+            "componentType": "PROCESS_GROUP",
+            "groupIdentifier": "0d657c3d-9c84-3c75-8c3f-4b43444dd18a"
+          }
+        ],
+        "remoteProcessGroups": [],
+        "processors": [],
+        "inputPorts": [],
+        "outputPorts": [],
+        "connections": [],
+        "labels": [],
+        "funnels": [],
+        "controllerServices": [],
+        "variables": {},
+        "parameterContextName": "Server0",
+        "defaultFlowFileExpiration": "0 sec",
+        "defaultBackPressureObjectThreshold": 10000,
+        "defaultBackPressureDataSizeThreshold": "1 GB",
+        "flowFileConcurrency": "UNBOUNDED",
+        "flowFileOutboundPolicy": "STREAM_WHEN_AVAILABLE",
+        "componentType": "PROCESS_GROUP",
+        "groupIdentifier": "8cf3a7fc-8efb-3965-9638-fac506dd1a5a"
+      },
+      {
+        "identifier": "f242a554-4885-3f61-803d-af19b0e4b9c0",
+        "instanceIdentifier": "5ebe3d68-c913-1f31-c883-4a3a58e4964f",
+        "name": "nv_cap_xaphuong",
+        "comments": "",
+        "position": {
+          "x": 2448,
+          "y": -136
+        },
+        "processGroups": [
+          {
+            "identifier": "0ad954f8-f755-3268-aa1d-4931bb3702b3",
+            "instanceIdentifier": "5ebe3d92-c913-1f31-7ca7-9946c38c65a6",
+            "name": "BTH - Lịch sử tiến độ",
+            "comments": "",
+            "position": {
+              "x": 416,
+              "y": 0
+            },
+            "processGroups": [],
+            "remoteProcessGroups": [],
+            "processors": [
+              {
+                "identifier": "32a7174d-495d-3be8-9402-29306ee53fed",
+                "instanceIdentifier": "5ebe3d93-c913-1f31-61b6-22fe1a552136",
+                "name": "ReplaceText",
+                "comments": "",
+                "position": {
+                  "x": 472,
+                  "y": 224
+                },
+                "type": "org.apache.nifi.processors.standard.ReplaceText",
+                "bundle": {
+                  "group": "org.apache.nifi",
+                  "artifact": "nifi-standard-nar",
+                  "version": "1.27.0"
+                },
+                "properties": {
+                  "Regular Expression": "(?s)(^.*$)",
+                  "Replacement Value": "CREATE TABLE IF NOT EXISTS `db_theodoinv_hn_test_data`.`qlnv_lichsutiendo_bcd57_xaphuong` (\n    timeline_id              INT           NOT NULL,\n    task_id                  INT           NULL,\n    ma_nhiem_vu              VARCHAR(255)  NULL,      -- task.Code\n\n    nguoi_xu_ly_id           INT           NULL,      -- eGovUserId\n    nguoi_xu_ly_name         VARCHAR(255)  NULL,\n    nguoi_xu_ly_vai_tro_id   INT           NULL,      -- eGovUserPositionId\n    nguoi_xu_ly_vai_tro_name VARCHAR(255)  NULL,\n\n    nguoi_nhan_id            INT           NULL,      -- eGovUserId\n    nguoi_nhan_name          VARCHAR(255)  NULL,\n    nguoi_nhan_vai_tro_id    INT           NULL,\n    nguoi_nhan_vai_tro_name  VARCHAR(255)  NULL,\n\n    `role`                   TINYINT       NULL,      -- từ khóa MySQL 8 -> backtick\n    action_type              TINYINT       NULL,      -- 0..28, xem CASE trong SELECT\n    ten_action_type          VARCHAR(64)   NULL,\n\n    noi_dung                 LONGTEXT      NULL,      -- timeline.Content\n    action_date              DATETIME      NULL,      -- ActionDate / CreatedDate\n    sync_date                DATETIME      NULL,\n    PRIMARY KEY (timeline_id),                          -- mỗi timeline 1 dòng (user đã khử trùng)\n    KEY idx_task   (task_id),\n    KEY idx_action (action_type, action_date)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;\n\nTRUNCATE TABLE `db_theodoinv_hn_test_data`.`qlnv_lichsutiendo_bcd57_xaphuong`;\n",
+                  "Evaluation Mode": "Entire text",
+                  "Text to Prepend": null,
+                  "Line-by-Line Evaluation Mode": "All",
+                  "Character Set": "UTF-8",
+                  "Maximum Buffer Size": "1 MB",
+                  "Replacement Strategy": "Always Replace",
+                  "Text to Append": null
+                },
+                "propertyDescriptors": {
+                  "Regular Expression": {
+                    "name": "Regular Expression",
+                    "displayName": "Search Value",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Replacement Value": {
+                    "name": "Replacement Value",
+                    "displayName": "Replacement Value",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Evaluation Mode": {
+                    "name": "Evaluation Mode",
+                    "displayName": "Evaluation Mode",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Text to Prepend": {
+                    "name": "Text to Prepend",
+                    "displayName": "Text to Prepend",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Line-by-Line Evaluation Mode": {
+                    "name": "Line-by-Line Evaluation Mode",
+                    "displayName": "Line-by-Line Evaluation Mode",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Character Set": {
+                    "name": "Character Set",
+                    "displayName": "Character Set",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Maximum Buffer Size": {
+                    "name": "Maximum Buffer Size",
+                    "displayName": "Maximum Buffer Size",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Replacement Strategy": {
+                    "name": "Replacement Strategy",
+                    "displayName": "Replacement Strategy",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Text to Append": {
+                    "name": "Text to Append",
+                    "displayName": "Text to Append",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 25,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [
+                  "failure"
+                ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "0ad954f8-f755-3268-aa1d-4931bb3702b3"
+              },
+              {
+                "identifier": "f3ad4b6a-d3ed-34a5-a43e-e46820a0db48",
+                "instanceIdentifier": "5ebe3d98-c913-1f31-42d7-fdbe2039ae94",
+                "name": "LogAttribute",
+                "comments": "",
+                "position": {
+                  "x": 1600,
+                  "y": 640
+                },
+                "type": "org.apache.nifi.processors.standard.LogAttribute",
+                "bundle": {
+                  "group": "org.apache.nifi",
+                  "artifact": "nifi-standard-nar",
+                  "version": "1.27.0"
+                },
+                "properties": {
+                  "Log prefix": null,
+                  "character-set": "US-ASCII",
+                  "Log FlowFile Properties": "true",
+                  "Log Level": "info",
+                  "attributes-to-ignore-regex": null,
+                  "Attributes to Ignore": null,
+                  "Attributes to Log": null,
+                  "attributes-to-log-regex": ".*",
+                  "Output Format": "Line per Attribute",
+                  "Log Payload": "false"
+                },
+                "propertyDescriptors": {
+                  "Log prefix": {
+                    "name": "Log prefix",
+                    "displayName": "Log prefix",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "character-set": {
+                    "name": "character-set",
+                    "displayName": "Character Set",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Log FlowFile Properties": {
+                    "name": "Log FlowFile Properties",
+                    "displayName": "Log FlowFile Properties",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Log Level": {
+                    "name": "Log Level",
+                    "displayName": "Log Level",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "attributes-to-ignore-regex": {
+                    "name": "attributes-to-ignore-regex",
+                    "displayName": "Attributes to Ignore by Regular Expression",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Attributes to Ignore": {
+                    "name": "Attributes to Ignore",
+                    "displayName": "Attributes to Ignore",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Attributes to Log": {
+                    "name": "Attributes to Log",
+                    "displayName": "Attributes to Log",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "attributes-to-log-regex": {
+                    "name": "attributes-to-log-regex",
+                    "displayName": "Attributes to Log by Regular Expression",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Output Format": {
+                    "name": "Output Format",
+                    "displayName": "Output Format",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Log Payload": {
+                    "name": "Log Payload",
+                    "displayName": "Log Payload",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 25,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [],
+                "scheduledState": "DISABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "0ad954f8-f755-3268-aa1d-4931bb3702b3"
+              },
+              {
+                "identifier": "57eff423-3d27-3cb4-a596-6b3360042b27",
+                "instanceIdentifier": "5ebe3d96-c913-1f31-34db-7f34bd1c38e8",
+                "name": "PutSQL",
+                "comments": "",
+                "position": {
+                  "x": 1007.4949336110061,
+                  "y": 889.4860589800969
+                },
+                "type": "org.apache.nifi.processors.standard.PutSQL",
+                "bundle": {
+                  "group": "org.apache.nifi",
+                  "artifact": "nifi-standard-nar",
+                  "version": "1.27.0"
+                },
+                "properties": {
+                  "Support Fragmented Transactions": "true",
+                  "putsql-sql-statement": null,
+                  "Transaction Timeout": null,
+                  "Batch Size": "100",
+                  "Obtain Generated Keys": "false",
+                  "JDBC Connection Pool": "84e917c7-a439-343e-9704-bf4e8c476fc9",
+                  "database-session-autocommit": "false",
+                  "rollback-on-failure": "false"
+                },
+                "propertyDescriptors": {
+                  "Support Fragmented Transactions": {
+                    "name": "Support Fragmented Transactions",
+                    "displayName": "Support Fragmented Transactions",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "putsql-sql-statement": {
+                    "name": "putsql-sql-statement",
+                    "displayName": "SQL Statement",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Transaction Timeout": {
+                    "name": "Transaction Timeout",
+                    "displayName": "Transaction Timeout",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Batch Size": {
+                    "name": "Batch Size",
+                    "displayName": "Batch Size",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Obtain Generated Keys": {
+                    "name": "Obtain Generated Keys",
+                    "displayName": "Obtain Generated Keys",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "JDBC Connection Pool": {
+                    "name": "JDBC Connection Pool",
+                    "displayName": "JDBC Connection Pool",
+                    "identifiesControllerService": true,
+                    "sensitive": false
+                  },
+                  "database-session-autocommit": {
+                    "name": "database-session-autocommit",
+                    "displayName": "Database Session AutoCommit",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "rollback-on-failure": {
+                    "name": "rollback-on-failure",
+                    "displayName": "Rollback On Failure",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 0,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [
+                  "success"
+                ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "0ad954f8-f755-3268-aa1d-4931bb3702b3"
+              },
+              {
+                "identifier": "cd2786f8-da73-3afe-b035-23e40c916363",
+                "instanceIdentifier": "5ebe3d94-c913-1f31-ac4c-5d1205877c3d",
+                "name": "ReplaceText",
+                "comments": "",
+                "position": {
+                  "x": 512,
+                  "y": 608
+                },
+                "type": "org.apache.nifi.processors.standard.ReplaceText",
+                "bundle": {
+                  "group": "org.apache.nifi",
+                  "artifact": "nifi-standard-nar",
+                  "version": "1.27.0"
+                },
+                "properties": {
+                  "Regular Expression": "(?s)(^.*$)",
+                  "Replacement Value": "INSERT INTO `db_theodoinv_hn_test_data`.`qlnv_lichsutiendo_bcd57_xaphuong` (\n    `timeline_id`,\n    `task_id`,\n    `ma_nhiem_vu`,\n\n    `nguoi_xu_ly_id`,\n    `nguoi_xu_ly_name`,\n    `nguoi_xu_ly_vai_tro_id`,\n    `nguoi_xu_ly_vai_tro_name`,\n\n    `nguoi_nhan_id`,\n    `nguoi_nhan_name`,\n    `nguoi_nhan_vai_tro_id`,\n    `nguoi_nhan_vai_tro_name`,\n\n    `role`,\n    `action_type`,\n    `ten_action_type`,\n\n    `noi_dung`,\n    `action_date`,\n    `sync_date`\n)\n\n\nSELECT\n    tl.TimelineId                                           AS timeline_id,\n    tl.TaskId                                               AS task_id,\n    t.Code                                                  AS ma_nhiem_vu,\n\n    COALESCE(tl.UserId, tl.CreateUser)                      AS nguoi_xu_ly_id,\n    COALESCE(\n        NULLIF(u_action.fullname, ''),\n        NULLIF(u_create.fullname, ''),\n        CAST(COALESCE(tl.UserId, tl.CreateUser) AS CHAR)\n    )                                                       AS nguoi_xu_ly_name,\n\n    COALESCE(u_action.position_id, u_create.position_id)    AS nguoi_xu_ly_vai_tro_id,\n\n    COALESCE(\n        NULLIF(u_action.position_name, ''),\n        NULLIF(u_create.position_name, '')\n    )                                                       AS nguoi_xu_ly_vai_tro_name,\n\n    tl.TargetUserId                                         AS nguoi_nhan_id,\n    COALESCE(\n        NULLIF(u_target.fullname, ''),\n        CAST(tl.TargetUserId AS CHAR)\n    )                                                       AS nguoi_nhan_name,\n\n    u_target.position_id                                    AS nguoi_nhan_vai_tro_id,\n    NULLIF(u_target.position_name, '')                      AS nguoi_nhan_vai_tro_name,\n\n    tl.Role                                                 AS role,\n    tl.ActionType                                           AS action_type,\n\n    /* Map Description từ Enum Notification */\n    CASE tl.ActionType\n        WHEN 0 THEN 'Giao nhiệm vụ'\n        WHEN 1 THEN 'Chỉnh sửa nhiệm vụ'\n        WHEN 2 THEN 'Báo cáo công việc'\n        WHEN 3 THEN 'Báo cáo % tiến độ'\n        WHEN 4 THEN 'Duyệt báo cáo công việc'\n        WHEN 5 THEN 'Từ chối báo cáo công việc'\n        WHEN 6 THEN 'Trả lại nhiệm vụ'\n        WHEN 7 THEN 'Gửi ý kiến xử lý'\n        WHEN 8 THEN 'Xin gia hạn'\n        WHEN 9 THEN 'Báo cáo hoàn thành'\n        WHEN 10 THEN 'Kết thúc nhiệm vụ'\n        WHEN 11 THEN 'Chuyển xử lý'\n        WHEN 12 THEN 'Thu hồi báo cáo hoàn thành'\n        WHEN 13 THEN 'Yêu cầu báo cáo tiến độ'\n        WHEN 14 THEN 'Gửi báo cáo'\n        WHEN 15 THEN 'Xóa nhiệm vụ'\n        WHEN 16 THEN 'Duyệt báo cáo tiến độ'\n        WHEN 17 THEN 'Duyệt xin gia hạn nhiệm vụ'\n        WHEN 18 THEN 'Duyệt báo cáo hoàn thành'\n        WHEN 19 THEN 'Từ chối báo cáo tiến độ'\n        WHEN 20 THEN 'Từ chối xin gia hạn nhiệm vụ'\n        WHEN 21 THEN 'Từ chối báo cáo hoàn thành'\n        WHEN 22 THEN 'Thu hồi báo cáo hoàn thành'\n        WHEN 23 THEN 'Thu hồi xin gia hạn'\n        WHEN 24 THEN 'Báo cáo lộ trình triển khai'\n        WHEN 25 THEN 'Duyệt báo cáo lộ trình'\n        WHEN 26 THEN 'Từ chối báo cáo lộ trình'\n        WHEN 27 THEN 'Thu hồi báo cáo lộ trình'\n        WHEN 28 THEN 'Được tạo bởi AI bóc tách nhiệm vụ'\n        ELSE 'Khác'\n    END                                                     AS ten_action_type,\n\n    tl.Content                                              AS noi_dung,\n    COALESCE(tl.ActionDate, tl.CreatedDate)                 AS action_date,\n    NOW()                                                   AS sync_date\n\nFROM `db_theodoinv_hn_test_data`.`qlnv_task` t\n\nINNER JOIN `db_theodoinv_hn_test_data`.`qlnv_timeline` tl\n        ON tl.TaskId = t.TaskId\n\n/* DANH BẠ USER ĐÃ KHỬ TRÙNG eGovUserId - CHỈ GIỮ 4 CỘT CẦN DÙNG.\n   Nhờ vậy 3 LEFT JOIN dưới đây không thể nhân dòng, bỏ được GROUP BY ở ngoài. */\nLEFT JOIN (\n    SELECT\n        eGovUserId,\n        MAX(eGovUserFullname)     AS fullname,\n        MAX(eGovUserPositionId)   AS position_id,\n        MAX(eGovUserPositionName) AS position_name\n    FROM `db_theodoinv_hn_test_data`.`qlnv_user`\n    GROUP BY eGovUserId\n) u_action\n       ON u_action.eGovUserId = tl.UserId\n\nLEFT JOIN (\n    SELECT\n        eGovUserId,\n        MAX(eGovUserFullname)     AS fullname,\n        MAX(eGovUserPositionId)   AS position_id,\n        MAX(eGovUserPositionName) AS position_name\n    FROM `db_theodoinv_hn_test_data`.`qlnv_user`\n    GROUP BY eGovUserId\n) u_create\n       ON u_create.eGovUserId = tl.CreateUser\n\nLEFT JOIN (\n    SELECT\n        eGovUserId,\n        MAX(eGovUserFullname)     AS fullname,\n        MAX(eGovUserPositionId)   AS position_id,\n        MAX(eGovUserPositionName) AS position_name\n    FROM `db_theodoinv_hn_test_data`.`qlnv_user`\n    GROUP BY eGovUserId\n) u_target\n       ON u_target.eGovUserId = tl.TargetUserId\n\n/* ĐIỀU KIỆN LẤY TASK: đồng bộ với qlnv_chitiet_bcd57_xaphuong */\nWHERE t.DeletedDate IS NULL\n  AND t.Status <> 5\n\n  /* Tương đương x.tinh_trang <> 'Chưa xác định' bên chitiet */\n  AND (   t.Status IN (-1, 0, 1, 2)\n       OR (t.Status IN (3, 4)\n           AND (   COALESCE(t.IsRecurring, 0) = 1\n                OR t.ExpireDate IS NULL\n                OR COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL)))\n\n  /* Task thuộc nghị quyết nhóm 55 (qua qlnv_task_resolution), EXISTS để không nhân dòng */\n  AND EXISTS (\n      SELECT 1\n      FROM `db_theodoinv_hn_test_data`.`qlnv_task_resolution` tr\n      INNER JOIN `db_theodoinv_hn_test_data`.`qlnv_resolution` r\n              ON r.ResolutionId = tr.ResolutionId\n      WHERE tr.TaskId = t.TaskId\n        AND r.ResolutionGroupId = 55\n        AND r.DeletedDate IS NULL\n  )\n\n  /* Có liên quan đến xã/phường: xã/phường giao, nhận, hoặc tham gia (qlnv_task_user) */\n  AND (\n         t.TargetDepartment LIKE '490.698.1310.%'\n      OR t.AssignDepartment LIKE '490.698.1310.%'\n      OR EXISTS (\n             SELECT 1\n             FROM `db_theodoinv_hn_test_data`.`qlnv_task_user` tu_xp\n             WHERE tu_xp.TaskId = t.TaskId\n               AND tu_xp.DepartmentId LIKE '490.698.1310.%'\n         )\n  )\n;\n",
+                  "Evaluation Mode": "Entire text",
+                  "Text to Prepend": null,
+                  "Line-by-Line Evaluation Mode": "All",
+                  "Character Set": "UTF-8",
+                  "Maximum Buffer Size": "1 MB",
+                  "Replacement Strategy": "Always Replace",
+                  "Text to Append": null
+                },
+                "propertyDescriptors": {
+                  "Regular Expression": {
+                    "name": "Regular Expression",
+                    "displayName": "Search Value",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Replacement Value": {
+                    "name": "Replacement Value",
+                    "displayName": "Replacement Value",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Evaluation Mode": {
+                    "name": "Evaluation Mode",
+                    "displayName": "Evaluation Mode",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Text to Prepend": {
+                    "name": "Text to Prepend",
+                    "displayName": "Text to Prepend",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Line-by-Line Evaluation Mode": {
+                    "name": "Line-by-Line Evaluation Mode",
+                    "displayName": "Line-by-Line Evaluation Mode",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Character Set": {
+                    "name": "Character Set",
+                    "displayName": "Character Set",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Maximum Buffer Size": {
+                    "name": "Maximum Buffer Size",
+                    "displayName": "Maximum Buffer Size",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Replacement Strategy": {
+                    "name": "Replacement Strategy",
+                    "displayName": "Replacement Strategy",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Text to Append": {
+                    "name": "Text to Append",
+                    "displayName": "Text to Append",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 25,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [
+                  "failure"
+                ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "0ad954f8-f755-3268-aa1d-4931bb3702b3"
+              },
+              {
+                "identifier": "c7ebf1ee-2ba1-31a3-802e-f071889113e0",
+                "instanceIdentifier": "5ebe3d97-c913-1f31-016c-1efc7a9f50ac",
+                "name": "PutSQL",
+                "comments": "",
+                "position": {
+                  "x": 1016,
+                  "y": 408
+                },
+                "type": "org.apache.nifi.processors.standard.PutSQL",
+                "bundle": {
+                  "group": "org.apache.nifi",
+                  "artifact": "nifi-standard-nar",
+                  "version": "1.27.0"
+                },
+                "properties": {
+                  "Support Fragmented Transactions": "true",
+                  "putsql-sql-statement": null,
+                  "Transaction Timeout": null,
+                  "Batch Size": "100",
+                  "Obtain Generated Keys": "false",
+                  "JDBC Connection Pool": "b5756ef0-6685-3776-a9c5-132af984527c",
+                  "database-session-autocommit": "false",
+                  "rollback-on-failure": "false"
+                },
+                "propertyDescriptors": {
+                  "Support Fragmented Transactions": {
+                    "name": "Support Fragmented Transactions",
+                    "displayName": "Support Fragmented Transactions",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "putsql-sql-statement": {
+                    "name": "putsql-sql-statement",
+                    "displayName": "SQL Statement",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Transaction Timeout": {
+                    "name": "Transaction Timeout",
+                    "displayName": "Transaction Timeout",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Batch Size": {
+                    "name": "Batch Size",
+                    "displayName": "Batch Size",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Obtain Generated Keys": {
+                    "name": "Obtain Generated Keys",
+                    "displayName": "Obtain Generated Keys",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "JDBC Connection Pool": {
+                    "name": "JDBC Connection Pool",
+                    "displayName": "JDBC Connection Pool",
+                    "identifiesControllerService": true,
+                    "sensitive": false
+                  },
+                  "database-session-autocommit": {
+                    "name": "database-session-autocommit",
+                    "displayName": "Database Session AutoCommit",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "rollback-on-failure": {
+                    "name": "rollback-on-failure",
+                    "displayName": "Rollback On Failure",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 0,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [
+                  "failure",
+                  "retry"
+                ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "0ad954f8-f755-3268-aa1d-4931bb3702b3"
+              },
+              {
+                "identifier": "a80d4b3b-f2e6-3292-a852-68226ef77297",
+                "instanceIdentifier": "5ebe3d95-c913-1f31-eb51-1aa1da620a57",
+                "name": "GenerateFlowFile",
+                "comments": "",
+                "position": {
+                  "x": 1000,
+                  "y": -8
+                },
+                "type": "org.apache.nifi.processors.standard.GenerateFlowFile",
+                "bundle": {
+                  "group": "org.apache.nifi",
+                  "artifact": "nifi-standard-nar",
+                  "version": "1.27.0"
+                },
+                "properties": {
+                  "character-set": "UTF-8",
+                  "File Size": "0B",
+                  "mime-type": null,
+                  "generate-ff-custom-text": null,
+                  "Batch Size": "1",
+                  "Unique FlowFiles": "false",
+                  "Data Format": "Text"
+                },
+                "propertyDescriptors": {
+                  "character-set": {
+                    "name": "character-set",
+                    "displayName": "Character Set",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "File Size": {
+                    "name": "File Size",
+                    "displayName": "File Size",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "mime-type": {
+                    "name": "mime-type",
+                    "displayName": "Mime Type",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "generate-ff-custom-text": {
+                    "name": "generate-ff-custom-text",
+                    "displayName": "Custom Text",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Batch Size": {
+                    "name": "Batch Size",
+                    "displayName": "Batch Size",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Unique FlowFiles": {
+                    "name": "Unique FlowFiles",
+                    "displayName": "Unique FlowFiles",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Data Format": {
+                    "name": "Data Format",
+                    "displayName": "Data Format",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  }
+                },
+                "style": {},
+                "schedulingPeriod": "5 min",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 0,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "0ad954f8-f755-3268-aa1d-4931bb3702b3"
+              }
+            ],
+            "inputPorts": [],
+            "outputPorts": [],
+            "connections": [
+              {
+                "identifier": "48bc9aca-5f57-320a-98f5-0e2c4fde78f1",
+                "instanceIdentifier": "5ebe3d9d-c913-1f31-31d7-d9663bac8e00",
+                "name": "",
+                "source": {
+                  "id": "cd2786f8-da73-3afe-b035-23e40c916363",
+                  "type": "PROCESSOR",
+                  "groupId": "0ad954f8-f755-3268-aa1d-4931bb3702b3",
+                  "name": "ReplaceText",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d94-c913-1f31-ac4c-5d1205877c3d"
+                },
+                "destination": {
+                  "id": "57eff423-3d27-3cb4-a596-6b3360042b27",
+                  "type": "PROCESSOR",
+                  "groupId": "0ad954f8-f755-3268-aa1d-4931bb3702b3",
+                  "name": "PutSQL",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d96-c913-1f31-34db-7f34bd1c38e8"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                  "success"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "0ad954f8-f755-3268-aa1d-4931bb3702b3"
+              },
+              {
+                "identifier": "ae2616d6-3e41-3b86-befd-22fac97e8c9b",
+                "instanceIdentifier": "5ebe3d99-c913-1f31-ec98-44172d10d6bd",
+                "name": "",
+                "source": {
+                  "id": "57eff423-3d27-3cb4-a596-6b3360042b27",
+                  "type": "PROCESSOR",
+                  "groupId": "0ad954f8-f755-3268-aa1d-4931bb3702b3",
+                  "name": "PutSQL",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d96-c913-1f31-34db-7f34bd1c38e8"
+                },
+                "destination": {
+                  "id": "f3ad4b6a-d3ed-34a5-a43e-e46820a0db48",
+                  "type": "PROCESSOR",
+                  "groupId": "0ad954f8-f755-3268-aa1d-4931bb3702b3",
+                  "name": "LogAttribute",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d98-c913-1f31-42d7-fdbe2039ae94"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                  "failure",
+                  "retry"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "0ad954f8-f755-3268-aa1d-4931bb3702b3"
+              },
+              {
+                "identifier": "8f034818-0c3b-3be2-a797-a1aa4dfb8ee6",
+                "instanceIdentifier": "5ebe3d9a-c913-1f31-fdff-325e6fb9f01a",
+                "name": "",
+                "source": {
+                  "id": "c7ebf1ee-2ba1-31a3-802e-f071889113e0",
+                  "type": "PROCESSOR",
+                  "groupId": "0ad954f8-f755-3268-aa1d-4931bb3702b3",
+                  "name": "PutSQL",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d97-c913-1f31-016c-1efc7a9f50ac"
+                },
+                "destination": {
+                  "id": "cd2786f8-da73-3afe-b035-23e40c916363",
+                  "type": "PROCESSOR",
+                  "groupId": "0ad954f8-f755-3268-aa1d-4931bb3702b3",
+                  "name": "ReplaceText",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d94-c913-1f31-ac4c-5d1205877c3d"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                  "success"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "0ad954f8-f755-3268-aa1d-4931bb3702b3"
+              },
+              {
+                "identifier": "ac1570b3-532c-3f91-93b5-ef831f1cf46b",
+                "instanceIdentifier": "5ebe3d9b-c913-1f31-50b0-3053d1efd0ae",
+                "name": "",
+                "source": {
+                  "id": "32a7174d-495d-3be8-9402-29306ee53fed",
+                  "type": "PROCESSOR",
+                  "groupId": "0ad954f8-f755-3268-aa1d-4931bb3702b3",
+                  "name": "ReplaceText",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d93-c913-1f31-61b6-22fe1a552136"
+                },
+                "destination": {
+                  "id": "c7ebf1ee-2ba1-31a3-802e-f071889113e0",
+                  "type": "PROCESSOR",
+                  "groupId": "0ad954f8-f755-3268-aa1d-4931bb3702b3",
+                  "name": "PutSQL",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d97-c913-1f31-016c-1efc7a9f50ac"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                  "success"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "0ad954f8-f755-3268-aa1d-4931bb3702b3"
+              },
+              {
+                "identifier": "f116d98f-85c0-3384-8251-1a8f0c971227",
+                "instanceIdentifier": "5ebe3d9c-c913-1f31-8d58-ebad1209df92",
+                "name": "",
+                "source": {
+                  "id": "a80d4b3b-f2e6-3292-a852-68226ef77297",
+                  "type": "PROCESSOR",
+                  "groupId": "0ad954f8-f755-3268-aa1d-4931bb3702b3",
+                  "name": "GenerateFlowFile",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d95-c913-1f31-eb51-1aa1da620a57"
+                },
+                "destination": {
+                  "id": "32a7174d-495d-3be8-9402-29306ee53fed",
+                  "type": "PROCESSOR",
+                  "groupId": "0ad954f8-f755-3268-aa1d-4931bb3702b3",
+                  "name": "ReplaceText",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d93-c913-1f31-61b6-22fe1a552136"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                  "success"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "0ad954f8-f755-3268-aa1d-4931bb3702b3"
+              }
+            ],
+            "labels": [],
+            "funnels": [],
+            "controllerServices": [],
+            "variables": {},
+            "parameterContextName": "Server0",
+            "defaultFlowFileExpiration": "0 sec",
+            "defaultBackPressureObjectThreshold": 10000,
+            "defaultBackPressureDataSizeThreshold": "1 GB",
+            "logFileSuffix": "",
+            "flowFileConcurrency": "UNBOUNDED",
+            "flowFileOutboundPolicy": "STREAM_WHEN_AVAILABLE",
+            "componentType": "PROCESS_GROUP",
+            "groupIdentifier": "f242a554-4885-3f61-803d-af19b0e4b9c0"
+          },
+          {
+            "identifier": "b6a3f50f-8876-35db-ac94-f66625ec81f4",
+            "instanceIdentifier": "5ebe3d86-c913-1f31-8468-c05d013471af",
+            "name": "BTH - Chi tiết",
+            "comments": "",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "processGroups": [],
+            "remoteProcessGroups": [],
+            "processors": [
+              {
+                "identifier": "32a7174d-495d-3be8-9402-29306ee53fed",
+                "instanceIdentifier": "5ebe3d8a-c913-1f31-df2b-a91f69d4e18b",
+                "name": "ReplaceText",
+                "comments": "",
+                "position": {
+                  "x": 472,
+                  "y": 224
+                },
+                "type": "org.apache.nifi.processors.standard.ReplaceText",
+                "bundle": {
+                  "group": "org.apache.nifi",
+                  "artifact": "nifi-standard-nar",
+                  "version": "1.27.0"
+                },
+                "properties": {
+                  "Regular Expression": "(?s)(^.*$)",
+                  "Replacement Value": "/* Bảng đích cho qlnv_chitiet_bcd57_xaphuong.sql (chạy 1 lần, KHÔNG dán vào NiFi)\n   task_id KHÔNG để PK: nhánh 2 (API) dùng row_id/CRC32, có thể đụng TaskId nhánh 1 */\nCREATE TABLE IF NOT EXISTS `db_theodoinv_hn_test_data`.`qlnv_chitiet_bcd57_xaphuong` (\n    `task_id`                 BIGINT        NOT NULL,\n    `status`                  INT           NULL,\n    `id_truc_giao`            VARCHAR(100)  NULL,\n    `truc_giao`               VARCHAR(500)  NULL,\n    `nguon_giao`              VARCHAR(50)   NULL,\n    `van_ban_giao`            VARCHAR(500)  NULL,\n    `loai_van_ban`            VARCHAR(100)  NULL,\n    `ma_nhiem_vu`             VARCHAR(255)  NULL,\n    `ten_nhiem_vu`            TEXT          NULL,\n    `chu_de`                  VARCHAR(500)  NULL,\n    `nhom_nhiem_vu`           VARCHAR(500)  NULL,\n    `id_don_vi_giao`          VARCHAR(100)  NULL,\n    `don_vi_giao`             VARCHAR(500)  NULL,\n    `id_nguoi_giao`           VARCHAR(100)  NULL,\n    `nguoi_giao`              VARCHAR(255)  NULL,\n    `id_don_vi_chu_tri`       VARCHAR(100)  NULL,\n    `ten_don_vi_chu_tri`      VARCHAR(500)  NULL,\n    `ten_don_vi_thuc_hien`    VARCHAR(500)  NULL,\n    `id_nguoi_thuc_hien`      VARCHAR(100)  NULL,\n    `nguoi_thuc_hien`         VARCHAR(255)  NULL,\n    `lanh_dao_ban_phu_trach`  VARCHAR(500)  NULL,\n    `ngay_giao`               VARCHAR(10)   NULL,\n    `han_xu_ly`               VARCHAR(10)   NULL,\n    `ngay_hoan_thanh`         VARCHAR(10)   NULL,\n    `ngay_chap_nhan`          VARCHAR(10)   NULL,\n    `ngay_xoa`                VARCHAR(10)   NULL,\n    `tinh_trang`              VARCHAR(50)   NULL,\n    `tien_do`                 INT           NULL,\n    `ket_qua_thuc_hien`       LONGTEXT      NULL,\n    `kho_khan_vuong_mac`      LONGTEXT      NULL,\n    `de_xuat_kien_nghi`       LONGTEXT      NULL,\n    `sync_date`               DATETIME      NULL,\n    KEY `idx_task`       (`task_id`),\n    KEY `idx_nguon_giao` (`nguon_giao`),\n    KEY `idx_truc_giao`  (`id_truc_giao`),\n    KEY `idx_tinh_trang` (`tinh_trang`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;\n\nTRUNCATE TABLE `db_theodoinv_hn_test_data`.`qlnv_chitiet_bcd57_xaphuong`;\n",
+                  "Evaluation Mode": "Entire text",
+                  "Text to Prepend": null,
+                  "Line-by-Line Evaluation Mode": "All",
+                  "Character Set": "UTF-8",
+                  "Maximum Buffer Size": "1 MB",
+                  "Replacement Strategy": "Always Replace",
+                  "Text to Append": null
+                },
+                "propertyDescriptors": {
+                  "Regular Expression": {
+                    "name": "Regular Expression",
+                    "displayName": "Search Value",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Replacement Value": {
+                    "name": "Replacement Value",
+                    "displayName": "Replacement Value",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Evaluation Mode": {
+                    "name": "Evaluation Mode",
+                    "displayName": "Evaluation Mode",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Text to Prepend": {
+                    "name": "Text to Prepend",
+                    "displayName": "Text to Prepend",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Line-by-Line Evaluation Mode": {
+                    "name": "Line-by-Line Evaluation Mode",
+                    "displayName": "Line-by-Line Evaluation Mode",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Character Set": {
+                    "name": "Character Set",
+                    "displayName": "Character Set",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Maximum Buffer Size": {
+                    "name": "Maximum Buffer Size",
+                    "displayName": "Maximum Buffer Size",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Replacement Strategy": {
+                    "name": "Replacement Strategy",
+                    "displayName": "Replacement Strategy",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Text to Append": {
+                    "name": "Text to Append",
+                    "displayName": "Text to Append",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 25,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [
+                  "failure"
+                ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "b6a3f50f-8876-35db-ac94-f66625ec81f4"
+              },
+              {
+                "identifier": "f3ad4b6a-d3ed-34a5-a43e-e46820a0db48",
+                "instanceIdentifier": "5ebe3d88-c913-1f31-be7a-7e552bb95fde",
+                "name": "LogAttribute",
+                "comments": "",
+                "position": {
+                  "x": 1600,
+                  "y": 640
+                },
+                "type": "org.apache.nifi.processors.standard.LogAttribute",
+                "bundle": {
+                  "group": "org.apache.nifi",
+                  "artifact": "nifi-standard-nar",
+                  "version": "1.27.0"
+                },
+                "properties": {
+                  "Log prefix": null,
+                  "character-set": "US-ASCII",
+                  "Log FlowFile Properties": "true",
+                  "Log Level": "info",
+                  "attributes-to-ignore-regex": null,
+                  "Attributes to Ignore": null,
+                  "Attributes to Log": null,
+                  "attributes-to-log-regex": ".*",
+                  "Output Format": "Line per Attribute",
+                  "Log Payload": "false"
+                },
+                "propertyDescriptors": {
+                  "Log prefix": {
+                    "name": "Log prefix",
+                    "displayName": "Log prefix",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "character-set": {
+                    "name": "character-set",
+                    "displayName": "Character Set",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Log FlowFile Properties": {
+                    "name": "Log FlowFile Properties",
+                    "displayName": "Log FlowFile Properties",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Log Level": {
+                    "name": "Log Level",
+                    "displayName": "Log Level",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "attributes-to-ignore-regex": {
+                    "name": "attributes-to-ignore-regex",
+                    "displayName": "Attributes to Ignore by Regular Expression",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Attributes to Ignore": {
+                    "name": "Attributes to Ignore",
+                    "displayName": "Attributes to Ignore",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Attributes to Log": {
+                    "name": "Attributes to Log",
+                    "displayName": "Attributes to Log",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "attributes-to-log-regex": {
+                    "name": "attributes-to-log-regex",
+                    "displayName": "Attributes to Log by Regular Expression",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Output Format": {
+                    "name": "Output Format",
+                    "displayName": "Output Format",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Log Payload": {
+                    "name": "Log Payload",
+                    "displayName": "Log Payload",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 25,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [],
+                "scheduledState": "DISABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "b6a3f50f-8876-35db-ac94-f66625ec81f4"
+              },
+              {
+                "identifier": "57eff423-3d27-3cb4-a596-6b3360042b27",
+                "instanceIdentifier": "5ebe3d89-c913-1f31-a779-0faf5af5f845",
+                "name": "PutSQL",
+                "comments": "",
+                "position": {
+                  "x": 1007.4949336110061,
+                  "y": 889.4860589800969
+                },
+                "type": "org.apache.nifi.processors.standard.PutSQL",
+                "bundle": {
+                  "group": "org.apache.nifi",
+                  "artifact": "nifi-standard-nar",
+                  "version": "1.27.0"
+                },
+                "properties": {
+                  "Support Fragmented Transactions": "true",
+                  "putsql-sql-statement": null,
+                  "Transaction Timeout": null,
+                  "Batch Size": "100",
+                  "Obtain Generated Keys": "false",
+                  "JDBC Connection Pool": "84e917c7-a439-343e-9704-bf4e8c476fc9",
+                  "database-session-autocommit": "false",
+                  "rollback-on-failure": "false"
+                },
+                "propertyDescriptors": {
+                  "Support Fragmented Transactions": {
+                    "name": "Support Fragmented Transactions",
+                    "displayName": "Support Fragmented Transactions",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "putsql-sql-statement": {
+                    "name": "putsql-sql-statement",
+                    "displayName": "SQL Statement",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Transaction Timeout": {
+                    "name": "Transaction Timeout",
+                    "displayName": "Transaction Timeout",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Batch Size": {
+                    "name": "Batch Size",
+                    "displayName": "Batch Size",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Obtain Generated Keys": {
+                    "name": "Obtain Generated Keys",
+                    "displayName": "Obtain Generated Keys",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "JDBC Connection Pool": {
+                    "name": "JDBC Connection Pool",
+                    "displayName": "JDBC Connection Pool",
+                    "identifiesControllerService": true,
+                    "sensitive": false
+                  },
+                  "database-session-autocommit": {
+                    "name": "database-session-autocommit",
+                    "displayName": "Database Session AutoCommit",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "rollback-on-failure": {
+                    "name": "rollback-on-failure",
+                    "displayName": "Rollback On Failure",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 0,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [
+                  "success"
+                ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "b6a3f50f-8876-35db-ac94-f66625ec81f4"
+              },
+              {
+                "identifier": "cd2786f8-da73-3afe-b035-23e40c916363",
+                "instanceIdentifier": "5ebe3d8c-c913-1f31-a098-58d426bcc4e8",
+                "name": "ReplaceText",
+                "comments": "",
+                "position": {
+                  "x": 512,
+                  "y": 608
+                },
+                "type": "org.apache.nifi.processors.standard.ReplaceText",
+                "bundle": {
+                  "group": "org.apache.nifi",
+                  "artifact": "nifi-standard-nar",
+                  "version": "1.27.0"
+                },
+                "properties": {
+                  "Regular Expression": "(?s)(^.*$)",
+                  "Replacement Value": "INSERT INTO `db_theodoinv_hn_test_data`.`qlnv_chitiet_bcd57_xaphuong` (\n    `task_id`,\n    `status`,\n    `id_truc_giao`,\n    `truc_giao`,\n    `nguon_giao`,\n    `van_ban_giao`,\n    `loai_van_ban`,\n    `ma_nhiem_vu`,\n    `ten_nhiem_vu`,\n    `chu_de`,\n    `nhom_nhiem_vu`,\n    `id_don_vi_giao`,\n    `don_vi_giao`,\n    `id_nguoi_giao`,\n    `nguoi_giao`,\n    `id_don_vi_chu_tri`,\n    `ten_don_vi_chu_tri`,\n    `ten_don_vi_thuc_hien`,\n    `id_nguoi_thuc_hien`,\n    `nguoi_thuc_hien`,\n    `lanh_dao_ban_phu_trach`,\n    `ngay_giao`,\n    `han_xu_ly`,\n    `ngay_hoan_thanh`,\n    `ngay_chap_nhan`,\n    `ngay_xoa`,\n    `tinh_trang`,\n    `tien_do`,\n    `ket_qua_thuc_hien`,\n    `kho_khan_vuong_mac`,\n    `de_xuat_kien_nghi`,\n    `sync_date`\n)\n\n/* =======================================================================\n   NHIỆM VỤ BCĐ 57 GIAO XÃ/PHƯỜNG (qlnv_task)\n   ======================================================================= */\nSELECT\n    /* 1. KHÓA HỆ THỐNG & TRẠNG THÁI */\n    t.TaskId                                                AS task_id,\n    t.Status                                                AS status,\n\n    /* 2. TRỤC GIAO & VĂN BẢN GIAO */\n    SUBSTRING_INDEX(t.AssignDepartment, '.', 2)             AS id_truc_giao,\n    COALESCE(NULLIF(t.AssignOrganization, ''), d_assign_cap2.name) AS truc_giao,\n\n    /* NGUỒN GIAO (nhánh 1 chỉ có BCĐ / Thành phố; Trung ương lấy ở nhánh 2) */\n    CASE\n        /* Ban Chỉ đạo giao / bút phê, chỉ đạo */\n        WHEN CONCAT_WS(' ', t.AssignOrganization, d_assign.name, u_assign.eGovUserPositionName)\n                 LIKE '%Ban Chỉ đạo%'\n          OR t.DocCode LIKE '%BCĐ%'\n        THEN 'Nhiệm vụ Ban Chỉ đạo'\n\n        /* Còn lại: Thành ủy, HĐND, UBND TP, sở ngành TP giao */\n        ELSE 'Nhiệm vụ Thành phố'\n    END                                                     AS nguon_giao,\n    t.DocCode                                               AS van_ban_giao,\n    /* Loại văn bản: tách ký hiệu sau dấu '/' của số văn bản (vd 12/KH-UBND -> KH) */\n    CASE\n        WHEN NULLIF(TRIM(t.DocCode), '') IS NULL OR t.DocCode NOT LIKE '%/%' THEN 'Khác'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(t.DocCode, '/', -1), '-', 1))) = 'NQ'              THEN 'Nghị quyết'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(t.DocCode, '/', -1), '-', 1))) = 'KL'              THEN 'Kết luận'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(t.DocCode, '/', -1), '-', 1))) = 'CT'              THEN 'Chỉ thị'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(t.DocCode, '/', -1), '-', 1))) = 'QĐ'              THEN 'Quyết định'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(t.DocCode, '/', -1), '-', 1))) = 'KH'              THEN 'Kế hoạch'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(t.DocCode, '/', -1), '-', 1))) = 'TB'              THEN 'Thông báo'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(t.DocCode, '/', -1), '-', 1))) = 'HD'              THEN 'Hướng dẫn'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(t.DocCode, '/', -1), '-', 1))) = 'CTR'             THEN 'Chương trình'\n        WHEN UPPER(TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(t.DocCode, '/', -1), '-', 1))) = 'BC'              THEN 'Báo cáo'\n        /* dạng 123/UBND-KGVX, 45/VP-TH ... = công văn */\n        ELSE 'Công văn'\n    END                                                     AS loai_van_ban,\n\n    /* 3. THÔNG TIN NHIỆM VỤ, TIÊU ĐỀ & CHỦ ĐỀ */\n    t.Code                                                  AS ma_nhiem_vu,\n    t.Title                                                 AS ten_nhiem_vu,\n    COALESCE(NULLIF(tp.TopicName, ''), 'Chưa phân loại')    AS chu_de,\n    COALESCE(NULLIF(t.NameGroup, ''), 'Chưa phân loại')     AS nhom_nhiem_vu,\n\n    /* ĐƠN VỊ GIAO & NGƯỜI GIAO */\n    t.AssignDepartment                                      AS id_don_vi_giao,\n    COALESCE(d_assign.name, NULLIF(t.AssignOrganization, '')) AS don_vi_giao,\n    t.AssignUser                                            AS id_nguoi_giao,\n    u_assign.eGovUserFullname                               AS nguoi_giao,\n\n    /* 4. ĐƠN VỊ THỰC HIỆN / CHỦ TRÌ & NGƯỜI THỰC HIỆN */\n    t.TargetDepartment                                      AS id_don_vi_chu_tri,\n    COALESCE(\n        NULLIF(t.ResponsibleUnit, ''), \n        NULLIF(t.TargetOrganization, ''), \n        d_cap.name,\n        d_donvi.name\n    )                                                       AS ten_don_vi_chu_tri,\n    \n    COALESCE(\n        d_donvi.name,\n        NULLIF(t.ResponsibleUnit, ''),\n        NULLIF(t.TargetOrganization, '')\n    )                                                       AS ten_don_vi_thuc_hien,\n\n    t.TargetUser                                            AS id_nguoi_thuc_hien,\n    u_target.eGovUserFullname                               AS nguoi_thuc_hien,\n\n    /* Lãnh đạo ban phụ trách */\n    CONCAT_WS(' · ',\n        COALESCE(u_target.eGovUserPositionName, NULLIF(t.ChargeUser, ''))\n    )                                                       AS lanh_dao_ban_phu_trach,\n\n    /* 5. CÁC MỐC THỜI GIAN */\n    DATE_FORMAT(t.StartedDate, '%d/%m/%Y')                  AS ngay_giao,\n    DATE_FORMAT(t.ExpireDate, '%d/%m/%Y')                   AS han_xu_ly,\n    DATE_FORMAT(t.CompletedDate, '%d/%m/%Y')                AS ngay_hoan_thanh,\n    DATE_FORMAT(t.ApprovedDate, '%d/%m/%Y')                 AS ngay_chap_nhan,\n    DATE_FORMAT(t.DeletedDate, '%d/%m/%Y')                  AS ngay_xoa,\n\n    /* 6. PHÂN LOẠI 4 TÌNH TRẠNG CHUẨN */\n    CASE\n        /* 1. Đã hoàn thành (đúng hạn hoặc quá hạn) */\n        WHEN t.Status IN (3, 4)\n             AND t.ExpireDate IS NOT NULL\n             AND COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL\n        THEN 'Đã hoàn thành'\n\n        /* 2. Thường xuyên (nhiệm vụ không có hạn) */\n        WHEN t.ExpireDate IS NULL\n        THEN 'Thường xuyên'\n\n        /* 3. Chưa hoàn thành trong hạn */\n        WHEN t.Status IN (-1, 0, 1, 2)\n             AND t.ExpireDate IS NOT NULL\n             AND DATE(t.ExpireDate) >= CURDATE()\n        THEN 'Chưa hoàn thành trong hạn'\n\n        /* 4. Chưa hoàn thành quá hạn */\n        WHEN t.Status IN (-1, 0, 1, 2)\n             AND t.ExpireDate IS NOT NULL\n             AND DATE(t.ExpireDate) < CURDATE()\n        THEN 'Chưa hoàn thành quá hạn'\n    END                                                     AS tinh_trang,\n\n    /* Tiến độ (%): đã hoàn thành/kết thúc tính 100 */\n    IF(t.Status IN (3, 4), 100, COALESCE(t.Progress, 0))    AS tien_do,\n\n    /* 7. CHI TIẾT TÌNH HÌNH & BÁO CÁO (Lấy bản ghi mới nhất) */\n    COALESCE(\n        (\n            SELECT rp.Content \n            FROM `db_theodoinv_hn_test_data`.`qlnv_report` rp \n            WHERE rp.TaskId = t.TaskId \n              AND rp.DeletedDate IS NULL \n            ORDER BY rp.CreatedDate DESC, rp.ReportId DESC \n            LIMIT 1\n        ), \n        t.Content,\n        '—'\n    )                                                       AS ket_qua_thuc_hien,\n\n    COALESCE(\n        (\n            SELECT NULLIF(rp.Difficulty, '') \n            FROM `db_theodoinv_hn_test_data`.`qlnv_report` rp \n            WHERE rp.TaskId = t.TaskId \n              AND rp.DeletedDate IS NULL \n            ORDER BY rp.CreatedDate DESC, rp.ReportId DESC \n            LIMIT 1\n        ), \n        '—'\n    )                                                       AS kho_khan_vuong_mac,\n\n    COALESCE(\n        (\n            SELECT NULLIF(rp.Suggestion, '') \n            FROM `db_theodoinv_hn_test_data`.`qlnv_report` rp \n            WHERE rp.TaskId = t.TaskId \n              AND rp.DeletedDate IS NULL \n            ORDER BY rp.CreatedDate DESC, rp.ReportId DESC \n            LIMIT 1\n        ), \n        '—'\n    )                                                       AS de_xuat_kien_nghi,\n\n    NOW()                                                   AS sync_date\n\nFROM `db_theodoinv_hn_test_data`.`qlnv_task` t\n\n/* CHỦ ĐỀ (1 TopicId / task -> không nhân dòng) */\nLEFT JOIN `db_theodoinv_hn_test_data`.`qlnv_task_topic` tp\n       ON tp.TopicId = t.TopicId\n\n/* JOIN TÊN ĐƠN VỊ TRỤC GIAO CẤP 2 */\nLEFT JOIN `db_theodoinv_hn_test_data`.`department` d_assign_cap2\n       ON d_assign_cap2.id = CASE\n            WHEN SUBSTRING_INDEX(SUBSTRING_INDEX(t.AssignDepartment, '.', 2), '.', -1) REGEXP '^[0-9]+$'\n            THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(t.AssignDepartment, '.', 2), '.', -1) AS UNSIGNED)\n            ELSE NULL\n          END\n      AND d_assign_cap2.IsDelete = 0\n\n/* JOIN ĐƠN VỊ GIAO (BÓC TÁCH ID TỪ T.ASSIGNDEPARTMENT ĐỂ LẤY TÊN) */\nLEFT JOIN `db_theodoinv_hn_test_data`.`department` d_assign\n       ON d_assign.id = CASE\n            WHEN SUBSTRING_INDEX(t.AssignDepartment, '.', -1) REGEXP '^[0-9]+$'\n            THEN CAST(SUBSTRING_INDEX(t.AssignDepartment, '.', -1) AS UNSIGNED)\n            ELSE NULL\n          END\n      AND d_assign.IsDelete = 0\n\n/* JOIN NGƯỜI GIAO NHIỆM VỤ */\nLEFT JOIN `db_theodoinv_hn_test_data`.`qlnv_user` u_assign\n       ON u_assign.eGovUserId = t.AssignUser\n\n/* JOIN TÊN XÃ/PHƯỜNG: đoạn thứ 4 của TargetDepartment (490.698.1310.<xã>...) */\nLEFT JOIN `db_theodoinv_hn_test_data`.`department` d_cap\n       ON d_cap.id = CASE\n            WHEN SUBSTRING_INDEX(SUBSTRING_INDEX(t.TargetDepartment, '.', 4), '.', -1) REGEXP '^[0-9]+$'\n            THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(t.TargetDepartment, '.', 4), '.', -1) AS UNSIGNED)\n            ELSE NULL\n          END\n      AND d_cap.IsDelete = 0\n\nLEFT JOIN `db_theodoinv_hn_test_data`.`department` d_donvi\n       ON d_donvi.id = CASE\n            WHEN SUBSTRING_INDEX(t.TargetDepartment, '.', -1) REGEXP '^[0-9]+$'\n            THEN CAST(SUBSTRING_INDEX(t.TargetDepartment, '.', -1) AS UNSIGNED)\n            ELSE NULL\n          END\n      AND d_donvi.IsDelete = 0\n\n/* JOIN USER NHẬN */\nLEFT JOIN `db_theodoinv_hn_test_data`.`qlnv_user` u_target \n       ON u_target.eGovUserId = t.TargetUser\n\n/* ĐIỀU KIỆN LẤY TASK: BCĐ 57 + có liên quan đến xã/phường */\nWHERE t.DeletedDate IS NULL\n  AND t.Status <> 5\n\n  /* Tương đương tinh_trang <> 'Chưa xác định' của bản cũ */\n  AND (   t.Status IN (-1, 0, 1, 2)\n       OR (t.Status IN (3, 4)\n           AND (   COALESCE(t.IsRecurring, 0) = 1\n                OR t.ExpireDate IS NULL\n                OR COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL)))\n\n  /* Task thuộc nghị quyết nhóm 55 (qua qlnv_task_resolution), EXISTS để không nhân dòng */\n  AND EXISTS (\n      SELECT 1\n      FROM `db_theodoinv_hn_test_data`.`qlnv_task_resolution` tr\n      INNER JOIN `db_theodoinv_hn_test_data`.`qlnv_resolution` r\n              ON r.ResolutionId = tr.ResolutionId\n      WHERE tr.TaskId = t.TaskId\n        AND r.ResolutionGroupId = 55\n        AND r.DeletedDate IS NULL\n  )\n\n  /* Có liên quan đến xã/phường: xã/phường giao, nhận, hoặc tham gia (qlnv_task_user) */\n  AND (\n         t.TargetDepartment LIKE '490.698.1310.%'\n      OR t.AssignDepartment LIKE '490.698.1310.%'\n      OR EXISTS (\n             SELECT 1\n             FROM `db_theodoinv_hn_test_data`.`qlnv_task_user` tu_xp\n             WHERE tu_xp.TaskId = t.TaskId\n               AND tu_xp.DepartmentId LIKE '490.698.1310.%'\n         )\n  )\n\nGROUP BY t.TaskId;\n",
+                  "Evaluation Mode": "Entire text",
+                  "Text to Prepend": null,
+                  "Line-by-Line Evaluation Mode": "All",
+                  "Character Set": "UTF-8",
+                  "Maximum Buffer Size": "1 MB",
+                  "Replacement Strategy": "Always Replace",
+                  "Text to Append": null
+                },
+                "propertyDescriptors": {
+                  "Regular Expression": {
+                    "name": "Regular Expression",
+                    "displayName": "Search Value",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Replacement Value": {
+                    "name": "Replacement Value",
+                    "displayName": "Replacement Value",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Evaluation Mode": {
+                    "name": "Evaluation Mode",
+                    "displayName": "Evaluation Mode",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Text to Prepend": {
+                    "name": "Text to Prepend",
+                    "displayName": "Text to Prepend",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Line-by-Line Evaluation Mode": {
+                    "name": "Line-by-Line Evaluation Mode",
+                    "displayName": "Line-by-Line Evaluation Mode",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Character Set": {
+                    "name": "Character Set",
+                    "displayName": "Character Set",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Maximum Buffer Size": {
+                    "name": "Maximum Buffer Size",
+                    "displayName": "Maximum Buffer Size",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Replacement Strategy": {
+                    "name": "Replacement Strategy",
+                    "displayName": "Replacement Strategy",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Text to Append": {
+                    "name": "Text to Append",
+                    "displayName": "Text to Append",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 25,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [
+                  "failure"
+                ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "b6a3f50f-8876-35db-ac94-f66625ec81f4"
+              },
+              {
+                "identifier": "c7ebf1ee-2ba1-31a3-802e-f071889113e0",
+                "instanceIdentifier": "5ebe3d87-c913-1f31-5646-1df015de47bb",
+                "name": "PutSQL",
+                "comments": "",
+                "position": {
+                  "x": 1016,
+                  "y": 408
+                },
+                "type": "org.apache.nifi.processors.standard.PutSQL",
+                "bundle": {
+                  "group": "org.apache.nifi",
+                  "artifact": "nifi-standard-nar",
+                  "version": "1.27.0"
+                },
+                "properties": {
+                  "Support Fragmented Transactions": "true",
+                  "putsql-sql-statement": null,
+                  "Transaction Timeout": null,
+                  "Batch Size": "100",
+                  "Obtain Generated Keys": "false",
+                  "JDBC Connection Pool": "b5756ef0-6685-3776-a9c5-132af984527c",
+                  "database-session-autocommit": "false",
+                  "rollback-on-failure": "false"
+                },
+                "propertyDescriptors": {
+                  "Support Fragmented Transactions": {
+                    "name": "Support Fragmented Transactions",
+                    "displayName": "Support Fragmented Transactions",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "putsql-sql-statement": {
+                    "name": "putsql-sql-statement",
+                    "displayName": "SQL Statement",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Transaction Timeout": {
+                    "name": "Transaction Timeout",
+                    "displayName": "Transaction Timeout",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Batch Size": {
+                    "name": "Batch Size",
+                    "displayName": "Batch Size",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Obtain Generated Keys": {
+                    "name": "Obtain Generated Keys",
+                    "displayName": "Obtain Generated Keys",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "JDBC Connection Pool": {
+                    "name": "JDBC Connection Pool",
+                    "displayName": "JDBC Connection Pool",
+                    "identifiesControllerService": true,
+                    "sensitive": false
+                  },
+                  "database-session-autocommit": {
+                    "name": "database-session-autocommit",
+                    "displayName": "Database Session AutoCommit",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "rollback-on-failure": {
+                    "name": "rollback-on-failure",
+                    "displayName": "Rollback On Failure",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 0,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [
+                  "failure",
+                  "retry"
+                ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "b6a3f50f-8876-35db-ac94-f66625ec81f4"
+              },
+              {
+                "identifier": "a80d4b3b-f2e6-3292-a852-68226ef77297",
+                "instanceIdentifier": "5ebe3d8b-c913-1f31-e2e1-8c979596c208",
+                "name": "GenerateFlowFile",
+                "comments": "",
+                "position": {
+                  "x": 1000,
+                  "y": -8
+                },
+                "type": "org.apache.nifi.processors.standard.GenerateFlowFile",
+                "bundle": {
+                  "group": "org.apache.nifi",
+                  "artifact": "nifi-standard-nar",
+                  "version": "1.27.0"
+                },
+                "properties": {
+                  "character-set": "UTF-8",
+                  "File Size": "0B",
+                  "mime-type": null,
+                  "generate-ff-custom-text": null,
+                  "Batch Size": "1",
+                  "Unique FlowFiles": "false",
+                  "Data Format": "Text"
+                },
+                "propertyDescriptors": {
+                  "character-set": {
+                    "name": "character-set",
+                    "displayName": "Character Set",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "File Size": {
+                    "name": "File Size",
+                    "displayName": "File Size",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "mime-type": {
+                    "name": "mime-type",
+                    "displayName": "Mime Type",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "generate-ff-custom-text": {
+                    "name": "generate-ff-custom-text",
+                    "displayName": "Custom Text",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Batch Size": {
+                    "name": "Batch Size",
+                    "displayName": "Batch Size",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Unique FlowFiles": {
+                    "name": "Unique FlowFiles",
+                    "displayName": "Unique FlowFiles",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  },
+                  "Data Format": {
+                    "name": "Data Format",
+                    "displayName": "Data Format",
+                    "identifiesControllerService": false,
+                    "sensitive": false
+                  }
+                },
+                "style": {},
+                "schedulingPeriod": "5 min",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 0,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "b6a3f50f-8876-35db-ac94-f66625ec81f4"
+              }
+            ],
+            "inputPorts": [],
+            "outputPorts": [],
+            "connections": [
+              {
+                "identifier": "48bc9aca-5f57-320a-98f5-0e2c4fde78f1",
+                "instanceIdentifier": "5ebe3d91-c913-1f31-eb5d-ff3d57f3be41",
+                "name": "",
+                "source": {
+                  "id": "cd2786f8-da73-3afe-b035-23e40c916363",
+                  "type": "PROCESSOR",
+                  "groupId": "b6a3f50f-8876-35db-ac94-f66625ec81f4",
+                  "name": "ReplaceText",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d8c-c913-1f31-a098-58d426bcc4e8"
+                },
+                "destination": {
+                  "id": "57eff423-3d27-3cb4-a596-6b3360042b27",
+                  "type": "PROCESSOR",
+                  "groupId": "b6a3f50f-8876-35db-ac94-f66625ec81f4",
+                  "name": "PutSQL",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d89-c913-1f31-a779-0faf5af5f845"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                  "success"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "b6a3f50f-8876-35db-ac94-f66625ec81f4"
+              },
+              {
+                "identifier": "ae2616d6-3e41-3b86-befd-22fac97e8c9b",
+                "instanceIdentifier": "5ebe3d8e-c913-1f31-dc1a-8510e39afef6",
+                "name": "",
+                "source": {
+                  "id": "57eff423-3d27-3cb4-a596-6b3360042b27",
+                  "type": "PROCESSOR",
+                  "groupId": "b6a3f50f-8876-35db-ac94-f66625ec81f4",
+                  "name": "PutSQL",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d89-c913-1f31-a779-0faf5af5f845"
+                },
+                "destination": {
+                  "id": "f3ad4b6a-d3ed-34a5-a43e-e46820a0db48",
+                  "type": "PROCESSOR",
+                  "groupId": "b6a3f50f-8876-35db-ac94-f66625ec81f4",
+                  "name": "LogAttribute",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d88-c913-1f31-be7a-7e552bb95fde"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                  "failure",
+                  "retry"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "b6a3f50f-8876-35db-ac94-f66625ec81f4"
+              },
+              {
+                "identifier": "8f034818-0c3b-3be2-a797-a1aa4dfb8ee6",
+                "instanceIdentifier": "5ebe3d8d-c913-1f31-6ebc-b2ca26dd703d",
+                "name": "",
+                "source": {
+                  "id": "c7ebf1ee-2ba1-31a3-802e-f071889113e0",
+                  "type": "PROCESSOR",
+                  "groupId": "b6a3f50f-8876-35db-ac94-f66625ec81f4",
+                  "name": "PutSQL",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d87-c913-1f31-5646-1df015de47bb"
+                },
+                "destination": {
+                  "id": "cd2786f8-da73-3afe-b035-23e40c916363",
+                  "type": "PROCESSOR",
+                  "groupId": "b6a3f50f-8876-35db-ac94-f66625ec81f4",
+                  "name": "ReplaceText",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d8c-c913-1f31-a098-58d426bcc4e8"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                  "success"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "b6a3f50f-8876-35db-ac94-f66625ec81f4"
+              },
+              {
+                "identifier": "f116d98f-85c0-3384-8251-1a8f0c971227",
+                "instanceIdentifier": "5ebe3d90-c913-1f31-7b98-1fc0e11fb4ae",
+                "name": "",
+                "source": {
+                  "id": "a80d4b3b-f2e6-3292-a852-68226ef77297",
+                  "type": "PROCESSOR",
+                  "groupId": "b6a3f50f-8876-35db-ac94-f66625ec81f4",
+                  "name": "GenerateFlowFile",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d8b-c913-1f31-e2e1-8c979596c208"
+                },
+                "destination": {
+                  "id": "32a7174d-495d-3be8-9402-29306ee53fed",
+                  "type": "PROCESSOR",
+                  "groupId": "b6a3f50f-8876-35db-ac94-f66625ec81f4",
+                  "name": "ReplaceText",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d8a-c913-1f31-df2b-a91f69d4e18b"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                  "success"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "b6a3f50f-8876-35db-ac94-f66625ec81f4"
+              },
+              {
+                "identifier": "ac1570b3-532c-3f91-93b5-ef831f1cf46b",
+                "instanceIdentifier": "5ebe3d8f-c913-1f31-1d41-8e61126c2970",
+                "name": "",
+                "source": {
+                  "id": "32a7174d-495d-3be8-9402-29306ee53fed",
+                  "type": "PROCESSOR",
+                  "groupId": "b6a3f50f-8876-35db-ac94-f66625ec81f4",
+                  "name": "ReplaceText",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d8a-c913-1f31-df2b-a91f69d4e18b"
+                },
+                "destination": {
+                  "id": "c7ebf1ee-2ba1-31a3-802e-f071889113e0",
+                  "type": "PROCESSOR",
+                  "groupId": "b6a3f50f-8876-35db-ac94-f66625ec81f4",
+                  "name": "PutSQL",
+                  "comments": "",
+                  "instanceIdentifier": "5ebe3d87-c913-1f31-5646-1df015de47bb"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                  "success"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "b6a3f50f-8876-35db-ac94-f66625ec81f4"
+              }
+            ],
+            "labels": [],
+            "funnels": [],
+            "controllerServices": [],
+            "variables": {},
+            "parameterContextName": "Server0",
+            "defaultFlowFileExpiration": "0 sec",
+            "defaultBackPressureObjectThreshold": 10000,
+            "defaultBackPressureDataSizeThreshold": "1 GB",
+            "logFileSuffix": "",
+            "flowFileConcurrency": "UNBOUNDED",
+            "flowFileOutboundPolicy": "STREAM_WHEN_AVAILABLE",
+            "componentType": "PROCESS_GROUP",
+            "groupIdentifier": "f242a554-4885-3f61-803d-af19b0e4b9c0"
+          }
+        ],
+        "remoteProcessGroups": [],
+        "processors": [],
+        "inputPorts": [],
+        "outputPorts": [],
+        "connections": [],
+        "labels": [],
+        "funnels": [],
+        "controllerServices": [],
+        "variables": {},
+        "parameterContextName": "Server0",
+        "defaultFlowFileExpiration": "0 sec",
+        "defaultBackPressureObjectThreshold": 10000,
+        "defaultBackPressureDataSizeThreshold": "1 GB",
+        "logFileSuffix": "",
+        "flowFileConcurrency": "UNBOUNDED",
+        "flowFileOutboundPolicy": "STREAM_WHEN_AVAILABLE",
+        "componentType": "PROCESS_GROUP",
+        "groupIdentifier": "8cf3a7fc-8efb-3965-9638-fac506dd1a5a"
+      }
+    ],
+    "remoteProcessGroups": [],
+    "processors": [],
+    "inputPorts": [],
+    "outputPorts": [],
+    "connections": [],
+    "labels": [],
+    "funnels": [],
+    "controllerServices": [],
+    "variables": {},
+    "parameterContextName": "Server0",
+    "defaultFlowFileExpiration": "0 sec",
+    "defaultBackPressureObjectThreshold": 10000,
+    "defaultBackPressureDataSizeThreshold": "1 GB",
+    "logFileSuffix": "",
+    "flowFileConcurrency": "UNBOUNDED",
+    "flowFileOutboundPolicy": "STREAM_WHEN_AVAILABLE",
+    "componentType": "PROCESS_GROUP"
+  },
+  "externalControllerServices": {
+    "b5756ef0-6685-3776-a9c5-132af984527c": {
+      "identifier": "b5756ef0-6685-3776-a9c5-132af984527c",
+      "name": "HaNoi_Datamart"
+    },
+    "84e917c7-a439-343e-9704-bf4e8c476fc9": {
+      "identifier": "84e917c7-a439-343e-9704-bf4e8c476fc9",
+      "name": "HaNoi_Datamart_5s"
+    }
+  },
+  "parameterContexts": {
+    "Server0": {
+      "name": "Server0",
+      "parameters": [
+        {
+          "name": "Database Connection Pooling Service",
+          "description": "",
+          "sensitive": false,
+          "provided": false,
+          "value": "acf51838-116f-119e-c09b-1b31f6c8d1ae"
+        },
+        {
+          "name": "jdbc_hanoi_datamart",
+          "description": "",
+          "sensitive": false,
+          "provided": false,
+          "value": "jdbc:mysql://10.2.65.151:3307/datamart?allowMultiQueries=true&useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Ho_Chi_Minh&useLegacyDatetimeCode=false"
+        },
+        {
+          "name": "JDBC Connection Pool",
+          "description": "",
+          "sensitive": false,
+          "provided": false,
+          "value": "b5756ef0-6685-3776-e32c-80fd5763a89c"
+        },
+        {
+          "name": "Password",
+          "description": "",
+          "sensitive": true,
+          "provided": false
+        }
+      ],
+      "inheritedParameterContexts": [],
+      "componentType": "PARAMETER_CONTEXT"
+    }
+  },
+  "flowEncodingVersion": "1.0",
+  "parameterProviders": {},
+  "latest": false
+}

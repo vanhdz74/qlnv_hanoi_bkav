@@ -99,7 +99,7 @@ FROM `db_theodoinv_hn`.`qlnv_task` t
 INNER JOIN `db_theodoinv_hn`.`qlnv_resolution` r
         ON r.ResolutionId = t.ResolutionId
        AND r.DeletedDate IS NULL
-       AND r.ResolutionGroupId IN (55, 132)
+    --    AND r.ResolutionGroupId IN (55, 132)
 
 INNER JOIN `db_theodoinv_hn`.`qlnv_timeline` tl
         ON tl.TaskId = t.TaskId
@@ -139,27 +139,14 @@ LEFT JOIN (
 ) u_target
        ON u_target.eGovUserId = tl.TargetUserId
 
-WHERE
-    t.DeletedDate IS NULL
-    AND t.Status <> 5
-    AND (
-        t.Status IN (-1, 0, 1, 2)
-        OR (
-            t.Status IN (3, 4)
-            AND (t.ExpireDate IS NULL OR COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL)
-        )
-    )
-
-    /* ĐIỀU KIỆN NHIỆM VỤ GIAO CHÍNH XÁC TỪ ĐƠN VỊ 490.698 */
-    AND t.AssignDepartment = '490.698'
-	AND t.TargetDepartment like '490.698.%'
-
-    /* LOẠI TRỪ ĐƠN VỊ NHẬN THUỘC 1307 / 1841 / 1310 */
-    AND COALESCE(t.TargetDepartment, '') NOT IN ('490.698.1307', '490.698.1841', '490.698.1310')
-
-    /* BỎ TASK KHÔNG CÓ ĐƠN VỊ NHẬN, VÀ TASK MÀ ĐƠN VỊ NHẬN CHÍNH LÀ UBND (490.698) */
-    AND COALESCE(t.TargetDepartment, '') <> ''
-    AND COALESCE(t.TargetDepartment, '') <> '490.698'
-
-    /* CHẶN ĐIỀU KIỆN NHÓM VĂN BẢN 55, 132 */
-    AND r.ResolutionGroupId IN (55, 132)
+/* ĐIỀU KIỆN LẤY TASK: đồng bộ với qlnv_tonghop_chitiet_nvgiao_pth_ubndtp */
+WHERE t.DeletedDate IS NULL
+  AND (   t.Status IN (-1, 0, 1, 2)
+       OR (t.Status IN (3, 4) AND (t.ExpireDate IS NULL OR COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL)))
+  /* UBND giao (đúng 490.698) cho đơn vị con 490.698.x, trừ 1307 / 1841 / 1310 */
+  AND t.AssignDepartment = '490.698'
+  AND t.TargetDepartment LIKE '490.698.%'
+  AND t.TargetDepartment NOT IN ('490.698.1307', '490.698.1841', '490.698.1310')
+  /* Loại nhóm văn bản 82, 109 */
+--   AND r.ResolutionGroupId NOT IN (82, 109)
+;

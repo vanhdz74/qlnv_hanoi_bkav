@@ -112,6 +112,7 @@ LEFT JOIN `db_theodoinv_hn`.`qlnv_resolution_group` rg
 LEFT JOIN `db_theodoinv_hn`.`qlnv_sector` s
        ON s.SectorId = r.SectorId
       AND s.DeletedDate IS NULL
+      AND s.IsActive = 1
 
 /* Thông tin tài khoản người tạo văn bản */
 LEFT JOIN `db_theodoinv_hn`.`qlnv_user` u

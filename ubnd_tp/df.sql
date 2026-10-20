@@ -40,7 +40,7 @@ SELECT
        PHÂN LOẠI VĂN BẢN & LĨNH VỰC
        ===================================================== */
     COALESCE(rg.Name, 'Khác')       AS Kieu,
-    COALESCE(s.SectorName, 'Khác')  AS LinhVuc,
+    COALESCE(NULLIF(s.SectorName, ''), 'Khác')  AS LinhVuc,
 
     /* =====================================================
        CÁC CHỈ SỐ THỐNG KÊ VĂN BẢN
@@ -68,6 +68,8 @@ LEFT JOIN db_theodoinv_hn.qlnv_resolution_group rg
 /* Lĩnh vực */
 LEFT JOIN db_theodoinv_hn.qlnv_sector s
        ON s.SectorId = r.SectorId
+      AND s.DeletedDate IS NULL
+      AND s.IsActive = 1
 
 /* Người tạo văn bản */
 LEFT JOIN db_theodoinv_hn.qlnv_user u
@@ -130,7 +132,7 @@ GROUP BY
     r.CreateUser,
     u.eGovUserFullname,
     COALESCE(rg.Name, 'Khác'),
-    COALESCE(s.SectorName, 'Khác')
+    COALESCE(NULLIF(s.SectorName, ''), 'Khác')
 
 ORDER BY
     yearkey DESC,
