@@ -1,0 +1,197 @@
+{
+ "813": {
+  "slice_name": "BCĐ 57 Xã – L3 Thân phải – lịch sử tiến trình",
+  "datasource": "136__table",
+  "params": {
+   "adhoc_filters": [],
+   "applied_time_extras": {},
+   "datasource": "136__table",
+   "disable_padding_default": true,
+   "empty_content": "Không có dữ liệu",
+   "groupby": [
+    {
+     "expressionType": "SQL",
+     "label": "task_id",
+     "sqlExpression": "task_id",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "ma_nhiem_vu",
+     "sqlExpression": "ma_nhiem_vu",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "noi_dung",
+     "sqlExpression": "ten_nhiem_vu",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "nguon_giao",
+     "sqlExpression": "(CASE nguon_giao WHEN 'Nhiệm vụ Trung ương' THEN 'tw' WHEN 'Nhiệm vụ Thành phố' THEN 'tp' WHEN 'Nhiệm vụ Ban Chỉ đạo' THEN 'bcd' ELSE '' END)",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "truc",
+     "sqlExpression": "COALESCE(NULLIF(truc_giao, ''), '(Chưa xác định)')",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "xa_phuong",
+     "sqlExpression": "COALESCE(NULLIF(ten_don_vi_chu_tri, ''), '(Chưa xác định)')",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "id_xa_phuong",
+     "sqlExpression": "id_don_vi_chu_tri",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "loai_van_ban",
+     "sqlExpression": "loai_van_ban",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "nhom_van_ban",
+     "sqlExpression": "COALESCE(loai_van_ban, '')",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "van_ban_giao",
+     "sqlExpression": "van_ban_giao",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "so_van_ban",
+     "sqlExpression": "van_ban_giao",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "nhom_nhiem_vu",
+     "sqlExpression": "COALESCE(NULLIF(nhom_nhiem_vu, ''), 'Chưa phân loại')",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "phan_nhom_nguon",
+     "sqlExpression": "COALESCE(NULLIF(nguon_giao, ''), '(Chưa phân nhóm)')",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "don_vi",
+     "sqlExpression": "COALESCE(NULLIF(ten_don_vi_chu_tri, ''), '(Chưa xác định)')",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "don_vi_nhom",
+     "sqlExpression": "''",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "don_vi_phoi_hop",
+     "sqlExpression": "''",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "ngay_giao",
+     "sqlExpression": "DATE_FORMAT(COALESCE(STR_TO_DATE(ngay_giao, '%d/%m/%Y'), STR_TO_DATE(ngay_giao, '%Y-%m-%d')), '%Y-%m-%d')",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "han_xu_ly",
+     "sqlExpression": "DATE_FORMAT(COALESCE(STR_TO_DATE(han_xu_ly, '%d/%m/%Y'), STR_TO_DATE(han_xu_ly, '%Y-%m-%d')), '%Y-%m-%d')",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "ngay_hoan_thanh",
+     "sqlExpression": "DATE_FORMAT(COALESCE(STR_TO_DATE(ngay_hoan_thanh, '%d/%m/%Y'), STR_TO_DATE(ngay_hoan_thanh, '%Y-%m-%d')), '%Y-%m-%d')",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "tien_do",
+     "sqlExpression": "tien_do",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "trang_thai",
+     "sqlExpression": "(CASE WHEN tinh_trang = 'Thường xuyên' THEN 'thuong_xuyen' WHEN tinh_trang LIKE 'Đã hoàn thành%' THEN 'dht' WHEN tinh_trang LIKE '%Quá hạn' THEN 'dht_quahan' ELSE 'dht_tronghan' END)",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "ht_qua_han",
+     "sqlExpression": "(CASE WHEN tinh_trang = 'Đã hoàn thành - Quá hạn' OR (tinh_trang = 'Đã hoàn thành' AND COALESCE(STR_TO_DATE(ngay_hoan_thanh, '%d/%m/%Y'), STR_TO_DATE(ngay_hoan_thanh, '%Y-%m-%d')) > COALESCE(STR_TO_DATE(han_xu_ly, '%d/%m/%Y'), STR_TO_DATE(han_xu_ly, '%Y-%m-%d'))) THEN 1 ELSE 0 END)",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "ket_qua",
+     "sqlExpression": "ket_qua_thuc_hien",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "ngay_ban_hanh_vb",
+     "sqlExpression": "''",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "lanh_dao_chi_dao",
+     "sqlExpression": "nguoi_giao",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "don_vi_thuc_hien",
+     "sqlExpression": "ten_don_vi_thuc_hien",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "tai_lieu",
+     "sqlExpression": "''",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "kho_khan",
+     "sqlExpression": "kho_khan_vuong_mac",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "de_xuat",
+     "sqlExpression": "de_xuat_kien_nghi",
+     "datasourceWarning": false
+    }
+   ],
+   "is_hide_modal_header": true,
+   "js_echart_building": "jsEchartScriptFunc = function (queryData, option, echarts, context) {\n  /* ==========================================================================\n     LỚP 3 – THÂN PHẢI: LỊCH SỬ TIẾN TRÌNH – CẤP XÃ/PHƯỜNG (Luật 1)\n     Dựng mốc chỉ từ trường ngày có thật (ban hành văn bản giao, hoàn thành);\n     không sinh sự kiện mô phỏng. Khi có bảng lịch sử thật thì bổ sung ở mục 3.\n     ========================================================================== */\n  const elementId = context && context.elementId ? context.elementId : \"bcd57-l3-xa-than-phai\";\n  const width = context && context.width ? context.width : null;\n  const height = context && context.height ? context.height : null;\n  const rootEl = document.getElementById(elementId);\n  if (!rootEl) return option;\n\n  if (rootEl.__bcdL3XaRightCleanup) { try { rootEl.__bcdL3XaRightCleanup(); } catch (e) {} }\n\n  // ============ 1. CẤU HÌNH ============\n  const CONFIG = {\n    cap: \"xa\",\n  };\n\n  // ============ 2. DỮ LIỆU ============\n  // Tên cột trong queryData: mỗi dòng = 1 nhiệm vụ (sau setDataMask của chart header chỉ còn dòng của mã đang xem)\n  const COLS = {\n    ma: \"ma_nhiem_vu\", nd: \"noi_dung\", nguon: \"nguon_giao\", truc: \"truc\", xa: \"xa_phuong\", idXa: \"id_xa_phuong\",\n    vb: \"van_ban_giao\", vbNgay: \"ngay_ban_hanh_vb\", loai: \"loai_van_ban\", pnguon: \"phan_nhom_nguon\", nhom: \"nhom_nhiem_vu\",\n    ld: \"lanh_dao_chi_dao\", dv: \"don_vi\", dvNhom: \"don_vi_nhom\", dvth: \"don_vi_thuc_hien\", ph: \"don_vi_phoi_hop\",\n    giao: \"ngay_giao\", han: \"han_xu_ly\", ht: \"ngay_hoan_thanh\", td: \"tien_do\", st: \"trang_thai\", htqh: \"ht_qua_han\",\n    kq: \"ket_qua\", files: \"tai_lieu\", kk: \"kho_khan\", dx: \"de_xuat\",\n  };\n  // Demo (4 nhiệm vụ trong bản HTML) – bị thay khi queryData có cột mã nhiệm vụ\n  const DEMO = [{\"ma\": \"033_TBKL_NQ57\", \"nd\": \"Tháo gỡ rào cản về cơ chế, chính sách, hạ tầng, nhân lực chất lượng cao cho việc phát triển các Khu công nghệ cao tại Hà Nội và Thành phố Hồ Chí Minh bảo đảm xưng tầm, là nơi thu hút đầu tư vào nghiên cứu, phát triển sản xuất công nghệ tiên tiến nhằm thúc đẩy đổi mới sáng tạo\", \"nguon\": \"tw\", \"truc\": \"Thành ủy\", \"xa\": \"Phường Ba Đình\", \"idXa\": \"XA_BADINH\", \"vb\": \"Thông báo số 03-TB/BCĐTW ngày 06/3/2025\", \"vbNgay\": \"2025-03-06\", \"loai\": \"TBKL\", \"pnguon\": \"Nghị quyết 57-NQ/TW - TBKL/BCĐTW\", \"nhom\": \"Nhóm 3 - Tăng cường đầu tư, hoàn thiện hạ tầng cho khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số quốc gia\", \"ld\": \"\", \"dv\": \"Đảng ủy Bộ Khoa học và Công nghệ; Thành ủy TP Hà Nội, TP Hồ Chí Minh\", \"dvNhom\": \"Khối cơ quan đảng (Trung ương, tỉnh ủy, thành ủy)\", \"dvth\": \"Thành phố Hà Nội\", \"ph\": \"\", \"giao\": \"2025-03-06\", \"han\": \"2025-03-31\", \"ht\": \"2025-05-14\", \"td\": 100, \"st\": \"dht\", \"htqh\": true, \"kq\": \"Ngày 14/5/2025, UBND Thành phố có báo cáo số 1955/BC-UBND gửi Bộ Khoa học và Công nghệ về việc đánh giá thực trạng khó khăn, vướng mắc và đề xuất giải pháp phát triển các khu công nghệ cao trên địa bàn thành phố Hà Nội\", \"files\": \"\", \"kk\": \"\", \"dx\": \"Đề nghị Bộ Khoa học và Công nghệ sớm tổ chức các buổi làm việc, khảo sát với các Khu công nghệ cao ở Thành phố Hà Nội, trên cơ sở đó, chủ trì, phối hợp với Thành phố báo cáo cấp có thẩm quyền xây dựng cơ chế chính sách phù hợp với tình hình thực tế tại Thành phố\"}, {\"ma\": \"292_TBKL_NQ57\", \"nd\": \"Nghiên cứu Kế hoạch hành động chiến lược và văn bản hướng dẫn của Cơ quan Thường trực Ban Chỉ đạo để cụ thể hoá vào kế hoạch hành động, chương trình, dự án của cơ quan, địa phương mình, phù hợp với các Hệ thống chiến lược và Sáng kiến đột phá\", \"nguon\": \"tw\", \"truc\": \"Thành ủy\", \"xa\": \"Phường Hoàn Kiếm\", \"idXa\": \"XA_HOANKIEM\", \"vb\": \"Thông báo số 05-TB/BCĐTW ngày 04/07/2025\", \"vbNgay\": \"2025-07-04\", \"loai\": \"TBKL\", \"pnguon\": \"Nghị quyết 57-NQ/TW - TBKL/BCĐTW\", \"nhom\": \"Nhóm 3 - Tăng cường đầu tư, hoàn thiện hạ tầng cho khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số quốc gia\", \"ld\": \"\", \"dv\": \"Các bộ, ngành, địa phương\", \"dvNhom\": \"Các bộ, ngành và địa phương\", \"dvth\": \"Thành phố Hà Nội\", \"ph\": \"\", \"giao\": \"2025-07-04\", \"han\": \"2025-07-31\", \"ht\": \"\", \"td\": null, \"st\": \"dht_quahan\", \"htqh\": false, \"kq\": \"Hiện nay, Trung ương chưa ban hành hướng dẫn chính thức. Trong thời gian chờ hướng dẫn của Trung ương, UBND thành phố Hà Nội đã chủ động triển khai, tham mưu Ban Chỉ đạo 57 Thành ủy ban hành Kế hoạch hành động số 20-KH/BCĐ57 ngày 19/01/2026; trong đó, các nội dung, định hướng của Kế hoạch hành động chiến lược và văn bản hướng dẫn của Cơ quan Thường trực Ban Chỉ đạo 57 Trung ương đã được nghiên cứu, tích hợp và cụ thể hóa vào Kế hoạch hành động của Thành phố (bảo đảm chủ trương tinh gọn hồ sơ, giấy tờ, tránh ban hành nhiều Kế hoạch). Kế hoạch số 20-KH/BCĐ57 đồng thời thể hiện rõ tinh thần chủ động, tiên phong, sáng tạo của Thành phố Hà Nội trong triển khai thực hiện Nghị quyết số 57-NQ/TW ngày 22/12/2024 của Bộ Chính trị; bảo đảm bám sát các hệ thống chiến lược, sáng kiến đột phá do Ban Chỉ đạo 57 Trung ương định hướng, đồng thời phù hợp với yêu cầu thực tiễn của Thành phố.\", \"files\": \"20khbcđ.pdf\", \"kk\": \"\", \"dx\": \"\"}, {\"ma\": \"NV032_TB246\", \"nd\": \"Các địa phương căn cứ tiềm năng, thế mạnh và nhu cầu phát triển, lựa chọn các sản phẩm KHCN, ĐMST trọng tâm, có giá trị gia tăng cao, có thị trường, khả năng nhân rộng; không đăng ký theo phong trảo, dàn trải; năm 2026 mỗi địa phương đăng ký tối thiểu 01 sản phẩm có thể định lượng bằng giá trị, từ năm 2027, hằng năm đăng ký, triển khai tối thiểu 02 - 03 sản phẩm, xác định rõ mục tiêu, nguồn lực, thời hạn, đơn vị chủ trì, địa chỉ ứng dụng, giá trị kinh tế - xã hội và khả năng nhân rộng cụ thể\", \"nguon\": \"tw\", \"truc\": \"Thành ủy\", \"xa\": \"Xã Sóc Sơn\", \"idXa\": \"XA_SOCSON\", \"vb\": \"Thông báo số 246/TB-VPCP ngày 12/5/2026 của Văn phòng Chính phủ\", \"vbNgay\": \"2026-05-12\", \"loai\": \"TBKL\", \"pnguon\": \"Nghị quyết 57-NQ/TW - TBKL/BCĐCP\", \"nhom\": \"Nhóm 10 - Nhóm khác\", \"ld\": \"\", \"dv\": \"Các địa phương\", \"dvNhom\": \"Các địa phương (tỉnh, thành phố)\", \"dvth\": \"Thành phố Hà Nội\", \"ph\": \"\", \"giao\": \"2026-05-12\", \"han\": \"2026-12-31\", \"ht\": \"\", \"td\": null, \"st\": \"dht_tronghan\", \"htqh\": false, \"kq\": \"UBND Thành phố đang chỉ đạo các cơ quan, đơn vị nghiêm túc triển khai\", \"files\": \"\", \"kk\": \"\", \"dx\": \"\"}, {\"ma\": \"283_TBKL_NQ57\", \"nd\": \"Tiếp tục nâng cao tinh thần trách nhiệm, có quyết tâm chính trị cao, kiên quyết, kiên trì, kiên định, làm bằng được để củng cố niềm tin của toàn xã hội; tập trung chỉ đạo quyết liệt, ưu tiên bố trí đầy đủ, kịp thời nguồn lực để hoàn thành các nhiệm vụ được giao, đặc biệt là các nhiệm vụ đã quá hạn.\", \"nguon\": \"tw\", \"truc\": \"Thành ủy\", \"xa\": \"Phường Ba Đình\", \"idXa\": \"XA_BADINH\", \"vb\": \"Thông báo số 05-TB/BCĐTW ngày 04/07/2025\", \"vbNgay\": \"2025-07-04\", \"loai\": \"TBKL\", \"pnguon\": \"Nghị quyết 57-NQ/TW - TBKL/BCĐTW\", \"nhom\": \"Nhóm 1 - Nâng cao nhận thức, đột phá về đổi mới tư duy, xác định quyết tâm chính trị mạnh mẽ, quyết liệt lãnh đạo, chỉ đạo, tạo xung lực mới, khí thế mới trong toàn xã hội về phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số quốc gia\", \"ld\": \"\", \"dv\": \"Các ban, bộ, ngành, địa phương\", \"dvNhom\": \"Các bộ, ngành và địa phương\", \"dvth\": \"Thành phố Hà Nội\", \"ph\": \"\", \"giao\": \"2025-07-04\", \"han\": \"\", \"ht\": \"\", \"td\": null, \"st\": \"thuong_xuyen\", \"htqh\": false, \"kq\": \"Thành phố đã chỉ đạo các Sở, ban, ngành, UBND xã, phường triển khai thực hiện đầy đủ các nhiệm vụ được giao với quyết tâm chính trị cao nhất\", \"files\": \"\", \"kk\": \"\", \"dx\": \"\"}];\n  const str = (v) => (v == null ? \"\" : String(v));\n  const isoD = (v) => {\n    if (v == null || v === \"\") return \"\";\n    if (typeof v === \"number\") { const d = new Date(v); return d.getFullYear() + \"-\" + (\"0\" + (d.getMonth() + 1)).slice(-2) + \"-\" + (\"0\" + d.getDate()).slice(-2); }\n    const m = /^(\\d{4})-(\\d{2})-(\\d{2})/.exec(String(v));\n    if (m) return m[0];\n    const m2 = /^(\\d{1,2})\\/(\\d{1,2})\\/(\\d{4})/.exec(String(v));\n    return m2 ? m2[3] + \"-\" + (\"0\" + m2[2]).slice(-2) + \"-\" + (\"0\" + m2[1]).slice(-2) : \"\";\n  };\n  // có cột mã (kể cả kết quả rỗng) → dùng dữ liệu thật, không rơi về demo\n  const useQuery = !!(queryData && ((queryData.colnames && queryData.colnames.indexOf(COLS.ma) >= 0) || (queryData.data && queryData.data.length > 0 && COLS.ma in queryData.data[0])));\n  const rows = useQuery\n    ? (queryData.data || []).map((r) => {\n        const o = {};\n        Object.keys(COLS).forEach((k) => { o[k] = str(r[COLS[k]]); });\n        [\"giao\", \"han\", \"ht\", \"vbNgay\"].forEach((k) => { o[k] = isoD(r[COLS[k]]); });\n        o.td = r[COLS.td] == null || r[COLS.td] === \"\" ? null : Number(r[COLS.td]);\n        o.htqh = r[COLS.htqh] === true || r[COLS.htqh] === 1 || r[COLS.htqh] === \"1\" || r[COLS.htqh] === \"true\";\n        return o;\n      })\n    : DEMO;\n  // Mã đang xem: lấy từ URL (?ma_nhiem_vu=), không có thì lấy dòng đầu\n  const urlMa = (() => {\n    let v = (new URLSearchParams(window.location.search).get(\"ma_nhiem_vu\") || \"\").trim();\n    if (/%[0-9a-f]{2}/i.test(v)) { try { v = decodeURIComponent(v); } catch (e) {} }\n    return /^\\{[^}]*\\}$/.test(v) ? \"\" : v;\n  })();\n  const task = rows.find((t) => t.ma === urlMa) || (useQuery && !urlMa ? rows[0] : null) || (!useQuery ? rows[0] : null);\n\n  // Trạng thái\n  const ST = {\n    thuong_xuyen: { t: \"Nhiệm vụ thường xuyên\", c: \"#825ee4\", b: \"purple\" },\n    dht: { t: \"Đã hoàn thành\", c: \"#00a870\", b: \"green\" },\n    dht_tronghan: { t: \"Đang thực hiện trong hạn\", c: \"#1b6fe3\", b: \"blue\" },\n    dht_quahan: { t: \"Đang thực hiện quá hạn\", c: \"#e0202a\", b: \"red\" },\n  };\n  const NGUON = { tw: \"Nhiệm vụ Trung ương\", tp: \"Nhiệm vụ Thành phố\", bcd: \"Nhiệm vụ Ban Chỉ đạo\" };\n  const DAY = 86400000;\n  const dayNum = (x) => (x ? Math.round(new Date(x + \"T00:00:00\").getTime() / DAY) : null);\n  const today = dayNum(isoD(Date.now()));\n  if (task) {\n    const h = dayNum(task.han);\n    task.nqh = task.st === \"dht_quahan\" && h != null ? Math.max(0, today - h) : 0;\n    task.con = task.st === \"dht_tronghan\" && h != null ? h - today : null;\n  }\n  const stText = (t) => (t.st === \"dht\" ? (t.htqh ? \"Hoàn thành quá hạn\" : \"Hoàn thành đúng hạn\") : ST[t.st] ? ST[t.st].t : t.st || \"—\");\n  const stColor = (t) => (t.st === \"dht\" && t.htqh ? \"#f59e0b\" : ST[t.st] ? ST[t.st].c : \"#1b6fe3\");\n  const esc = (v) => str(v).replace(/[&<>\"']/g, (ch) => ({ \"&\": \"&amp;\", \"<\": \"&lt;\", \">\": \"&gt;\", '\"': \"&quot;\", \"'\": \"&#39;\" }[ch]));\n  const fmtD = (x) => (x ? x.slice(8, 10) + \"/\" + x.slice(5, 7) + \"/\" + x.slice(0, 4) : \"\");\n  const cssSize = (v) => (v == null || v === \"\" ? \"100%\" : isNaN(+v) ? String(v) : v + \"px\");\n  const wrapId = \"wrap-\" + elementId;\n  const FONT = \"'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif\";\n  // Trong modal (iframe): 3 chart ghép thành 1 khung phủ kín – header cố định trên, 2 thân chia phần còn lại\n  let inFrame = false;\n  try { inFrame = window.self !== window.top; } catch (e) { inFrame = true; }\n  const FRAME = { on: inFrame, side: 430, hVar: \"--bcd57-l3-h\" };\n  const emptyHtml = `<div style=\"padding:40px 0;text-align:center;color:#8a99ae;font-weight:700;font-size:13px\">Không tìm thấy nhiệm vụ${urlMa ? \" \" + esc(urlMa) : \"\"}</div>`;\n\n  // ============ 3. MỐC TIẾN TRÌNH ============\n  const ev = [];\n  if (task) {\n    if (task.vbNgay || task.giao) ev.push({ d: task.vbNgay || task.giao, t: \"Ban hành văn bản giao\", s: task.vb, c: \"#4a5f7d\" });\n    if (task.ht) ev.push({ d: task.ht, t: task.htqh ? \"Hoàn thành (quá hạn)\" : \"Hoàn thành\", s: \"Ngày hoàn thành thực tế theo dữ liệu nguồn.\", c: task.htqh ? \"#f59e0b\" : \"#00a870\" });\n    ev.sort((a, b) => (a.d > b.d ? 1 : -1));\n  }\n\n  // ============ 4. CSS ============\n  const styleEl = `\n    <style>\n      #${wrapId}{font-family:${FONT};box-sizing:border-box;text-align:left;background:#f6f9fb;overflow:auto;padding:16px 18px;}\n      #${wrapId} *{box-sizing:border-box;margin:0;padding:0;}\n      #${wrapId} .sec{margin:0 0 8px;font-size:11.5px;font-weight:800;color:#1e293b;text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;gap:8px;}\n      #${wrapId} .sec::after{content:\"\";flex:1;height:1px;background:#dbe4ee;}\n      #${wrapId} .tl{position:relative;margin:4px 0 0 6px;padding-left:18px;border-left:2px solid #dbe4ee;}\n      #${wrapId} .it{position:relative;padding:0 0 14px;}\n      #${wrapId} .it::before{content:\"\";position:absolute;left:-25px;top:3px;width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--k2);}\n      #${wrapId} .tt{font-size:12px;font-weight:800;color:#132a45;}\n      #${wrapId} .dt{font-size:10.5px;color:#8496ad;font-weight:600;}\n      #${wrapId} .ds{font-size:11.5px;color:#5a6b84;margin-top:2px;line-height:1.4;}\n      #${wrapId} .none{font-size:12px;color:#8a99ae;font-style:italic;padding:6px 0;}\n    </style>`;\n\n  // ============ 5. RENDER HTML ============\n  const list = ev.length\n    ? `<div class=\"tl\">${ev.map((e) => `<div class=\"it\" style=\"--k2:${e.c}\"><div class=\"tt\">${esc(e.t)}</div><div class=\"dt\">${fmtD(e.d)}</div><div class=\"ds\">${esc(e.s)}</div></div>`).join(\"\")}</div>`\n    : `<div class=\"none\">${task ? \"Chưa có dữ liệu lịch sử tiến trình\" : \"Không tìm thấy nhiệm vụ\"}</div>`;\n  const pos = FRAME.on ? `position:fixed;top:var(${FRAME.hVar},120px);right:0;width:${FRAME.side}px;bottom:0;z-index:1000;` : `width:${cssSize(width)};height:${cssSize(height)};`;\n  rootEl.innerHTML = `<div id=\"${wrapId}\" style=\"${pos}\">${styleEl}<div class=\"sec\">Lịch sử tiến trình</div>${list}</div>`;\n\n  // ============ 6. CLEANUP ============\n  rootEl.__bcdL3XaRightCleanup = function () {};\n\n  return {};\n};\n",
+   "row_limit": 50000,
+   "show_header_default": false,
+   "show_metric": true,
+   "viz_type": "bkav-chart-advance",
+   "metric": []
+  },
+  "query_context": null
+ }
+}

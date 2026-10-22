@@ -1,7 +1,7 @@
 /* =====================================================================
    BCĐ 57 · Tab 2 "Nhiệm vụ cấp Xã/Phường"
    - Phạm vi: nhiệm vụ BCĐ 57 (nhóm NQ 55) có liên quan đến xã/phường (490.698.1310.%):
-     xã/phường giao (AssignDepartment), nhận (OriginalTargetDepartment) hoặc tham gia (qlnv_task_user)
+     xã/phường giao (AssignDepartment) hoặc nhận (OriginalTargetDepartment)
    - Cột giống bảng cấp TP (qlnv_chitiet_bcd57_cap_tp) để dùng chung chart/filter
    - nguon_giao chỉ có 'Nhiệm vụ Ban Chỉ đạo' | 'Nhiệm vụ Thành phố'
      (API Trung ương không có mã đơn vị nên không tách được xã/phường)
@@ -247,30 +247,19 @@ LEFT JOIN `db_theodoinv_hn_test_data`.`department` d_donvi
 LEFT JOIN `db_theodoinv_hn_test_data`.`qlnv_user` u_target 
        ON u_target.eGovUserId = t.TargetUser
 
-/* XÃ/PHƯỜNG THAM GIA (dự phòng khi xã/phường không giao/nhận): 1 dòng / task */
-LEFT JOIN (
-    SELECT tu.TaskId, MIN(tu.DepartmentId) AS DepartmentId
-    FROM `db_theodoinv_hn_test_data`.`qlnv_task_user` tu
-    WHERE tu.DepartmentId LIKE '490.698.1310.%'
-    GROUP BY tu.TaskId
-) tu_xa
-       ON tu_xa.TaskId = t.TaskId
-
 /* XÃ/PHƯỜNG: department có id = đoạn thứ 4 của path 490.698.1310.<id>...
-   Ưu tiên xã/phường nhận -> xã/phường giao -> xã/phường tham gia (tu_xa) */
+   Ưu tiên xã/phường nhận -> xã/phường giao */
 LEFT JOIN `db_theodoinv_hn_test_data`.`department` d_xa
        ON d_xa.id = CASE
             WHEN SUBSTRING_INDEX(SUBSTRING_INDEX(
                  CASE
                      WHEN t.OriginalTargetDepartment LIKE '490.698.1310.%' THEN t.OriginalTargetDepartment
-                     WHEN t.AssignDepartment         LIKE '490.698.1310.%' THEN t.AssignDepartment
-                     ELSE tu_xa.DepartmentId
+                     ELSE t.AssignDepartment
                  END, '.', 4), '.', -1) REGEXP '^[0-9]+$'
             THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(
                  CASE
                      WHEN t.OriginalTargetDepartment LIKE '490.698.1310.%' THEN t.OriginalTargetDepartment
-                     WHEN t.AssignDepartment         LIKE '490.698.1310.%' THEN t.AssignDepartment
-                     ELSE tu_xa.DepartmentId
+                     ELSE t.AssignDepartment
                  END, '.', 4), '.', -1) AS UNSIGNED)
           END
       AND d_xa.IsDelete = 0
@@ -297,16 +286,10 @@ WHERE t.DeletedDate IS NULL
         AND r.DeletedDate IS NULL
   )
 
-  /* Có liên quan đến xã/phường: xã/phường giao, nhận, hoặc tham gia (qlnv_task_user) */
+  /* Có liên quan đến xã/phường: xã/phường giao hoặc nhận (không tính người tham gia) */
   AND (
          t.OriginalTargetDepartment LIKE '490.698.1310.%'
       OR t.AssignDepartment LIKE '490.698.1310.%'
-      OR EXISTS (
-             SELECT 1
-             FROM `db_theodoinv_hn_test_data`.`qlnv_task_user` tu_xp
-             WHERE tu_xp.TaskId = t.TaskId
-               AND tu_xp.DepartmentId LIKE '490.698.1310.%'
-         )
   )
 
 GROUP BY t.TaskId;

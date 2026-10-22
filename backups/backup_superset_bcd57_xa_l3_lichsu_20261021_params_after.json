@@ -1,0 +1,76 @@
+{
+ "813": {
+  "slice_name": "BCĐ 57 Xã – L3 Thân phải – lịch sử tiến trình",
+  "datasource": "137__table",
+  "params": {
+   "adhoc_filters": [],
+   "applied_time_extras": {},
+   "datasource": "137__table",
+   "disable_padding_default": true,
+   "empty_content": "Không có dữ liệu",
+   "groupby": [
+    {
+     "expressionType": "SQL",
+     "label": "ma_nhiem_vu",
+     "sqlExpression": "ma_nhiem_vu",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "timeline_id",
+     "sqlExpression": "timeline_id",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "action_date",
+     "sqlExpression": "action_date",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "ten_action_type",
+     "sqlExpression": "ten_action_type",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "noi_dung",
+     "sqlExpression": "noi_dung",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "nguoi_xu_ly_name",
+     "sqlExpression": "nguoi_xu_ly_name",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "nguoi_xu_ly_vai_tro_name",
+     "sqlExpression": "nguoi_xu_ly_vai_tro_name",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "nguoi_nhan_name",
+     "sqlExpression": "nguoi_nhan_name",
+     "datasourceWarning": false
+    },
+    {
+     "expressionType": "SQL",
+     "label": "nguoi_nhan_vai_tro_name",
+     "sqlExpression": "nguoi_nhan_vai_tro_name",
+     "datasourceWarning": false
+    }
+   ],
+   "is_hide_modal_header": true,
+   "js_echart_building": "jsEchartScriptFunc = function (queryData, option, echarts, context) {\n  /* ==========================================================================\n     LỚP 3 – THÂN PHẢI: LỊCH SỬ TIẾN TRÌNH – CẤP XÃ/PHƯỜNG (Luật 1)\n     Mốc lấy từ bảng lịch sử thật qlnv_lichsutiendo_bcd57_xaphuong (qlnv_timeline),\n     lọc theo ?ma_nhiem_vu=; không sinh sự kiện mô phỏng.\n     ========================================================================== */\n  const elementId = context && context.elementId ? context.elementId : \"bcd57-l3-xa-than-phai\";\n  const width = context && context.width ? context.width : null;\n  const height = context && context.height ? context.height : null;\n  const rootEl = document.getElementById(elementId);\n  if (!rootEl) return option;\n\n  if (rootEl.__bcdL3XaRightCleanup) { try { rootEl.__bcdL3XaRightCleanup(); } catch (e) {} }\n\n  // ============ 1. CẤU HÌNH ============\n  const CONFIG = {\n    cap: \"xa\",\n  };\n\n  // ============ 2. DỮ LIỆU ============\n  // Dataset qlnv_lichsutiendo_bcd57_xaphuong: mỗi dòng = 1 mốc timeline (sau setDataMask của chart header chỉ còn dòng của mã đang xem)\n  const COLS = {\n    ma: \"ma_nhiem_vu\", id: \"timeline_id\", d: \"action_date\", loai: \"ten_action_type\", nd: \"noi_dung\",\n    xl: \"nguoi_xu_ly_name\", xlVt: \"nguoi_xu_ly_vai_tro_name\", nn: \"nguoi_nhan_name\", nnVt: \"nguoi_nhan_vai_tro_name\",\n  };\n  const str = (v) => (v == null ? \"\" : String(v));\n  const pad = (n) => (\"0\" + n).slice(-2);\n  // action_date -> \"YYYY-MM-DD HH:mm\" (Superset trả epoch ms hoặc chuỗi ISO)\n  const isoDT = (v) => {\n    if (v == null || v === \"\") return \"\";\n    if (typeof v === \"number\") { const d = new Date(v); return d.getUTCFullYear() + \"-\" + pad(d.getUTCMonth() + 1) + \"-\" + pad(d.getUTCDate()) + \" \" + pad(d.getUTCHours()) + \":\" + pad(d.getUTCMinutes()); }\n    const m = /^(\\d{4})-(\\d{2})-(\\d{2})(?:[T ](\\d{2}):(\\d{2}))?/.exec(String(v));\n    return m ? m[1] + \"-\" + m[2] + \"-\" + m[3] + (m[4] ? \" \" + m[4] + \":\" + m[5] : \"\") : \"\";\n  };\n  const useQuery = !!(queryData && ((queryData.colnames && queryData.colnames.indexOf(COLS.ma) >= 0) || (queryData.data && queryData.data.length > 0 && COLS.ma in queryData.data[0])));\n  const rows = useQuery\n    ? (queryData.data || []).map((r) => {\n        const o = {};\n        Object.keys(COLS).forEach((k) => { o[k] = str(r[COLS[k]]).trim(); });\n        o.d = isoDT(r[COLS.d]);\n        return o;\n      })\n    : [];\n  // Mã đang xem: lấy từ URL (?ma_nhiem_vu=), không có thì lấy mã của dòng đầu\n  const urlMa = (() => {\n    let v = (new URLSearchParams(window.location.search).get(\"ma_nhiem_vu\") || \"\").trim();\n    if (/%[0-9a-f]{2}/i.test(v)) { try { v = decodeURIComponent(v); } catch (e) {} }\n    return /^\\{[^}]*\\}$/.test(v) ? \"\" : v;\n  })();\n  const curMa = urlMa || (rows[0] ? rows[0].ma : \"\");\n  const evRows = rows.filter((r) => r.ma === curMa);\n\n  const esc = (v) => str(v).replace(/[&<>\"']/g, (ch) => ({ \"&\": \"&amp;\", \"<\": \"&lt;\", \">\": \"&gt;\", '\"': \"&quot;\", \"'\": \"&#39;\" }[ch]));\n  const fmtD = (x) => (x ? x.slice(8, 10) + \"/\" + x.slice(5, 7) + \"/\" + x.slice(0, 4) + (x.length > 10 ? \" \" + x.slice(11, 16) : \"\") : \"\");\n  const cssSize = (v) => (v == null || v === \"\" ? \"100%\" : isNaN(+v) ? String(v) : v + \"px\");\n  const wrapId = \"wrap-\" + elementId;\n  const FONT = \"'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif\";\n  // Trong modal (iframe): 3 chart ghép thành 1 khung phủ kín – header cố định trên, 2 thân chia phần còn lại\n  let inFrame = false;\n  try { inFrame = window.self !== window.top; } catch (e) { inFrame = true; }\n  const FRAME = { on: inFrame, side: 430, hVar: \"--bcd57-l3-h\" };\n\n  // ============ 3. MỐC TIẾN TRÌNH ============\n  // Màu theo tên thao tác (dòng đầu của noi_dung)\n  const colorOf = (t) => {\n    const s = t.toLowerCase();\n    if (/từ chối|trả lại|thu hồi/.test(s)) return \"#e0202a\";\n    if (/kết thúc|duyệt báo cáo hoàn thành/.test(s)) return \"#00a870\";\n    if (/duyệt/.test(s)) return \"#1b9e77\";\n    if (/gia hạn/.test(s)) return \"#f59e0b\";\n    if (/báo cáo/.test(s)) return \"#1b6fe3\";\n    if (/tạo mới|giao/.test(s)) return \"#4a5f7d\";\n    return \"#825ee4\";\n  };\n  const ev = evRows\n    .slice()\n    .sort((a, b) => (a.d === b.d ? Number(a.id) - Number(b.id) : a.d > b.d ? 1 : -1))\n    .map((r) => {\n      const lines = r.nd.split(/\\r?\\n/).map((x) => x.trim()).filter(Boolean);\n      const t = lines.length ? lines[0] : r.loai || \"Cập nhật\";\n      const who = r.xl ? r.xl + (r.xlVt ? \" (\" + r.xlVt + \")\" : \"\") : \"\";\n      const to = r.nn ? \" → \" + r.nn + (r.nnVt ? \" (\" + r.nnVt + \")\" : \"\") : \"\";\n      return { d: r.d, t: t, w: who + to, s: lines.slice(1).join(\" \"), c: colorOf(t) };\n    });\n\n  // ============ 4. CSS ============\n  const styleEl = `\n    <style>\n      #${wrapId}{font-family:${FONT};box-sizing:border-box;text-align:left;background:#f6f9fb;overflow:auto;padding:16px 18px;}\n      #${wrapId} *{box-sizing:border-box;margin:0;padding:0;}\n      #${wrapId} .sec{margin:0 0 8px;font-size:11.5px;font-weight:800;color:#1e293b;text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;gap:8px;}\n      #${wrapId} .sec::after{content:\"\";flex:1;height:1px;background:#dbe4ee;}\n      #${wrapId} .tl{position:relative;margin:4px 0 0 6px;padding-left:18px;border-left:2px solid #dbe4ee;}\n      #${wrapId} .it{position:relative;padding:0 0 14px;}\n      #${wrapId} .it::before{content:\"\";position:absolute;left:-25px;top:3px;width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--k2);}\n      #${wrapId} .tt{font-size:12px;font-weight:800;color:#132a45;}\n      #${wrapId} .dt{font-size:10.5px;color:#8496ad;font-weight:600;}\n      #${wrapId} .wh{font-size:11px;color:#3d5170;font-weight:600;margin-top:1px;}\n      #${wrapId} .ds{font-size:11.5px;color:#5a6b84;margin-top:2px;line-height:1.4;}\n      #${wrapId} .none{font-size:12px;color:#8a99ae;font-style:italic;padding:6px 0;}\n    </style>`;\n\n  // ============ 5. RENDER HTML ============\n  const list = ev.length\n    ? `<div class=\"tl\">${ev.map((e) => `<div class=\"it\" style=\"--k2:${e.c}\"><div class=\"tt\">${esc(e.t)}</div><div class=\"dt\">${fmtD(e.d)}</div>${e.w ? `<div class=\"wh\">${esc(e.w)}</div>` : \"\"}${e.s ? `<div class=\"ds\">${esc(e.s)}</div>` : \"\"}</div>`).join(\"\")}</div>`\n    : `<div class=\"none\">${curMa ? \"Chưa có dữ liệu lịch sử tiến trình\" : \"Không tìm thấy nhiệm vụ\"}</div>`;\n  const pos = FRAME.on ? `position:fixed;top:var(${FRAME.hVar},120px);right:0;width:${FRAME.side}px;bottom:0;z-index:1000;` : `width:${cssSize(width)};height:${cssSize(height)};`;\n  rootEl.innerHTML = `<div id=\"${wrapId}\" style=\"${pos}\">${styleEl}<div class=\"sec\">Lịch sử tiến trình</div>${list}</div>`;\n\n  // ============ 6. CLEANUP ============\n  rootEl.__bcdL3XaRightCleanup = function () {};\n\n  return {};\n};\n",
+   "row_limit": 50000,
+   "show_header_default": false,
+   "show_metric": true,
+   "viz_type": "bkav-chart-advance",
+   "metric": []
+  }
+ }
+}

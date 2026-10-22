@@ -106,47 +106,81 @@ SELECT
     /* Tiến độ (%): đã hoàn thành/kết thúc tính 100 */
     IF(t.Status IN (3, 4), 100, COALESCE(t.Progress, 0))    AS tien_do,
 
-    /* 7. CHI TIẾT TÌNH HÌNH & BÁO CÁO (Lấy bản ghi mới nhất) */
-    COALESCE(
-        (
-            SELECT rp.Content 
-            FROM `db_theodoinv_hn_test_data`.`qlnv_report` rp 
-            WHERE rp.TaskId = t.TaskId 
-              AND rp.DeletedDate IS NULL 
-            ORDER BY rp.CreatedDate DESC, rp.ReportId DESC 
-            LIMIT 1
-        ), 
-        t.Content,
-        '—'
-    )                                                       AS ket_qua_thuc_hien,
-
-    COALESCE(
-        (
-            SELECT NULLIF(rp.Difficulty, '') 
-            FROM `db_theodoinv_hn_test_data`.`qlnv_report` rp 
-            WHERE rp.TaskId = t.TaskId 
-              AND rp.DeletedDate IS NULL 
-            ORDER BY rp.CreatedDate DESC, rp.ReportId DESC 
-            LIMIT 1
-        ), 
-        '—'
-    )                                                       AS kho_khan_vuong_mac,
-
-    COALESCE(
-        (
-            SELECT NULLIF(rp.Suggestion, '') 
-            FROM `db_theodoinv_hn_test_data`.`qlnv_report` rp 
-            WHERE rp.TaskId = t.TaskId 
-              AND rp.DeletedDate IS NULL 
-            ORDER BY rp.CreatedDate DESC, rp.ReportId DESC 
-            LIMIT 1
-        ), 
-        '—'
-    )                                                       AS de_xuat_kien_nghi,
+    /* 7. CHI TIẾT TÌNH HÌNH & BÁO CÁO (bản ghi mới nhất, JOIN rp) */
+    COALESCE(rp.Content, t.Content, '—')                    AS ket_qua_thuc_hien,
+    COALESCE(NULLIF(rp.Difficulty, ''), '—')                AS kho_khan_vuong_mac,
+    COALESCE(NULLIF(rp.Suggestion, ''), '—')                AS de_xuat_kien_nghi,
 
     NOW()                                                   AS sync_date
 
-FROM `db_theodoinv_hn_test_data`.`qlnv_task` t
+/* DANH SÁCH TASK CẦN LẤY: lọc điều kiện BCĐ 57 + mỗi tiêu đề chỉ giữ 1 task
+   (ngày giao mới nhất; cùng ngày giao -> TaskId lớn hơn) */
+FROM (
+    SELECT
+        CAST(SUBSTRING(
+            MAX(CONCAT(
+                COALESCE(DATE_FORMAT(e.StartedDate, '%Y%m%d%H%i%s'), '00000000000000'),
+                LPAD(e.TaskId, 20, '0')
+            )), 15) AS UNSIGNED)                            AS TaskId
+    FROM `db_theodoinv_hn_test_data`.`qlnv_task` e
+    WHERE e.DeletedDate IS NULL
+      /* Chỉ lấy nhiệm vụ gốc (không lấy nhiệm vụ con) */
+      AND e.ParentId IS NULL
+      AND e.Status <> 5
+
+      /* Tương đương tinh_trang <> 'Chưa xác định' của bản cũ */
+      AND (   e.Status IN (-1, 0, 1, 2)
+           OR (e.Status IN (3, 4)
+               AND (   COALESCE(e.IsRecurring, 0) = 1
+                    OR e.ExpireDate IS NULL
+                    OR COALESCE(e.CompletedDate, e.ApprovedDate) IS NOT NULL)))
+
+      AND (
+          /* Nhiệm vụ Trung ương giao */
+          e.DocCode LIKE 'NQ%'
+
+          OR
+
+          /* Nhiệm vụ BCĐ 57 cấp Thành phố */
+          (
+              /* Thuộc nghị quyết nhóm 55 (qlnv_resolution -> qlnv_task_resolution -> qlnv_task),
+                 EXISTS để 1 task gắn nhiều nghị quyết nhóm 55 không bị nhân dòng */
+              EXISTS (
+                  SELECT 1
+                  FROM `db_theodoinv_hn_test_data`.`qlnv_task_resolution` tr
+                  INNER JOIN `db_theodoinv_hn_test_data`.`qlnv_resolution` r
+                          ON r.ResolutionId = tr.ResolutionId
+                  WHERE tr.TaskId = e.TaskId
+                    AND r.ResolutionGroupId = 55
+                    AND r.DeletedDate IS NULL
+              )
+
+              /* Xã/phường (490.698.1310.%) tách sang tab 2 -> qlnv_chitiet_bcd57_xaphuong */
+              AND COALESCE(e.OriginalTargetDepartment, '') NOT LIKE '490.698.1310.%'
+          )
+      )
+    GROUP BY TRIM(e.Title)
+) k
+INNER JOIN `db_theodoinv_hn_test_data`.`qlnv_task` t
+        ON t.TaskId = k.TaskId
+
+/* BÁO CÁO MỚI NHẤT CỦA TASK: gom 1 lần theo TaskId (CreatedDate mới nhất; trùng -> ReportId lớn hơn),
+   thay cho JOIN theo subquery tương quan (quét lại qlnv_report cho từng task -> rất chậm) */
+LEFT JOIN (
+    SELECT
+        rp0.TaskId,
+        CAST(SUBSTRING(
+            MAX(CONCAT(
+                COALESCE(DATE_FORMAT(rp0.CreatedDate, '%Y%m%d%H%i%s'), '00000000000000'),
+                LPAD(rp0.ReportId, 20, '0')
+            )), 15) AS UNSIGNED)                            AS ReportId
+    FROM `db_theodoinv_hn_test_data`.`qlnv_report` rp0
+    WHERE rp0.DeletedDate IS NULL
+    GROUP BY rp0.TaskId
+) lr
+       ON lr.TaskId = t.TaskId
+LEFT JOIN `db_theodoinv_hn_test_data`.`qlnv_report` rp
+       ON rp.ReportId = lr.ReportId
 
 /* CHỦ ĐỀ (1 TopicId / task -> không nhân dòng) */
 LEFT JOIN `db_theodoinv_hn_test_data`.`qlnv_task_topic` tp
@@ -170,8 +204,15 @@ LEFT JOIN `db_theodoinv_hn_test_data`.`department` d_assign
           END
       AND d_assign.IsDelete = 0
 
-/* JOIN NGƯỜI GIAO NHIỆM VỤ */
-LEFT JOIN `db_theodoinv_hn_test_data`.`qlnv_user` u_assign
+/* JOIN NGƯỜI GIAO NHIỆM VỤ (danh bạ user đã khử trùng eGovUserId -> không nhân dòng) */
+LEFT JOIN (
+    SELECT
+        eGovUserId,
+        MAX(eGovUserFullname)     AS eGovUserFullname,
+        MAX(eGovUserPositionName) AS eGovUserPositionName
+    FROM `db_theodoinv_hn_test_data`.`qlnv_user`
+    GROUP BY eGovUserId
+) u_assign
        ON u_assign.eGovUserId = t.AssignUser
 
 /* JOIN DANH MỤC PHÒNG BAN ĐƠN VỊ NHẬN */
@@ -191,46 +232,13 @@ LEFT JOIN `db_theodoinv_hn_test_data`.`department` d_donvi
           END
       AND d_donvi.IsDelete = 0
 
-/* JOIN USER NHẬN */
-LEFT JOIN `db_theodoinv_hn_test_data`.`qlnv_user` u_target 
-       ON u_target.eGovUserId = t.TargetUser
-
-/* ĐIỀU KIỆN LẤY TASK: (BCĐ 57 nhóm 55, trừ xã/phường) HOẶC (Trung ương giao: DocCode 'NQ%') */
-WHERE t.DeletedDate IS NULL
-  /* Chỉ lấy nhiệm vụ gốc (không lấy nhiệm vụ con) */
-  AND t.ParentId IS NULL
-  AND t.Status <> 5
-
-  /* Tương đương tinh_trang <> 'Chưa xác định' của bản cũ */
-  AND (   t.Status IN (-1, 0, 1, 2)
-       OR (t.Status IN (3, 4)
-           AND (   COALESCE(t.IsRecurring, 0) = 1
-                OR t.ExpireDate IS NULL
-                OR COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL)))
-
-  AND (
-      /* Nhiệm vụ Trung ương giao */
-      t.DocCode LIKE 'NQ%'
-
-      OR
-
-      /* Nhiệm vụ BCĐ 57 cấp Thành phố */
-      (
-          /* Thuộc nghị quyết nhóm 55 (qlnv_resolution -> qlnv_task_resolution -> qlnv_task),
-             EXISTS để 1 task gắn nhiều nghị quyết nhóm 55 không bị nhân dòng */
-          EXISTS (
-              SELECT 1
-              FROM `db_theodoinv_hn_test_data`.`qlnv_task_resolution` tr
-              INNER JOIN `db_theodoinv_hn_test_data`.`qlnv_resolution` r
-                      ON r.ResolutionId = tr.ResolutionId
-              WHERE tr.TaskId = t.TaskId
-                AND r.ResolutionGroupId = 55
-                AND r.DeletedDate IS NULL
-          )
-
-          /* Xã/phường (490.698.1310.%) tách sang tab 2 -> qlnv_chitiet_bcd57_xaphuong */
-          AND COALESCE(t.OriginalTargetDepartment, '') NOT LIKE '490.698.1310.%'
-      )
-  )
-
-GROUP BY t.TaskId;
+/* JOIN USER NHẬN (danh bạ user đã khử trùng eGovUserId -> không nhân dòng) */
+LEFT JOIN (
+    SELECT
+        eGovUserId,
+        MAX(eGovUserFullname)     AS eGovUserFullname,
+        MAX(eGovUserPositionName) AS eGovUserPositionName
+    FROM `db_theodoinv_hn_test_data`.`qlnv_user`
+    GROUP BY eGovUserId
+) u_target
+       ON u_target.eGovUserId = t.TargetUser;
