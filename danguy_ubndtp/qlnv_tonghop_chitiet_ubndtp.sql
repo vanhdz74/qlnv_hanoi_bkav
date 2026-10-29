@@ -253,17 +253,17 @@ FROM (
         t.AssignUser,
         t.CreateUser,
         t.TargetUser,
-        t.TargetDepartment AS TargetDepartment_Goc,
+        t.OriginalTargetDepartment AS TargetDepartment_Goc,
 
         /* LOẠI NHIỆM VỤ */
         CASE
             WHEN (t.AssignDepartment = '490.695.1558.1814' OR t.AssignDepartment = '490.695.1558.1814.1815')
-                 AND t.TargetDepartment LIKE '490.698%'
-                 AND t.AssignDepartment <> t.TargetDepartment
+                 AND t.OriginalTargetDepartment LIKE '490.698%'
+                 AND t.AssignDepartment <> t.OriginalTargetDepartment
             THEN 'Nhiệm vụ giao'
 
             WHEN t.AssignDepartment LIKE '490.695%' 
-                 AND (t.TargetDepartment IN ('490.695.1558.1814', '490.695.1558.1814.1815') OR t.TargetDepartment LIKE '490.698%')
+                 AND (t.OriginalTargetDepartment IN ('490.695.1558.1814', '490.695.1558.1814.1815') OR t.OriginalTargetDepartment LIKE '490.698%')
             THEN 'Nhiệm vụ nhận'
 
             ELSE NULL
@@ -272,12 +272,12 @@ FROM (
         /* HÌNH THỨC GIAO */
         CASE
             WHEN t.AssignDepartment LIKE '490.695%'
-                 AND t.TargetDepartment IN ('490.695.1558.1814', '490.695.1558.1814.1815') 
+                 AND t.OriginalTargetDepartment IN ('490.695.1558.1814', '490.695.1558.1814.1815') 
             THEN 'Giao qua Đảng ủy UBND'
 
             WHEN t.AssignDepartment LIKE '490.695%'
                  AND t.AssignDepartment NOT IN ('490.695.1558.1814', '490.695.1558.1814.1815')
-                 AND t.TargetDepartment LIKE '490.698%' THEN
+                 AND t.OriginalTargetDepartment LIKE '490.698%' THEN
                 CASE 
                     WHEN tu_check.has_user_dept = 1 THEN 'Giao qua Đảng ủy UBND'
                     ELSE 'Không qua Đảng ủy UBND'
@@ -289,45 +289,45 @@ FROM (
         /* ID BÊN NHẬN */
         CASE 
             /* Nhánh 490.695.1558.% chuẩn hóa về cấp 4 */
-            WHEN t.TargetDepartment LIKE '490.695.1558.%'
-            THEN SUBSTRING_INDEX(t.TargetDepartment, '.', 4)
+            WHEN t.OriginalTargetDepartment LIKE '490.695.1558.%'
+            THEN SUBSTRING_INDEX(t.OriginalTargetDepartment, '.', 4)
 
             WHEN (t.AssignDepartment = '490.695.1558.1814' OR t.AssignDepartment = '490.695.1558.1814.1815')
-                 AND t.TargetDepartment LIKE '490.698%'
-                 AND t.AssignDepartment <> t.TargetDepartment THEN
+                 AND t.OriginalTargetDepartment LIKE '490.698%'
+                 AND t.AssignDepartment <> t.OriginalTargetDepartment THEN
                 CASE
-                    WHEN (CHAR_LENGTH(t.TargetDepartment) - CHAR_LENGTH(REPLACE(t.TargetDepartment, '.', ''))) >= 4
-                    THEN SUBSTRING_INDEX(t.TargetDepartment, '.', 4)
+                    WHEN (CHAR_LENGTH(t.OriginalTargetDepartment) - CHAR_LENGTH(REPLACE(t.OriginalTargetDepartment, '.', ''))) >= 4
+                    THEN SUBSTRING_INDEX(t.OriginalTargetDepartment, '.', 4)
 
-                    WHEN t.TargetDepartment NOT LIKE '490.698.1307%' 
-                         AND t.TargetDepartment NOT LIKE '490.698.1310%'
-                         AND t.TargetDepartment NOT LIKE '490.698.1841%'
-                         AND (CHAR_LENGTH(t.TargetDepartment) - CHAR_LENGTH(REPLACE(t.TargetDepartment, '.', ''))) = 3
-                    THEN SUBSTRING_INDEX(t.TargetDepartment, '.', 3)
+                    WHEN t.OriginalTargetDepartment NOT LIKE '490.698.1307%' 
+                         AND t.OriginalTargetDepartment NOT LIKE '490.698.1310%'
+                         AND t.OriginalTargetDepartment NOT LIKE '490.698.1841%'
+                         AND (CHAR_LENGTH(t.OriginalTargetDepartment) - CHAR_LENGTH(REPLACE(t.OriginalTargetDepartment, '.', ''))) = 3
+                    THEN SUBSTRING_INDEX(t.OriginalTargetDepartment, '.', 3)
 
-                    ELSE t.TargetDepartment
+                    ELSE t.OriginalTargetDepartment
                 END
-            ELSE t.TargetDepartment
+            ELSE t.OriginalTargetDepartment
         END AS final_ben_nhan_id,
 
         /* TỔ CHỨC ĐẢNG CHỦ TRÌ PATH */
         CASE 
             WHEN (t.AssignDepartment = '490.695.1558.1814' OR t.AssignDepartment = '490.695.1558.1814.1815')
-                 AND t.TargetDepartment LIKE '490.698%'
-                 AND t.AssignDepartment <> t.TargetDepartment THEN
+                 AND t.OriginalTargetDepartment LIKE '490.698%'
+                 AND t.AssignDepartment <> t.OriginalTargetDepartment THEN
                 CASE
-                    WHEN (CHAR_LENGTH(t.TargetDepartment) - CHAR_LENGTH(REPLACE(t.TargetDepartment, '.', ''))) >= 4
-                    THEN SUBSTRING_INDEX(t.TargetDepartment, '.', 4)
+                    WHEN (CHAR_LENGTH(t.OriginalTargetDepartment) - CHAR_LENGTH(REPLACE(t.OriginalTargetDepartment, '.', ''))) >= 4
+                    THEN SUBSTRING_INDEX(t.OriginalTargetDepartment, '.', 4)
 
-                    WHEN t.TargetDepartment NOT LIKE '490.698.1307%' 
-                         AND t.TargetDepartment NOT LIKE '490.698.1310%'
-                         AND t.TargetDepartment NOT LIKE '490.698.1841%'
-                         AND (CHAR_LENGTH(t.TargetDepartment) - CHAR_LENGTH(REPLACE(t.TargetDepartment, '.', ''))) = 3
-                    THEN SUBSTRING_INDEX(t.TargetDepartment, '.', 3)
+                    WHEN t.OriginalTargetDepartment NOT LIKE '490.698.1307%' 
+                         AND t.OriginalTargetDepartment NOT LIKE '490.698.1310%'
+                         AND t.OriginalTargetDepartment NOT LIKE '490.698.1841%'
+                         AND (CHAR_LENGTH(t.OriginalTargetDepartment) - CHAR_LENGTH(REPLACE(t.OriginalTargetDepartment, '.', ''))) = 3
+                    THEN SUBSTRING_INDEX(t.OriginalTargetDepartment, '.', 3)
 
-                    ELSE t.TargetDepartment
+                    ELSE t.OriginalTargetDepartment
                 END
-            ELSE t.TargetDepartment
+            ELSE t.OriginalTargetDepartment
         END AS dept_to_chuc_dang,
 
         /* BAN CHUYÊN MÔN PATH */
@@ -396,17 +396,17 @@ FROM (
     WHERE
         t.DeletedDate IS NULL
         AND (t.Status IS NULL OR t.Status <> 5)
-        AND t.TargetDepartment NOT IN ('490.698.1307', '490.698.1310', '490.698.1841')
+        AND t.OriginalTargetDepartment NOT IN ('490.698.1307', '490.698.1310', '490.698.1841')
         AND (
             (
                 (t.AssignDepartment = '490.695.1558.1814' OR t.AssignDepartment = '490.695.1558.1814.1815')
-                AND t.TargetDepartment LIKE '490.698%'
-                AND t.AssignDepartment <> t.TargetDepartment
+                AND t.OriginalTargetDepartment LIKE '490.698%'
+                AND t.AssignDepartment <> t.OriginalTargetDepartment
             )
             OR
             (
                 t.AssignDepartment LIKE '490.695%' 
-                AND (t.TargetDepartment IN ('490.695.1558.1814', '490.695.1558.1814.1815') OR t.TargetDepartment LIKE '490.698%')
+                AND (t.OriginalTargetDepartment IN ('490.695.1558.1814', '490.695.1558.1814.1815') OR t.OriginalTargetDepartment LIKE '490.698%')
             )
         )
 ) b
@@ -472,14 +472,14 @@ LEFT JOIN (
                OR COALESCE(NULLIF(u.DepartmentPath, ''), NULLIF(tu.DepartmentId, '')) LIKE '490.698.%'
               )
           AND (
-                  t_sub.TargetDepartment NOT LIKE '490.698%'
+                  t_sub.OriginalTargetDepartment NOT LIKE '490.698%'
                OR COALESCE(NULLIF(u.DepartmentPath, ''), NULLIF(tu.DepartmentId, '')) LIKE CONCAT(
                       CASE
-                          WHEN t_sub.TargetDepartment LIKE '490.698.1841%'
-                            OR t_sub.TargetDepartment LIKE '490.698.1307%'
-                            OR t_sub.TargetDepartment LIKE '490.698.1310%'
-                          THEN SUBSTRING_INDEX(t_sub.TargetDepartment, '.', 4)
-                          ELSE SUBSTRING_INDEX(t_sub.TargetDepartment, '.', 3)
+                          WHEN t_sub.OriginalTargetDepartment LIKE '490.698.1841%'
+                            OR t_sub.OriginalTargetDepartment LIKE '490.698.1307%'
+                            OR t_sub.OriginalTargetDepartment LIKE '490.698.1310%'
+                          THEN SUBSTRING_INDEX(t_sub.OriginalTargetDepartment, '.', 4)
+                          ELSE SUBSTRING_INDEX(t_sub.OriginalTargetDepartment, '.', 3)
                       END,
                       '%'
                   )

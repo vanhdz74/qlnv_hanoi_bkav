@@ -1,3 +1,14 @@
+SET SESSION group_concat_max_len = 1048576;
+
+INSERT INTO `datamart_hanoi`.`qlnv_tonghop_chitiet_nvgiao_pth_ubndtp` (
+    id_truc_giao, truc_giao, nhom_van_ban, linh_vuc, chu_de, muc_do_uu_tien, nv_quantam,
+    ma_nhiem_vu, ten_nhiem_vu, van_ban_giao,
+    id_don_vi_chu_tri, ten_don_vi_chu_tri, lanh_dao_don_vi_va_chuyen_vien,
+    ngay_giao, han_xu_ly, ngay_hoan_thanh, ngay_xoa,
+    tinh_trang, tinh_hinh_ket_qua,
+    ld_ubnd, ld_van_phong, phong_chuyen_mon_theo_doi, chuyen_vien_vp_theo_doi,
+    task_id, id_cha, status, sync_date
+)
 
 SELECT
     /* 1. TRỤC GIAO & NHÓM VĂN BẢN */
@@ -71,6 +82,8 @@ SELECT
 
     /* 8. KHÓA HỆ THỐNG & ĐỒNG BỘ */
     t.TaskId                                                                AS task_id,
+    /* id_cha: task_id đầu tiên (nhỏ nhất) cùng (tên nhiệm vụ, văn bản giao, trục giao) + '_GR', khớp id_cha bảng gộp */
+    MAX(g.id_cha)                                                           AS id_cha,
     t.Status                                                                AS status,
     NOW()                                                                   AS sync_date
 
@@ -187,6 +200,27 @@ LEFT JOIN (
     GROUP BY p.TaskId
 ) ppl
     ON ppl.TaskId = t.TaskId
+
+/* NHÓM GỘP (cùng khóa GROUP BY ten_nhiem_vu, id_truc_giao của qlnv_tonghop_gop_nvgiao_pth_ubndtp)
+   Điều kiện lọc phải giữ giống hệt WHERE bên dưới để MIN(TaskId) khớp bảng gộp.
+   MySQL 5.7 không có MIN() OVER (...); Title varchar(6000) không tạo được auto key cho bảng dẫn xuất
+   => JOIN theo MD5(Title || DocCode) 32 ký tự (JOIN thẳng Title bị nested loop > 60s). */
+LEFT JOIN (
+    SELECT MD5(CONCAT(COALESCE(t3.Title, ''), '||', COALESCE(t3.DocCode, ''))) AS title_md5, t3.AssignDepartment, CONCAT(MIN(t3.TaskId), '_GR') AS id_cha
+    FROM `db_theodoinv_hn`.`qlnv_task` t3
+    INNER JOIN `db_theodoinv_hn`.`qlnv_resolution` r3
+            ON r3.ResolutionId = t3.ResolutionId
+           AND r3.DeletedDate IS NULL
+    WHERE t3.DeletedDate IS NULL
+      AND (   t3.Status IN (-1, 0, 1, 2)
+           OR (t3.Status IN (3, 4) AND (t3.ExpireDate IS NULL OR COALESCE(t3.CompletedDate, t3.ApprovedDate) IS NOT NULL)))
+      AND t3.AssignDepartment = '490.698'
+      AND t3.TargetDepartment LIKE '490.698.%'
+      AND t3.TargetDepartment NOT IN ('490.698.1307', '490.698.1841', '490.698.1310')
+    GROUP BY MD5(CONCAT(COALESCE(t3.Title, ''), '||', COALESCE(t3.DocCode, ''))), t3.AssignDepartment
+) g
+       ON g.title_md5 = MD5(CONCAT(COALESCE(t.Title, ''), '||', COALESCE(t.DocCode, '')))
+      AND g.AssignDepartment = t.AssignDepartment
 
 WHERE t.DeletedDate IS NULL
   AND (   t.Status IN (-1, 0, 1, 2)

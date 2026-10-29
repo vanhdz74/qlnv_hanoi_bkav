@@ -1,0 +1,2498 @@
+{
+ "processGroups": [],
+ "remoteProcessGroups": [],
+ "processors": [
+  {
+   "revision": {
+    "version": 0
+   },
+   "id": "5ebe3eac-c913-1f31-6fb1-54560e891e19",
+   "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/processors/5ebe3eac-c913-1f31-6fb1-54560e891e19",
+   "position": {
+    "x": 288.0,
+    "y": 184.0
+   },
+   "permissions": {
+    "canRead": true,
+    "canWrite": true
+   },
+   "bulletins": [],
+   "component": {
+    "id": "5ebe3eac-c913-1f31-6fb1-54560e891e19",
+    "versionedComponentId": "a8156b7c-bc29-3f44-a82e-4e6a44d34895",
+    "parentGroupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "position": {
+     "x": 288.0,
+     "y": 184.0
+    },
+    "name": "ReplaceText",
+    "type": "org.apache.nifi.processors.standard.ReplaceText",
+    "bundle": {
+     "group": "org.apache.nifi",
+     "artifact": "nifi-standard-nar",
+     "version": "1.27.0"
+    },
+    "state": "STOPPED",
+    "style": {},
+    "relationships": [
+     {
+      "name": "failure",
+      "description": "FlowFiles that could not be updated are routed to this relationship",
+      "autoTerminate": true,
+      "retry": false
+     },
+     {
+      "name": "success",
+      "description": "FlowFiles that have been successfully processed are routed to this relationship. This includes both FlowFiles that had text replaced and those that did not.",
+      "autoTerminate": false,
+      "retry": false
+     }
+    ],
+    "supportsParallelProcessing": true,
+    "supportsEventDriven": true,
+    "supportsBatching": true,
+    "supportsSensitiveDynamicProperties": false,
+    "persistsState": false,
+    "restricted": false,
+    "deprecated": false,
+    "executionNodeRestricted": false,
+    "multipleVersionsAvailable": false,
+    "inputRequirement": "INPUT_REQUIRED",
+    "config": {
+     "properties": {
+      "Replacement Strategy": "Always Replace",
+      "Regular Expression": "(?s)(^.*$)",
+      "Replacement Value": "TRUNCATE TABLE `datamart_hanoi`.`qlnv_tonghop_chitiet_nvgiao_pth_ubndtp`;",
+      "Text to Prepend": null,
+      "Text to Append": null,
+      "Character Set": "UTF-8",
+      "Maximum Buffer Size": "1 MB",
+      "Evaluation Mode": "Entire text",
+      "Line-by-Line Evaluation Mode": "All"
+     },
+     "descriptors": {
+      "Replacement Strategy": {
+       "name": "Replacement Strategy",
+       "displayName": "Replacement Strategy",
+       "description": "The strategy for how and what to replace within the FlowFile's text content.",
+       "defaultValue": "Regex Replace",
+       "allowableValues": [
+        {
+         "allowableValue": {
+          "displayName": "Prepend",
+          "value": "Prepend",
+          "description": "Insert the Replacement Value at the beginning of the FlowFile or the beginning of each line (depending on the Evaluation Mode). For \"Line-by-Line\" Evaluation Mode, the value will be prepended to each line. Similarly, for \"First-Line\", \"Last-Line\", \"Except-Last-Line\" and \"Except-First-Line\" Evaluation Modes,the value will be prepended to header alone, footer alone, all lines except header and all lines except footer respectively. For \"Entire Text\" evaluation mode,the value will be prepended to the entire text."
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "Append",
+          "value": "Append",
+          "description": "Insert the Replacement Value at the end of the FlowFile or the end of each line (depending on the Evaluation Mode). For \"Line-by-Line\" Evaluation Mode, the value will be appended to each line. Similarly, for \"First-Line\", \"Last-Line\", \"Except-Last-Line\" and \"Except-First-Line\" Evaluation Modes,the value will be appended to header alone, footer alone, all lines except header and all lines except footer respectively. For \"Entire Text\" evaluation mode,the value will be appended to the entire text."
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "Surround",
+          "value": "Surround",
+          "description": "Prepends text before the start of the FlowFile (or the start of each line, depending on the configuration of the Evaluation Mode property) as well as appending text to the end of the FlowFile (or the end of each line, depending on the configuration of the Evaluation Mode property)"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "Regex Replace",
+          "value": "Regex Replace",
+          "description": "Interpret the Search Value as a Regular Expression and replace all matches with the Replacement Value. The Replacement Value may reference Capturing Groups used in the Search Value by using a dollar-sign followed by the Capturing Group number, such as $1 or $2. If the Search Value is set to .* then everything is replaced without even evaluating the Regular Expression."
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "Literal Replace",
+          "value": "Literal Replace",
+          "description": "Search for all instances of the Search Value and replace the matches with the Replacement Value."
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "Always Replace",
+          "value": "Always Replace",
+          "description": "Always replaces the entire line or the entire contents of the FlowFile (depending on the value of the <Evaluation Mode> property) and does not bother searching for any value. When this strategy is chosen, the <Search Value> property is ignored."
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "Substitute Variables",
+          "value": "Substitute Variables",
+          "description": "Substitute variable references (specified in ${var} form) using FlowFile attributes for looking up the replacement value by variable name. When this strategy is chosen, both the <Search Value> and <Replacement Value> properties are ignored."
+         },
+         "canRead": true
+        }
+       ],
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "Regular Expression": {
+       "name": "Regular Expression",
+       "displayName": "Search Value",
+       "description": "The Search Value to search for in the FlowFile content. Only used for 'Literal Replace' and 'Regex Replace' matching strategies",
+       "defaultValue": "(?s)(^.*$)",
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": true,
+       "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+       "dependencies": [
+        {
+         "propertyName": "Replacement Strategy",
+         "dependentValues": [
+          "Regex Replace",
+          "Literal Replace"
+         ]
+        }
+       ]
+      },
+      "Replacement Value": {
+       "name": "Replacement Value",
+       "displayName": "Replacement Value",
+       "description": "The value to insert using the 'Replacement Strategy'. Using \"Regex Replace\" back-references to Regular Expression capturing groups are supported, but back-references that reference capturing groups that do not exist in the regular expression will be treated as literal value. Back References may also be referenced using the Expression Language, as '$1', '$2', etc. The single-tick marks MUST be included, as these variables are not \"Standard\" attribute names (attribute names must be quoted unless they contain only numbers, letters, and _).",
+       "defaultValue": "$1",
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": true,
+       "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+       "dependencies": [
+        {
+         "propertyName": "Replacement Strategy",
+         "dependentValues": [
+          "Prepend",
+          "Regex Replace",
+          "Always Replace",
+          "Append",
+          "Literal Replace"
+         ]
+        }
+       ]
+      },
+      "Text to Prepend": {
+       "name": "Text to Prepend",
+       "displayName": "Text to Prepend",
+       "description": "The text to prepend to the start of the FlowFile, or each line, depending on teh configured value of the Evaluation Mode property",
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": true,
+       "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+       "dependencies": [
+        {
+         "propertyName": "Replacement Strategy",
+         "dependentValues": [
+          "Surround"
+         ]
+        }
+       ]
+      },
+      "Text to Append": {
+       "name": "Text to Append",
+       "displayName": "Text to Append",
+       "description": "The text to append to the end of the FlowFile, or each line, depending on teh configured value of the Evaluation Mode property",
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": true,
+       "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+       "dependencies": [
+        {
+         "propertyName": "Replacement Strategy",
+         "dependentValues": [
+          "Surround"
+         ]
+        }
+       ]
+      },
+      "Character Set": {
+       "name": "Character Set",
+       "displayName": "Character Set",
+       "description": "The Character Set in which the file is encoded",
+       "defaultValue": "UTF-8",
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "Maximum Buffer Size": {
+       "name": "Maximum Buffer Size",
+       "displayName": "Maximum Buffer Size",
+       "description": "Specifies the maximum amount of data to buffer (per file or per line, depending on the Evaluation Mode) in order to apply the replacement. If 'Entire Text' (in Evaluation Mode) is selected and the FlowFile is larger than this value, the FlowFile will be routed to 'failure'. In 'Line-by-Line' Mode, if a single line is larger than this value, the FlowFile will be routed to 'failure'. A default value of 1 MB is provided, primarily for 'Entire Text' mode. In 'Line-by-Line' Mode, a value such as 8 KB or 16 KB is suggested. This value is ignored if the <Replacement Strategy> property is set to one of: Append, Prepend, Always Replace",
+       "defaultValue": "1 MB",
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "Evaluation Mode": {
+       "name": "Evaluation Mode",
+       "displayName": "Evaluation Mode",
+       "description": "Run the 'Replacement Strategy' against each line separately (Line-by-Line) or buffer the entire file into memory (Entire Text) and run against that.",
+       "defaultValue": "Line-by-Line",
+       "allowableValues": [
+        {
+         "allowableValue": {
+          "displayName": "Line-by-Line",
+          "value": "Line-by-Line"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "Entire text",
+          "value": "Entire text"
+         },
+         "canRead": true
+        }
+       ],
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "Line-by-Line Evaluation Mode": {
+       "name": "Line-by-Line Evaluation Mode",
+       "displayName": "Line-by-Line Evaluation Mode",
+       "description": "Run the 'Replacement Strategy' against each line separately (Line-by-Line) for all lines in the FlowFile, First Line (Header) alone, Last Line (Footer) alone, Except the First Line (Header) or Except the Last Line (Footer).",
+       "defaultValue": "All",
+       "allowableValues": [
+        {
+         "allowableValue": {
+          "displayName": "All",
+          "value": "All"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "First-Line",
+          "value": "First-Line"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "Last-Line",
+          "value": "Last-Line"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "Except-First-Line",
+          "value": "Except-First-Line"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "Except-Last-Line",
+          "value": "Except-Last-Line"
+         },
+         "canRead": true
+        }
+       ],
+       "required": false,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      }
+     },
+     "schedulingPeriod": "0 sec",
+     "schedulingStrategy": "TIMER_DRIVEN",
+     "executionNode": "ALL",
+     "penaltyDuration": "30 sec",
+     "yieldDuration": "1 sec",
+     "bulletinLevel": "WARN",
+     "runDurationMillis": 25,
+     "concurrentlySchedulableTaskCount": 1,
+     "comments": "",
+     "lossTolerant": false,
+     "defaultConcurrentTasks": {
+      "TIMER_DRIVEN": "1",
+      "EVENT_DRIVEN": "0",
+      "CRON_DRIVEN": "1"
+     },
+     "defaultSchedulingPeriod": {
+      "TIMER_DRIVEN": "0 sec",
+      "CRON_DRIVEN": "* * * * * ?"
+     },
+     "retryCount": 10,
+     "retriedRelationships": [],
+     "backoffMechanism": "PENALIZE_FLOWFILE",
+     "maxBackoffPeriod": "10 mins"
+    },
+    "validationStatus": "VALID",
+    "extensionMissing": false
+   },
+   "inputRequirement": "INPUT_REQUIRED",
+   "status": {
+    "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "id": "5ebe3eac-c913-1f31-6fb1-54560e891e19",
+    "name": "ReplaceText",
+    "runStatus": "Stopped",
+    "statsLastRefreshed": "10:21:00 ICT",
+    "aggregateSnapshot": {
+     "id": "5ebe3eac-c913-1f31-6fb1-54560e891e19",
+     "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+     "name": "ReplaceText",
+     "type": "ReplaceText",
+     "runStatus": "Stopped",
+     "executionNode": "ALL",
+     "bytesRead": 0,
+     "bytesWritten": 0,
+     "read": "0 bytes",
+     "written": "0 bytes",
+     "flowFilesIn": 0,
+     "bytesIn": 0,
+     "input": "0 (0 bytes)",
+     "flowFilesOut": 0,
+     "bytesOut": 0,
+     "output": "0 (0 bytes)",
+     "taskCount": 0,
+     "tasksDurationNanos": 0,
+     "tasks": "0",
+     "tasksDuration": "00:00:00.000",
+     "activeThreadCount": 0,
+     "terminatedThreadCount": 0
+    }
+   },
+   "operatePermissions": {
+    "canRead": true,
+    "canWrite": true
+   }
+  },
+  {
+   "revision": {
+    "version": 0
+   },
+   "id": "5ebe3eaf-c913-1f31-1b58-8858a9dc2376",
+   "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/processors/5ebe3eaf-c913-1f31-1b58-8858a9dc2376",
+   "position": {
+    "x": 1320.0,
+    "y": 592.0
+   },
+   "permissions": {
+    "canRead": true,
+    "canWrite": true
+   },
+   "bulletins": [],
+   "component": {
+    "id": "5ebe3eaf-c913-1f31-1b58-8858a9dc2376",
+    "versionedComponentId": "a207a682-0e4b-386d-835e-53bd6dbd38f6",
+    "parentGroupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "position": {
+     "x": 1320.0,
+     "y": 592.0
+    },
+    "name": "LogAttribute",
+    "type": "org.apache.nifi.processors.standard.LogAttribute",
+    "bundle": {
+     "group": "org.apache.nifi",
+     "artifact": "nifi-standard-nar",
+     "version": "1.27.0"
+    },
+    "state": "DISABLED",
+    "style": {},
+    "relationships": [
+     {
+      "name": "success",
+      "description": "All FlowFiles are routed to this relationship",
+      "autoTerminate": false,
+      "retry": false
+     }
+    ],
+    "supportsParallelProcessing": true,
+    "supportsEventDriven": true,
+    "supportsBatching": true,
+    "supportsSensitiveDynamicProperties": false,
+    "persistsState": false,
+    "restricted": false,
+    "deprecated": false,
+    "executionNodeRestricted": false,
+    "multipleVersionsAvailable": false,
+    "inputRequirement": "INPUT_REQUIRED",
+    "config": {
+     "properties": {
+      "Log Level": "info",
+      "Log Payload": "false",
+      "Attributes to Log": null,
+      "attributes-to-log-regex": ".*",
+      "Attributes to Ignore": null,
+      "attributes-to-ignore-regex": null,
+      "Log FlowFile Properties": "true",
+      "Output Format": "Line per Attribute",
+      "Log prefix": null,
+      "character-set": "US-ASCII"
+     },
+     "descriptors": {
+      "Log Level": {
+       "name": "Log Level",
+       "displayName": "Log Level",
+       "description": "The Log Level to use when logging the Attributes",
+       "defaultValue": "info",
+       "allowableValues": [
+        {
+         "allowableValue": {
+          "displayName": "trace",
+          "value": "trace"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "debug",
+          "value": "debug"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "info",
+          "value": "info"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "warn",
+          "value": "warn"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "error",
+          "value": "error"
+         },
+         "canRead": true
+        }
+       ],
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "Log Payload": {
+       "name": "Log Payload",
+       "displayName": "Log Payload",
+       "description": "If true, the FlowFile's payload will be logged, in addition to its attributes; otherwise, just the Attributes will be logged.",
+       "defaultValue": "false",
+       "allowableValues": [
+        {
+         "allowableValue": {
+          "displayName": "true",
+          "value": "true"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "false",
+          "value": "false"
+         },
+         "canRead": true
+        }
+       ],
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "Attributes to Log": {
+       "name": "Attributes to Log",
+       "displayName": "Attributes to Log",
+       "description": "A comma-separated list of Attributes to Log. If not specified, all attributes will be logged unless `Attributes to Log by Regular Expression` is modified. There's an AND relationship between the two properties.",
+       "required": false,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "attributes-to-log-regex": {
+       "name": "attributes-to-log-regex",
+       "displayName": "Attributes to Log by Regular Expression",
+       "description": "A regular expression indicating the Attributes to Log. If not specified, all attributes will be logged unless `Attributes to Log` is modified. There's an AND relationship between the two properties.",
+       "defaultValue": ".*",
+       "required": false,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "Attributes to Ignore": {
+       "name": "Attributes to Ignore",
+       "displayName": "Attributes to Ignore",
+       "description": "A comma-separated list of Attributes to ignore. If not specified, no attributes will be ignored unless `Attributes to Ignore by Regular Expression` is modified. There's an OR relationship between the two properties.",
+       "required": false,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "attributes-to-ignore-regex": {
+       "name": "attributes-to-ignore-regex",
+       "displayName": "Attributes to Ignore by Regular Expression",
+       "description": "A regular expression indicating the Attributes to Ignore. If not specified, no attributes will be ignored unless `Attributes to Ignore` is modified. There's an OR relationship between the two properties.",
+       "required": false,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "Log FlowFile Properties": {
+       "name": "Log FlowFile Properties",
+       "displayName": "Log FlowFile Properties",
+       "description": "Specifies whether or not to log FlowFile \"properties\", such as Entry Date, Lineage Start Date, and content size",
+       "defaultValue": "true",
+       "allowableValues": [
+        {
+         "allowableValue": {
+          "displayName": "true",
+          "value": "true"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "false",
+          "value": "false"
+         },
+         "canRead": true
+        }
+       ],
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "Output Format": {
+       "name": "Output Format",
+       "displayName": "Output Format",
+       "description": "Specifies the format to use for logging FlowFile attributes",
+       "defaultValue": "Line per Attribute",
+       "allowableValues": [
+        {
+         "allowableValue": {
+          "displayName": "Line per Attribute",
+          "value": "Line per Attribute",
+          "description": "Each FlowFile attribute will be logged using a single line for the attribute name and another line for the attribute value. This format is often most advantageous when looking at the attributes of a single FlowFile."
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "Single Line",
+          "value": "Single Line",
+          "description": "All FlowFile attribute names and values will be logged on a single line. This format is often most advantageous when comparing logs from multiple FlowFiles."
+         },
+         "canRead": true
+        }
+       ],
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "Log prefix": {
+       "name": "Log prefix",
+       "displayName": "Log prefix",
+       "description": "Log prefix appended to the log lines. It helps to distinguish the output of multiple LogAttribute processors.",
+       "required": false,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": true,
+       "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+       "dependencies": []
+      },
+      "character-set": {
+       "name": "character-set",
+       "displayName": "Character Set",
+       "description": "The name of the CharacterSet to use",
+       "defaultValue": "US-ASCII",
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": true,
+       "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+       "dependencies": []
+      }
+     },
+     "schedulingPeriod": "0 sec",
+     "schedulingStrategy": "TIMER_DRIVEN",
+     "executionNode": "ALL",
+     "penaltyDuration": "30 sec",
+     "yieldDuration": "1 sec",
+     "bulletinLevel": "WARN",
+     "runDurationMillis": 25,
+     "concurrentlySchedulableTaskCount": 1,
+     "comments": "",
+     "lossTolerant": false,
+     "defaultConcurrentTasks": {
+      "TIMER_DRIVEN": "1",
+      "EVENT_DRIVEN": "0",
+      "CRON_DRIVEN": "1"
+     },
+     "defaultSchedulingPeriod": {
+      "TIMER_DRIVEN": "0 sec",
+      "CRON_DRIVEN": "* * * * * ?"
+     },
+     "retryCount": 10,
+     "retriedRelationships": [],
+     "backoffMechanism": "PENALIZE_FLOWFILE",
+     "maxBackoffPeriod": "10 mins"
+    },
+    "validationStatus": "VALIDATING",
+    "extensionMissing": false
+   },
+   "inputRequirement": "INPUT_REQUIRED",
+   "status": {
+    "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "id": "5ebe3eaf-c913-1f31-1b58-8858a9dc2376",
+    "name": "LogAttribute",
+    "runStatus": "Disabled",
+    "statsLastRefreshed": "10:21:00 ICT",
+    "aggregateSnapshot": {
+     "id": "5ebe3eaf-c913-1f31-1b58-8858a9dc2376",
+     "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+     "name": "LogAttribute",
+     "type": "LogAttribute",
+     "runStatus": "Disabled",
+     "executionNode": "ALL",
+     "bytesRead": 0,
+     "bytesWritten": 0,
+     "read": "0 bytes",
+     "written": "0 bytes",
+     "flowFilesIn": 0,
+     "bytesIn": 0,
+     "input": "0 (0 bytes)",
+     "flowFilesOut": 0,
+     "bytesOut": 0,
+     "output": "0 (0 bytes)",
+     "taskCount": 0,
+     "tasksDurationNanos": 0,
+     "tasks": "0",
+     "tasksDuration": "00:00:00.000",
+     "activeThreadCount": 0,
+     "terminatedThreadCount": 0
+    }
+   },
+   "operatePermissions": {
+    "canRead": true,
+    "canWrite": true
+   }
+  },
+  {
+   "revision": {
+    "clientId": "5ebe3ebe-c913-1f31-4095-d01d6352c9dc",
+    "version": 1
+   },
+   "id": "5ebe3eb1-c913-1f31-b722-e75e319a448f",
+   "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/processors/5ebe3eb1-c913-1f31-b722-e75e319a448f",
+   "position": {
+    "x": 336.0,
+    "y": 568.0
+   },
+   "permissions": {
+    "canRead": true,
+    "canWrite": true
+   },
+   "bulletins": [],
+   "component": {
+    "id": "5ebe3eb1-c913-1f31-b722-e75e319a448f",
+    "versionedComponentId": "8fbbbd83-8fab-3dde-b23c-7cc936344adc",
+    "parentGroupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "position": {
+     "x": 336.0,
+     "y": 568.0
+    },
+    "name": "ReplaceText",
+    "type": "org.apache.nifi.processors.standard.ReplaceText",
+    "bundle": {
+     "group": "org.apache.nifi",
+     "artifact": "nifi-standard-nar",
+     "version": "1.27.0"
+    },
+    "state": "STOPPED",
+    "style": {},
+    "relationships": [
+     {
+      "name": "failure",
+      "description": "FlowFiles that could not be updated are routed to this relationship",
+      "autoTerminate": true,
+      "retry": false
+     },
+     {
+      "name": "success",
+      "description": "FlowFiles that have been successfully processed are routed to this relationship. This includes both FlowFiles that had text replaced and those that did not.",
+      "autoTerminate": false,
+      "retry": false
+     }
+    ],
+    "supportsParallelProcessing": true,
+    "supportsEventDriven": true,
+    "supportsBatching": true,
+    "supportsSensitiveDynamicProperties": false,
+    "persistsState": false,
+    "restricted": false,
+    "deprecated": false,
+    "executionNodeRestricted": false,
+    "multipleVersionsAvailable": false,
+    "inputRequirement": "INPUT_REQUIRED",
+    "config": {
+     "properties": {
+      "Replacement Strategy": "Always Replace",
+      "Regular Expression": "(?s)(^.*$)",
+      "Replacement Value": "SET SESSION group_concat_max_len = 1048576;\n\nINSERT INTO `datamart_hanoi`.`qlnv_tonghop_chitiet_nvgiao_pth_ubndtp` (\n    id_truc_giao, truc_giao, nhom_van_ban, linh_vuc, chu_de, muc_do_uu_tien, nv_quantam,\n    ma_nhiem_vu, ten_nhiem_vu, van_ban_giao,\n    id_don_vi_chu_tri, ten_don_vi_chu_tri, lanh_dao_don_vi_va_chuyen_vien,\n    ngay_giao, han_xu_ly, ngay_hoan_thanh, ngay_xoa,\n    tinh_trang, tinh_hinh_ket_qua,\n    ld_ubnd, ld_van_phong, phong_chuyen_mon_theo_doi, chuyen_vien_vp_theo_doi,\n    task_id, status, sync_date\n)\n\n\nSELECT\n    /* 1. TRỤC GIAO & NHÓM VĂN BẢN */\n    t.AssignDepartment                                                      AS id_truc_giao,\n    COALESCE(NULLIF(t.AssignOrganization, ''), d_assign_cap2.name)          AS truc_giao,\n    /* Nhóm văn bản: gắn tên theo số ký hiệu văn bản giao (DocCode), xét theo thứ tự từ trên xuống.\n       Chỉ dùng để phân nhóm, KHÔNG dùng để lọc task */\n    CASE\n        WHEN t.DocCode LIKE '%CTr%'                 THEN 'Chương trình'\n        WHEN t.DocCode LIKE '%KH%'                  THEN 'Kế hoạch'\n        WHEN t.DocCode REGEXP 'TB-(VP|UBND)'        THEN 'TBKL UBND Thành phố'\n        WHEN t.DocCode LIKE '%BCĐ%'                 THEN 'Triển khai thực hiện Nghị quyết số 57-NQ/TW'\n        WHEN t.DocCode REGEXP '/(UBND|VP)-'         THEN 'Văn bản chỉ đạo'\n        ELSE 'Chưa xác định'\n    END                                                                     AS nhom_van_ban,\n    /* LĨNH VỰC: lĩnh vực văn bản (qlnv_sector qua resolution.SectorId); rỗng thì 'Khác' */\n    COALESCE(NULLIF(s.SectorName, ''), 'Khác')                              AS linh_vuc,\n\n    /* CHỦ ĐỀ, MỨC ĐỘ ƯU TIÊN, NHIỆM VỤ QUAN TÂM */\n    tp.TopicName                                                            AS chu_de,\n    CASE t.Priority\n        WHEN 3 THEN 'Hỏa tốc'\n        WHEN 2 THEN 'Thượng khẩn'\n        WHEN 1 THEN 'Khẩn'\n        ELSE 'Thường'\n    END                                                                     AS muc_do_uu_tien,\n    t.isFocus                                                               AS nv_quantam,\n\n    /* 2. NHIỆM VỤ & VĂN BẢN GIAO */\n    t.Code                                                                  AS ma_nhiem_vu,\n    t.Title                                                                 AS ten_nhiem_vu,\n    t.DocCode                                                               AS van_ban_giao,\n\n    /* 3. ĐƠN VỊ CHỦ TRÌ: nhánh 1841/1307/1310 lấy cấp 4, còn lại cấp 3 */\n    IF(t.TargetDepartment REGEXP '^490[.]698[.](1841|1307|1310)',\n       SUBSTRING_INDEX(t.TargetDepartment, '.', 4),\n       SUBSTRING_INDEX(t.TargetDepartment, '.', 3))                         AS id_don_vi_chu_tri,\n    d_chutri.name                                                           AS ten_don_vi_chu_tri,\n    ppl.lanh_dao_don_vi_va_chuyen_vien,\n\n    /* 4. MỐC THỜI GIAN: Định dạng chuẩn ISO yyyy-mm-dd */\n    DATE_FORMAT(t.StartedDate, '%Y-%m-%d')                                  AS ngay_giao,\n    DATE_FORMAT(t.ExpireDate, '%Y-%m-%d')                                   AS han_xu_ly,\n    DATE_FORMAT(t.CompletedDate, '%Y-%m-%d')                                AS ngay_hoan_thanh,\n    DATE_FORMAT(t.DeletedDate, '%Y-%m-%d')                                  AS ngay_xoa,\n\n    /* 5. 4 TÌNH TRẠNG CHUẨN */\n    CASE\n        WHEN t.Status IN (3, 4) AND t.ExpireDate IS NOT NULL\n             AND COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL THEN 'Đã hoàn thành'\n        WHEN t.ExpireDate IS NULL                                       THEN 'Thường xuyên'\n        WHEN t.Status IN (-1, 0, 1, 2)\n        THEN IF(t.ExpireDate >= CURDATE(), 'Chưa hoàn thành trong hạn', 'Chưa hoàn thành quá hạn')\n    END                                                                     AS tinh_trang,\n\n    /* 6. TÌNH HÌNH, KẾT QUẢ: báo cáo mới nhất, fallback nội dung task */\n    COALESCE(\n        (SELECT rp.Content\n         FROM `db_theodoinv_hn`.`qlnv_report` rp\n         WHERE rp.TaskId = t.TaskId AND rp.DeletedDate IS NULL\n         ORDER BY rp.CreatedDate DESC, rp.ReportId DESC\n         LIMIT 1),\n        t.Content\n    )                                                                       AS tinh_hinh_ket_qua,\n\n    /* 7. LÃNH ĐẠO UBND / VĂN PHÒNG & CHUYÊN VIÊN VP THEO DÕI */\n    ppl.ld_ubnd,\n    ppl.ld_van_phong,\n    IF(u_create.DepartmentPath LIKE '490.698.752%', NULLIF(d_create.name, ''), NULL)              AS phong_chuyen_mon_theo_doi,\n    IF(u_create.DepartmentPath LIKE '490.698.752%', NULLIF(u_create.eGovUserFullname, ''), NULL)  AS chuyen_vien_vp_theo_doi,\n\n    /* 8. KHÓA HỆ THỐNG & ĐỒNG BỘ */\n    t.TaskId                                                                AS task_id,\n    t.Status                                                                AS status,\n    NOW()                                                                   AS sync_date\n\nFROM `db_theodoinv_hn`.`qlnv_task` t\n\n/* RESOLUTION */\nINNER JOIN `db_theodoinv_hn`.`qlnv_resolution` r\n        ON r.ResolutionId = t.ResolutionId\n       AND r.DeletedDate IS NULL\n\n/* LĨNH VỰC VĂN BẢN */\nLEFT JOIN `db_theodoinv_hn`.`qlnv_sector` s\n       ON s.SectorId = r.SectorId\n\n/* CHỦ ĐỀ NHIỆM VỤ */\nLEFT JOIN `db_theodoinv_hn`.`qlnv_task_topic` tp\n       ON tp.TopicId = t.TopicId\n\n/* TRỤC GIAO CẤP 2 */\nLEFT JOIN `db_theodoinv_hn`.`department` d_assign_cap2\n       ON d_assign_cap2.id = IF(SUBSTRING_INDEX(SUBSTRING_INDEX(t.AssignDepartment, '.', 2), '.', -1) REGEXP '^[0-9]+$',\n                                CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(t.AssignDepartment, '.', 2), '.', -1) AS UNSIGNED), NULL)\n      AND d_assign_cap2.IsDelete = 0\n\n/* ĐƠN VỊ CHỦ TRÌ (id cuối của mã đã chuẩn hóa cấp) */\nLEFT JOIN `db_theodoinv_hn`.`department` d_chutri\n       ON d_chutri.id = IF(\n              SUBSTRING_INDEX(IF(t.TargetDepartment REGEXP '^490[.]698[.](1841|1307|1310)',\n                                 SUBSTRING_INDEX(t.TargetDepartment, '.', 4),\n                                 SUBSTRING_INDEX(t.TargetDepartment, '.', 3)), '.', -1) REGEXP '^[0-9]+$',\n              CAST(SUBSTRING_INDEX(IF(t.TargetDepartment REGEXP '^490[.]698[.](1841|1307|1310)',\n                                      SUBSTRING_INDEX(t.TargetDepartment, '.', 4),\n                                      SUBSTRING_INDEX(t.TargetDepartment, '.', 3)), '.', -1) AS UNSIGNED),\n              NULL)\n      AND d_chutri.IsDelete = 0\n\n/* NGƯỜI TẠO & PHÒNG BAN NGƯỜI TẠO */\nLEFT JOIN `db_theodoinv_hn`.`qlnv_user` u_create\n       ON u_create.eGovUserId = t.CreateUser\nLEFT JOIN `db_theodoinv_hn`.`department` d_create\n       ON d_create.id = IF(SUBSTRING_INDEX(u_create.DepartmentPath, '.', -1) REGEXP '^[0-9]+$',\n                           CAST(SUBSTRING_INDEX(u_create.DepartmentPath, '.', -1) AS UNSIGNED), NULL)\n      AND d_create.IsDelete = 0\n\n/* NGƯỜI LIÊN QUAN THEO TASK */\nLEFT JOIN (\n    SELECT\n        p.TaskId,\n\n        GROUP_CONCAT(DISTINCT\n            CASE WHEN COALESCE(p.dept, u.DepartmentPath) = '490.698'\n                  AND LOWER(u.eGovUserPositionName) LIKE '%lãnh đạo%'\n                  AND u.eGovUserPositionLevel = 2\n                 THEN NULLIF(TRIM(CONCAT_WS(' - ', ujt.job_title, NULLIF(TRIM(u.eGovUserFullname), ''))), '')\n            END\n            ORDER BY p.src, p.Role DESC, p.Id DESC SEPARATOR ', ') AS ld_ubnd,\n\n        GROUP_CONCAT(DISTINCT\n            CASE WHEN COALESCE(NULLIF(u.DepartmentPath, ''), p.dept) = '490.698.752'\n                 THEN NULLIF(TRIM(CONCAT_WS(' - ', ujt.job_title, NULLIF(TRIM(u.eGovUserFullname), ''))), '')\n            END\n            ORDER BY p.src, p.Role DESC, p.Id DESC SEPARATOR ', ') AS ld_van_phong,\n\n        GROUP_CONCAT(DISTINCT\n            CASE WHEN p.src = 0\n                  AND COALESCE(NULLIF(u.DepartmentPath, ''), p.dept) LIKE CONCAT(\n                          IF(p.TargetDepartment REGEXP '^490[.]698[.](1841|1307|1310)',\n                             SUBSTRING_INDEX(p.TargetDepartment, '.', 4),\n                             SUBSTRING_INDEX(p.TargetDepartment, '.', 3)), '%')\n                 THEN NULLIF(TRIM(CONCAT_WS(' - ', ujt.job_title,\n                                            NULLIF(TRIM(u.eGovUserFullname), ''),\n                                            NULLIF(TRIM(u.PhoneNumber), ''))), '')\n            END\n            ORDER BY p.Role, ujt.job_title, u.eGovUserFullname SEPARATOR ', ') AS lanh_dao_don_vi_va_chuyen_vien\n\n    FROM (\n        SELECT tu.TaskId, 0 AS src, tu.Role, tu.Id, tu.UserId,\n               NULLIF(tu.DepartmentId, '') AS dept, t2.TargetDepartment\n        FROM `db_theodoinv_hn`.`qlnv_task_user` tu\n        INNER JOIN `db_theodoinv_hn`.`qlnv_task` t2 ON t2.TaskId = tu.TaskId\n        WHERE t2.AssignDepartment = '490.698' AND t2.DeletedDate IS NULL AND t2.TargetDepartment LIKE '490.698.%'\n        UNION ALL\n        SELECT t2.TaskId, 1, NULL, NULL, t2.TargetUser, NULLIF(t2.TargetDepartment, ''), t2.TargetDepartment\n        FROM `db_theodoinv_hn`.`qlnv_task` t2\n        WHERE t2.AssignDepartment = '490.698' AND t2.DeletedDate IS NULL AND t2.TargetDepartment LIKE '490.698.%'\n          AND t2.TargetUser IS NOT NULL\n        UNION ALL\n        SELECT t2.TaskId, 2, NULL, NULL, t2.AssignUser, NULLIF(t2.AssignDepartment, ''), t2.TargetDepartment\n        FROM `db_theodoinv_hn`.`qlnv_task` t2\n        WHERE t2.AssignDepartment = '490.698' AND t2.DeletedDate IS NULL AND t2.TargetDepartment LIKE '490.698.%'\n          AND t2.AssignUser IS NOT NULL\n    ) p\n    INNER JOIN `db_theodoinv_hn`.`qlnv_user` u\n            ON u.eGovUserId = p.UserId\n\n    LEFT JOIN (\n        SELECT udpj.user_id,\n               NULLIF(TRIM(SUBSTRING(MAX(CONCAT(\n                   IF(CAST(udpj.department_id AS CHAR) = SUBSTRING_INDEX(uu.DepartmentPath, '.', -1), 1, 0),\n                   IF(udpj.is_primary > 0, 1, 0),\n                   LPAD(udpj.id, 12, '0'),\n                   COALESCE(jt.JobTitlesName, '')\n               )), 15)), '') AS job_title\n        FROM `db_theodoinv_hn`.`user_department_position_jobtitle` udpj\n        INNER JOIN `db_theodoinv_hn`.`jobtitles` jt ON jt.JobTitlesId = udpj.jobtitle_id\n        INNER JOIN `db_theodoinv_hn`.`qlnv_user` uu ON uu.eGovUserId = udpj.user_id\n        WHERE COALESCE(udpj.status, 1) = 1\n        GROUP BY udpj.user_id\n    ) ujt\n           ON ujt.user_id = u.eGovUserId\n\n    GROUP BY p.TaskId\n) ppl\n    ON ppl.TaskId = t.TaskId\n\nWHERE t.DeletedDate IS NULL\n  AND (   t.Status IN (-1, 0, 1, 2)\n       OR (t.Status IN (3, 4) AND (t.ExpireDate IS NULL OR COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL)))\n  AND t.AssignDepartment = '490.698'\n  AND t.TargetDepartment LIKE '490.698.%'\n  AND t.TargetDepartment NOT IN ('490.698.1307', '490.698.1841', '490.698.1310')\n\nGROUP BY t.TaskId;",
+      "Text to Prepend": null,
+      "Text to Append": null,
+      "Character Set": "UTF-8",
+      "Maximum Buffer Size": "1 MB",
+      "Evaluation Mode": "Line-by-Line",
+      "Line-by-Line Evaluation Mode": "All"
+     },
+     "descriptors": {
+      "Replacement Strategy": {
+       "name": "Replacement Strategy",
+       "displayName": "Replacement Strategy",
+       "description": "The strategy for how and what to replace within the FlowFile's text content.",
+       "defaultValue": "Regex Replace",
+       "allowableValues": [
+        {
+         "allowableValue": {
+          "displayName": "Prepend",
+          "value": "Prepend",
+          "description": "Insert the Replacement Value at the beginning of the FlowFile or the beginning of each line (depending on the Evaluation Mode). For \"Line-by-Line\" Evaluation Mode, the value will be prepended to each line. Similarly, for \"First-Line\", \"Last-Line\", \"Except-Last-Line\" and \"Except-First-Line\" Evaluation Modes,the value will be prepended to header alone, footer alone, all lines except header and all lines except footer respectively. For \"Entire Text\" evaluation mode,the value will be prepended to the entire text."
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "Append",
+          "value": "Append",
+          "description": "Insert the Replacement Value at the end of the FlowFile or the end of each line (depending on the Evaluation Mode). For \"Line-by-Line\" Evaluation Mode, the value will be appended to each line. Similarly, for \"First-Line\", \"Last-Line\", \"Except-Last-Line\" and \"Except-First-Line\" Evaluation Modes,the value will be appended to header alone, footer alone, all lines except header and all lines except footer respectively. For \"Entire Text\" evaluation mode,the value will be appended to the entire text."
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "Surround",
+          "value": "Surround",
+          "description": "Prepends text before the start of the FlowFile (or the start of each line, depending on the configuration of the Evaluation Mode property) as well as appending text to the end of the FlowFile (or the end of each line, depending on the configuration of the Evaluation Mode property)"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "Regex Replace",
+          "value": "Regex Replace",
+          "description": "Interpret the Search Value as a Regular Expression and replace all matches with the Replacement Value. The Replacement Value may reference Capturing Groups used in the Search Value by using a dollar-sign followed by the Capturing Group number, such as $1 or $2. If the Search Value is set to .* then everything is replaced without even evaluating the Regular Expression."
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "Literal Replace",
+          "value": "Literal Replace",
+          "description": "Search for all instances of the Search Value and replace the matches with the Replacement Value."
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "Always Replace",
+          "value": "Always Replace",
+          "description": "Always replaces the entire line or the entire contents of the FlowFile (depending on the value of the <Evaluation Mode> property) and does not bother searching for any value. When this strategy is chosen, the <Search Value> property is ignored."
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "Substitute Variables",
+          "value": "Substitute Variables",
+          "description": "Substitute variable references (specified in ${var} form) using FlowFile attributes for looking up the replacement value by variable name. When this strategy is chosen, both the <Search Value> and <Replacement Value> properties are ignored."
+         },
+         "canRead": true
+        }
+       ],
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "Regular Expression": {
+       "name": "Regular Expression",
+       "displayName": "Search Value",
+       "description": "The Search Value to search for in the FlowFile content. Only used for 'Literal Replace' and 'Regex Replace' matching strategies",
+       "defaultValue": "(?s)(^.*$)",
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": true,
+       "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+       "dependencies": [
+        {
+         "propertyName": "Replacement Strategy",
+         "dependentValues": [
+          "Regex Replace",
+          "Literal Replace"
+         ]
+        }
+       ]
+      },
+      "Replacement Value": {
+       "name": "Replacement Value",
+       "displayName": "Replacement Value",
+       "description": "The value to insert using the 'Replacement Strategy'. Using \"Regex Replace\" back-references to Regular Expression capturing groups are supported, but back-references that reference capturing groups that do not exist in the regular expression will be treated as literal value. Back References may also be referenced using the Expression Language, as '$1', '$2', etc. The single-tick marks MUST be included, as these variables are not \"Standard\" attribute names (attribute names must be quoted unless they contain only numbers, letters, and _).",
+       "defaultValue": "$1",
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": true,
+       "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+       "dependencies": [
+        {
+         "propertyName": "Replacement Strategy",
+         "dependentValues": [
+          "Prepend",
+          "Regex Replace",
+          "Always Replace",
+          "Append",
+          "Literal Replace"
+         ]
+        }
+       ]
+      },
+      "Text to Prepend": {
+       "name": "Text to Prepend",
+       "displayName": "Text to Prepend",
+       "description": "The text to prepend to the start of the FlowFile, or each line, depending on teh configured value of the Evaluation Mode property",
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": true,
+       "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+       "dependencies": [
+        {
+         "propertyName": "Replacement Strategy",
+         "dependentValues": [
+          "Surround"
+         ]
+        }
+       ]
+      },
+      "Text to Append": {
+       "name": "Text to Append",
+       "displayName": "Text to Append",
+       "description": "The text to append to the end of the FlowFile, or each line, depending on teh configured value of the Evaluation Mode property",
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": true,
+       "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+       "dependencies": [
+        {
+         "propertyName": "Replacement Strategy",
+         "dependentValues": [
+          "Surround"
+         ]
+        }
+       ]
+      },
+      "Character Set": {
+       "name": "Character Set",
+       "displayName": "Character Set",
+       "description": "The Character Set in which the file is encoded",
+       "defaultValue": "UTF-8",
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "Maximum Buffer Size": {
+       "name": "Maximum Buffer Size",
+       "displayName": "Maximum Buffer Size",
+       "description": "Specifies the maximum amount of data to buffer (per file or per line, depending on the Evaluation Mode) in order to apply the replacement. If 'Entire Text' (in Evaluation Mode) is selected and the FlowFile is larger than this value, the FlowFile will be routed to 'failure'. In 'Line-by-Line' Mode, if a single line is larger than this value, the FlowFile will be routed to 'failure'. A default value of 1 MB is provided, primarily for 'Entire Text' mode. In 'Line-by-Line' Mode, a value such as 8 KB or 16 KB is suggested. This value is ignored if the <Replacement Strategy> property is set to one of: Append, Prepend, Always Replace",
+       "defaultValue": "1 MB",
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "Evaluation Mode": {
+       "name": "Evaluation Mode",
+       "displayName": "Evaluation Mode",
+       "description": "Run the 'Replacement Strategy' against each line separately (Line-by-Line) or buffer the entire file into memory (Entire Text) and run against that.",
+       "defaultValue": "Line-by-Line",
+       "allowableValues": [
+        {
+         "allowableValue": {
+          "displayName": "Line-by-Line",
+          "value": "Line-by-Line"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "Entire text",
+          "value": "Entire text"
+         },
+         "canRead": true
+        }
+       ],
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "Line-by-Line Evaluation Mode": {
+       "name": "Line-by-Line Evaluation Mode",
+       "displayName": "Line-by-Line Evaluation Mode",
+       "description": "Run the 'Replacement Strategy' against each line separately (Line-by-Line) for all lines in the FlowFile, First Line (Header) alone, Last Line (Footer) alone, Except the First Line (Header) or Except the Last Line (Footer).",
+       "defaultValue": "All",
+       "allowableValues": [
+        {
+         "allowableValue": {
+          "displayName": "All",
+          "value": "All"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "First-Line",
+          "value": "First-Line"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "Last-Line",
+          "value": "Last-Line"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "Except-First-Line",
+          "value": "Except-First-Line"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "Except-Last-Line",
+          "value": "Except-Last-Line"
+         },
+         "canRead": true
+        }
+       ],
+       "required": false,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      }
+     },
+     "schedulingPeriod": "0 sec",
+     "schedulingStrategy": "TIMER_DRIVEN",
+     "executionNode": "ALL",
+     "penaltyDuration": "30 sec",
+     "yieldDuration": "1 sec",
+     "bulletinLevel": "WARN",
+     "runDurationMillis": 25,
+     "concurrentlySchedulableTaskCount": 1,
+     "comments": "",
+     "lossTolerant": false,
+     "defaultConcurrentTasks": {
+      "TIMER_DRIVEN": "1",
+      "EVENT_DRIVEN": "0",
+      "CRON_DRIVEN": "1"
+     },
+     "defaultSchedulingPeriod": {
+      "TIMER_DRIVEN": "0 sec",
+      "CRON_DRIVEN": "* * * * * ?"
+     },
+     "retryCount": 10,
+     "retriedRelationships": [],
+     "backoffMechanism": "PENALIZE_FLOWFILE",
+     "maxBackoffPeriod": "10 mins"
+    },
+    "validationStatus": "VALID",
+    "extensionMissing": false
+   },
+   "inputRequirement": "INPUT_REQUIRED",
+   "status": {
+    "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "id": "5ebe3eb1-c913-1f31-b722-e75e319a448f",
+    "name": "ReplaceText",
+    "runStatus": "Stopped",
+    "statsLastRefreshed": "10:21:00 ICT",
+    "aggregateSnapshot": {
+     "id": "5ebe3eb1-c913-1f31-b722-e75e319a448f",
+     "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+     "name": "ReplaceText",
+     "type": "ReplaceText",
+     "runStatus": "Stopped",
+     "executionNode": "ALL",
+     "bytesRead": 0,
+     "bytesWritten": 0,
+     "read": "0 bytes",
+     "written": "0 bytes",
+     "flowFilesIn": 0,
+     "bytesIn": 0,
+     "input": "0 (0 bytes)",
+     "flowFilesOut": 0,
+     "bytesOut": 0,
+     "output": "0 (0 bytes)",
+     "taskCount": 0,
+     "tasksDurationNanos": 0,
+     "tasks": "0",
+     "tasksDuration": "00:00:00.000",
+     "activeThreadCount": 0,
+     "terminatedThreadCount": 0
+    }
+   },
+   "operatePermissions": {
+    "canRead": true,
+    "canWrite": true
+   }
+  },
+  {
+   "revision": {
+    "version": 0
+   },
+   "id": "5ebe3eb0-c913-1f31-6a87-7dd01d31be08",
+   "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/processors/5ebe3eb0-c913-1f31-6a87-7dd01d31be08",
+   "position": {
+    "x": 832.0,
+    "y": 848.0
+   },
+   "permissions": {
+    "canRead": true,
+    "canWrite": true
+   },
+   "bulletins": [],
+   "component": {
+    "id": "5ebe3eb0-c913-1f31-6a87-7dd01d31be08",
+    "versionedComponentId": "b266a92f-3928-3d38-8e02-bd9674202c13",
+    "parentGroupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "position": {
+     "x": 832.0,
+     "y": 848.0
+    },
+    "name": "PutSQL",
+    "type": "org.apache.nifi.processors.standard.PutSQL",
+    "bundle": {
+     "group": "org.apache.nifi",
+     "artifact": "nifi-standard-nar",
+     "version": "1.27.0"
+    },
+    "state": "STOPPED",
+    "style": {},
+    "relationships": [
+     {
+      "name": "failure",
+      "description": "A FlowFile is routed to this relationship if the database cannot be updated and retrying the operation will also fail, such as an invalid query or an integrity constraint violation",
+      "autoTerminate": false,
+      "retry": false
+     },
+     {
+      "name": "retry",
+      "description": "A FlowFile is routed to this relationship if the database cannot be updated but attempting the operation again may succeed",
+      "autoTerminate": false,
+      "retry": false
+     },
+     {
+      "name": "success",
+      "description": "A FlowFile is routed to this relationship after the database is successfully updated",
+      "autoTerminate": true,
+      "retry": false
+     }
+    ],
+    "supportsParallelProcessing": true,
+    "supportsEventDriven": false,
+    "supportsBatching": true,
+    "supportsSensitiveDynamicProperties": false,
+    "persistsState": false,
+    "restricted": false,
+    "deprecated": false,
+    "executionNodeRestricted": false,
+    "multipleVersionsAvailable": false,
+    "inputRequirement": "INPUT_REQUIRED",
+    "config": {
+     "properties": {
+      "JDBC Connection Pool": "0bfb327e-8a21-1e6a-776c-e17610335bef",
+      "putsql-sql-statement": null,
+      "Support Fragmented Transactions": "true",
+      "database-session-autocommit": "false",
+      "Transaction Timeout": null,
+      "Batch Size": "100",
+      "Obtain Generated Keys": "false",
+      "rollback-on-failure": "false"
+     },
+     "descriptors": {
+      "JDBC Connection Pool": {
+       "name": "JDBC Connection Pool",
+       "displayName": "JDBC Connection Pool",
+       "description": "Specifies the JDBC Connection Pool to use in order to convert the JSON message to a SQL statement. The Connection Pool is necessary in order to determine the appropriate database column types.",
+       "allowableValues": [
+        {
+         "allowableValue": {
+          "displayName": "HN-Datamart-NEW",
+          "value": "acf51838-116f-119e-c09b-1b31f6c8d1ae"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "HaNoi_DB_HNI_KNCT",
+          "value": "bee45711-c2d0-1c10-9b4b-33febf757b70"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "HaNoi_Datamart",
+          "value": "0bfb327e-8a21-1e6a-776c-e17610335bef"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "HaNoi_Datamart_5s",
+          "value": "73bb3774-cea7-1f5d-629d-4e34862120ab"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "HaNoi_ThanhUy_DB",
+          "value": "a06e038b-019a-1000-f4f2-fdf9e5995ada"
+         },
+         "canRead": true
+        }
+       ],
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "identifiesControllerService": "org.apache.nifi.dbcp.DBCPService",
+       "identifiesControllerServiceBundle": {
+        "group": "org.apache.nifi",
+        "artifact": "nifi-standard-services-api-nar",
+        "version": "1.27.0"
+       },
+       "dependencies": []
+      },
+      "putsql-sql-statement": {
+       "name": "putsql-sql-statement",
+       "displayName": "SQL Statement",
+       "description": "The SQL statement to execute. The statement can be empty, a constant value, or built from attributes using Expression Language. If this property is specified, it will be used regardless of the content of incoming FlowFiles. If this property is empty, the content of the incoming FlowFile is expected to contain a valid SQL statement, to be issued by the processor to the database.",
+       "required": false,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": true,
+       "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+       "dependencies": []
+      },
+      "Support Fragmented Transactions": {
+       "name": "Support Fragmented Transactions",
+       "displayName": "Support Fragmented Transactions",
+       "description": "If true, when a FlowFile is consumed by this Processor, the Processor will first check the fragment.identifier and fragment.count attributes of that FlowFile. If the fragment.count value is greater than 1, the Processor will not process any FlowFile with that fragment.identifier until all are available; at that point, it will process all FlowFiles with that fragment.identifier as a single transaction, in the order specified by the FlowFiles' fragment.index attributes. This Provides atomicity of those SQL statements. Once any statement of this transaction throws exception when executing, this transaction will be rolled back. When transaction rollback happened, none of these FlowFiles would be routed to 'success'. If the <Rollback On Failure> is set true, these FlowFiles will stay in the input relationship. When the <Rollback On Failure> is set false,, if any of these FlowFiles will be routed to 'retry', all of these FlowFiles will be routed to 'retry'.Otherwise, they will be routed to 'failure'. If this value is false, these attributes will be ignored and the updates will occur independent of one another.",
+       "defaultValue": "true",
+       "allowableValues": [
+        {
+         "allowableValue": {
+          "displayName": "true",
+          "value": "true"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "false",
+          "value": "false"
+         },
+         "canRead": true
+        }
+       ],
+       "required": false,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "database-session-autocommit": {
+       "name": "database-session-autocommit",
+       "displayName": "Database Session AutoCommit",
+       "description": "The autocommit mode to set on the database connection being used. If set to false, the operation(s) will be explicitly committed or rolled back (based on success or failure respectively), if set to true the driver/database handles the commit/rollback.",
+       "defaultValue": "false",
+       "allowableValues": [
+        {
+         "allowableValue": {
+          "displayName": "true",
+          "value": "true"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "false",
+          "value": "false"
+         },
+         "canRead": true
+        }
+       ],
+       "required": false,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "Transaction Timeout": {
+       "name": "Transaction Timeout",
+       "displayName": "Transaction Timeout",
+       "description": "If the <Support Fragmented Transactions> property is set to true, specifies how long to wait for all FlowFiles for a particular fragment.identifier attribute to arrive before just transferring all of the FlowFiles with that identifier to the 'failure' relationship",
+       "required": false,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "Batch Size": {
+       "name": "Batch Size",
+       "displayName": "Batch Size",
+       "description": "The preferred number of FlowFiles to put to the database in a single transaction",
+       "defaultValue": "100",
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "Obtain Generated Keys": {
+       "name": "Obtain Generated Keys",
+       "displayName": "Obtain Generated Keys",
+       "description": "If true, any key that is automatically generated by the database will be added to the FlowFile that generated it using the sql.generate.key attribute. This may result in slightly slower performance and is not supported by all databases.",
+       "defaultValue": "false",
+       "allowableValues": [
+        {
+         "allowableValue": {
+          "displayName": "true",
+          "value": "true"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "false",
+          "value": "false"
+         },
+         "canRead": true
+        }
+       ],
+       "required": false,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "rollback-on-failure": {
+       "name": "rollback-on-failure",
+       "displayName": "Rollback On Failure",
+       "description": "Specify how to handle error. By default (false), if an error occurs while processing a FlowFile, the FlowFile will be routed to 'failure' or 'retry' relationship based on error type, and processor can continue with next FlowFile. Instead, you may want to rollback currently processed FlowFiles and stop further processing immediately. In that case, you can do so by enabling this 'Rollback On Failure' property.  If enabled, failed FlowFiles will stay in the input relationship without penalizing it and being processed repeatedly until it gets processed successfully or removed by other means. It is important to set adequate 'Yield Duration' to avoid retrying too frequently.",
+       "defaultValue": "false",
+       "allowableValues": [
+        {
+         "allowableValue": {
+          "displayName": "true",
+          "value": "true"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "false",
+          "value": "false"
+         },
+         "canRead": true
+        }
+       ],
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      }
+     },
+     "schedulingPeriod": "0 sec",
+     "schedulingStrategy": "TIMER_DRIVEN",
+     "executionNode": "ALL",
+     "penaltyDuration": "30 sec",
+     "yieldDuration": "1 sec",
+     "bulletinLevel": "WARN",
+     "runDurationMillis": 0,
+     "concurrentlySchedulableTaskCount": 1,
+     "comments": "",
+     "lossTolerant": false,
+     "defaultConcurrentTasks": {
+      "TIMER_DRIVEN": "1",
+      "EVENT_DRIVEN": "0",
+      "CRON_DRIVEN": "1"
+     },
+     "defaultSchedulingPeriod": {
+      "TIMER_DRIVEN": "0 sec",
+      "CRON_DRIVEN": "* * * * * ?"
+     },
+     "retryCount": 10,
+     "retriedRelationships": [],
+     "backoffMechanism": "PENALIZE_FLOWFILE",
+     "maxBackoffPeriod": "10 mins"
+    },
+    "validationStatus": "VALID",
+    "extensionMissing": false
+   },
+   "inputRequirement": "INPUT_REQUIRED",
+   "status": {
+    "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "id": "5ebe3eb0-c913-1f31-6a87-7dd01d31be08",
+    "name": "PutSQL",
+    "runStatus": "Stopped",
+    "statsLastRefreshed": "10:21:00 ICT",
+    "aggregateSnapshot": {
+     "id": "5ebe3eb0-c913-1f31-6a87-7dd01d31be08",
+     "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+     "name": "PutSQL",
+     "type": "PutSQL",
+     "runStatus": "Stopped",
+     "executionNode": "ALL",
+     "bytesRead": 0,
+     "bytesWritten": 0,
+     "read": "0 bytes",
+     "written": "0 bytes",
+     "flowFilesIn": 0,
+     "bytesIn": 0,
+     "input": "0 (0 bytes)",
+     "flowFilesOut": 0,
+     "bytesOut": 0,
+     "output": "0 (0 bytes)",
+     "taskCount": 0,
+     "tasksDurationNanos": 0,
+     "tasks": "0",
+     "tasksDuration": "00:00:00.000",
+     "activeThreadCount": 0,
+     "terminatedThreadCount": 0
+    }
+   },
+   "operatePermissions": {
+    "canRead": true,
+    "canWrite": true
+   }
+  },
+  {
+   "revision": {
+    "version": 0
+   },
+   "id": "5ebe3eae-c913-1f31-4535-b4d6502d2fd0",
+   "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/processors/5ebe3eae-c913-1f31-4535-b4d6502d2fd0",
+   "position": {
+    "x": 861.9899247739639,
+    "y": 353.4999423768535
+   },
+   "permissions": {
+    "canRead": true,
+    "canWrite": true
+   },
+   "bulletins": [],
+   "component": {
+    "id": "5ebe3eae-c913-1f31-4535-b4d6502d2fd0",
+    "versionedComponentId": "4c60a8c7-9ad0-3c56-89b4-fe7851166d36",
+    "parentGroupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "position": {
+     "x": 861.9899247739639,
+     "y": 353.4999423768535
+    },
+    "name": "PutSQL",
+    "type": "org.apache.nifi.processors.standard.PutSQL",
+    "bundle": {
+     "group": "org.apache.nifi",
+     "artifact": "nifi-standard-nar",
+     "version": "1.27.0"
+    },
+    "state": "STOPPED",
+    "style": {},
+    "relationships": [
+     {
+      "name": "failure",
+      "description": "A FlowFile is routed to this relationship if the database cannot be updated and retrying the operation will also fail, such as an invalid query or an integrity constraint violation",
+      "autoTerminate": true,
+      "retry": false
+     },
+     {
+      "name": "retry",
+      "description": "A FlowFile is routed to this relationship if the database cannot be updated but attempting the operation again may succeed",
+      "autoTerminate": true,
+      "retry": false
+     },
+     {
+      "name": "success",
+      "description": "A FlowFile is routed to this relationship after the database is successfully updated",
+      "autoTerminate": false,
+      "retry": false
+     }
+    ],
+    "supportsParallelProcessing": true,
+    "supportsEventDriven": false,
+    "supportsBatching": true,
+    "supportsSensitiveDynamicProperties": false,
+    "persistsState": false,
+    "restricted": false,
+    "deprecated": false,
+    "executionNodeRestricted": false,
+    "multipleVersionsAvailable": false,
+    "inputRequirement": "INPUT_REQUIRED",
+    "config": {
+     "properties": {
+      "JDBC Connection Pool": "0bfb327e-8a21-1e6a-776c-e17610335bef",
+      "putsql-sql-statement": null,
+      "Support Fragmented Transactions": "true",
+      "database-session-autocommit": "false",
+      "Transaction Timeout": null,
+      "Batch Size": "100",
+      "Obtain Generated Keys": "false",
+      "rollback-on-failure": "false"
+     },
+     "descriptors": {
+      "JDBC Connection Pool": {
+       "name": "JDBC Connection Pool",
+       "displayName": "JDBC Connection Pool",
+       "description": "Specifies the JDBC Connection Pool to use in order to convert the JSON message to a SQL statement. The Connection Pool is necessary in order to determine the appropriate database column types.",
+       "allowableValues": [
+        {
+         "allowableValue": {
+          "displayName": "HN-Datamart-NEW",
+          "value": "acf51838-116f-119e-c09b-1b31f6c8d1ae"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "HaNoi_DB_HNI_KNCT",
+          "value": "bee45711-c2d0-1c10-9b4b-33febf757b70"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "HaNoi_Datamart",
+          "value": "0bfb327e-8a21-1e6a-776c-e17610335bef"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "HaNoi_Datamart_5s",
+          "value": "73bb3774-cea7-1f5d-629d-4e34862120ab"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "HaNoi_ThanhUy_DB",
+          "value": "a06e038b-019a-1000-f4f2-fdf9e5995ada"
+         },
+         "canRead": true
+        }
+       ],
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "identifiesControllerService": "org.apache.nifi.dbcp.DBCPService",
+       "identifiesControllerServiceBundle": {
+        "group": "org.apache.nifi",
+        "artifact": "nifi-standard-services-api-nar",
+        "version": "1.27.0"
+       },
+       "dependencies": []
+      },
+      "putsql-sql-statement": {
+       "name": "putsql-sql-statement",
+       "displayName": "SQL Statement",
+       "description": "The SQL statement to execute. The statement can be empty, a constant value, or built from attributes using Expression Language. If this property is specified, it will be used regardless of the content of incoming FlowFiles. If this property is empty, the content of the incoming FlowFile is expected to contain a valid SQL statement, to be issued by the processor to the database.",
+       "required": false,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": true,
+       "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+       "dependencies": []
+      },
+      "Support Fragmented Transactions": {
+       "name": "Support Fragmented Transactions",
+       "displayName": "Support Fragmented Transactions",
+       "description": "If true, when a FlowFile is consumed by this Processor, the Processor will first check the fragment.identifier and fragment.count attributes of that FlowFile. If the fragment.count value is greater than 1, the Processor will not process any FlowFile with that fragment.identifier until all are available; at that point, it will process all FlowFiles with that fragment.identifier as a single transaction, in the order specified by the FlowFiles' fragment.index attributes. This Provides atomicity of those SQL statements. Once any statement of this transaction throws exception when executing, this transaction will be rolled back. When transaction rollback happened, none of these FlowFiles would be routed to 'success'. If the <Rollback On Failure> is set true, these FlowFiles will stay in the input relationship. When the <Rollback On Failure> is set false,, if any of these FlowFiles will be routed to 'retry', all of these FlowFiles will be routed to 'retry'.Otherwise, they will be routed to 'failure'. If this value is false, these attributes will be ignored and the updates will occur independent of one another.",
+       "defaultValue": "true",
+       "allowableValues": [
+        {
+         "allowableValue": {
+          "displayName": "true",
+          "value": "true"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "false",
+          "value": "false"
+         },
+         "canRead": true
+        }
+       ],
+       "required": false,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "database-session-autocommit": {
+       "name": "database-session-autocommit",
+       "displayName": "Database Session AutoCommit",
+       "description": "The autocommit mode to set on the database connection being used. If set to false, the operation(s) will be explicitly committed or rolled back (based on success or failure respectively), if set to true the driver/database handles the commit/rollback.",
+       "defaultValue": "false",
+       "allowableValues": [
+        {
+         "allowableValue": {
+          "displayName": "true",
+          "value": "true"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "false",
+          "value": "false"
+         },
+         "canRead": true
+        }
+       ],
+       "required": false,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "Transaction Timeout": {
+       "name": "Transaction Timeout",
+       "displayName": "Transaction Timeout",
+       "description": "If the <Support Fragmented Transactions> property is set to true, specifies how long to wait for all FlowFiles for a particular fragment.identifier attribute to arrive before just transferring all of the FlowFiles with that identifier to the 'failure' relationship",
+       "required": false,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "Batch Size": {
+       "name": "Batch Size",
+       "displayName": "Batch Size",
+       "description": "The preferred number of FlowFiles to put to the database in a single transaction",
+       "defaultValue": "100",
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "Obtain Generated Keys": {
+       "name": "Obtain Generated Keys",
+       "displayName": "Obtain Generated Keys",
+       "description": "If true, any key that is automatically generated by the database will be added to the FlowFile that generated it using the sql.generate.key attribute. This may result in slightly slower performance and is not supported by all databases.",
+       "defaultValue": "false",
+       "allowableValues": [
+        {
+         "allowableValue": {
+          "displayName": "true",
+          "value": "true"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "false",
+          "value": "false"
+         },
+         "canRead": true
+        }
+       ],
+       "required": false,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "rollback-on-failure": {
+       "name": "rollback-on-failure",
+       "displayName": "Rollback On Failure",
+       "description": "Specify how to handle error. By default (false), if an error occurs while processing a FlowFile, the FlowFile will be routed to 'failure' or 'retry' relationship based on error type, and processor can continue with next FlowFile. Instead, you may want to rollback currently processed FlowFiles and stop further processing immediately. In that case, you can do so by enabling this 'Rollback On Failure' property.  If enabled, failed FlowFiles will stay in the input relationship without penalizing it and being processed repeatedly until it gets processed successfully or removed by other means. It is important to set adequate 'Yield Duration' to avoid retrying too frequently.",
+       "defaultValue": "false",
+       "allowableValues": [
+        {
+         "allowableValue": {
+          "displayName": "true",
+          "value": "true"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "false",
+          "value": "false"
+         },
+         "canRead": true
+        }
+       ],
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      }
+     },
+     "schedulingPeriod": "0 sec",
+     "schedulingStrategy": "TIMER_DRIVEN",
+     "executionNode": "ALL",
+     "penaltyDuration": "30 sec",
+     "yieldDuration": "1 sec",
+     "bulletinLevel": "WARN",
+     "runDurationMillis": 0,
+     "concurrentlySchedulableTaskCount": 1,
+     "comments": "",
+     "lossTolerant": false,
+     "defaultConcurrentTasks": {
+      "TIMER_DRIVEN": "1",
+      "EVENT_DRIVEN": "0",
+      "CRON_DRIVEN": "1"
+     },
+     "defaultSchedulingPeriod": {
+      "TIMER_DRIVEN": "0 sec",
+      "CRON_DRIVEN": "* * * * * ?"
+     },
+     "retryCount": 10,
+     "retriedRelationships": [],
+     "backoffMechanism": "PENALIZE_FLOWFILE",
+     "maxBackoffPeriod": "10 mins"
+    },
+    "validationStatus": "VALID",
+    "extensionMissing": false
+   },
+   "inputRequirement": "INPUT_REQUIRED",
+   "status": {
+    "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "id": "5ebe3eae-c913-1f31-4535-b4d6502d2fd0",
+    "name": "PutSQL",
+    "runStatus": "Stopped",
+    "statsLastRefreshed": "10:21:00 ICT",
+    "aggregateSnapshot": {
+     "id": "5ebe3eae-c913-1f31-4535-b4d6502d2fd0",
+     "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+     "name": "PutSQL",
+     "type": "PutSQL",
+     "runStatus": "Stopped",
+     "executionNode": "ALL",
+     "bytesRead": 0,
+     "bytesWritten": 0,
+     "read": "0 bytes",
+     "written": "0 bytes",
+     "flowFilesIn": 0,
+     "bytesIn": 0,
+     "input": "0 (0 bytes)",
+     "flowFilesOut": 0,
+     "bytesOut": 0,
+     "output": "0 (0 bytes)",
+     "taskCount": 0,
+     "tasksDurationNanos": 0,
+     "tasks": "0",
+     "tasksDuration": "00:00:00.000",
+     "activeThreadCount": 0,
+     "terminatedThreadCount": 0
+    }
+   },
+   "operatePermissions": {
+    "canRead": true,
+    "canWrite": true
+   }
+  },
+  {
+   "revision": {
+    "version": 0
+   },
+   "id": "5ebe3ead-c913-1f31-149d-f42bddd4059a",
+   "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/processors/5ebe3ead-c913-1f31-149d-f42bddd4059a",
+   "position": {
+    "x": 856.0,
+    "y": -80.0
+   },
+   "permissions": {
+    "canRead": true,
+    "canWrite": true
+   },
+   "bulletins": [],
+   "component": {
+    "id": "5ebe3ead-c913-1f31-149d-f42bddd4059a",
+    "versionedComponentId": "aa38151e-bf38-315a-a93d-e70ca601c837",
+    "parentGroupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "position": {
+     "x": 856.0,
+     "y": -80.0
+    },
+    "name": "GenerateFlowFile",
+    "type": "org.apache.nifi.processors.standard.GenerateFlowFile",
+    "bundle": {
+     "group": "org.apache.nifi",
+     "artifact": "nifi-standard-nar",
+     "version": "1.27.0"
+    },
+    "state": "STOPPED",
+    "style": {},
+    "relationships": [
+     {
+      "name": "success",
+      "description": "",
+      "autoTerminate": false,
+      "retry": false
+     }
+    ],
+    "supportsParallelProcessing": true,
+    "supportsEventDriven": false,
+    "supportsBatching": true,
+    "supportsSensitiveDynamicProperties": false,
+    "persistsState": false,
+    "restricted": false,
+    "deprecated": false,
+    "executionNodeRestricted": false,
+    "multipleVersionsAvailable": false,
+    "inputRequirement": "INPUT_FORBIDDEN",
+    "config": {
+     "properties": {
+      "File Size": "0B",
+      "Batch Size": "1",
+      "Data Format": "Text",
+      "Unique FlowFiles": "false",
+      "generate-ff-custom-text": null,
+      "character-set": "UTF-8",
+      "mime-type": null
+     },
+     "descriptors": {
+      "File Size": {
+       "name": "File Size",
+       "displayName": "File Size",
+       "description": "The size of the file that will be used",
+       "defaultValue": "0B",
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "Batch Size": {
+       "name": "Batch Size",
+       "displayName": "Batch Size",
+       "description": "The number of FlowFiles to be transferred in each invocation",
+       "defaultValue": "1",
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "Data Format": {
+       "name": "Data Format",
+       "displayName": "Data Format",
+       "description": "Specifies whether the data should be Text or Binary",
+       "defaultValue": "Text",
+       "allowableValues": [
+        {
+         "allowableValue": {
+          "displayName": "Binary",
+          "value": "Binary"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "Text",
+          "value": "Text"
+         },
+         "canRead": true
+        }
+       ],
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "Unique FlowFiles": {
+       "name": "Unique FlowFiles",
+       "displayName": "Unique FlowFiles",
+       "description": "If true, each FlowFile that is generated will be unique. If false, a random value will be generated and all FlowFiles will get the same content but this offers much higher throughput",
+       "defaultValue": "false",
+       "allowableValues": [
+        {
+         "allowableValue": {
+          "displayName": "true",
+          "value": "true"
+         },
+         "canRead": true
+        },
+        {
+         "allowableValue": {
+          "displayName": "false",
+          "value": "false"
+         },
+         "canRead": true
+        }
+       ],
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "generate-ff-custom-text": {
+       "name": "generate-ff-custom-text",
+       "displayName": "Custom Text",
+       "description": "If Data Format is text and if Unique FlowFiles is false, then this custom text will be used as content of the generated FlowFiles and the File Size will be ignored. Finally, if Expression Language is used, evaluation will be performed only once per batch of generated FlowFiles",
+       "required": false,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": true,
+       "expressionLanguageScope": "Variable Registry Only",
+       "dependencies": []
+      },
+      "character-set": {
+       "name": "character-set",
+       "displayName": "Character Set",
+       "description": "Specifies the character set to use when writing the bytes of Custom Text to a flow file.",
+       "defaultValue": "UTF-8",
+       "required": true,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      },
+      "mime-type": {
+       "name": "mime-type",
+       "displayName": "Mime Type",
+       "description": "Specifies the value to set for the \"mime.type\" attribute.",
+       "required": false,
+       "sensitive": false,
+       "dynamic": false,
+       "supportsEl": false,
+       "expressionLanguageScope": "Not Supported",
+       "dependencies": []
+      }
+     },
+     "schedulingPeriod": "15 min",
+     "schedulingStrategy": "TIMER_DRIVEN",
+     "executionNode": "ALL",
+     "penaltyDuration": "30 sec",
+     "yieldDuration": "1 sec",
+     "bulletinLevel": "WARN",
+     "runDurationMillis": 0,
+     "concurrentlySchedulableTaskCount": 1,
+     "comments": "",
+     "lossTolerant": false,
+     "defaultConcurrentTasks": {
+      "TIMER_DRIVEN": "1",
+      "EVENT_DRIVEN": "0",
+      "CRON_DRIVEN": "1"
+     },
+     "defaultSchedulingPeriod": {
+      "TIMER_DRIVEN": "0 sec",
+      "CRON_DRIVEN": "* * * * * ?"
+     },
+     "retryCount": 10,
+     "retriedRelationships": [],
+     "backoffMechanism": "PENALIZE_FLOWFILE",
+     "maxBackoffPeriod": "10 mins"
+    },
+    "validationStatus": "VALID",
+    "extensionMissing": false
+   },
+   "inputRequirement": "INPUT_FORBIDDEN",
+   "status": {
+    "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "id": "5ebe3ead-c913-1f31-149d-f42bddd4059a",
+    "name": "GenerateFlowFile",
+    "runStatus": "Stopped",
+    "statsLastRefreshed": "10:21:00 ICT",
+    "aggregateSnapshot": {
+     "id": "5ebe3ead-c913-1f31-149d-f42bddd4059a",
+     "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+     "name": "GenerateFlowFile",
+     "type": "GenerateFlowFile",
+     "runStatus": "Stopped",
+     "executionNode": "ALL",
+     "bytesRead": 0,
+     "bytesWritten": 0,
+     "read": "0 bytes",
+     "written": "0 bytes",
+     "flowFilesIn": 0,
+     "bytesIn": 0,
+     "input": "0 (0 bytes)",
+     "flowFilesOut": 0,
+     "bytesOut": 0,
+     "output": "0 (0 bytes)",
+     "taskCount": 0,
+     "tasksDurationNanos": 0,
+     "tasks": "0",
+     "tasksDuration": "00:00:00.000",
+     "activeThreadCount": 0,
+     "terminatedThreadCount": 0
+    }
+   },
+   "operatePermissions": {
+    "canRead": true,
+    "canWrite": true
+   }
+  }
+ ],
+ "inputPorts": [],
+ "outputPorts": [],
+ "connections": [
+  {
+   "revision": {
+    "version": 0
+   },
+   "id": "5ebe3eb4-c913-1f31-95a6-c2590ee4e7dd",
+   "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/5ebe3eb4-c913-1f31-95a6-c2590ee4e7dd",
+   "permissions": {
+    "canRead": true,
+    "canWrite": true
+   },
+   "component": {
+    "id": "5ebe3eb4-c913-1f31-95a6-c2590ee4e7dd",
+    "versionedComponentId": "b115b1f7-91d6-3cbd-bd6f-e4e92dfb6c32",
+    "parentGroupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "source": {
+     "id": "5ebe3eae-c913-1f31-4535-b4d6502d2fd0",
+     "versionedComponentId": "4c60a8c7-9ad0-3c56-89b4-fe7851166d36",
+     "type": "PROCESSOR",
+     "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+     "name": "PutSQL",
+     "running": false,
+     "comments": ""
+    },
+    "destination": {
+     "id": "5ebe3eb1-c913-1f31-b722-e75e319a448f",
+     "versionedComponentId": "8fbbbd83-8fab-3dde-b23c-7cc936344adc",
+     "type": "PROCESSOR",
+     "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+     "name": "ReplaceText",
+     "running": false,
+     "comments": ""
+    },
+    "name": "",
+    "labelIndex": 1,
+    "zIndex": 0,
+    "selectedRelationships": [
+     "success"
+    ],
+    "availableRelationships": [
+     "failure",
+     "retry",
+     "success"
+    ],
+    "backPressureObjectThreshold": 10000,
+    "backPressureDataSizeThreshold": "1 GB",
+    "flowFileExpiration": "0 sec",
+    "prioritizers": [],
+    "bends": [],
+    "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+    "loadBalancePartitionAttribute": "",
+    "loadBalanceCompression": "DO_NOT_COMPRESS",
+    "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+   },
+   "status": {
+    "id": "5ebe3eb4-c913-1f31-95a6-c2590ee4e7dd",
+    "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "name": "success",
+    "statsLastRefreshed": "10:21:00 ICT",
+    "sourceId": "5ebe3eae-c913-1f31-4535-b4d6502d2fd0",
+    "sourceName": "PutSQL",
+    "destinationId": "5ebe3eb1-c913-1f31-b722-e75e319a448f",
+    "destinationName": "ReplaceText",
+    "aggregateSnapshot": {
+     "id": "5ebe3eb4-c913-1f31-95a6-c2590ee4e7dd",
+     "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+     "name": "success",
+     "sourceName": "PutSQL",
+     "destinationName": "ReplaceText",
+     "flowFilesIn": 0,
+     "bytesIn": 0,
+     "input": "0 (0 bytes)",
+     "flowFilesOut": 0,
+     "bytesOut": 0,
+     "output": "0 (0 bytes)",
+     "flowFilesQueued": 0,
+     "bytesQueued": 0,
+     "queued": "0 (0 bytes)",
+     "queuedSize": "0 bytes",
+     "queuedCount": "0",
+     "percentUseCount": 0,
+     "percentUseBytes": 0,
+     "flowFileAvailability": "ACTIVE_QUEUE_EMPTY"
+    }
+   },
+   "bends": [],
+   "labelIndex": 1,
+   "zIndex": 0,
+   "sourceId": "5ebe3eae-c913-1f31-4535-b4d6502d2fd0",
+   "sourceGroupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+   "sourceType": "PROCESSOR",
+   "destinationId": "5ebe3eb1-c913-1f31-b722-e75e319a448f",
+   "destinationGroupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+   "destinationType": "PROCESSOR"
+  },
+  {
+   "revision": {
+    "version": 0
+   },
+   "id": "5ebe3eb6-c913-1f31-d8c7-cbaace099187",
+   "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/5ebe3eb6-c913-1f31-d8c7-cbaace099187",
+   "permissions": {
+    "canRead": true,
+    "canWrite": true
+   },
+   "component": {
+    "id": "5ebe3eb6-c913-1f31-d8c7-cbaace099187",
+    "versionedComponentId": "f7d53901-0fa9-3dd4-a7cf-4721daf0ece0",
+    "parentGroupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "source": {
+     "id": "5ebe3eb1-c913-1f31-b722-e75e319a448f",
+     "versionedComponentId": "8fbbbd83-8fab-3dde-b23c-7cc936344adc",
+     "type": "PROCESSOR",
+     "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+     "name": "ReplaceText",
+     "running": false,
+     "comments": ""
+    },
+    "destination": {
+     "id": "5ebe3eb0-c913-1f31-6a87-7dd01d31be08",
+     "versionedComponentId": "b266a92f-3928-3d38-8e02-bd9674202c13",
+     "type": "PROCESSOR",
+     "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+     "name": "PutSQL",
+     "running": false,
+     "comments": ""
+    },
+    "name": "",
+    "labelIndex": 1,
+    "zIndex": 0,
+    "selectedRelationships": [
+     "success"
+    ],
+    "availableRelationships": [
+     "failure",
+     "success"
+    ],
+    "backPressureObjectThreshold": 10000,
+    "backPressureDataSizeThreshold": "1 GB",
+    "flowFileExpiration": "0 sec",
+    "prioritizers": [],
+    "bends": [],
+    "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+    "loadBalancePartitionAttribute": "",
+    "loadBalanceCompression": "DO_NOT_COMPRESS",
+    "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+   },
+   "status": {
+    "id": "5ebe3eb6-c913-1f31-d8c7-cbaace099187",
+    "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "name": "success",
+    "statsLastRefreshed": "10:21:00 ICT",
+    "sourceId": "5ebe3eb1-c913-1f31-b722-e75e319a448f",
+    "sourceName": "ReplaceText",
+    "destinationId": "5ebe3eb0-c913-1f31-6a87-7dd01d31be08",
+    "destinationName": "PutSQL",
+    "aggregateSnapshot": {
+     "id": "5ebe3eb6-c913-1f31-d8c7-cbaace099187",
+     "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+     "name": "success",
+     "sourceName": "ReplaceText",
+     "destinationName": "PutSQL",
+     "flowFilesIn": 0,
+     "bytesIn": 0,
+     "input": "0 (0 bytes)",
+     "flowFilesOut": 0,
+     "bytesOut": 0,
+     "output": "0 (0 bytes)",
+     "flowFilesQueued": 0,
+     "bytesQueued": 0,
+     "queued": "0 (0 bytes)",
+     "queuedSize": "0 bytes",
+     "queuedCount": "0",
+     "percentUseCount": 0,
+     "percentUseBytes": 0,
+     "flowFileAvailability": "ACTIVE_QUEUE_EMPTY"
+    }
+   },
+   "bends": [],
+   "labelIndex": 1,
+   "zIndex": 0,
+   "sourceId": "5ebe3eb1-c913-1f31-b722-e75e319a448f",
+   "sourceGroupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+   "sourceType": "PROCESSOR",
+   "destinationId": "5ebe3eb0-c913-1f31-6a87-7dd01d31be08",
+   "destinationGroupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+   "destinationType": "PROCESSOR"
+  },
+  {
+   "revision": {
+    "version": 0
+   },
+   "id": "5ebe3eb5-c913-1f31-cfd3-f06100546e6f",
+   "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/5ebe3eb5-c913-1f31-cfd3-f06100546e6f",
+   "permissions": {
+    "canRead": true,
+    "canWrite": true
+   },
+   "component": {
+    "id": "5ebe3eb5-c913-1f31-cfd3-f06100546e6f",
+    "versionedComponentId": "884c575a-0335-3f42-a1ec-1c5ae1f86ab0",
+    "parentGroupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "source": {
+     "id": "5ebe3ead-c913-1f31-149d-f42bddd4059a",
+     "versionedComponentId": "aa38151e-bf38-315a-a93d-e70ca601c837",
+     "type": "PROCESSOR",
+     "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+     "name": "GenerateFlowFile",
+     "running": false,
+     "comments": ""
+    },
+    "destination": {
+     "id": "5ebe3eac-c913-1f31-6fb1-54560e891e19",
+     "versionedComponentId": "a8156b7c-bc29-3f44-a82e-4e6a44d34895",
+     "type": "PROCESSOR",
+     "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+     "name": "ReplaceText",
+     "running": false,
+     "comments": ""
+    },
+    "name": "",
+    "labelIndex": 1,
+    "zIndex": 0,
+    "selectedRelationships": [
+     "success"
+    ],
+    "availableRelationships": [
+     "success"
+    ],
+    "backPressureObjectThreshold": 10000,
+    "backPressureDataSizeThreshold": "1 GB",
+    "flowFileExpiration": "0 sec",
+    "prioritizers": [],
+    "bends": [],
+    "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+    "loadBalancePartitionAttribute": "",
+    "loadBalanceCompression": "DO_NOT_COMPRESS",
+    "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+   },
+   "status": {
+    "id": "5ebe3eb5-c913-1f31-cfd3-f06100546e6f",
+    "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "name": "success",
+    "statsLastRefreshed": "10:21:00 ICT",
+    "sourceId": "5ebe3ead-c913-1f31-149d-f42bddd4059a",
+    "sourceName": "GenerateFlowFile",
+    "destinationId": "5ebe3eac-c913-1f31-6fb1-54560e891e19",
+    "destinationName": "ReplaceText",
+    "aggregateSnapshot": {
+     "id": "5ebe3eb5-c913-1f31-cfd3-f06100546e6f",
+     "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+     "name": "success",
+     "sourceName": "GenerateFlowFile",
+     "destinationName": "ReplaceText",
+     "flowFilesIn": 0,
+     "bytesIn": 0,
+     "input": "0 (0 bytes)",
+     "flowFilesOut": 0,
+     "bytesOut": 0,
+     "output": "0 (0 bytes)",
+     "flowFilesQueued": 0,
+     "bytesQueued": 0,
+     "queued": "0 (0 bytes)",
+     "queuedSize": "0 bytes",
+     "queuedCount": "0",
+     "percentUseCount": 0,
+     "percentUseBytes": 0,
+     "flowFileAvailability": "ACTIVE_QUEUE_EMPTY"
+    }
+   },
+   "bends": [],
+   "labelIndex": 1,
+   "zIndex": 0,
+   "sourceId": "5ebe3ead-c913-1f31-149d-f42bddd4059a",
+   "sourceGroupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+   "sourceType": "PROCESSOR",
+   "destinationId": "5ebe3eac-c913-1f31-6fb1-54560e891e19",
+   "destinationGroupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+   "destinationType": "PROCESSOR"
+  },
+  {
+   "revision": {
+    "version": 0
+   },
+   "id": "5ebe3eb2-c913-1f31-80f1-7c00643051e8",
+   "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/5ebe3eb2-c913-1f31-80f1-7c00643051e8",
+   "permissions": {
+    "canRead": true,
+    "canWrite": true
+   },
+   "component": {
+    "id": "5ebe3eb2-c913-1f31-80f1-7c00643051e8",
+    "versionedComponentId": "57da00d6-4419-3937-bf5b-6411bf096b9b",
+    "parentGroupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "source": {
+     "id": "5ebe3eac-c913-1f31-6fb1-54560e891e19",
+     "versionedComponentId": "a8156b7c-bc29-3f44-a82e-4e6a44d34895",
+     "type": "PROCESSOR",
+     "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+     "name": "ReplaceText",
+     "running": false,
+     "comments": ""
+    },
+    "destination": {
+     "id": "5ebe3eae-c913-1f31-4535-b4d6502d2fd0",
+     "versionedComponentId": "4c60a8c7-9ad0-3c56-89b4-fe7851166d36",
+     "type": "PROCESSOR",
+     "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+     "name": "PutSQL",
+     "running": false,
+     "comments": ""
+    },
+    "name": "",
+    "labelIndex": 1,
+    "zIndex": 0,
+    "selectedRelationships": [
+     "success"
+    ],
+    "availableRelationships": [
+     "failure",
+     "success"
+    ],
+    "backPressureObjectThreshold": 10000,
+    "backPressureDataSizeThreshold": "1 GB",
+    "flowFileExpiration": "0 sec",
+    "prioritizers": [],
+    "bends": [],
+    "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+    "loadBalancePartitionAttribute": "",
+    "loadBalanceCompression": "DO_NOT_COMPRESS",
+    "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+   },
+   "status": {
+    "id": "5ebe3eb2-c913-1f31-80f1-7c00643051e8",
+    "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "name": "success",
+    "statsLastRefreshed": "10:21:00 ICT",
+    "sourceId": "5ebe3eac-c913-1f31-6fb1-54560e891e19",
+    "sourceName": "ReplaceText",
+    "destinationId": "5ebe3eae-c913-1f31-4535-b4d6502d2fd0",
+    "destinationName": "PutSQL",
+    "aggregateSnapshot": {
+     "id": "5ebe3eb2-c913-1f31-80f1-7c00643051e8",
+     "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+     "name": "success",
+     "sourceName": "ReplaceText",
+     "destinationName": "PutSQL",
+     "flowFilesIn": 0,
+     "bytesIn": 0,
+     "input": "0 (0 bytes)",
+     "flowFilesOut": 0,
+     "bytesOut": 0,
+     "output": "0 (0 bytes)",
+     "flowFilesQueued": 0,
+     "bytesQueued": 0,
+     "queued": "0 (0 bytes)",
+     "queuedSize": "0 bytes",
+     "queuedCount": "0",
+     "percentUseCount": 0,
+     "percentUseBytes": 0,
+     "flowFileAvailability": "ACTIVE_QUEUE_EMPTY"
+    }
+   },
+   "bends": [],
+   "labelIndex": 1,
+   "zIndex": 0,
+   "sourceId": "5ebe3eac-c913-1f31-6fb1-54560e891e19",
+   "sourceGroupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+   "sourceType": "PROCESSOR",
+   "destinationId": "5ebe3eae-c913-1f31-4535-b4d6502d2fd0",
+   "destinationGroupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+   "destinationType": "PROCESSOR"
+  },
+  {
+   "revision": {
+    "version": 0
+   },
+   "id": "5ebe3eb3-c913-1f31-c4d8-63f51b7644d0",
+   "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/5ebe3eb3-c913-1f31-c4d8-63f51b7644d0",
+   "permissions": {
+    "canRead": true,
+    "canWrite": true
+   },
+   "component": {
+    "id": "5ebe3eb3-c913-1f31-c4d8-63f51b7644d0",
+    "versionedComponentId": "9db58223-160a-3feb-bef3-52a9edb1c9e0",
+    "parentGroupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "source": {
+     "id": "5ebe3eb0-c913-1f31-6a87-7dd01d31be08",
+     "versionedComponentId": "b266a92f-3928-3d38-8e02-bd9674202c13",
+     "type": "PROCESSOR",
+     "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+     "name": "PutSQL",
+     "running": false,
+     "comments": ""
+    },
+    "destination": {
+     "id": "5ebe3eaf-c913-1f31-1b58-8858a9dc2376",
+     "versionedComponentId": "a207a682-0e4b-386d-835e-53bd6dbd38f6",
+     "type": "PROCESSOR",
+     "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+     "name": "LogAttribute",
+     "running": false,
+     "comments": ""
+    },
+    "name": "",
+    "labelIndex": 1,
+    "zIndex": 0,
+    "selectedRelationships": [
+     "failure",
+     "retry"
+    ],
+    "availableRelationships": [
+     "failure",
+     "retry",
+     "success"
+    ],
+    "backPressureObjectThreshold": 10000,
+    "backPressureDataSizeThreshold": "1 GB",
+    "flowFileExpiration": "0 sec",
+    "prioritizers": [],
+    "bends": [],
+    "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+    "loadBalancePartitionAttribute": "",
+    "loadBalanceCompression": "DO_NOT_COMPRESS",
+    "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+   },
+   "status": {
+    "id": "5ebe3eb3-c913-1f31-c4d8-63f51b7644d0",
+    "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "name": "failure, retry",
+    "statsLastRefreshed": "10:21:00 ICT",
+    "sourceId": "5ebe3eb0-c913-1f31-6a87-7dd01d31be08",
+    "sourceName": "PutSQL",
+    "destinationId": "5ebe3eaf-c913-1f31-1b58-8858a9dc2376",
+    "destinationName": "LogAttribute",
+    "aggregateSnapshot": {
+     "id": "5ebe3eb3-c913-1f31-c4d8-63f51b7644d0",
+     "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+     "name": "failure, retry",
+     "sourceName": "PutSQL",
+     "destinationName": "LogAttribute",
+     "flowFilesIn": 0,
+     "bytesIn": 0,
+     "input": "0 (0 bytes)",
+     "flowFilesOut": 0,
+     "bytesOut": 0,
+     "output": "0 (0 bytes)",
+     "flowFilesQueued": 0,
+     "bytesQueued": 0,
+     "queued": "0 (0 bytes)",
+     "queuedSize": "0 bytes",
+     "queuedCount": "0",
+     "percentUseCount": 0,
+     "percentUseBytes": 0,
+     "flowFileAvailability": "ACTIVE_QUEUE_EMPTY"
+    }
+   },
+   "bends": [],
+   "labelIndex": 1,
+   "zIndex": 0,
+   "sourceId": "5ebe3eb0-c913-1f31-6a87-7dd01d31be08",
+   "sourceGroupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+   "sourceType": "PROCESSOR",
+   "destinationId": "5ebe3eaf-c913-1f31-1b58-8858a9dc2376",
+   "destinationGroupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+   "destinationType": "PROCESSOR"
+  }
+ ],
+ "labels": [],
+ "funnels": []
+}

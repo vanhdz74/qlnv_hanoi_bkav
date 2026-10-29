@@ -1,5 +1,6 @@
 INSERT INTO `datamart_hanoi`.`qlnv_chitiet_nvgiao_pth_ubndtp` (
     `task_id`,
+    `id_cha`,
     `status`,
     `id_truc_giao`,
     `truc_giao`,
@@ -32,6 +33,8 @@ INSERT INTO `datamart_hanoi`.`qlnv_chitiet_nvgiao_pth_ubndtp` (
 SELECT
     /* 1. KHÓA HỆ THỐNG & TRẠNG THÁI */
     t.TaskId                                                AS task_id,
+    /* id_cha: task_id đầu tiên (nhỏ nhất) cùng (tên nhiệm vụ, văn bản giao, trục giao) + '_GR', khớp id_cha bảng gộp */
+    MAX(g.id_cha)                                           AS id_cha,
     t.Status                                                AS status,
 
     /* 2. NHÓM NHIỆM VỤ / TRỤC GIAO & VĂN BẢN GIAO */
@@ -219,6 +222,28 @@ LEFT JOIN `db_theodoinv_hn`.`department` d_donvi
 /* JOIN USER NHẬN */
 LEFT JOIN `db_theodoinv_hn`.`qlnv_user` u_target 
        ON u_target.eGovUserId = t.TargetUser
+
+/* JOIN NHÓM GỘP (cùng khóa GROUP BY ten_nhiem_vu, id_truc_giao của qlnv_tonghop_gop_nvgiao_pth_ubndtp)
+   Điều kiện lọc phải giữ giống hệt WHERE bên dưới để MIN(TaskId) khớp bảng gộp.
+   MySQL 5.7 không có MIN() OVER (...) => dùng subquery gom nhóm.
+   Title là varchar(6000) => không tạo được auto key cho bảng dẫn xuất, JOIN thẳng theo Title
+   thành nested loop N x M (> 60s, bị cắt kết nối) => JOIN theo MD5(Title || DocCode) 32 ký tự. */
+LEFT JOIN (
+    SELECT MD5(CONCAT(COALESCE(t3.Title, ''), '||', COALESCE(t3.DocCode, ''))) AS title_md5, t3.AssignDepartment, CONCAT(MIN(t3.TaskId), '_GR') AS id_cha
+    FROM `db_theodoinv_hn`.`qlnv_task` t3
+    INNER JOIN `db_theodoinv_hn`.`qlnv_resolution` r3
+            ON r3.ResolutionId = t3.ResolutionId
+           AND r3.DeletedDate IS NULL
+    WHERE t3.DeletedDate IS NULL
+      AND (   t3.Status IN (-1, 0, 1, 2)
+           OR (t3.Status IN (3, 4) AND (t3.ExpireDate IS NULL OR COALESCE(t3.CompletedDate, t3.ApprovedDate) IS NOT NULL)))
+      AND t3.AssignDepartment = '490.698'
+      AND t3.TargetDepartment LIKE '490.698.%'
+      AND t3.TargetDepartment NOT IN ('490.698.1307', '490.698.1841', '490.698.1310')
+    GROUP BY MD5(CONCAT(COALESCE(t3.Title, ''), '||', COALESCE(t3.DocCode, ''))), t3.AssignDepartment
+) g
+       ON g.title_md5 = MD5(CONCAT(COALESCE(t.Title, ''), '||', COALESCE(t.DocCode, '')))
+      AND g.AssignDepartment = t.AssignDepartment
 
 /* ĐIỀU KIỆN LẤY TASK: đồng bộ với qlnv_tonghop_chitiet_nvgiao_pth_ubndtp */
 WHERE t.DeletedDate IS NULL

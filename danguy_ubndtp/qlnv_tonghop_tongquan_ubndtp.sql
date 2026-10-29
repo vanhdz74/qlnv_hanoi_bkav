@@ -41,12 +41,12 @@ FROM (
         /* PHÂN LOẠI NHIỆM VỤ */
         CASE
             WHEN (t.AssignDepartment = '490.695.1558.1814' OR t.AssignDepartment = '490.695.1558.1814.1815')
-                 AND t.TargetDepartment LIKE '490.698%'
-                 AND t.AssignDepartment <> t.TargetDepartment
+                 AND t.OriginalTargetDepartment LIKE '490.698%'
+                 AND t.AssignDepartment <> t.OriginalTargetDepartment
             THEN 'Nhiệm vụ giao'
 
             WHEN t.AssignDepartment LIKE '490.695%' 
-                 AND (t.TargetDepartment IN ('490.695.1558.1814', '490.695.1558.1814.1815') OR t.TargetDepartment LIKE '490.698%')
+                 AND (t.OriginalTargetDepartment IN ('490.695.1558.1814', '490.695.1558.1814.1815') OR t.OriginalTargetDepartment LIKE '490.698%')
             THEN 'Nhiệm vụ nhận'
 
             ELSE NULL
@@ -56,10 +56,10 @@ FROM (
         CASE
             WHEN t.AssignDepartment LIKE '490.695%' THEN
                 CASE
-                    WHEN t.TargetDepartment IN ('490.695.1558.1814', '490.695.1558.1814.1815') 
+                    WHEN t.OriginalTargetDepartment IN ('490.695.1558.1814', '490.695.1558.1814.1815') 
                     THEN 'Giao qua Đảng ủy UBND'
 
-                    WHEN t.TargetDepartment LIKE '490.698%' THEN
+                    WHEN t.OriginalTargetDepartment LIKE '490.698%' THEN
                         CASE 
                             WHEN tu_check.has_user_dept = 1 THEN 'Giao qua Đảng ủy UBND'
                             ELSE 'Không qua Đảng ủy UBND'
@@ -72,21 +72,21 @@ FROM (
         /* CHUẨN HÓA BÊN NHẬN ID */
         CASE 
             WHEN (t.AssignDepartment = '490.695.1558.1814' OR t.AssignDepartment = '490.695.1558.1814.1815')
-                 AND t.TargetDepartment LIKE '490.698%'
-                 AND t.AssignDepartment <> t.TargetDepartment THEN
+                 AND t.OriginalTargetDepartment LIKE '490.698%'
+                 AND t.AssignDepartment <> t.OriginalTargetDepartment THEN
                 CASE
-                    WHEN (CHAR_LENGTH(t.TargetDepartment) - CHAR_LENGTH(REPLACE(t.TargetDepartment, '.', ''))) >= 4
-                    THEN SUBSTRING_INDEX(t.TargetDepartment, '.', 4)
+                    WHEN (CHAR_LENGTH(t.OriginalTargetDepartment) - CHAR_LENGTH(REPLACE(t.OriginalTargetDepartment, '.', ''))) >= 4
+                    THEN SUBSTRING_INDEX(t.OriginalTargetDepartment, '.', 4)
 
-                    WHEN t.TargetDepartment NOT LIKE '490.698.1307%' 
-                         AND t.TargetDepartment NOT LIKE '490.698.1310%'
-                         AND t.TargetDepartment NOT LIKE '490.698.1841%'
-                         AND (CHAR_LENGTH(t.TargetDepartment) - CHAR_LENGTH(REPLACE(t.TargetDepartment, '.', ''))) = 3
-                    THEN SUBSTRING_INDEX(t.TargetDepartment, '.', 3)
+                    WHEN t.OriginalTargetDepartment NOT LIKE '490.698.1307%' 
+                         AND t.OriginalTargetDepartment NOT LIKE '490.698.1310%'
+                         AND t.OriginalTargetDepartment NOT LIKE '490.698.1841%'
+                         AND (CHAR_LENGTH(t.OriginalTargetDepartment) - CHAR_LENGTH(REPLACE(t.OriginalTargetDepartment, '.', ''))) = 3
+                    THEN SUBSTRING_INDEX(t.OriginalTargetDepartment, '.', 3)
 
-                    ELSE t.TargetDepartment
+                    ELSE t.OriginalTargetDepartment
                 END
-            ELSE t.TargetDepartment
+            ELSE t.OriginalTargetDepartment
         END AS final_ben_nhan_id,
 
         t.StartedDate AS ngay_bat_dau,
@@ -139,19 +139,19 @@ FROM (
 
     WHERE t.DeletedDate IS NULL
       AND (t.Status IS NULL OR t.Status <> 5)
-      AND t.TargetDepartment NOT IN ('490.698.1307', '490.698.1310', '490.698.1841')
+      AND t.OriginalTargetDepartment NOT IN ('490.698.1307', '490.698.1310', '490.698.1841')
       AND (
           /* Luồng Giao: từ 1814/1815 sang 490.698% */
           (
               (t.AssignDepartment = '490.695.1558.1814' OR t.AssignDepartment = '490.695.1558.1814.1815')
-              AND t.TargetDepartment LIKE '490.698%'
-              AND t.AssignDepartment <> t.TargetDepartment
+              AND t.OriginalTargetDepartment LIKE '490.698%'
+              AND t.AssignDepartment <> t.OriginalTargetDepartment
           )
           OR
           /* Luồng Nhận: từ 490.695% về 1814/1815 hoặc sang 490.698% */
           (
               t.AssignDepartment LIKE '490.695%' 
-              AND (t.TargetDepartment IN ('490.695.1558.1814', '490.695.1558.1814.1815') OR t.TargetDepartment LIKE '490.698%')
+              AND (t.OriginalTargetDepartment IN ('490.695.1558.1814', '490.695.1558.1814.1815') OR t.OriginalTargetDepartment LIKE '490.698%')
           )
       )
 ) b

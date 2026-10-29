@@ -1,0 +1,42 @@
+/* Chạy 1 lần: cột id_cha cho bảng chi tiết + bảng gộp nhiệm vụ giao (PK id_cha để upsert) */
+ALTER TABLE `datamart_hanoi`.`qlnv_tonghop_chitiet_ubndtp`
+    ADD COLUMN id_cha VARCHAR(50) NULL,
+    ADD KEY idx_id_cha (id_cha);
+
+CREATE TABLE IF NOT EXISTS `datamart_hanoi`.`qlnv_tonghop_gop_nvgiao_ubndtp` (
+    id_cha                         VARCHAR(50) NOT NULL,
+    task_id                        MEDIUMTEXT,
+    so_luong_task                  INT,
+    loai_nhiem_vu                  VARCHAR(50),
+    hinh_thuc_giao                 VARCHAR(100),
+    ben_giao_id                    VARCHAR(100),
+    ben_giao_name                  VARCHAR(500),
+    ben_nhan_id                    MEDIUMTEXT,
+    ben_nhan_name                  MEDIUMTEXT,
+    ten_task                       TEXT,
+    nhom_nhiem_vu                  TEXT,
+    stt_nhiem_vu_theo_doi          TEXT,
+    van_ban_giao                   TEXT,
+    noi_dung_nhiem_vu              LONGTEXT,
+    to_chuc_dang_chu_tri           MEDIUMTEXT,
+    lanh_dao_don_vi_va_chuyen_vien LONGTEXT,
+    cap_giao_nhiem_vu              TEXT,
+    lanh_dao_giao                  TEXT,
+    ngay_bat_dau                   DATETIME,
+    thoi_han                       DATETIME,
+    ngay_het_han                   DATETIME,
+    ngay_hoan_thanh                DATETIME,
+    nam_het_han                    INT,
+    thang_het_han                  INT,
+    tinh_trang                     VARCHAR(100),
+    tinh_hinh_ket_qua_thuc_hien    LONGTEXT,
+    ld_ubnd                        TEXT,
+    ld_van_phong_ubnd              TEXT,
+    ban_chuyen_mon                 TEXT,
+    chuyen_vien_theo_doi           TEXT,
+    sync_date                      DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id_cha),
+    KEY idx_ben_giao_id (ben_giao_id),
+    KEY idx_thoi_han (thoi_han),
+    KEY idx_tinh_trang (tinh_trang)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

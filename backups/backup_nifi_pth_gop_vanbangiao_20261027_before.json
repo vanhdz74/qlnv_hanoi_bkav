@@ -1,0 +1,1782 @@
+{
+ "5ebe3ead-c913-1f31-149d-f42bddd4059a": {
+  "revision": {
+   "clientId": "5ebe3ebe-c913-1f31-4095-d01d6352c9dc",
+   "version": 62
+  },
+  "id": "5ebe3ead-c913-1f31-149d-f42bddd4059a",
+  "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/processors/5ebe3ead-c913-1f31-149d-f42bddd4059a",
+  "position": {
+   "x": 856.0,
+   "y": -80.0
+  },
+  "permissions": {
+   "canRead": true,
+   "canWrite": true
+  },
+  "bulletins": [],
+  "component": {
+   "id": "5ebe3ead-c913-1f31-149d-f42bddd4059a",
+   "versionedComponentId": "aa38151e-bf38-315a-a93d-e70ca601c837",
+   "parentGroupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+   "position": {
+    "x": 856.0,
+    "y": -80.0
+   },
+   "name": "GenerateFlowFile",
+   "type": "org.apache.nifi.processors.standard.GenerateFlowFile",
+   "bundle": {
+    "group": "org.apache.nifi",
+    "artifact": "nifi-standard-nar",
+    "version": "1.27.0"
+   },
+   "state": "RUNNING",
+   "style": {},
+   "relationships": [
+    {
+     "name": "success",
+     "description": "",
+     "autoTerminate": false,
+     "retry": false
+    }
+   ],
+   "supportsParallelProcessing": true,
+   "supportsEventDriven": false,
+   "supportsBatching": true,
+   "supportsSensitiveDynamicProperties": false,
+   "persistsState": false,
+   "restricted": false,
+   "deprecated": false,
+   "executionNodeRestricted": false,
+   "multipleVersionsAvailable": false,
+   "inputRequirement": "INPUT_FORBIDDEN",
+   "config": {
+    "properties": {
+     "File Size": "0B",
+     "Batch Size": "1",
+     "Data Format": "Text",
+     "Unique FlowFiles": "false",
+     "generate-ff-custom-text": null,
+     "character-set": "UTF-8",
+     "mime-type": null
+    },
+    "descriptors": {
+     "File Size": {
+      "name": "File Size",
+      "displayName": "File Size",
+      "description": "The size of the file that will be used",
+      "defaultValue": "0B",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "Batch Size": {
+      "name": "Batch Size",
+      "displayName": "Batch Size",
+      "description": "The number of FlowFiles to be transferred in each invocation",
+      "defaultValue": "1",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "Data Format": {
+      "name": "Data Format",
+      "displayName": "Data Format",
+      "description": "Specifies whether the data should be Text or Binary",
+      "defaultValue": "Text",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "Binary",
+         "value": "Binary"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Text",
+         "value": "Text"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "Unique FlowFiles": {
+      "name": "Unique FlowFiles",
+      "displayName": "Unique FlowFiles",
+      "description": "If true, each FlowFile that is generated will be unique. If false, a random value will be generated and all FlowFiles will get the same content but this offers much higher throughput",
+      "defaultValue": "false",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "true",
+         "value": "true"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "false",
+         "value": "false"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "generate-ff-custom-text": {
+      "name": "generate-ff-custom-text",
+      "displayName": "Custom Text",
+      "description": "If Data Format is text and if Unique FlowFiles is false, then this custom text will be used as content of the generated FlowFiles and the File Size will be ignored. Finally, if Expression Language is used, evaluation will be performed only once per batch of generated FlowFiles",
+      "required": false,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry Only",
+      "dependencies": []
+     },
+     "character-set": {
+      "name": "character-set",
+      "displayName": "Character Set",
+      "description": "Specifies the character set to use when writing the bytes of Custom Text to a flow file.",
+      "defaultValue": "UTF-8",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "mime-type": {
+      "name": "mime-type",
+      "displayName": "Mime Type",
+      "description": "Specifies the value to set for the \"mime.type\" attribute.",
+      "required": false,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     }
+    },
+    "schedulingPeriod": "15 min",
+    "schedulingStrategy": "TIMER_DRIVEN",
+    "executionNode": "ALL",
+    "penaltyDuration": "30 sec",
+    "yieldDuration": "1 sec",
+    "bulletinLevel": "WARN",
+    "runDurationMillis": 0,
+    "concurrentlySchedulableTaskCount": 1,
+    "comments": "",
+    "lossTolerant": false,
+    "defaultConcurrentTasks": {
+     "TIMER_DRIVEN": "1",
+     "EVENT_DRIVEN": "0",
+     "CRON_DRIVEN": "1"
+    },
+    "defaultSchedulingPeriod": {
+     "TIMER_DRIVEN": "0 sec",
+     "CRON_DRIVEN": "* * * * * ?"
+    },
+    "retryCount": 10,
+    "retriedRelationships": [],
+    "backoffMechanism": "PENALIZE_FLOWFILE",
+    "maxBackoffPeriod": "10 mins"
+   },
+   "validationStatus": "VALID",
+   "extensionMissing": false
+  },
+  "inputRequirement": "INPUT_FORBIDDEN",
+  "status": {
+   "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+   "id": "5ebe3ead-c913-1f31-149d-f42bddd4059a",
+   "name": "GenerateFlowFile",
+   "runStatus": "Running",
+   "statsLastRefreshed": "10:01:31 ICT",
+   "aggregateSnapshot": {
+    "id": "5ebe3ead-c913-1f31-149d-f42bddd4059a",
+    "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "name": "GenerateFlowFile",
+    "type": "GenerateFlowFile",
+    "runStatus": "Running",
+    "executionNode": "ALL",
+    "bytesRead": 0,
+    "bytesWritten": 0,
+    "read": "0 bytes",
+    "written": "0 bytes",
+    "flowFilesIn": 0,
+    "bytesIn": 0,
+    "input": "0 (0 bytes)",
+    "flowFilesOut": 0,
+    "bytesOut": 0,
+    "output": "0 (0 bytes)",
+    "taskCount": 0,
+    "tasksDurationNanos": 0,
+    "tasks": "0",
+    "tasksDuration": "00:00:00.000",
+    "activeThreadCount": 0,
+    "terminatedThreadCount": 0
+   }
+  },
+  "operatePermissions": {
+   "canRead": true,
+   "canWrite": true
+  }
+ },
+ "5ebe3eac-c913-1f31-6fb1-54560e891e19": {
+  "revision": {
+   "clientId": "5ebe3ebe-c913-1f31-4095-d01d6352c9dc",
+   "version": 49
+  },
+  "id": "5ebe3eac-c913-1f31-6fb1-54560e891e19",
+  "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/processors/5ebe3eac-c913-1f31-6fb1-54560e891e19",
+  "position": {
+   "x": 288.0,
+   "y": 184.0
+  },
+  "permissions": {
+   "canRead": true,
+   "canWrite": true
+  },
+  "bulletins": [],
+  "component": {
+   "id": "5ebe3eac-c913-1f31-6fb1-54560e891e19",
+   "versionedComponentId": "a8156b7c-bc29-3f44-a82e-4e6a44d34895",
+   "parentGroupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+   "position": {
+    "x": 288.0,
+    "y": 184.0
+   },
+   "name": "ReplaceText",
+   "type": "org.apache.nifi.processors.standard.ReplaceText",
+   "bundle": {
+    "group": "org.apache.nifi",
+    "artifact": "nifi-standard-nar",
+    "version": "1.27.0"
+   },
+   "state": "RUNNING",
+   "style": {},
+   "relationships": [
+    {
+     "name": "failure",
+     "description": "FlowFiles that could not be updated are routed to this relationship",
+     "autoTerminate": true,
+     "retry": false
+    },
+    {
+     "name": "success",
+     "description": "FlowFiles that have been successfully processed are routed to this relationship. This includes both FlowFiles that had text replaced and those that did not.",
+     "autoTerminate": false,
+     "retry": false
+    }
+   ],
+   "supportsParallelProcessing": true,
+   "supportsEventDriven": true,
+   "supportsBatching": true,
+   "supportsSensitiveDynamicProperties": false,
+   "persistsState": false,
+   "restricted": false,
+   "deprecated": false,
+   "executionNodeRestricted": false,
+   "multipleVersionsAvailable": false,
+   "inputRequirement": "INPUT_REQUIRED",
+   "config": {
+    "properties": {
+     "Replacement Strategy": "Always Replace",
+     "Regular Expression": "(?s)(^.*$)",
+     "Replacement Value": "TRUNCATE TABLE `datamart_hanoi`.`qlnv_tonghop_gop_nvgiao_pth_ubndtp`;\n",
+     "Text to Prepend": null,
+     "Text to Append": null,
+     "Character Set": "UTF-8",
+     "Maximum Buffer Size": "1 MB",
+     "Evaluation Mode": "Entire text",
+     "Line-by-Line Evaluation Mode": "All"
+    },
+    "descriptors": {
+     "Replacement Strategy": {
+      "name": "Replacement Strategy",
+      "displayName": "Replacement Strategy",
+      "description": "The strategy for how and what to replace within the FlowFile's text content.",
+      "defaultValue": "Regex Replace",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "Prepend",
+         "value": "Prepend",
+         "description": "Insert the Replacement Value at the beginning of the FlowFile or the beginning of each line (depending on the Evaluation Mode). For \"Line-by-Line\" Evaluation Mode, the value will be prepended to each line. Similarly, for \"First-Line\", \"Last-Line\", \"Except-Last-Line\" and \"Except-First-Line\" Evaluation Modes,the value will be prepended to header alone, footer alone, all lines except header and all lines except footer respectively. For \"Entire Text\" evaluation mode,the value will be prepended to the entire text."
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Append",
+         "value": "Append",
+         "description": "Insert the Replacement Value at the end of the FlowFile or the end of each line (depending on the Evaluation Mode). For \"Line-by-Line\" Evaluation Mode, the value will be appended to each line. Similarly, for \"First-Line\", \"Last-Line\", \"Except-Last-Line\" and \"Except-First-Line\" Evaluation Modes,the value will be appended to header alone, footer alone, all lines except header and all lines except footer respectively. For \"Entire Text\" evaluation mode,the value will be appended to the entire text."
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Surround",
+         "value": "Surround",
+         "description": "Prepends text before the start of the FlowFile (or the start of each line, depending on the configuration of the Evaluation Mode property) as well as appending text to the end of the FlowFile (or the end of each line, depending on the configuration of the Evaluation Mode property)"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Regex Replace",
+         "value": "Regex Replace",
+         "description": "Interpret the Search Value as a Regular Expression and replace all matches with the Replacement Value. The Replacement Value may reference Capturing Groups used in the Search Value by using a dollar-sign followed by the Capturing Group number, such as $1 or $2. If the Search Value is set to .* then everything is replaced without even evaluating the Regular Expression."
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Literal Replace",
+         "value": "Literal Replace",
+         "description": "Search for all instances of the Search Value and replace the matches with the Replacement Value."
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Always Replace",
+         "value": "Always Replace",
+         "description": "Always replaces the entire line or the entire contents of the FlowFile (depending on the value of the <Evaluation Mode> property) and does not bother searching for any value. When this strategy is chosen, the <Search Value> property is ignored."
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Substitute Variables",
+         "value": "Substitute Variables",
+         "description": "Substitute variable references (specified in ${var} form) using FlowFile attributes for looking up the replacement value by variable name. When this strategy is chosen, both the <Search Value> and <Replacement Value> properties are ignored."
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "Regular Expression": {
+      "name": "Regular Expression",
+      "displayName": "Search Value",
+      "description": "The Search Value to search for in the FlowFile content. Only used for 'Literal Replace' and 'Regex Replace' matching strategies",
+      "defaultValue": "(?s)(^.*$)",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": [
+       {
+        "propertyName": "Replacement Strategy",
+        "dependentValues": [
+         "Regex Replace",
+         "Literal Replace"
+        ]
+       }
+      ]
+     },
+     "Replacement Value": {
+      "name": "Replacement Value",
+      "displayName": "Replacement Value",
+      "description": "The value to insert using the 'Replacement Strategy'. Using \"Regex Replace\" back-references to Regular Expression capturing groups are supported, but back-references that reference capturing groups that do not exist in the regular expression will be treated as literal value. Back References may also be referenced using the Expression Language, as '$1', '$2', etc. The single-tick marks MUST be included, as these variables are not \"Standard\" attribute names (attribute names must be quoted unless they contain only numbers, letters, and _).",
+      "defaultValue": "$1",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": [
+       {
+        "propertyName": "Replacement Strategy",
+        "dependentValues": [
+         "Prepend",
+         "Regex Replace",
+         "Always Replace",
+         "Append",
+         "Literal Replace"
+        ]
+       }
+      ]
+     },
+     "Text to Prepend": {
+      "name": "Text to Prepend",
+      "displayName": "Text to Prepend",
+      "description": "The text to prepend to the start of the FlowFile, or each line, depending on teh configured value of the Evaluation Mode property",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": [
+       {
+        "propertyName": "Replacement Strategy",
+        "dependentValues": [
+         "Surround"
+        ]
+       }
+      ]
+     },
+     "Text to Append": {
+      "name": "Text to Append",
+      "displayName": "Text to Append",
+      "description": "The text to append to the end of the FlowFile, or each line, depending on teh configured value of the Evaluation Mode property",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": [
+       {
+        "propertyName": "Replacement Strategy",
+        "dependentValues": [
+         "Surround"
+        ]
+       }
+      ]
+     },
+     "Character Set": {
+      "name": "Character Set",
+      "displayName": "Character Set",
+      "description": "The Character Set in which the file is encoded",
+      "defaultValue": "UTF-8",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "Maximum Buffer Size": {
+      "name": "Maximum Buffer Size",
+      "displayName": "Maximum Buffer Size",
+      "description": "Specifies the maximum amount of data to buffer (per file or per line, depending on the Evaluation Mode) in order to apply the replacement. If 'Entire Text' (in Evaluation Mode) is selected and the FlowFile is larger than this value, the FlowFile will be routed to 'failure'. In 'Line-by-Line' Mode, if a single line is larger than this value, the FlowFile will be routed to 'failure'. A default value of 1 MB is provided, primarily for 'Entire Text' mode. In 'Line-by-Line' Mode, a value such as 8 KB or 16 KB is suggested. This value is ignored if the <Replacement Strategy> property is set to one of: Append, Prepend, Always Replace",
+      "defaultValue": "1 MB",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "Evaluation Mode": {
+      "name": "Evaluation Mode",
+      "displayName": "Evaluation Mode",
+      "description": "Run the 'Replacement Strategy' against each line separately (Line-by-Line) or buffer the entire file into memory (Entire Text) and run against that.",
+      "defaultValue": "Line-by-Line",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "Line-by-Line",
+         "value": "Line-by-Line"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Entire text",
+         "value": "Entire text"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "Line-by-Line Evaluation Mode": {
+      "name": "Line-by-Line Evaluation Mode",
+      "displayName": "Line-by-Line Evaluation Mode",
+      "description": "Run the 'Replacement Strategy' against each line separately (Line-by-Line) for all lines in the FlowFile, First Line (Header) alone, Last Line (Footer) alone, Except the First Line (Header) or Except the Last Line (Footer).",
+      "defaultValue": "All",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "All",
+         "value": "All"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "First-Line",
+         "value": "First-Line"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Last-Line",
+         "value": "Last-Line"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Except-First-Line",
+         "value": "Except-First-Line"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Except-Last-Line",
+         "value": "Except-Last-Line"
+        },
+        "canRead": true
+       }
+      ],
+      "required": false,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     }
+    },
+    "schedulingPeriod": "0 sec",
+    "schedulingStrategy": "TIMER_DRIVEN",
+    "executionNode": "ALL",
+    "penaltyDuration": "30 sec",
+    "yieldDuration": "1 sec",
+    "bulletinLevel": "WARN",
+    "runDurationMillis": 25,
+    "concurrentlySchedulableTaskCount": 1,
+    "comments": "",
+    "lossTolerant": false,
+    "defaultConcurrentTasks": {
+     "TIMER_DRIVEN": "1",
+     "EVENT_DRIVEN": "0",
+     "CRON_DRIVEN": "1"
+    },
+    "defaultSchedulingPeriod": {
+     "TIMER_DRIVEN": "0 sec",
+     "CRON_DRIVEN": "* * * * * ?"
+    },
+    "retryCount": 10,
+    "retriedRelationships": [],
+    "backoffMechanism": "PENALIZE_FLOWFILE",
+    "maxBackoffPeriod": "10 mins"
+   },
+   "validationStatus": "VALID",
+   "extensionMissing": false
+  },
+  "inputRequirement": "INPUT_REQUIRED",
+  "status": {
+   "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+   "id": "5ebe3eac-c913-1f31-6fb1-54560e891e19",
+   "name": "ReplaceText",
+   "runStatus": "Running",
+   "statsLastRefreshed": "10:01:31 ICT",
+   "aggregateSnapshot": {
+    "id": "5ebe3eac-c913-1f31-6fb1-54560e891e19",
+    "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "name": "ReplaceText",
+    "type": "ReplaceText",
+    "runStatus": "Running",
+    "executionNode": "ALL",
+    "bytesRead": 0,
+    "bytesWritten": 0,
+    "read": "0 bytes",
+    "written": "0 bytes",
+    "flowFilesIn": 0,
+    "bytesIn": 0,
+    "input": "0 (0 bytes)",
+    "flowFilesOut": 0,
+    "bytesOut": 0,
+    "output": "0 (0 bytes)",
+    "taskCount": 0,
+    "tasksDurationNanos": 0,
+    "tasks": "0",
+    "tasksDuration": "00:00:00.000",
+    "activeThreadCount": 0,
+    "terminatedThreadCount": 0
+   }
+  },
+  "operatePermissions": {
+   "canRead": true,
+   "canWrite": true
+  }
+ },
+ "5ebe3eb1-c913-1f31-b722-e75e319a448f": {
+  "revision": {
+   "clientId": "5ebe3ebe-c913-1f31-4095-d01d6352c9dc",
+   "version": 60
+  },
+  "id": "5ebe3eb1-c913-1f31-b722-e75e319a448f",
+  "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/processors/5ebe3eb1-c913-1f31-b722-e75e319a448f",
+  "position": {
+   "x": 336.0,
+   "y": 568.0
+  },
+  "permissions": {
+   "canRead": true,
+   "canWrite": true
+  },
+  "bulletins": [],
+  "component": {
+   "id": "5ebe3eb1-c913-1f31-b722-e75e319a448f",
+   "versionedComponentId": "8fbbbd83-8fab-3dde-b23c-7cc936344adc",
+   "parentGroupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+   "position": {
+    "x": 336.0,
+    "y": 568.0
+   },
+   "name": "ReplaceText",
+   "type": "org.apache.nifi.processors.standard.ReplaceText",
+   "bundle": {
+    "group": "org.apache.nifi",
+    "artifact": "nifi-standard-nar",
+    "version": "1.27.0"
+   },
+   "state": "RUNNING",
+   "style": {},
+   "relationships": [
+    {
+     "name": "failure",
+     "description": "FlowFiles that could not be updated are routed to this relationship",
+     "autoTerminate": true,
+     "retry": false
+    },
+    {
+     "name": "success",
+     "description": "FlowFiles that have been successfully processed are routed to this relationship. This includes both FlowFiles that had text replaced and those that did not.",
+     "autoTerminate": false,
+     "retry": false
+    }
+   ],
+   "supportsParallelProcessing": true,
+   "supportsEventDriven": true,
+   "supportsBatching": true,
+   "supportsSensitiveDynamicProperties": false,
+   "persistsState": false,
+   "restricted": false,
+   "deprecated": false,
+   "executionNodeRestricted": false,
+   "multipleVersionsAvailable": false,
+   "inputRequirement": "INPUT_REQUIRED",
+   "config": {
+    "properties": {
+     "Replacement Strategy": "Always Replace",
+     "Regular Expression": "(?s)(^.*$)",
+     "Replacement Value": "SET SESSION group_concat_max_len = 1048576;\n\nINSERT INTO `datamart_hanoi`.`qlnv_tonghop_gop_nvgiao_pth_ubndtp` (\n    id_truc_giao, truc_giao, nhom_van_ban, linh_vuc, chu_de, muc_do_uu_tien, nv_quantam,\n    ma_nhiem_vu, ten_nhiem_vu, van_ban_giao,\n    id_don_vi_chu_tri, ten_don_vi_chu_tri, lanh_dao_don_vi_va_chuyen_vien,\n    ngay_giao, han_xu_ly, ngay_hoan_thanh, ngay_xoa,\n    tinh_trang, tinh_hinh_ket_qua,\n    ld_ubnd, ld_van_phong, phong_chuyen_mon_theo_doi, chuyen_vien_vp_theo_doi,\n    id_cha, task_id, status, so_luong_task, sync_date\n)\n\nSELECT\n    /* 1. TRỤC GIAO & NHÓM VĂN BẢN */\n    x.id_truc_giao,\n    GROUP_CONCAT(DISTINCT x.truc_giao     ORDER BY x.truc_giao     SEPARATOR ' | ')     AS truc_giao,\n    GROUP_CONCAT(DISTINCT x.nhom_van_ban  ORDER BY x.nhom_van_ban  SEPARATOR ' | ')     AS nhom_van_ban,\n    GROUP_CONCAT(DISTINCT x.linh_vuc      ORDER BY x.linh_vuc      SEPARATOR ' | ')     AS linh_vuc,\n\n    /* CHỦ ĐỀ, MỨC ĐỘ ƯU TIÊN, NHIỆM VỤ QUAN TÂM */\n    GROUP_CONCAT(DISTINCT x.chu_de         ORDER BY x.chu_de         SEPARATOR ' | ')   AS chu_de,\n    GROUP_CONCAT(DISTINCT x.muc_do_uu_tien ORDER BY x.muc_do_uu_tien SEPARATOR ' | ')   AS muc_do_uu_tien,\n    MAX(x.nv_quantam)                                                                   AS nv_quantam,\n\n    /* 2. NHIỆM VỤ & VĂN BẢN GIAO */\n    IF(MIN(COALESCE(x.ma_nhiem_vu, '-')) = MAX(COALESCE(x.ma_nhiem_vu, '-')), MAX(x.ma_nhiem_vu),\n       GROUP_CONCAT(COALESCE(x.ma_nhiem_vu, '-') ORDER BY x.task_id SEPARATOR ' | '))       AS ma_nhiem_vu,\n    x.ten_nhiem_vu,\n    GROUP_CONCAT(DISTINCT x.van_ban_giao  ORDER BY x.van_ban_giao  SEPARATOR ' | ')     AS van_ban_giao,\n\n    /* 3. ĐƠN VỊ CHỦ TRÌ */\n    IF(MIN(COALESCE(x.id_don_vi_chu_tri, '-')) = MAX(COALESCE(x.id_don_vi_chu_tri, '-')), MAX(x.id_don_vi_chu_tri),\n       GROUP_CONCAT(COALESCE(x.id_don_vi_chu_tri, '-') ORDER BY x.task_id SEPARATOR ' | ')) AS id_don_vi_chu_tri,\n    IF(MIN(COALESCE(x.ten_don_vi_chu_tri, '-')) = MAX(COALESCE(x.ten_don_vi_chu_tri, '-')), MAX(x.ten_don_vi_chu_tri),\n       GROUP_CONCAT(COALESCE(x.ten_don_vi_chu_tri, '-') ORDER BY x.task_id SEPARATOR ' | ')) AS ten_don_vi_chu_tri,\n    IF(MIN(COALESCE(x.lanh_dao_don_vi_va_chuyen_vien, '-')) = MAX(COALESCE(x.lanh_dao_don_vi_va_chuyen_vien, '-')), MAX(x.lanh_dao_don_vi_va_chuyen_vien),\n       GROUP_CONCAT(COALESCE(x.lanh_dao_don_vi_va_chuyen_vien, '-') ORDER BY x.task_id SEPARATOR ' | ')) AS lanh_dao_don_vi_va_chuyen_vien,\n\n    /* 4. MỐC THỜI GIAN */\n    IF(MIN(COALESCE(x.ngay_giao, '-')) = MAX(COALESCE(x.ngay_giao, '-')), MAX(x.ngay_giao),\n       GROUP_CONCAT(COALESCE(x.ngay_giao, '-') ORDER BY x.task_id SEPARATOR ' | '))   AS ngay_giao,\n    IF(MIN(COALESCE(x.han_xu_ly, '-')) = MAX(COALESCE(x.han_xu_ly, '-')), MAX(x.han_xu_ly),\n       GROUP_CONCAT(COALESCE(x.han_xu_ly, '-') ORDER BY x.task_id SEPARATOR ' | '))   AS han_xu_ly,\n    GROUP_CONCAT(COALESCE(x.ngay_hoan_thanh, '-') ORDER BY x.task_id SEPARATOR ' | ')   AS ngay_hoan_thanh,\n    IF(MIN(COALESCE(x.ngay_xoa, '-')) = MAX(COALESCE(x.ngay_xoa, '-')), MAX(x.ngay_xoa),\n       GROUP_CONCAT(COALESCE(x.ngay_xoa, '-') ORDER BY x.task_id SEPARATOR ' | '))   AS ngay_xoa,\n\n    /* 5. TÌNH TRẠNG: tình trạng xấu nhất trong nhóm\n       VD: Đã hoàn thành | Đã hoàn thành | Chưa hoàn thành trong hạn => Chưa hoàn thành trong hạn */\n    CASE\n        WHEN MAX(x.tinh_trang = 'Chưa hoàn thành quá hạn')   = 1 THEN 'Chưa hoàn thành quá hạn'\n        WHEN MAX(x.tinh_trang = 'Chưa hoàn thành trong hạn') = 1 THEN 'Chưa hoàn thành trong hạn'\n        WHEN MAX(x.tinh_trang = 'Thường xuyên')              = 1 THEN 'Thường xuyên'\n        WHEN MAX(x.tinh_trang = 'Đã hoàn thành')             = 1 THEN 'Đã hoàn thành'\n    END                                                                                 AS tinh_trang,\n\n    /* 6. TÌNH HÌNH, KẾT QUẢ */\n    IF(MIN(COALESCE(x.tinh_hinh_ket_qua, '-')) = MAX(COALESCE(x.tinh_hinh_ket_qua, '-')), MAX(x.tinh_hinh_ket_qua),\n       GROUP_CONCAT(COALESCE(x.tinh_hinh_ket_qua, '-') ORDER BY x.task_id SEPARATOR ' | ')) AS tinh_hinh_ket_qua,\n\n    /* 7. LÃNH ĐẠO UBND / VĂN PHÒNG & CHUYÊN VIÊN VP THEO DÕI */\n    GROUP_CONCAT(DISTINCT x.ld_ubnd                   SEPARATOR ' | ')                  AS ld_ubnd,\n    GROUP_CONCAT(DISTINCT x.ld_van_phong              SEPARATOR ' | ')                  AS ld_van_phong,\n    GROUP_CONCAT(DISTINCT x.phong_chuyen_mon_theo_doi SEPARATOR ' | ')                  AS phong_chuyen_mon_theo_doi,\n    GROUP_CONCAT(DISTINCT x.chuyen_vien_vp_theo_doi   SEPARATOR ' | ')                  AS chuyen_vien_vp_theo_doi,\n\n    /* 8. KHÓA HỆ THỐNG & ĐỒNG BỘ\n       id_cha = task_id đầu tiên (nhỏ nhất) của nhóm + '_GR', khớp id_cha bên qlnv_chitiet_nvgiao_pth_ubndtp */\n    CONCAT(MIN(x.task_id), '_GR')                                                       AS id_cha,\n    GROUP_CONCAT(x.task_id ORDER BY x.task_id SEPARATOR ' | ')                          AS task_id,\n    IF(MIN(x.status) = MAX(x.status), MAX(x.status),\n       GROUP_CONCAT(x.status ORDER BY x.task_id SEPARATOR ' | '))                        AS status,\n    COUNT(*)                                                                            AS so_luong_task,\n    NOW()                                                                               AS sync_date\n\nFROM `datamart_hanoi`.`qlnv_tonghop_chitiet_nvgiao_pth_ubndtp` x\n\nGROUP BY x.ten_nhiem_vu, x.id_truc_giao;\n",
+     "Text to Prepend": null,
+     "Text to Append": null,
+     "Character Set": "UTF-8",
+     "Maximum Buffer Size": "1 MB",
+     "Evaluation Mode": "Line-by-Line",
+     "Line-by-Line Evaluation Mode": "All"
+    },
+    "descriptors": {
+     "Replacement Strategy": {
+      "name": "Replacement Strategy",
+      "displayName": "Replacement Strategy",
+      "description": "The strategy for how and what to replace within the FlowFile's text content.",
+      "defaultValue": "Regex Replace",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "Prepend",
+         "value": "Prepend",
+         "description": "Insert the Replacement Value at the beginning of the FlowFile or the beginning of each line (depending on the Evaluation Mode). For \"Line-by-Line\" Evaluation Mode, the value will be prepended to each line. Similarly, for \"First-Line\", \"Last-Line\", \"Except-Last-Line\" and \"Except-First-Line\" Evaluation Modes,the value will be prepended to header alone, footer alone, all lines except header and all lines except footer respectively. For \"Entire Text\" evaluation mode,the value will be prepended to the entire text."
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Append",
+         "value": "Append",
+         "description": "Insert the Replacement Value at the end of the FlowFile or the end of each line (depending on the Evaluation Mode). For \"Line-by-Line\" Evaluation Mode, the value will be appended to each line. Similarly, for \"First-Line\", \"Last-Line\", \"Except-Last-Line\" and \"Except-First-Line\" Evaluation Modes,the value will be appended to header alone, footer alone, all lines except header and all lines except footer respectively. For \"Entire Text\" evaluation mode,the value will be appended to the entire text."
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Surround",
+         "value": "Surround",
+         "description": "Prepends text before the start of the FlowFile (or the start of each line, depending on the configuration of the Evaluation Mode property) as well as appending text to the end of the FlowFile (or the end of each line, depending on the configuration of the Evaluation Mode property)"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Regex Replace",
+         "value": "Regex Replace",
+         "description": "Interpret the Search Value as a Regular Expression and replace all matches with the Replacement Value. The Replacement Value may reference Capturing Groups used in the Search Value by using a dollar-sign followed by the Capturing Group number, such as $1 or $2. If the Search Value is set to .* then everything is replaced without even evaluating the Regular Expression."
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Literal Replace",
+         "value": "Literal Replace",
+         "description": "Search for all instances of the Search Value and replace the matches with the Replacement Value."
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Always Replace",
+         "value": "Always Replace",
+         "description": "Always replaces the entire line or the entire contents of the FlowFile (depending on the value of the <Evaluation Mode> property) and does not bother searching for any value. When this strategy is chosen, the <Search Value> property is ignored."
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Substitute Variables",
+         "value": "Substitute Variables",
+         "description": "Substitute variable references (specified in ${var} form) using FlowFile attributes for looking up the replacement value by variable name. When this strategy is chosen, both the <Search Value> and <Replacement Value> properties are ignored."
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "Regular Expression": {
+      "name": "Regular Expression",
+      "displayName": "Search Value",
+      "description": "The Search Value to search for in the FlowFile content. Only used for 'Literal Replace' and 'Regex Replace' matching strategies",
+      "defaultValue": "(?s)(^.*$)",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": [
+       {
+        "propertyName": "Replacement Strategy",
+        "dependentValues": [
+         "Regex Replace",
+         "Literal Replace"
+        ]
+       }
+      ]
+     },
+     "Replacement Value": {
+      "name": "Replacement Value",
+      "displayName": "Replacement Value",
+      "description": "The value to insert using the 'Replacement Strategy'. Using \"Regex Replace\" back-references to Regular Expression capturing groups are supported, but back-references that reference capturing groups that do not exist in the regular expression will be treated as literal value. Back References may also be referenced using the Expression Language, as '$1', '$2', etc. The single-tick marks MUST be included, as these variables are not \"Standard\" attribute names (attribute names must be quoted unless they contain only numbers, letters, and _).",
+      "defaultValue": "$1",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": [
+       {
+        "propertyName": "Replacement Strategy",
+        "dependentValues": [
+         "Prepend",
+         "Regex Replace",
+         "Always Replace",
+         "Append",
+         "Literal Replace"
+        ]
+       }
+      ]
+     },
+     "Text to Prepend": {
+      "name": "Text to Prepend",
+      "displayName": "Text to Prepend",
+      "description": "The text to prepend to the start of the FlowFile, or each line, depending on teh configured value of the Evaluation Mode property",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": [
+       {
+        "propertyName": "Replacement Strategy",
+        "dependentValues": [
+         "Surround"
+        ]
+       }
+      ]
+     },
+     "Text to Append": {
+      "name": "Text to Append",
+      "displayName": "Text to Append",
+      "description": "The text to append to the end of the FlowFile, or each line, depending on teh configured value of the Evaluation Mode property",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": [
+       {
+        "propertyName": "Replacement Strategy",
+        "dependentValues": [
+         "Surround"
+        ]
+       }
+      ]
+     },
+     "Character Set": {
+      "name": "Character Set",
+      "displayName": "Character Set",
+      "description": "The Character Set in which the file is encoded",
+      "defaultValue": "UTF-8",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "Maximum Buffer Size": {
+      "name": "Maximum Buffer Size",
+      "displayName": "Maximum Buffer Size",
+      "description": "Specifies the maximum amount of data to buffer (per file or per line, depending on the Evaluation Mode) in order to apply the replacement. If 'Entire Text' (in Evaluation Mode) is selected and the FlowFile is larger than this value, the FlowFile will be routed to 'failure'. In 'Line-by-Line' Mode, if a single line is larger than this value, the FlowFile will be routed to 'failure'. A default value of 1 MB is provided, primarily for 'Entire Text' mode. In 'Line-by-Line' Mode, a value such as 8 KB or 16 KB is suggested. This value is ignored if the <Replacement Strategy> property is set to one of: Append, Prepend, Always Replace",
+      "defaultValue": "1 MB",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "Evaluation Mode": {
+      "name": "Evaluation Mode",
+      "displayName": "Evaluation Mode",
+      "description": "Run the 'Replacement Strategy' against each line separately (Line-by-Line) or buffer the entire file into memory (Entire Text) and run against that.",
+      "defaultValue": "Line-by-Line",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "Line-by-Line",
+         "value": "Line-by-Line"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Entire text",
+         "value": "Entire text"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "Line-by-Line Evaluation Mode": {
+      "name": "Line-by-Line Evaluation Mode",
+      "displayName": "Line-by-Line Evaluation Mode",
+      "description": "Run the 'Replacement Strategy' against each line separately (Line-by-Line) for all lines in the FlowFile, First Line (Header) alone, Last Line (Footer) alone, Except the First Line (Header) or Except the Last Line (Footer).",
+      "defaultValue": "All",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "All",
+         "value": "All"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "First-Line",
+         "value": "First-Line"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Last-Line",
+         "value": "Last-Line"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Except-First-Line",
+         "value": "Except-First-Line"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Except-Last-Line",
+         "value": "Except-Last-Line"
+        },
+        "canRead": true
+       }
+      ],
+      "required": false,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     }
+    },
+    "schedulingPeriod": "0 sec",
+    "schedulingStrategy": "TIMER_DRIVEN",
+    "executionNode": "ALL",
+    "penaltyDuration": "30 sec",
+    "yieldDuration": "1 sec",
+    "bulletinLevel": "WARN",
+    "runDurationMillis": 25,
+    "concurrentlySchedulableTaskCount": 1,
+    "comments": "",
+    "lossTolerant": false,
+    "defaultConcurrentTasks": {
+     "TIMER_DRIVEN": "1",
+     "EVENT_DRIVEN": "0",
+     "CRON_DRIVEN": "1"
+    },
+    "defaultSchedulingPeriod": {
+     "TIMER_DRIVEN": "0 sec",
+     "CRON_DRIVEN": "* * * * * ?"
+    },
+    "retryCount": 10,
+    "retriedRelationships": [],
+    "backoffMechanism": "PENALIZE_FLOWFILE",
+    "maxBackoffPeriod": "10 mins"
+   },
+   "validationStatus": "VALID",
+   "extensionMissing": false
+  },
+  "inputRequirement": "INPUT_REQUIRED",
+  "status": {
+   "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+   "id": "5ebe3eb1-c913-1f31-b722-e75e319a448f",
+   "name": "ReplaceText",
+   "runStatus": "Running",
+   "statsLastRefreshed": "10:01:31 ICT",
+   "aggregateSnapshot": {
+    "id": "5ebe3eb1-c913-1f31-b722-e75e319a448f",
+    "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+    "name": "ReplaceText",
+    "type": "ReplaceText",
+    "runStatus": "Running",
+    "executionNode": "ALL",
+    "bytesRead": 0,
+    "bytesWritten": 0,
+    "read": "0 bytes",
+    "written": "0 bytes",
+    "flowFilesIn": 0,
+    "bytesIn": 0,
+    "input": "0 (0 bytes)",
+    "flowFilesOut": 0,
+    "bytesOut": 0,
+    "output": "0 (0 bytes)",
+    "taskCount": 0,
+    "tasksDurationNanos": 0,
+    "tasks": "0",
+    "tasksDuration": "00:00:00.000",
+    "activeThreadCount": 0,
+    "terminatedThreadCount": 0
+   }
+  },
+  "operatePermissions": {
+   "canRead": true,
+   "canWrite": true
+  }
+ },
+ "acf51950-116f-119e-53ec-18ca6b2e2c26": {
+  "revision": {
+   "clientId": "5ebe3ee0-c913-1f31-7de7-177905c5d37a",
+   "version": 42
+  },
+  "id": "acf51950-116f-119e-53ec-18ca6b2e2c26",
+  "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/processors/acf51950-116f-119e-53ec-18ca6b2e2c26",
+  "position": {
+   "x": 288.0,
+   "y": 184.0
+  },
+  "permissions": {
+   "canRead": true,
+   "canWrite": true
+  },
+  "bulletins": [],
+  "component": {
+   "id": "acf51950-116f-119e-53ec-18ca6b2e2c26",
+   "versionedComponentId": "a8156b7c-bc29-3f44-a82e-4e6a44d34895",
+   "parentGroupId": "acf5194c-116f-119e-4821-ec991690afa6",
+   "position": {
+    "x": 288.0,
+    "y": 184.0
+   },
+   "name": "ReplaceText",
+   "type": "org.apache.nifi.processors.standard.ReplaceText",
+   "bundle": {
+    "group": "org.apache.nifi",
+    "artifact": "nifi-standard-nar",
+    "version": "1.27.0"
+   },
+   "state": "RUNNING",
+   "style": {},
+   "relationships": [
+    {
+     "name": "failure",
+     "description": "FlowFiles that could not be updated are routed to this relationship",
+     "autoTerminate": true,
+     "retry": false
+    },
+    {
+     "name": "success",
+     "description": "FlowFiles that have been successfully processed are routed to this relationship. This includes both FlowFiles that had text replaced and those that did not.",
+     "autoTerminate": false,
+     "retry": false
+    }
+   ],
+   "supportsParallelProcessing": true,
+   "supportsEventDriven": true,
+   "supportsBatching": true,
+   "supportsSensitiveDynamicProperties": false,
+   "persistsState": false,
+   "restricted": false,
+   "deprecated": false,
+   "executionNodeRestricted": false,
+   "multipleVersionsAvailable": false,
+   "inputRequirement": "INPUT_REQUIRED",
+   "config": {
+    "properties": {
+     "Replacement Strategy": "Always Replace",
+     "Regular Expression": "(?s)(^.*$)",
+     "Replacement Value": "SET SESSION group_concat_max_len = 1048576;\n\nINSERT INTO `datamart_hanoi`.`qlnv_tonghop_chitiet_nvgiao_pth_ubndtp` (\n    id_truc_giao, truc_giao, nhom_van_ban, linh_vuc, chu_de, muc_do_uu_tien, nv_quantam,\n    ma_nhiem_vu, ten_nhiem_vu, van_ban_giao,\n    id_don_vi_chu_tri, ten_don_vi_chu_tri, lanh_dao_don_vi_va_chuyen_vien,\n    ngay_giao, han_xu_ly, ngay_hoan_thanh, ngay_xoa,\n    tinh_trang, tinh_hinh_ket_qua,\n    ld_ubnd, ld_van_phong, phong_chuyen_mon_theo_doi, chuyen_vien_vp_theo_doi,\n    task_id, id_cha, status, sync_date\n)\n\nSELECT\n    /* 1. TRỤC GIAO & NHÓM VĂN BẢN */\n    t.AssignDepartment                                                      AS id_truc_giao,\n    COALESCE(NULLIF(t.AssignOrganization, ''), d_assign_cap2.name)          AS truc_giao,\n    /* Nhóm văn bản: gắn tên theo số ký hiệu văn bản giao (DocCode), xét theo thứ tự từ trên xuống.\n       Chỉ dùng để phân nhóm, KHÔNG dùng để lọc task */\n    CASE\n        WHEN t.DocCode LIKE '%CTr%'                 THEN 'Chương trình'\n        WHEN t.DocCode LIKE '%KH%'                  THEN 'Kế hoạch'\n        WHEN t.DocCode REGEXP 'TB-(VP|UBND)'        THEN 'TBKL UBND Thành phố'\n        WHEN t.DocCode LIKE '%BCĐ%'                 THEN 'Triển khai thực hiện Nghị quyết số 57-NQ/TW'\n        WHEN t.DocCode REGEXP '/(UBND|VP)-'         THEN 'Văn bản chỉ đạo'\n        ELSE 'Chưa xác định'\n    END                                                                     AS nhom_van_ban,\n    /* LĨNH VỰC: lĩnh vực văn bản (qlnv_sector qua resolution.SectorId); rỗng thì 'Khác' */\n    COALESCE(NULLIF(s.SectorName, ''), 'Khác')                              AS linh_vuc,\n\n    /* CHỦ ĐỀ, MỨC ĐỘ ƯU TIÊN, NHIỆM VỤ QUAN TÂM */\n    tp.TopicName                                                            AS chu_de,\n    CASE t.Priority\n        WHEN 3 THEN 'Hỏa tốc'\n        WHEN 2 THEN 'Thượng khẩn'\n        WHEN 1 THEN 'Khẩn'\n        ELSE 'Thường'\n    END                                                                     AS muc_do_uu_tien,\n    t.isFocus                                                               AS nv_quantam,\n\n    /* 2. NHIỆM VỤ & VĂN BẢN GIAO */\n    t.Code                                                                  AS ma_nhiem_vu,\n    t.Title                                                                 AS ten_nhiem_vu,\n    t.DocCode                                                               AS van_ban_giao,\n\n    /* 3. ĐƠN VỊ CHỦ TRÌ: nhánh 1841/1307/1310 lấy cấp 4, còn lại cấp 3 */\n    IF(t.TargetDepartment REGEXP '^490[.]698[.](1841|1307|1310)',\n       SUBSTRING_INDEX(t.TargetDepartment, '.', 4),\n       SUBSTRING_INDEX(t.TargetDepartment, '.', 3))                         AS id_don_vi_chu_tri,\n    d_chutri.name                                                           AS ten_don_vi_chu_tri,\n    ppl.lanh_dao_don_vi_va_chuyen_vien,\n\n    /* 4. MỐC THỜI GIAN: Định dạng chuẩn ISO yyyy-mm-dd */\n    DATE_FORMAT(t.StartedDate, '%Y-%m-%d')                                  AS ngay_giao,\n    DATE_FORMAT(t.ExpireDate, '%Y-%m-%d')                                   AS han_xu_ly,\n    DATE_FORMAT(t.CompletedDate, '%Y-%m-%d')                                AS ngay_hoan_thanh,\n    DATE_FORMAT(t.DeletedDate, '%Y-%m-%d')                                  AS ngay_xoa,\n\n    /* 5. 4 TÌNH TRẠNG CHUẨN */\n    CASE\n        WHEN t.Status IN (3, 4) AND t.ExpireDate IS NOT NULL\n             AND COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL THEN 'Đã hoàn thành'\n        WHEN t.ExpireDate IS NULL                                       THEN 'Thường xuyên'\n        WHEN t.Status IN (-1, 0, 1, 2)\n        THEN IF(t.ExpireDate >= CURDATE(), 'Chưa hoàn thành trong hạn', 'Chưa hoàn thành quá hạn')\n    END                                                                     AS tinh_trang,\n\n    /* 6. TÌNH HÌNH, KẾT QUẢ: báo cáo mới nhất, fallback nội dung task */\n    COALESCE(\n        (SELECT rp.Content\n         FROM `db_theodoinv_hn`.`qlnv_report` rp\n         WHERE rp.TaskId = t.TaskId AND rp.DeletedDate IS NULL\n         ORDER BY rp.CreatedDate DESC, rp.ReportId DESC\n         LIMIT 1),\n        t.Content\n    )                                                                       AS tinh_hinh_ket_qua,\n\n    /* 7. LÃNH ĐẠO UBND / VĂN PHÒNG & CHUYÊN VIÊN VP THEO DÕI */\n    ppl.ld_ubnd,\n    ppl.ld_van_phong,\n    IF(u_create.DepartmentPath LIKE '490.698.752%', NULLIF(d_create.name, ''), NULL)              AS phong_chuyen_mon_theo_doi,\n    IF(u_create.DepartmentPath LIKE '490.698.752%', NULLIF(u_create.eGovUserFullname, ''), NULL)  AS chuyen_vien_vp_theo_doi,\n\n    /* 8. KHÓA HỆ THỐNG & ĐỒNG BỘ */\n    t.TaskId                                                                AS task_id,\n    /* id_cha: task_id đầu tiên (nhỏ nhất) cùng (tên nhiệm vụ, trục giao) + '_GR', khớp id_cha bảng gộp */\n    MAX(g.id_cha)                                                           AS id_cha,\n    t.Status                                                                AS status,\n    '${sync_ts}'                                                            AS sync_date\n\nFROM `db_theodoinv_hn`.`qlnv_task` t\n\n/* RESOLUTION */\nINNER JOIN `db_theodoinv_hn`.`qlnv_resolution` r\n        ON r.ResolutionId = t.ResolutionId\n       AND r.DeletedDate IS NULL\n\n/* LĨNH VỰC VĂN BẢN */\nLEFT JOIN `db_theodoinv_hn`.`qlnv_sector` s\n       ON s.SectorId = r.SectorId\n      AND s.DeletedDate IS NULL\n      AND s.IsActive = 1\n\n/* CHỦ ĐỀ NHIỆM VỤ */\nLEFT JOIN `db_theodoinv_hn`.`qlnv_task_topic` tp\n       ON tp.TopicId = t.TopicId\n\n/* TRỤC GIAO CẤP 2 */\nLEFT JOIN `db_theodoinv_hn`.`department` d_assign_cap2\n       ON d_assign_cap2.id = IF(SUBSTRING_INDEX(SUBSTRING_INDEX(t.AssignDepartment, '.', 2), '.', -1) REGEXP '^[0-9]+$',\n                                CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(t.AssignDepartment, '.', 2), '.', -1) AS UNSIGNED), NULL)\n      AND d_assign_cap2.IsDelete = 0\n\n/* ĐƠN VỊ CHỦ TRÌ (id cuối của mã đã chuẩn hóa cấp) */\nLEFT JOIN `db_theodoinv_hn`.`department` d_chutri\n       ON d_chutri.id = IF(\n              SUBSTRING_INDEX(IF(t.TargetDepartment REGEXP '^490[.]698[.](1841|1307|1310)',\n                                 SUBSTRING_INDEX(t.TargetDepartment, '.', 4),\n                                 SUBSTRING_INDEX(t.TargetDepartment, '.', 3)), '.', -1) REGEXP '^[0-9]+$',\n              CAST(SUBSTRING_INDEX(IF(t.TargetDepartment REGEXP '^490[.]698[.](1841|1307|1310)',\n                                      SUBSTRING_INDEX(t.TargetDepartment, '.', 4),\n                                      SUBSTRING_INDEX(t.TargetDepartment, '.', 3)), '.', -1) AS UNSIGNED),\n              NULL)\n      AND d_chutri.IsDelete = 0\n\n/* NGƯỜI TẠO & PHÒNG BAN NGƯỜI TẠO */\nLEFT JOIN `db_theodoinv_hn`.`qlnv_user` u_create\n       ON u_create.eGovUserId = t.CreateUser\nLEFT JOIN `db_theodoinv_hn`.`department` d_create\n       ON d_create.id = IF(SUBSTRING_INDEX(u_create.DepartmentPath, '.', -1) REGEXP '^[0-9]+$',\n                           CAST(SUBSTRING_INDEX(u_create.DepartmentPath, '.', -1) AS UNSIGNED), NULL)\n      AND d_create.IsDelete = 0\n\n/* NGƯỜI LIÊN QUAN THEO TASK */\nLEFT JOIN (\n    SELECT\n        p.TaskId,\n\n        GROUP_CONCAT(DISTINCT\n            CASE WHEN COALESCE(p.dept, u.DepartmentPath) = '490.698'\n                  AND LOWER(u.eGovUserPositionName) LIKE '%lãnh đạo%'\n                  AND u.eGovUserPositionLevel = 2\n                 THEN NULLIF(TRIM(CONCAT_WS(' - ', ujt.job_title, NULLIF(TRIM(u.eGovUserFullname), ''))), '')\n            END\n            ORDER BY p.src, p.Role DESC, p.Id DESC SEPARATOR ', ') AS ld_ubnd,\n\n        GROUP_CONCAT(DISTINCT\n            CASE WHEN COALESCE(NULLIF(u.DepartmentPath, ''), p.dept) = '490.698.752'\n                 THEN NULLIF(TRIM(CONCAT_WS(' - ', ujt.job_title, NULLIF(TRIM(u.eGovUserFullname), ''))), '')\n            END\n            ORDER BY p.src, p.Role DESC, p.Id DESC SEPARATOR ', ') AS ld_van_phong,\n\n        GROUP_CONCAT(DISTINCT\n            CASE WHEN p.src = 0\n                  AND COALESCE(NULLIF(u.DepartmentPath, ''), p.dept) LIKE CONCAT(\n                          IF(p.TargetDepartment REGEXP '^490[.]698[.](1841|1307|1310)',\n                             SUBSTRING_INDEX(p.TargetDepartment, '.', 4),\n                             SUBSTRING_INDEX(p.TargetDepartment, '.', 3)), '%')\n                 THEN NULLIF(TRIM(CONCAT_WS(' - ', ujt.job_title,\n                                            NULLIF(TRIM(u.eGovUserFullname), ''),\n                                            NULLIF(TRIM(u.PhoneNumber), ''))), '')\n            END\n            ORDER BY p.Role, ujt.job_title, u.eGovUserFullname SEPARATOR ', ') AS lanh_dao_don_vi_va_chuyen_vien\n\n    FROM (\n        SELECT tu.TaskId, 0 AS src, tu.Role, tu.Id, tu.UserId,\n               NULLIF(tu.DepartmentId, '') AS dept, t2.TargetDepartment\n        FROM `db_theodoinv_hn`.`qlnv_task_user` tu\n        INNER JOIN `db_theodoinv_hn`.`qlnv_task` t2 ON t2.TaskId = tu.TaskId\n        WHERE t2.AssignDepartment = '490.698' AND t2.DeletedDate IS NULL AND t2.TargetDepartment LIKE '490.698.%'\n        UNION ALL\n        SELECT t2.TaskId, 1, NULL, NULL, t2.TargetUser, NULLIF(t2.TargetDepartment, ''), t2.TargetDepartment\n        FROM `db_theodoinv_hn`.`qlnv_task` t2\n        WHERE t2.AssignDepartment = '490.698' AND t2.DeletedDate IS NULL AND t2.TargetDepartment LIKE '490.698.%'\n          AND t2.TargetUser IS NOT NULL\n        UNION ALL\n        SELECT t2.TaskId, 2, NULL, NULL, t2.AssignUser, NULLIF(t2.AssignDepartment, ''), t2.TargetDepartment\n        FROM `db_theodoinv_hn`.`qlnv_task` t2\n        WHERE t2.AssignDepartment = '490.698' AND t2.DeletedDate IS NULL AND t2.TargetDepartment LIKE '490.698.%'\n          AND t2.AssignUser IS NOT NULL\n    ) p\n    INNER JOIN `db_theodoinv_hn`.`qlnv_user` u\n            ON u.eGovUserId = p.UserId\n\n    LEFT JOIN (\n        SELECT udpj.user_id,\n               NULLIF(TRIM(SUBSTRING(MAX(CONCAT(\n                   IF(CAST(udpj.department_id AS CHAR) = SUBSTRING_INDEX(uu.DepartmentPath, '.', -1), 1, 0),\n                   IF(udpj.is_primary > 0, 1, 0),\n                   LPAD(udpj.id, 12, '0'),\n                   COALESCE(jt.JobTitlesName, '')\n               )), 15)), '') AS job_title\n        FROM `db_theodoinv_hn`.`user_department_position_jobtitle` udpj\n        INNER JOIN `db_theodoinv_hn`.`jobtitles` jt ON jt.JobTitlesId = udpj.jobtitle_id\n        INNER JOIN `db_theodoinv_hn`.`qlnv_user` uu ON uu.eGovUserId = udpj.user_id\n        WHERE COALESCE(udpj.status, 1) = 1\n        GROUP BY udpj.user_id\n    ) ujt\n           ON ujt.user_id = u.eGovUserId\n\n    GROUP BY p.TaskId\n) ppl\n    ON ppl.TaskId = t.TaskId\n\n/* NHÓM GỘP (cùng khóa GROUP BY ten_nhiem_vu, id_truc_giao của qlnv_tonghop_gop_nvgiao_pth_ubndtp)\n   Điều kiện lọc phải giữ giống hệt WHERE bên dưới để MIN(TaskId) khớp bảng gộp.\n   MySQL 5.7 không có MIN() OVER (...); Title varchar(6000) không tạo được auto key cho bảng dẫn xuất\n   => JOIN theo MD5(Title) 32 ký tự (JOIN thẳng Title bị nested loop > 60s). */\nLEFT JOIN (\n    SELECT MD5(t3.Title) AS title_md5, t3.AssignDepartment, CONCAT(MIN(t3.TaskId), '_GR') AS id_cha\n    FROM `db_theodoinv_hn`.`qlnv_task` t3\n    INNER JOIN `db_theodoinv_hn`.`qlnv_resolution` r3\n            ON r3.ResolutionId = t3.ResolutionId\n           AND r3.DeletedDate IS NULL\n    WHERE t3.DeletedDate IS NULL\n      AND (   t3.Status IN (-1, 0, 1, 2)\n           OR (t3.Status IN (3, 4) AND (t3.ExpireDate IS NULL OR COALESCE(t3.CompletedDate, t3.ApprovedDate) IS NOT NULL)))\n      AND t3.AssignDepartment = '490.698'\n      AND t3.TargetDepartment LIKE '490.698.%'\n      AND t3.TargetDepartment NOT IN ('490.698.1307', '490.698.1841', '490.698.1310')\n    GROUP BY MD5(t3.Title), t3.AssignDepartment\n) g\n       ON g.title_md5 = MD5(t.Title)\n      AND g.AssignDepartment = t.AssignDepartment\n\nWHERE t.DeletedDate IS NULL\n  AND (   t.Status IN (-1, 0, 1, 2)\n       OR (t.Status IN (3, 4) AND (t.ExpireDate IS NULL OR COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL)))\n  AND t.AssignDepartment = '490.698'\n  AND t.TargetDepartment LIKE '490.698.%'\n  AND t.TargetDepartment NOT IN ('490.698.1307', '490.698.1841', '490.698.1310')\n\nGROUP BY t.TaskId\n\n/* UPSERT theo PK task_id thay cho TRUNCATE + INSERT: bảng không bị rỗng giữa chu kỳ.\n   Bản ghi không còn thỏa điều kiện bị xóa ở bước sau (sync_date < ${sync_ts}). */\nON DUPLICATE KEY UPDATE\n    id_truc_giao = VALUES(id_truc_giao),\n    truc_giao = VALUES(truc_giao),\n    nhom_van_ban = VALUES(nhom_van_ban),\n    linh_vuc = VALUES(linh_vuc),\n    chu_de = VALUES(chu_de),\n    muc_do_uu_tien = VALUES(muc_do_uu_tien),\n    nv_quantam = VALUES(nv_quantam),\n    ma_nhiem_vu = VALUES(ma_nhiem_vu),\n    ten_nhiem_vu = VALUES(ten_nhiem_vu),\n    van_ban_giao = VALUES(van_ban_giao),\n    id_don_vi_chu_tri = VALUES(id_don_vi_chu_tri),\n    ten_don_vi_chu_tri = VALUES(ten_don_vi_chu_tri),\n    lanh_dao_don_vi_va_chuyen_vien = VALUES(lanh_dao_don_vi_va_chuyen_vien),\n    ngay_giao = VALUES(ngay_giao),\n    han_xu_ly = VALUES(han_xu_ly),\n    ngay_hoan_thanh = VALUES(ngay_hoan_thanh),\n    ngay_xoa = VALUES(ngay_xoa),\n    tinh_trang = VALUES(tinh_trang),\n    tinh_hinh_ket_qua = VALUES(tinh_hinh_ket_qua),\n    ld_ubnd = VALUES(ld_ubnd),\n    ld_van_phong = VALUES(ld_van_phong),\n    phong_chuyen_mon_theo_doi = VALUES(phong_chuyen_mon_theo_doi),\n    chuyen_vien_vp_theo_doi = VALUES(chuyen_vien_vp_theo_doi),\n    id_cha = VALUES(id_cha),\n    status = VALUES(status),\n    sync_date = VALUES(sync_date);\n",
+     "Text to Prepend": null,
+     "Text to Append": null,
+     "Character Set": "UTF-8",
+     "Maximum Buffer Size": "1 MB",
+     "Evaluation Mode": "Entire text",
+     "Line-by-Line Evaluation Mode": "All"
+    },
+    "descriptors": {
+     "Replacement Strategy": {
+      "name": "Replacement Strategy",
+      "displayName": "Replacement Strategy",
+      "description": "The strategy for how and what to replace within the FlowFile's text content.",
+      "defaultValue": "Regex Replace",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "Prepend",
+         "value": "Prepend",
+         "description": "Insert the Replacement Value at the beginning of the FlowFile or the beginning of each line (depending on the Evaluation Mode). For \"Line-by-Line\" Evaluation Mode, the value will be prepended to each line. Similarly, for \"First-Line\", \"Last-Line\", \"Except-Last-Line\" and \"Except-First-Line\" Evaluation Modes,the value will be prepended to header alone, footer alone, all lines except header and all lines except footer respectively. For \"Entire Text\" evaluation mode,the value will be prepended to the entire text."
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Append",
+         "value": "Append",
+         "description": "Insert the Replacement Value at the end of the FlowFile or the end of each line (depending on the Evaluation Mode). For \"Line-by-Line\" Evaluation Mode, the value will be appended to each line. Similarly, for \"First-Line\", \"Last-Line\", \"Except-Last-Line\" and \"Except-First-Line\" Evaluation Modes,the value will be appended to header alone, footer alone, all lines except header and all lines except footer respectively. For \"Entire Text\" evaluation mode,the value will be appended to the entire text."
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Surround",
+         "value": "Surround",
+         "description": "Prepends text before the start of the FlowFile (or the start of each line, depending on the configuration of the Evaluation Mode property) as well as appending text to the end of the FlowFile (or the end of each line, depending on the configuration of the Evaluation Mode property)"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Regex Replace",
+         "value": "Regex Replace",
+         "description": "Interpret the Search Value as a Regular Expression and replace all matches with the Replacement Value. The Replacement Value may reference Capturing Groups used in the Search Value by using a dollar-sign followed by the Capturing Group number, such as $1 or $2. If the Search Value is set to .* then everything is replaced without even evaluating the Regular Expression."
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Literal Replace",
+         "value": "Literal Replace",
+         "description": "Search for all instances of the Search Value and replace the matches with the Replacement Value."
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Always Replace",
+         "value": "Always Replace",
+         "description": "Always replaces the entire line or the entire contents of the FlowFile (depending on the value of the <Evaluation Mode> property) and does not bother searching for any value. When this strategy is chosen, the <Search Value> property is ignored."
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Substitute Variables",
+         "value": "Substitute Variables",
+         "description": "Substitute variable references (specified in ${var} form) using FlowFile attributes for looking up the replacement value by variable name. When this strategy is chosen, both the <Search Value> and <Replacement Value> properties are ignored."
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "Regular Expression": {
+      "name": "Regular Expression",
+      "displayName": "Search Value",
+      "description": "The Search Value to search for in the FlowFile content. Only used for 'Literal Replace' and 'Regex Replace' matching strategies",
+      "defaultValue": "(?s)(^.*$)",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": [
+       {
+        "propertyName": "Replacement Strategy",
+        "dependentValues": [
+         "Regex Replace",
+         "Literal Replace"
+        ]
+       }
+      ]
+     },
+     "Replacement Value": {
+      "name": "Replacement Value",
+      "displayName": "Replacement Value",
+      "description": "The value to insert using the 'Replacement Strategy'. Using \"Regex Replace\" back-references to Regular Expression capturing groups are supported, but back-references that reference capturing groups that do not exist in the regular expression will be treated as literal value. Back References may also be referenced using the Expression Language, as '$1', '$2', etc. The single-tick marks MUST be included, as these variables are not \"Standard\" attribute names (attribute names must be quoted unless they contain only numbers, letters, and _).",
+      "defaultValue": "$1",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": [
+       {
+        "propertyName": "Replacement Strategy",
+        "dependentValues": [
+         "Prepend",
+         "Regex Replace",
+         "Always Replace",
+         "Append",
+         "Literal Replace"
+        ]
+       }
+      ]
+     },
+     "Text to Prepend": {
+      "name": "Text to Prepend",
+      "displayName": "Text to Prepend",
+      "description": "The text to prepend to the start of the FlowFile, or each line, depending on teh configured value of the Evaluation Mode property",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": [
+       {
+        "propertyName": "Replacement Strategy",
+        "dependentValues": [
+         "Surround"
+        ]
+       }
+      ]
+     },
+     "Text to Append": {
+      "name": "Text to Append",
+      "displayName": "Text to Append",
+      "description": "The text to append to the end of the FlowFile, or each line, depending on teh configured value of the Evaluation Mode property",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": [
+       {
+        "propertyName": "Replacement Strategy",
+        "dependentValues": [
+         "Surround"
+        ]
+       }
+      ]
+     },
+     "Character Set": {
+      "name": "Character Set",
+      "displayName": "Character Set",
+      "description": "The Character Set in which the file is encoded",
+      "defaultValue": "UTF-8",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "Maximum Buffer Size": {
+      "name": "Maximum Buffer Size",
+      "displayName": "Maximum Buffer Size",
+      "description": "Specifies the maximum amount of data to buffer (per file or per line, depending on the Evaluation Mode) in order to apply the replacement. If 'Entire Text' (in Evaluation Mode) is selected and the FlowFile is larger than this value, the FlowFile will be routed to 'failure'. In 'Line-by-Line' Mode, if a single line is larger than this value, the FlowFile will be routed to 'failure'. A default value of 1 MB is provided, primarily for 'Entire Text' mode. In 'Line-by-Line' Mode, a value such as 8 KB or 16 KB is suggested. This value is ignored if the <Replacement Strategy> property is set to one of: Append, Prepend, Always Replace",
+      "defaultValue": "1 MB",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "Evaluation Mode": {
+      "name": "Evaluation Mode",
+      "displayName": "Evaluation Mode",
+      "description": "Run the 'Replacement Strategy' against each line separately (Line-by-Line) or buffer the entire file into memory (Entire Text) and run against that.",
+      "defaultValue": "Line-by-Line",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "Line-by-Line",
+         "value": "Line-by-Line"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Entire text",
+         "value": "Entire text"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "Line-by-Line Evaluation Mode": {
+      "name": "Line-by-Line Evaluation Mode",
+      "displayName": "Line-by-Line Evaluation Mode",
+      "description": "Run the 'Replacement Strategy' against each line separately (Line-by-Line) for all lines in the FlowFile, First Line (Header) alone, Last Line (Footer) alone, Except the First Line (Header) or Except the Last Line (Footer).",
+      "defaultValue": "All",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "All",
+         "value": "All"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "First-Line",
+         "value": "First-Line"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Last-Line",
+         "value": "Last-Line"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Except-First-Line",
+         "value": "Except-First-Line"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Except-Last-Line",
+         "value": "Except-Last-Line"
+        },
+        "canRead": true
+       }
+      ],
+      "required": false,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     }
+    },
+    "schedulingPeriod": "0 sec",
+    "schedulingStrategy": "TIMER_DRIVEN",
+    "executionNode": "ALL",
+    "penaltyDuration": "30 sec",
+    "yieldDuration": "1 sec",
+    "bulletinLevel": "WARN",
+    "runDurationMillis": 25,
+    "concurrentlySchedulableTaskCount": 1,
+    "comments": "",
+    "lossTolerant": false,
+    "defaultConcurrentTasks": {
+     "TIMER_DRIVEN": "1",
+     "EVENT_DRIVEN": "0",
+     "CRON_DRIVEN": "1"
+    },
+    "defaultSchedulingPeriod": {
+     "TIMER_DRIVEN": "0 sec",
+     "CRON_DRIVEN": "* * * * * ?"
+    },
+    "retryCount": 10,
+    "retriedRelationships": [],
+    "backoffMechanism": "PENALIZE_FLOWFILE",
+    "maxBackoffPeriod": "10 mins"
+   },
+   "validationStatus": "VALID",
+   "extensionMissing": false
+  },
+  "inputRequirement": "INPUT_REQUIRED",
+  "status": {
+   "groupId": "acf5194c-116f-119e-4821-ec991690afa6",
+   "id": "acf51950-116f-119e-53ec-18ca6b2e2c26",
+   "name": "ReplaceText",
+   "runStatus": "Running",
+   "statsLastRefreshed": "10:01:31 ICT",
+   "aggregateSnapshot": {
+    "id": "acf51950-116f-119e-53ec-18ca6b2e2c26",
+    "groupId": "acf5194c-116f-119e-4821-ec991690afa6",
+    "name": "ReplaceText",
+    "type": "ReplaceText",
+    "runStatus": "Running",
+    "executionNode": "ALL",
+    "bytesRead": 0,
+    "bytesWritten": 0,
+    "read": "0 bytes",
+    "written": "0 bytes",
+    "flowFilesIn": 0,
+    "bytesIn": 0,
+    "input": "0 (0 bytes)",
+    "flowFilesOut": 0,
+    "bytesOut": 0,
+    "output": "0 (0 bytes)",
+    "taskCount": 0,
+    "tasksDurationNanos": 0,
+    "tasks": "0",
+    "tasksDuration": "00:00:00.000",
+    "activeThreadCount": 0,
+    "terminatedThreadCount": 0
+   }
+  },
+  "operatePermissions": {
+   "canRead": true,
+   "canWrite": true
+  }
+ },
+ "acf5198a-116f-119e-4e9c-9a49bbe9e292": {
+  "revision": {
+   "version": 43
+  },
+  "id": "acf5198a-116f-119e-4e9c-9a49bbe9e292",
+  "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/processors/acf5198a-116f-119e-4e9c-9a49bbe9e292",
+  "position": {
+   "x": 506.49502017035695,
+   "y": 185.50000879751167
+  },
+  "permissions": {
+   "canRead": true,
+   "canWrite": true
+  },
+  "bulletins": [],
+  "component": {
+   "id": "acf5198a-116f-119e-4e9c-9a49bbe9e292",
+   "versionedComponentId": "7841ea6f-18f7-3d3d-9a9d-5f906b789465",
+   "parentGroupId": "acf51987-116f-119e-323e-da26d4426824",
+   "position": {
+    "x": 506.49502017035695,
+    "y": 185.50000879751167
+   },
+   "name": "ReplaceText",
+   "type": "org.apache.nifi.processors.standard.ReplaceText",
+   "bundle": {
+    "group": "org.apache.nifi",
+    "artifact": "nifi-standard-nar",
+    "version": "1.27.0"
+   },
+   "state": "RUNNING",
+   "style": {},
+   "relationships": [
+    {
+     "name": "failure",
+     "description": "FlowFiles that could not be updated are routed to this relationship",
+     "autoTerminate": true,
+     "retry": false
+    },
+    {
+     "name": "success",
+     "description": "FlowFiles that have been successfully processed are routed to this relationship. This includes both FlowFiles that had text replaced and those that did not.",
+     "autoTerminate": false,
+     "retry": false
+    }
+   ],
+   "supportsParallelProcessing": true,
+   "supportsEventDriven": true,
+   "supportsBatching": true,
+   "supportsSensitiveDynamicProperties": false,
+   "persistsState": false,
+   "restricted": false,
+   "deprecated": false,
+   "executionNodeRestricted": false,
+   "multipleVersionsAvailable": false,
+   "inputRequirement": "INPUT_REQUIRED",
+   "config": {
+    "properties": {
+     "Replacement Strategy": "Always Replace",
+     "Regular Expression": "(?s)(^.*$)",
+     "Replacement Value": "INSERT INTO `datamart_hanoi`.`qlnv_chitiet_nvgiao_pth_ubndtp` (\n    `task_id`,\n    `id_cha`,\n    `status`,\n    `id_truc_giao`,\n    `truc_giao`,\n    `van_ban_giao`,\n    `ma_nhiem_vu`,\n    `ten_nhiem_vu`,\n    `chu_de`,\n    `id_don_vi_giao`,\n    `don_vi_giao`,\n    `id_nguoi_giao`,\n    `nguoi_giao`,\n    `id_don_vi_chu_tri`,\n    `ten_don_vi_chu_tri`,\n    `ten_don_vi_thuc_hien`,\n    `id_nguoi_thuc_hien`,\n    `nguoi_thuc_hien`,\n    `lanh_dao_ban_phu_trach`,\n    `ngay_giao`,\n    `han_xu_ly`,\n    `ngay_hoan_thanh`,\n    `ngay_chap_nhan`,\n    `ngay_xoa`,\n    `tinh_trang`,\n    `ket_qua_thuc_hien`,\n    `kho_khan_vuong_mac`,\n    `de_xuat_kien_nghi`,\n    `sync_date`\n)\n\nSELECT\n    /* 1. KHÓA HỆ THỐNG & TRẠNG THÁI */\n    t.TaskId                                                AS task_id,\n    /* id_cha: task_id đầu tiên (nhỏ nhất) cùng (tên nhiệm vụ, trục giao) + '_GR', khớp id_cha bảng gộp */\n    MAX(g.id_cha)                                           AS id_cha,\n    t.Status                                                AS status,\n\n    /* 2. NHÓM NHIỆM VỤ / TRỤC GIAO & VĂN BẢN GIAO */\n    t.AssignDepartment                                      AS id_truc_giao,\n    COALESCE(NULLIF(t.AssignOrganization, ''), MAX(d_assign_cap2.name)) AS truc_giao,\n    t.DocCode                                               AS van_ban_giao,\n\n    /* 3. THÔNG TIN NHIỆM VỤ, TIÊU ĐỀ & CHỦ ĐỀ */\n    t.Code                                                  AS ma_nhiem_vu,\n    t.Title                                                 AS ten_nhiem_vu,\n    COALESCE(NULLIF(t.NameGroup, ''), 'Chưa phân loại')     AS chu_de,\n\n    /* ĐƠN VỊ GIAO & NGƯỜI GIAO */\n    t.AssignDepartment                                      AS id_don_vi_giao,\n    COALESCE(MAX(d_assign.name), NULLIF(t.AssignOrganization, '')) AS don_vi_giao,\n    t.AssignUser                                            AS id_nguoi_giao,\n    MAX(u_assign.eGovUserFullname)                          AS nguoi_giao,\n\n    /* 4. ĐƠN VỊ THỰC HIỆN / CHỦ TRÌ (CHUẨN HÓA CẤP) */\n    CASE\n        /* Nhánh 1841 / 1307 / 1310: chỉ đẩy về cấp 4 (cấp 5 -> cấp 4) */\n        WHEN t.TargetDepartment LIKE '490.698.1841%'\n          OR t.TargetDepartment LIKE '490.698.1307%'\n          OR t.TargetDepartment LIKE '490.698.1310%'\n        THEN SUBSTRING_INDEX(t.TargetDepartment, '.', 4)\n        /* Còn lại: đẩy về cấp 3 (cấp 4 trở lên -> cấp 3) */\n        ELSE SUBSTRING_INDEX(t.TargetDepartment, '.', 3)\n    END                                                     AS id_don_vi_chu_tri,\n\n    COALESCE(\n        MAX(d_chutri.name)\n    )                                                       AS ten_don_vi_chu_tri,\n\n    COALESCE(\n        MAX(d_donvi.name)\n    )                                                       AS ten_don_vi_thuc_hien,\n\n    /* 5. NGƯỜI THỰC HIỆN & LÃNH ĐẠO BAN PHỤ TRÁCH */\n    t.TargetUser                                            AS id_nguoi_thuc_hien,\n    MAX(u_target.eGovUserFullname)                          AS nguoi_thuc_hien,\n\n    CONCAT_WS(' · ',\n        COALESCE(MAX(u_target.eGovUserPositionName), NULLIF(t.ChargeUser, ''))\n    )                                                       AS lanh_dao_ban_phu_trach,\n\n    /* 6. CÁC MỐC THỜI GIAN */\n    DATE_FORMAT(t.StartedDate, '%d/%m/%Y')                  AS ngay_giao,\n    DATE_FORMAT(t.ExpireDate, '%d/%m/%Y')                   AS han_xu_ly,\n    DATE_FORMAT(t.CompletedDate, '%d/%m/%Y')                AS ngay_hoan_thanh,\n    DATE_FORMAT(t.ApprovedDate, '%d/%m/%Y')                 AS ngay_chap_nhan,\n    DATE_FORMAT(t.DeletedDate, '%d/%m/%Y')                  AS ngay_xoa,\n\n    /* 7. PHÂN LOẠI 4 TÌNH TRẠNG CHUẨN */\n    CASE\n        /* 1. Đã hoàn thành (đúng hạn hoặc quá hạn) */\n        WHEN t.Status IN (3, 4)\n             AND t.ExpireDate IS NOT NULL\n             AND COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL\n        THEN 'Đã hoàn thành'\n\n        /* 2. Thường xuyên (nhiệm vụ không có hạn) */\n        WHEN t.ExpireDate IS NULL\n        THEN 'Thường xuyên'\n\n        /* 3. Chưa hoàn thành trong hạn */\n        WHEN t.Status IN (-1, 0, 1, 2)\n             AND t.ExpireDate IS NOT NULL\n             AND DATE(t.ExpireDate) >= CURDATE()\n        THEN 'Chưa hoàn thành trong hạn'\n\n        /* 4. Chưa hoàn thành quá hạn */\n        WHEN t.Status IN (-1, 0, 1, 2)\n             AND t.ExpireDate IS NOT NULL\n             AND DATE(t.ExpireDate) < CURDATE()\n        THEN 'Chưa hoàn thành quá hạn'\n    END                                                     AS tinh_trang,\n\n    /* 8. CHI TIẾT TÌNH HÌNH & BÁO CÁO (Lấy bản ghi mới nhất) */\n    COALESCE(\n        (\n            SELECT rp.Content \n            FROM `db_theodoinv_hn`.`qlnv_report` rp \n            WHERE rp.TaskId = t.TaskId \n              AND rp.DeletedDate IS NULL \n            ORDER BY rp.CreatedDate DESC, rp.ReportId DESC \n            LIMIT 1\n        ), \n        t.Content,\n        '—'\n    )                                                       AS ket_qua_thuc_hien,\n\n    COALESCE(\n        (\n            SELECT NULLIF(rp.Difficulty, '') \n            FROM `db_theodoinv_hn`.`qlnv_report` rp \n            WHERE rp.TaskId = t.TaskId \n              AND rp.DeletedDate IS NULL \n            ORDER BY rp.CreatedDate DESC, rp.ReportId DESC \n            LIMIT 1\n        ), \n        '—'\n    )                                                       AS kho_khan_vuong_mac,\n\n    COALESCE(\n        (\n            SELECT NULLIF(rp.Suggestion, '') \n            FROM `db_theodoinv_hn`.`qlnv_report` rp \n            WHERE rp.TaskId = t.TaskId \n              AND rp.DeletedDate IS NULL \n            ORDER BY rp.CreatedDate DESC, rp.ReportId DESC \n            LIMIT 1\n        ), \n        '—'\n    )                                                       AS de_xuat_kien_nghi,\n\n    '${sync_ts}'                                                   AS sync_date\n\nFROM `db_theodoinv_hn`.`qlnv_task` t\n\n/* JOIN NHÓM NHIỆM VỤ: LỌC TRỰC TIẾP ID NHÓM '55', 132 */\nINNER JOIN `db_theodoinv_hn`.`qlnv_resolution` r\n        ON r.ResolutionId = t.ResolutionId\n       AND r.DeletedDate IS NULL\n    --    AND r.ResolutionGroupId IN (55, 132)\n\n/* JOIN TÊN ĐƠN VỊ TRỤC GIAO CẤP 2 */\nLEFT JOIN `db_theodoinv_hn`.`department` d_assign_cap2\n       ON d_assign_cap2.id = CASE\n            WHEN SUBSTRING_INDEX(SUBSTRING_INDEX(t.AssignDepartment, '.', 2), '.', -1) REGEXP '^[0-9]+$'\n            THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(t.AssignDepartment, '.', 2), '.', -1) AS UNSIGNED)\n            ELSE NULL\n          END\n      AND d_assign_cap2.IsDelete = 0\n\n/* JOIN ĐƠN VỊ GIAO (BÓC TÁCH ID TỪ T.ASSIGNDEPARTMENT ĐỂ LẤY TÊN) */\nLEFT JOIN `db_theodoinv_hn`.`department` d_assign\n       ON d_assign.id = CASE\n            WHEN SUBSTRING_INDEX(t.AssignDepartment, '.', -1) REGEXP '^[0-9]+$'\n            THEN CAST(SUBSTRING_INDEX(t.AssignDepartment, '.', -1) AS UNSIGNED)\n            ELSE NULL\n          END\n      AND d_assign.IsDelete = 0\n\n/* JOIN NGƯỜI GIAO NHIỆM VỤ */\nLEFT JOIN `db_theodoinv_hn`.`qlnv_user` u_assign\n       ON u_assign.eGovUserId = t.AssignUser\n\n/* JOIN ĐƠN VỊ CHỦ TRÌ (theo id cấp đã chuẩn hóa) */\nLEFT JOIN `db_theodoinv_hn`.`department` d_chutri\n       ON d_chutri.id = CASE\n            WHEN SUBSTRING_INDEX(\n                CASE\n                    WHEN t.TargetDepartment LIKE '490.698.1841%'\n                      OR t.TargetDepartment LIKE '490.698.1307%'\n                      OR t.TargetDepartment LIKE '490.698.1310%'\n                    THEN SUBSTRING_INDEX(t.TargetDepartment, '.', 4)\n                    ELSE SUBSTRING_INDEX(t.TargetDepartment, '.', 3)\n                END,\n                '.',\n                -1\n            ) REGEXP '^[0-9]+$'\n            THEN CAST(SUBSTRING_INDEX(\n                CASE\n                    WHEN t.TargetDepartment LIKE '490.698.1841%'\n                      OR t.TargetDepartment LIKE '490.698.1307%'\n                      OR t.TargetDepartment LIKE '490.698.1310%'\n                    THEN SUBSTRING_INDEX(t.TargetDepartment, '.', 4)\n                    ELSE SUBSTRING_INDEX(t.TargetDepartment, '.', 3)\n                END,\n                '.',\n                -1\n            ) AS UNSIGNED)\n            ELSE NULL\n          END\n      AND d_chutri.IsDelete = 0\n\nLEFT JOIN `db_theodoinv_hn`.`department` d_donvi\n       ON d_donvi.id = CASE\n            WHEN SUBSTRING_INDEX(t.TargetDepartment, '.', -1) REGEXP '^[0-9]+$'\n            THEN CAST(SUBSTRING_INDEX(t.TargetDepartment, '.', -1) AS UNSIGNED)\n            ELSE NULL\n          END\n      AND d_donvi.IsDelete = 0\n\n/* JOIN USER NHẬN */\nLEFT JOIN `db_theodoinv_hn`.`qlnv_user` u_target \n       ON u_target.eGovUserId = t.TargetUser\n\n/* JOIN NHÓM GỘP (cùng khóa GROUP BY ten_nhiem_vu, id_truc_giao của qlnv_tonghop_gop_nvgiao_pth_ubndtp)\n   Điều kiện lọc phải giữ giống hệt WHERE bên dưới để MIN(TaskId) khớp bảng gộp.\n   MySQL 5.7 không có MIN() OVER (...) => dùng subquery gom nhóm.\n   Title là varchar(6000) => không tạo được auto key cho bảng dẫn xuất, JOIN thẳng theo Title\n   thành nested loop N x M (> 60s, bị cắt kết nối) => JOIN theo MD5(Title) 32 ký tự. */\nLEFT JOIN (\n    SELECT MD5(t3.Title) AS title_md5, t3.AssignDepartment, CONCAT(MIN(t3.TaskId), '_GR') AS id_cha\n    FROM `db_theodoinv_hn`.`qlnv_task` t3\n    INNER JOIN `db_theodoinv_hn`.`qlnv_resolution` r3\n            ON r3.ResolutionId = t3.ResolutionId\n           AND r3.DeletedDate IS NULL\n    WHERE t3.DeletedDate IS NULL\n      AND (   t3.Status IN (-1, 0, 1, 2)\n           OR (t3.Status IN (3, 4) AND (t3.ExpireDate IS NULL OR COALESCE(t3.CompletedDate, t3.ApprovedDate) IS NOT NULL)))\n      AND t3.AssignDepartment = '490.698'\n      AND t3.TargetDepartment LIKE '490.698.%'\n      AND t3.TargetDepartment NOT IN ('490.698.1307', '490.698.1841', '490.698.1310')\n    GROUP BY MD5(t3.Title), t3.AssignDepartment\n) g\n       ON g.title_md5 = MD5(t.Title)\n      AND g.AssignDepartment = t.AssignDepartment\n\n/* ĐIỀU KIỆN LẤY TASK: đồng bộ với qlnv_tonghop_chitiet_nvgiao_pth_ubndtp */\nWHERE t.DeletedDate IS NULL\n  AND (   t.Status IN (-1, 0, 1, 2)\n       OR (t.Status IN (3, 4) AND (t.ExpireDate IS NULL OR COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL)))\n  /* UBND giao (đúng 490.698) cho đơn vị con 490.698.x, trừ 1307 / 1841 / 1310 */\n  AND t.AssignDepartment = '490.698'\n  AND t.TargetDepartment LIKE '490.698.%'\n  AND t.TargetDepartment NOT IN ('490.698.1307', '490.698.1841', '490.698.1310')\n  /* Loại nhóm văn bản 82, 109 */\n--   AND r.ResolutionGroupId NOT IN (82, 109)\n\n/* GOM NHÓM THEO TASK_ID ĐỂ KHỬ TRÙNG LẶP */\nGROUP BY t.TaskId\n\n/* UPSERT theo PK task_id thay cho TRUNCATE + INSERT: bảng không bị rỗng giữa chu kỳ.\n   Bản ghi không còn thỏa điều kiện bị xóa ở bước sau (sync_date < ${sync_ts}). */\nON DUPLICATE KEY UPDATE\n    id_cha = VALUES(id_cha),\n    status = VALUES(status),\n    id_truc_giao = VALUES(id_truc_giao),\n    truc_giao = VALUES(truc_giao),\n    van_ban_giao = VALUES(van_ban_giao),\n    ma_nhiem_vu = VALUES(ma_nhiem_vu),\n    ten_nhiem_vu = VALUES(ten_nhiem_vu),\n    chu_de = VALUES(chu_de),\n    id_don_vi_giao = VALUES(id_don_vi_giao),\n    don_vi_giao = VALUES(don_vi_giao),\n    id_nguoi_giao = VALUES(id_nguoi_giao),\n    nguoi_giao = VALUES(nguoi_giao),\n    id_don_vi_chu_tri = VALUES(id_don_vi_chu_tri),\n    ten_don_vi_chu_tri = VALUES(ten_don_vi_chu_tri),\n    ten_don_vi_thuc_hien = VALUES(ten_don_vi_thuc_hien),\n    id_nguoi_thuc_hien = VALUES(id_nguoi_thuc_hien),\n    nguoi_thuc_hien = VALUES(nguoi_thuc_hien),\n    lanh_dao_ban_phu_trach = VALUES(lanh_dao_ban_phu_trach),\n    ngay_giao = VALUES(ngay_giao),\n    han_xu_ly = VALUES(han_xu_ly),\n    ngay_hoan_thanh = VALUES(ngay_hoan_thanh),\n    ngay_chap_nhan = VALUES(ngay_chap_nhan),\n    ngay_xoa = VALUES(ngay_xoa),\n    tinh_trang = VALUES(tinh_trang),\n    ket_qua_thuc_hien = VALUES(ket_qua_thuc_hien),\n    kho_khan_vuong_mac = VALUES(kho_khan_vuong_mac),\n    de_xuat_kien_nghi = VALUES(de_xuat_kien_nghi),\n    sync_date = VALUES(sync_date);\n",
+     "Text to Prepend": null,
+     "Text to Append": null,
+     "Character Set": "UTF-8",
+     "Maximum Buffer Size": "1 MB",
+     "Evaluation Mode": "Entire text",
+     "Line-by-Line Evaluation Mode": "All"
+    },
+    "descriptors": {
+     "Replacement Strategy": {
+      "name": "Replacement Strategy",
+      "displayName": "Replacement Strategy",
+      "description": "The strategy for how and what to replace within the FlowFile's text content.",
+      "defaultValue": "Regex Replace",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "Prepend",
+         "value": "Prepend",
+         "description": "Insert the Replacement Value at the beginning of the FlowFile or the beginning of each line (depending on the Evaluation Mode). For \"Line-by-Line\" Evaluation Mode, the value will be prepended to each line. Similarly, for \"First-Line\", \"Last-Line\", \"Except-Last-Line\" and \"Except-First-Line\" Evaluation Modes,the value will be prepended to header alone, footer alone, all lines except header and all lines except footer respectively. For \"Entire Text\" evaluation mode,the value will be prepended to the entire text."
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Append",
+         "value": "Append",
+         "description": "Insert the Replacement Value at the end of the FlowFile or the end of each line (depending on the Evaluation Mode). For \"Line-by-Line\" Evaluation Mode, the value will be appended to each line. Similarly, for \"First-Line\", \"Last-Line\", \"Except-Last-Line\" and \"Except-First-Line\" Evaluation Modes,the value will be appended to header alone, footer alone, all lines except header and all lines except footer respectively. For \"Entire Text\" evaluation mode,the value will be appended to the entire text."
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Surround",
+         "value": "Surround",
+         "description": "Prepends text before the start of the FlowFile (or the start of each line, depending on the configuration of the Evaluation Mode property) as well as appending text to the end of the FlowFile (or the end of each line, depending on the configuration of the Evaluation Mode property)"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Regex Replace",
+         "value": "Regex Replace",
+         "description": "Interpret the Search Value as a Regular Expression and replace all matches with the Replacement Value. The Replacement Value may reference Capturing Groups used in the Search Value by using a dollar-sign followed by the Capturing Group number, such as $1 or $2. If the Search Value is set to .* then everything is replaced without even evaluating the Regular Expression."
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Literal Replace",
+         "value": "Literal Replace",
+         "description": "Search for all instances of the Search Value and replace the matches with the Replacement Value."
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Always Replace",
+         "value": "Always Replace",
+         "description": "Always replaces the entire line or the entire contents of the FlowFile (depending on the value of the <Evaluation Mode> property) and does not bother searching for any value. When this strategy is chosen, the <Search Value> property is ignored."
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Substitute Variables",
+         "value": "Substitute Variables",
+         "description": "Substitute variable references (specified in ${var} form) using FlowFile attributes for looking up the replacement value by variable name. When this strategy is chosen, both the <Search Value> and <Replacement Value> properties are ignored."
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "Regular Expression": {
+      "name": "Regular Expression",
+      "displayName": "Search Value",
+      "description": "The Search Value to search for in the FlowFile content. Only used for 'Literal Replace' and 'Regex Replace' matching strategies",
+      "defaultValue": "(?s)(^.*$)",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": [
+       {
+        "propertyName": "Replacement Strategy",
+        "dependentValues": [
+         "Regex Replace",
+         "Literal Replace"
+        ]
+       }
+      ]
+     },
+     "Replacement Value": {
+      "name": "Replacement Value",
+      "displayName": "Replacement Value",
+      "description": "The value to insert using the 'Replacement Strategy'. Using \"Regex Replace\" back-references to Regular Expression capturing groups are supported, but back-references that reference capturing groups that do not exist in the regular expression will be treated as literal value. Back References may also be referenced using the Expression Language, as '$1', '$2', etc. The single-tick marks MUST be included, as these variables are not \"Standard\" attribute names (attribute names must be quoted unless they contain only numbers, letters, and _).",
+      "defaultValue": "$1",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": [
+       {
+        "propertyName": "Replacement Strategy",
+        "dependentValues": [
+         "Prepend",
+         "Regex Replace",
+         "Always Replace",
+         "Append",
+         "Literal Replace"
+        ]
+       }
+      ]
+     },
+     "Text to Prepend": {
+      "name": "Text to Prepend",
+      "displayName": "Text to Prepend",
+      "description": "The text to prepend to the start of the FlowFile, or each line, depending on teh configured value of the Evaluation Mode property",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": [
+       {
+        "propertyName": "Replacement Strategy",
+        "dependentValues": [
+         "Surround"
+        ]
+       }
+      ]
+     },
+     "Text to Append": {
+      "name": "Text to Append",
+      "displayName": "Text to Append",
+      "description": "The text to append to the end of the FlowFile, or each line, depending on teh configured value of the Evaluation Mode property",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": [
+       {
+        "propertyName": "Replacement Strategy",
+        "dependentValues": [
+         "Surround"
+        ]
+       }
+      ]
+     },
+     "Character Set": {
+      "name": "Character Set",
+      "displayName": "Character Set",
+      "description": "The Character Set in which the file is encoded",
+      "defaultValue": "UTF-8",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "Maximum Buffer Size": {
+      "name": "Maximum Buffer Size",
+      "displayName": "Maximum Buffer Size",
+      "description": "Specifies the maximum amount of data to buffer (per file or per line, depending on the Evaluation Mode) in order to apply the replacement. If 'Entire Text' (in Evaluation Mode) is selected and the FlowFile is larger than this value, the FlowFile will be routed to 'failure'. In 'Line-by-Line' Mode, if a single line is larger than this value, the FlowFile will be routed to 'failure'. A default value of 1 MB is provided, primarily for 'Entire Text' mode. In 'Line-by-Line' Mode, a value such as 8 KB or 16 KB is suggested. This value is ignored if the <Replacement Strategy> property is set to one of: Append, Prepend, Always Replace",
+      "defaultValue": "1 MB",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "Evaluation Mode": {
+      "name": "Evaluation Mode",
+      "displayName": "Evaluation Mode",
+      "description": "Run the 'Replacement Strategy' against each line separately (Line-by-Line) or buffer the entire file into memory (Entire Text) and run against that.",
+      "defaultValue": "Line-by-Line",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "Line-by-Line",
+         "value": "Line-by-Line"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Entire text",
+         "value": "Entire text"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "Line-by-Line Evaluation Mode": {
+      "name": "Line-by-Line Evaluation Mode",
+      "displayName": "Line-by-Line Evaluation Mode",
+      "description": "Run the 'Replacement Strategy' against each line separately (Line-by-Line) for all lines in the FlowFile, First Line (Header) alone, Last Line (Footer) alone, Except the First Line (Header) or Except the Last Line (Footer).",
+      "defaultValue": "All",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "All",
+         "value": "All"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "First-Line",
+         "value": "First-Line"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Last-Line",
+         "value": "Last-Line"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Except-First-Line",
+         "value": "Except-First-Line"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Except-Last-Line",
+         "value": "Except-Last-Line"
+        },
+        "canRead": true
+       }
+      ],
+      "required": false,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     }
+    },
+    "schedulingPeriod": "0 sec",
+    "schedulingStrategy": "TIMER_DRIVEN",
+    "executionNode": "ALL",
+    "penaltyDuration": "30 sec",
+    "yieldDuration": "1 sec",
+    "bulletinLevel": "WARN",
+    "runDurationMillis": 25,
+    "concurrentlySchedulableTaskCount": 1,
+    "comments": "",
+    "lossTolerant": false,
+    "defaultConcurrentTasks": {
+     "TIMER_DRIVEN": "1",
+     "EVENT_DRIVEN": "0",
+     "CRON_DRIVEN": "1"
+    },
+    "defaultSchedulingPeriod": {
+     "TIMER_DRIVEN": "0 sec",
+     "CRON_DRIVEN": "* * * * * ?"
+    },
+    "retryCount": 10,
+    "retriedRelationships": [],
+    "backoffMechanism": "PENALIZE_FLOWFILE",
+    "maxBackoffPeriod": "10 mins"
+   },
+   "validationStatus": "VALID",
+   "extensionMissing": false
+  },
+  "inputRequirement": "INPUT_REQUIRED",
+  "status": {
+   "groupId": "acf51987-116f-119e-323e-da26d4426824",
+   "id": "acf5198a-116f-119e-4e9c-9a49bbe9e292",
+   "name": "ReplaceText",
+   "runStatus": "Running",
+   "statsLastRefreshed": "10:01:31 ICT",
+   "aggregateSnapshot": {
+    "id": "acf5198a-116f-119e-4e9c-9a49bbe9e292",
+    "groupId": "acf51987-116f-119e-323e-da26d4426824",
+    "name": "ReplaceText",
+    "type": "ReplaceText",
+    "runStatus": "Running",
+    "executionNode": "ALL",
+    "bytesRead": 0,
+    "bytesWritten": 12267,
+    "read": "0 bytes",
+    "written": "11.98 KB",
+    "flowFilesIn": 1,
+    "bytesIn": 0,
+    "input": "1 (0 bytes)",
+    "flowFilesOut": 1,
+    "bytesOut": 12267,
+    "output": "1 (11.98 KB)",
+    "taskCount": 1,
+    "tasksDurationNanos": 241064,
+    "tasks": "1",
+    "tasksDuration": "00:00:00.000",
+    "activeThreadCount": 0,
+    "terminatedThreadCount": 0
+   }
+  },
+  "operatePermissions": {
+   "canRead": true,
+   "canWrite": true
+  }
+ }
+}
