@@ -122,10 +122,8 @@ SELECT u.* FROM (
 
         /* 6. PHÂN LOẠI 4 TÌNH TRẠNG CHUẨN */
         CASE
-            /* 1. Đã hoàn thành (đúng hạn hoặc quá hạn) */
+            /* 1. Đã hoàn thành: nhiệm vụ Thành phố có Status 3 (Hoàn thành) / 4 (Kết thúc) */
             WHEN t.Status IN (3, 4)
-                 AND t.ExpireDate IS NOT NULL
-                 AND COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL
             THEN 'Đã hoàn thành'
 
             /* 2. Thường xuyên (nhiệm vụ không có hạn) */
@@ -243,12 +241,8 @@ SELECT u.* FROM (
       AND t.ParentId IS NULL
       AND t.Status <> 5
 
-      /* Tương đương tinh_trang <> 'Chưa xác định' của bản cũ */
-      AND (   t.Status IN (-1, 0, 1, 2)
-           OR (t.Status IN (3, 4)
-               AND (   COALESCE(t.IsRecurring, 0) = 1
-                    OR t.ExpireDate IS NULL
-                    OR COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL)))
+      /* Nhiệm vụ Thành phố: Status 3/4 luôn tính Đã hoàn thành nên lấy hết */
+      AND t.Status IN (-1, 0, 1, 2, 3, 4)
 
       AND (
           /* Nhiệm vụ Trung ương giao */
@@ -284,7 +278,9 @@ SELECT u.* FROM (
        ======================================================================= */
     SELECT
         /* 0. CẤP NHIỆM VỤ */
-        'Cấp Xã, phường'                                        AS cap_nhiem_vu,
+        /* 4 nhiệm vụ Thành phố có xã/phường tham gia -> tính là cấp Thành phố */
+        CASE WHEN t.Code IN ('2026-277-TB/TU-015', '2026-309/VP-ĐT-983', '2026-59/UBND-ĐT-820', '2026-601-CV/TU-376')
+             THEN 'Cấp Thành phố' ELSE 'Cấp Xã, phường' END     AS cap_nhiem_vu,
 
         /* 1. KHÓA HỆ THỐNG & TRẠNG THÁI */
         t.TaskId                                                AS task_id,
@@ -366,6 +362,11 @@ SELECT u.* FROM (
 
         /* 6. PHÂN LOẠI 4 TÌNH TRẠNG CHUẨN */
         CASE
+            /* 4 nhiệm vụ tính cấp Thành phố: Status 3/4 là Đã hoàn thành (như nhánh TP) */
+            WHEN t.Code IN ('2026-277-TB/TU-015', '2026-309/VP-ĐT-983', '2026-59/UBND-ĐT-820', '2026-601-CV/TU-376')
+                 AND t.Status IN (3, 4)
+            THEN 'Đã hoàn thành'
+
             /* 1. Đã hoàn thành (đúng hạn hoặc quá hạn) */
             WHEN t.Status IN (3, 4)
                  AND t.ExpireDate IS NOT NULL
@@ -507,6 +508,7 @@ SELECT u.* FROM (
            OR (t.Status IN (3, 4)
                AND (   COALESCE(t.IsRecurring, 0) = 1
                     OR t.ExpireDate IS NULL
+                    OR t.Code IN ('2026-277-TB/TU-015', '2026-309/VP-ĐT-983', '2026-59/UBND-ĐT-820', '2026-601-CV/TU-376')
                     OR COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL)))
 
       /* Task thuộc nghị quyết nhóm 55 (qua qlnv_task_resolution), EXISTS để không nhân dòng */

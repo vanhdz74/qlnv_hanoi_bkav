@@ -143,12 +143,8 @@ SELECT u.* FROM (
       AND t.ParentId IS NULL
       AND t.Status <> 5
 
-      /* Tương đương x.tinh_trang <> 'Chưa xác định' bên chitiet */
-      AND (   t.Status IN (-1, 0, 1, 2)
-           OR (t.Status IN (3, 4)
-               AND (   COALESCE(t.IsRecurring, 0) = 1
-                    OR t.ExpireDate IS NULL
-                    OR COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL)))
+      /* Nhiệm vụ Thành phố: Status 3/4 luôn tính Đã hoàn thành nên lấy hết (đồng bộ chitiet) */
+      AND t.Status IN (-1, 0, 1, 2, 3, 4)
 
       /* Task thuộc nghị quyết nhóm 55 (qua qlnv_task_resolution), EXISTS để không nhân dòng */
       AND EXISTS (
@@ -168,7 +164,9 @@ SELECT u.* FROM (
 
     /* NHÁNH 2 · CẤP XÃ, PHƯỜNG */
     SELECT
-        'Cấp Xã, phường'                                        AS cap_nhiem_vu,
+        /* 4 nhiệm vụ Thành phố có xã/phường tham gia -> tính là cấp Thành phố */
+        CASE WHEN t.Code IN ('2026-277-TB/TU-015', '2026-309/VP-ĐT-983', '2026-59/UBND-ĐT-820', '2026-601-CV/TU-376')
+             THEN 'Cấp Thành phố' ELSE 'Cấp Xã, phường' END     AS cap_nhiem_vu,
         tl.TimelineId                                           AS timeline_id,
         tl.TaskId                                               AS task_id,
         t.Code                                                  AS ma_nhiem_vu,
@@ -306,6 +304,7 @@ SELECT u.* FROM (
            OR (t.Status IN (3, 4)
                AND (   COALESCE(t.IsRecurring, 0) = 1
                     OR t.ExpireDate IS NULL
+                    OR t.Code IN ('2026-277-TB/TU-015', '2026-309/VP-ĐT-983', '2026-59/UBND-ĐT-820', '2026-601-CV/TU-376')
                     OR COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL)))
 
       /* Task thuộc nghị quyết nhóm 55 (qua qlnv_task_resolution), EXISTS để không nhân dòng */
