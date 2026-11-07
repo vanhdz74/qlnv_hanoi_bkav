@@ -1,4 +1,5 @@
-/* CHỈ LẤY NHIỆM VỤ TRUNG ƯƠNG GIAO (task có trong bảng nv_tw), cấp Thành phố.
+/* CHỈ LẤY NHIỆM VỤ TRUNG ƯƠNG GIAO (DeletedDate IS NULL + Synced chứa 'NQ57'), cấp Thành phố.
+   Tình trạng: Status = 4 + IsRecurring = 0 -> Đã hoàn thành; IsRecurring = 1 -> Thường xuyên; còn lại -> chưa hoàn thành.
    Rút từ nhánh 1 của upsert qlnv_chitiet_captp_xp_bcd57: bỏ điều kiện NQ57 và nhánh xã/phường.
    nguon_giao vẫn ghi 'Nhiệm vụ Thành phố, Nhiệm vụ Trung ương' nếu task đồng thời gắn nhãn NQ57. */
 SELECT
@@ -15,7 +16,7 @@ SELECT
 
         /* NGUỒN GIAO */
         CASE
-            /* Vừa Trung ương giao (nv_tw) vừa thuộc 571 nhiệm vụ Thành phố (nhãn NQ57) -> tính cả 2 nguồn */
+            /* Vừa Trung ương giao (Synced chứa 'NQ57') vừa thuộc 571 nhiệm vụ Thành phố (nhãn NQ57) -> tính cả 2 nguồn */
             WHEN tw.TaskId IS NOT NULL
                  AND t.DeletedDate IS NULL
                  AND EXISTS (
@@ -30,7 +31,7 @@ SELECT
                  )
             THEN 'Nhiệm vụ Thành phố, Nhiệm vụ Trung ương'
 
-            /* Trung ương giao: task có trong bảng nv_tw */
+            /* Trung ương giao: Synced chứa 'NQ57' */
             WHEN tw.TaskId IS NOT NULL
             THEN 'Nhiệm vụ Trung ương'
 
@@ -110,31 +111,31 @@ SELECT
 
         /* 6. PHÂN LOẠI 4 TÌNH TRẠNG CHUẨN */
         CASE
-            /* 1. Đã hoàn thành (đúng hạn hoặc quá hạn) */
-            WHEN t.Status IN (3, 4)
+            /* 1. Đã hoàn thành: Status = 4 + IsRecurring = 0 */
+            WHEN t.Status = 4 AND COALESCE(t.IsRecurring, 0) = 0
   /*               AND t.ExpireDate IS NOT NULL
                  AND COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL */
             THEN 'Đã hoàn thành'
 
-            /* 2. Thường xuyên (nhiệm vụ không có hạn) */
-            WHEN t.ExpireDate IS NULL
+            /* 2. Thường xuyên: IsRecurring = 1 (0 = không thường xuyên) */
+            WHEN COALESCE(t.IsRecurring, 0) = 1
             THEN 'Thường xuyên'
 
             /* 3. Chưa hoàn thành trong hạn */
-            WHEN t.Status IN (-1, 0, 1, 2)
+            WHEN t.Status IN (-1, 0, 1, 2, 3)
                 --  AND t.ExpireDate IS NOT NULL
                 --  AND DATE(t.ExpireDate) >= CURDATE()
             THEN 'Chưa hoàn thành trong hạn'
 
             /* 4. Chưa hoàn thành quá hạn */
-            WHEN t.Status IN (-1, 0, 1, 2)
+            WHEN t.Status IN (-1, 0, 1, 2, 3)
                 --  AND t.ExpireDate IS NOT NULL
                 --  AND DATE(t.ExpireDate) < CURDATE()
             THEN 'Chưa hoàn thành quá hạn'
         END                                                     AS tinh_trang,
 
         /* Tiến độ (%): đã hoàn thành/kết thúc tính 100 */
-        IF(t.Status IN (3, 4), 100, COALESCE(t.Progress, 0))    AS tien_do,
+        IF(t.Status = 4 AND COALESCE(t.IsRecurring, 0) = 0, 100, COALESCE(t.Progress, 0))    AS tien_do,
 
         /* 7. CHI TIẾT TÌNH HÌNH & BÁO CÁO (Lấy bản ghi mới nhất) */
         COALESCE(
@@ -348,11 +349,16 @@ SELECT
     ) nh
            ON nh.TaskId = t.TaskId
 
-    /* NHIỆM VỤ TRUNG ƯƠNG GIAO: bảng nv_tw (nạp bằng bcd57_chitiet/nv_tw_ddl.sql),
-       mỗi mã 1 task -> không nhân dòng */
-    INNER JOIN `db_theodoinv_hn`.`nv_tw` tw
+    /* NHIỆM VỤ TRUNG ƯƠNG GIAO: DeletedDate IS NULL + Synced chứa 'NQ57' (1 dòng / task -> không nhân dòng) */
+    INNER JOIN (
+            SELECT t_tw.TaskId
+            FROM `db_theodoinv_hn`.`qlnv_task` t_tw
+            WHERE t_tw.DeletedDate IS NULL
+              AND t_tw.Synced LIKE '%NQ57%'
+              AND t_tw.Code IS NOT NULL
+    ) tw
             ON tw.TaskId = t.TaskId
 
-    /* ĐIỀU KIỆN LẤY TASK: chỉ nhiệm vụ Trung ương giao (INNER JOIN nv_tw ở trên) */
+    /* ĐIỀU KIỆN LẤY TASK: chỉ nhiệm vụ Trung ương giao (INNER JOIN tw ở trên) */
 
     GROUP BY t.TaskId;

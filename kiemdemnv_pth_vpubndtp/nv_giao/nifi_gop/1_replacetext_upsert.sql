@@ -31,26 +31,29 @@ SELECT
     /* 3. ĐƠN VỊ CHỦ TRÌ */
     IF(MIN(COALESCE(x.id_don_vi_chu_tri, '-')) = MAX(COALESCE(x.id_don_vi_chu_tri, '-')), MAX(x.id_don_vi_chu_tri),
        GROUP_CONCAT(COALESCE(x.id_don_vi_chu_tri, '-') ORDER BY x.task_id SEPARATOR ' | ')) AS id_don_vi_chu_tri,
-    /* Tên chủ trì: nhiều Sở ngành (490.698.1307) => 'Các Sở ngành', nhiều Xã, Phường (490.698.1310) => 'Các Xã, Phường',
-       nhiều cả 2 => 'Các Sở ngành, Xã, Phường'; đơn vị khác liệt kê tên (không trùng) */
+    /* Tên chủ trì (đếm số đơn vị khác nhau theo nhóm):
+       - Sở ngành = 490.698.1307 + Sở ngành mở rộng 490.698.1841 (gộp chung 1 nhóm)
+       - có >=1 Sở ngành VÀ >=1 Xã, Phường (490.698.1310) => 'Các Sở ngành, Xã, Phường'
+       - chỉ nhiều Sở ngành => 'Các Sở ngành'; chỉ nhiều Xã, Phường => 'Các Xã, Phường'
+       - còn lại liệt kê tên (không trùng) */
     NULLIF(CONCAT_WS(' | ',
         CASE
-            WHEN COUNT(DISTINCT IF(x.id_don_vi_chu_tri REGEXP '^490[.]698[.]1307([.]|$)', x.id_don_vi_chu_tri, NULL)) > 1
-             AND COUNT(DISTINCT IF(x.id_don_vi_chu_tri REGEXP '^490[.]698[.]1310([.]|$)', x.id_don_vi_chu_tri, NULL)) > 1
+            WHEN COUNT(DISTINCT IF(x.id_don_vi_chu_tri REGEXP '^490[.]698[.](1307|1841)([.]|$)', x.id_don_vi_chu_tri, NULL)) >= 1
+             AND COUNT(DISTINCT IF(x.id_don_vi_chu_tri REGEXP '^490[.]698[.]1310([.]|$)', x.id_don_vi_chu_tri, NULL)) >= 1
                 THEN 'Các Sở ngành, Xã, Phường'
-            WHEN COUNT(DISTINCT IF(x.id_don_vi_chu_tri REGEXP '^490[.]698[.]1307([.]|$)', x.id_don_vi_chu_tri, NULL)) > 1
+            WHEN COUNT(DISTINCT IF(x.id_don_vi_chu_tri REGEXP '^490[.]698[.](1307|1841)([.]|$)', x.id_don_vi_chu_tri, NULL)) > 1
                 THEN 'Các Sở ngành'
-            ELSE GROUP_CONCAT(DISTINCT IF(x.id_don_vi_chu_tri REGEXP '^490[.]698[.]1307([.]|$)', x.ten_don_vi_chu_tri, NULL) SEPARATOR ' | ')
+            ELSE GROUP_CONCAT(DISTINCT IF(x.id_don_vi_chu_tri REGEXP '^490[.]698[.](1307|1841)([.]|$)', x.ten_don_vi_chu_tri, NULL) SEPARATOR ' | ')
         END,
         CASE
-            WHEN COUNT(DISTINCT IF(x.id_don_vi_chu_tri REGEXP '^490[.]698[.]1307([.]|$)', x.id_don_vi_chu_tri, NULL)) > 1
-             AND COUNT(DISTINCT IF(x.id_don_vi_chu_tri REGEXP '^490[.]698[.]1310([.]|$)', x.id_don_vi_chu_tri, NULL)) > 1
+            WHEN COUNT(DISTINCT IF(x.id_don_vi_chu_tri REGEXP '^490[.]698[.](1307|1841)([.]|$)', x.id_don_vi_chu_tri, NULL)) >= 1
+             AND COUNT(DISTINCT IF(x.id_don_vi_chu_tri REGEXP '^490[.]698[.]1310([.]|$)', x.id_don_vi_chu_tri, NULL)) >= 1
                 THEN NULL
             WHEN COUNT(DISTINCT IF(x.id_don_vi_chu_tri REGEXP '^490[.]698[.]1310([.]|$)', x.id_don_vi_chu_tri, NULL)) > 1
                 THEN 'Các Xã, Phường'
             ELSE GROUP_CONCAT(DISTINCT IF(x.id_don_vi_chu_tri REGEXP '^490[.]698[.]1310([.]|$)', x.ten_don_vi_chu_tri, NULL) SEPARATOR ' | ')
         END,
-        GROUP_CONCAT(DISTINCT IF(COALESCE(x.id_don_vi_chu_tri, '') NOT REGEXP '^490[.]698[.](1307|1310)([.]|$)', x.ten_don_vi_chu_tri, NULL)
+        GROUP_CONCAT(DISTINCT IF(COALESCE(x.id_don_vi_chu_tri, '') NOT REGEXP '^490[.]698[.](1307|1310|1841)([.]|$)', x.ten_don_vi_chu_tri, NULL)
                      ORDER BY x.ten_don_vi_chu_tri SEPARATOR ' | ')
     ), '')                                                                              AS ten_don_vi_chu_tri,
     IF(MIN(COALESCE(x.lanh_dao_don_vi_va_chuyen_vien, '-')) = MAX(COALESCE(x.lanh_dao_don_vi_va_chuyen_vien, '-')), MAX(x.lanh_dao_don_vi_va_chuyen_vien),

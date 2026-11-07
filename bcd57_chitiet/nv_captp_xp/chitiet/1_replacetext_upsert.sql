@@ -34,12 +34,20 @@ INSERT INTO `datamart_hanoi`.`qlnv_chitiet_captp_xp_bcd57` (
     `ket_qua_thuc_hien`,
     `kho_khan_vuong_mac`,
     `de_xuat_kien_nghi`,
+    `path_ten_don_vi_chu_tri`,
+    `ma_xa_phuong`,
+    `truc_xa_phuong`,
+    `nhan_chuyen_de`,
+    `ngay_ban_hanh_vb`,
+    `trich_yeu_vb`,
+    `stt_nhom_nhiem_vu`,
+    `la_thuong_truc_bcd`,
     `sync_date`
 )
 SELECT u.* FROM (
     /* =======================================================================
        NHÁNH 1 · CẤP THÀNH PHỐ (qlnv_task):
-         nhiệm vụ nghị quyết nhóm 55 (trừ xã/phường nhận) + nhiệm vụ Trung ương giao (DocCode 'NQ%')
+         nhiệm vụ Thành phố (nhãn NQ57, logic truy_van_571_tp.sql) + nhiệm vụ Trung ương giao (TopicId 16 + AssignDepartment '490.695')
        ======================================================================= */
     SELECT
         /* 0. CẤP NHIỆM VỤ (phân biệt nhiệm vụ cấp TP / cấp xã, phường trong cùng bảng) */
@@ -55,15 +63,34 @@ SELECT u.* FROM (
 
         /* NGUỒN GIAO */
         CASE
-            /* Trung ương giao: số văn bản bắt đầu bằng 'NQ' */
-            WHEN t.DocCode LIKE 'NQ%'
+            /* Vừa Trung ương giao (TopicId 16 + '490.695') vừa thuộc 571 nhiệm vụ Thành phố (nhãn NQ57) -> tính cả 2 nguồn */
+            WHEN tw.TaskId IS NOT NULL
+                 AND t.DeletedDate IS NULL
+                 AND EXISTS (
+                     SELECT 1
+                     FROM `db_theodoinv_hn`.`qlnv_task_topic_map` mng
+                     INNER JOIN `db_theodoinv_hn`.`qlnv_task_topic` tpng
+                             ON tpng.TopicId = mng.TopicId
+                     WHERE mng.TaskId = t.TaskId
+                       AND tpng.GroupId = 1
+                       AND tpng.TopicName = 'NQ57'
+                       AND tpng.DeletedDate IS NULL
+                 )
+            THEN 'Nhiệm vụ Thành phố, Nhiệm vụ Trung ương'
+
+            /* Trung ương giao: TopicId 16 + AssignDepartment '490.695' */
+            WHEN tw.TaskId IS NOT NULL
             THEN 'Nhiệm vụ Trung ương'
 
             /* Còn lại: Thành ủy, HĐND, UBND TP, sở ngành TP giao */
             ELSE 'Nhiệm vụ Thành phố'
         END                                                     AS nguon_giao,
-        /* Số văn bản '1' (nhiệm vụ trọng tâm) hiển thị là 'TT' */
-        IF(TRIM(t.DocCode) = '1', 'TT', t.DocCode)              AS van_ban_giao,
+        /* Số văn bản một dạng ('1' = nhiệm vụ trọng tâm hiển thị 'TT'): bỏ 'Số:', bỏ khoảng trắng quanh '-' '/';
+           mã viết tắt (không có '/', vd NQ79) -> số ký hiệu đầy đủ của văn bản (qlnv_resolution) */
+        CASE
+            WHEN TRIM(t.DocCode) = '1' THEN 'TT'
+            ELSE TRIM(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(CASE WHEN COALESCE(t.DocCode, '') NOT LIKE '%/%' AND NULLIF(TRIM(r_vb.DocCode), '') IS NOT NULL THEN r_vb.DocCode ELSE t.DocCode END, 'Số:', ''), 'số:', ''), 'SỐ:', ''), ' -', '-'), ' -', '-'), '- ', '-'), '- ', '-'), ' /', '/'), ' /', '/'), '/ ', '/'), '/ ', '/'))
+        END                                                     AS van_ban_giao,
         /* Loại văn bản (4 nhóm):
              TT (DocCode = '1')                    -> NV trọng tâm
              mã chứa 'KH' (vd 20-KH/BCĐ57)          -> Kế hoạch
@@ -79,24 +106,33 @@ SELECT u.* FROM (
 
         /* 3. THÔNG TIN NHIỆM VỤ, TIÊU ĐỀ & CHỦ ĐỀ */
         t.Code                                                  AS ma_nhiem_vu,
-        NULL                                                    AS ten_xa_phuong,
+        /* 02. Tên xã/phường chuẩn ('Phường Ba Đình'), chỉ khi cơ quan xã nhận */
+        COALESCE(xa_nhan.ten_xa_phuong, xa_goc.ten_xa_phuong) AS ten_xa_phuong,
         t.Title                                                 AS ten_nhiem_vu,
         COALESCE(NULLIF(tp.TopicName, ''), 'Chưa phân loại')    AS chu_de,
-        COALESCE(NULLIF(t.NameGroup, ''), 'Chưa phân loại')     AS nhom_nhiem_vu,
+        /* Nhóm nhiệm vụ NQ57 một dạng ('Nhóm 11: ...'), bỏ ký tự thừa ở đầu ('. Nhóm 8') */
+        COALESCE(COALESCE(TRIM(SUBSTRING(nh.ten_nhom, LOCATE('Nhóm ', nh.ten_nhom))), NULLIF(TRIM(IF(t.NameGroup REGEXP 'Nhóm [0-9]', SUBSTRING(t.NameGroup, LOCATE('Nhóm ', t.NameGroup)), TRIM(LEADING '.' FROM TRIM(t.NameGroup)))), '')), 'Chưa phân loại') AS nhom_nhiem_vu,
 
         /* ĐƠN VỊ GIAO & NGƯỜI GIAO */
         t.AssignDepartment                                      AS id_don_vi_giao,
-        COALESCE(d_assign.name, NULLIF(t.AssignOrganization, '')) AS don_vi_giao,
+        /* Cơ quan ban hành / giao nhiệm vụ, không lấy đơn vị nhập liệu (d_assign) trước */
+        COALESCE(
+            NULLIF(TRIM(r_vb.AssignOrganizationName), ''),
+            NULLIF(TRIM(t.AssignOrganization), ''),
+            d_assign.name
+        )                                                       AS don_vi_giao,
         t.AssignUser                                            AS id_nguoi_giao,
         u_assign.eGovUserFullname                               AS nguoi_giao,
 
         /* 4. ĐƠN VỊ THỰC HIỆN / CHỦ TRÌ & NGƯỜI THỰC HIỆN */
-        t.TargetDepartment                                      AS id_don_vi_chu_tri,
+        /* Path mã tới đơn vị nhận, không để trống (thiếu thì lấy đơn vị nhận gốc, cuối cùng là '490') */
+        COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490') AS id_don_vi_chu_tri,
+        /* Tên của mã sâu nhất trong path (không phải tên nhóm cha) */
         COALESCE(
-            NULLIF(t.ResponsibleUnit, ''), 
-            NULLIF(t.TargetOrganization, ''), 
-            d_cap.name,
-            d_donvi.name
+            dp6.name, dp5.name, dp4.name, dp3.name, dp2.name,
+            NULLIF(t.ResponsibleUnit, ''),
+            NULLIF(t.TargetOrganization, ''),
+            dp1.name
         )                                                       AS ten_don_vi_chu_tri,
     
         COALESCE(
@@ -122,8 +158,10 @@ SELECT u.* FROM (
 
         /* 6. PHÂN LOẠI 4 TÌNH TRẠNG CHUẨN */
         CASE
-            /* 1. Đã hoàn thành: nhiệm vụ Thành phố có Status 3 (Hoàn thành) / 4 (Kết thúc) */
+            /* 1. Đã hoàn thành (đúng hạn hoặc quá hạn) */
             WHEN t.Status IN (3, 4)
+  /*               AND t.ExpireDate IS NOT NULL
+                 AND COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL */
             THEN 'Đã hoàn thành'
 
             /* 2. Thường xuyên (nhiệm vụ không có hạn) */
@@ -183,6 +221,53 @@ SELECT u.* FROM (
             ), 
             '—'
         )                                                       AS de_xuat_kien_nghi,
+
+        /* ===== BỔ SUNG THEO test/dac-ta-truong-bcd57.md ===== */
+        /* 01. Path tên tương ứng id_don_vi_chu_tri, ngăn cách ' › ' */
+        CONCAT_WS(' › ',
+            IF(dp1.id = 490, 'Thành phố Hà Nội', dp1.name),
+            dp2.name, dp3.name, dp4.name, dp5.name, dp6.name
+        )                                                       AS path_ten_don_vi_chu_tri,
+
+        /* 02. Xã/phường và trục của cơ quan xã nhận (dm_xa_phuong_4truc); nhiệm vụ không thuộc cấp xã -> NULL */
+        COALESCE(xa_nhan.ma_xa_phuong, xa_goc.ma_xa_phuong) AS ma_xa_phuong,
+        COALESCE(xa_nhan.truc_xa_phuong, xa_goc.truc_xa_phuong) AS truc_xa_phuong,
+
+        /* 03. Nhãn chuyên đề dạng path '<Cấp 1>/<Cấp 2>': cấp 1 = NQ57 / Khác, cấp 2 = 10 chuyên đề (cd01-cd10).
+               Hiện 10 chuyên đề đều thuộc NQ57; nhiều nhãn ngăn cách ';' (tên nhãn có dấu phẩy);
+               không khớp chuyên đề nào -> 'Khác' (để thấy phần còn phân được theo lĩnh vực khác).
+               Quy tắc tạm theo từ khóa trong tên nhiệm vụ (chưa có nhãn gán tay) */
+        COALESCE(NULLIF(CONCAT_WS(';',
+            IF(t.Title LIKE '%thể chế%' OR t.Title LIKE '%quy chế%' OR t.Title LIKE '%cơ chế%' OR t.Title LIKE '%chính sách%' OR t.Title LIKE '%nghị quyết%' OR t.Title LIKE '%đề án%' OR t.Title LIKE '%kiện toàn%', 'NQ57/Thể chế, chỉ đạo', NULL),
+            IF(t.Title LIKE '%hạ tầng%' OR t.Title LIKE '%trung tâm dữ liệu%' OR t.Title LIKE '%đường truyền%' OR t.Title LIKE '%máy chủ%' OR t.Title LIKE '%5G%' OR t.Title LIKE '%điện toán đám mây%', 'NQ57/Hạ tầng', NULL),
+            IF(t.Title LIKE '%dữ liệu%' OR t.Title LIKE '%CSDL%' OR t.Title LIKE '%số hóa%' OR t.Title LIKE '%làm sạch%' OR t.Title LIKE '%đất đai%' OR t.Title LIKE '%dân cư%' OR t.Title LIKE '%dữ liệu mở%', 'NQ57/Dữ liệu', NULL),
+            IF(t.Title LIKE '%nền tảng%' OR t.Title LIKE '%IOC%' OR t.Title LIKE '%iHanoi%' OR t.Title LIKE '%HanoiWork%' OR t.Title LIKE '%phần mềm%' OR t.Title LIKE '%ứng dụng%' OR t.Title LIKE '%chữ ký số%', 'NQ57/Nền tảng', NULL),
+            IF(t.Title LIKE '%dịch vụ công%' OR t.Title LIKE '%thủ tục hành chính%' OR t.Title LIKE '%một cửa%' OR t.Title LIKE '%toàn trình%', 'NQ57/Dịch vụ công', NULL),
+            IF(t.Title LIKE '%giải ngân%' OR t.Title LIKE '%kinh phí%' OR t.Title LIKE '%ngân sách%' OR t.Title LIKE '%đầu tư công%' OR t.Title LIKE '%mua sắm%' OR t.Title LIKE '%quyết toán%', 'NQ57/Giải ngân', NULL),
+            IF(t.Title LIKE '%an toàn thông tin%' OR t.Title LIKE '%an ninh mạng%' OR t.Title LIKE '%bảo mật%' OR t.Title LIKE '%mã độc%' OR t.Title LIKE '%ứng cứu sự cố%', 'NQ57/An ninh, an toàn', NULL),
+            IF(t.Title LIKE '%đô thị thông minh%' OR t.Title LIKE '%giao thông thông minh%' OR t.Title LIKE '%camera%' OR t.Title LIKE '%IoT%' OR t.Title LIKE '%quan trắc%', 'NQ57/Đô thị thông minh', NULL),
+            IF(t.Title LIKE '%đột xuất%' OR t.Title LIKE '%khẩn trương%' OR t.Title LIKE '%cao điểm%' OR t.Title LIKE '%dứt điểm%' OR t.Title LIKE '%100 ngày%', 'NQ57/Chỉ đạo nóng', NULL),
+            IF(t.Title LIKE '%sản phẩm%' OR t.Title LIKE '%nghiệm thu%' OR t.Title LIKE '%đưa vào vận hành%' OR t.Title LIKE '%thí điểm%' OR t.Title LIKE '%bàn giao%', 'NQ57/Sản phẩm', NULL)
+        ), ''), 'Khác')                                         AS nhan_chuyen_de,
+
+        /* 04. Ngày ban hành, trích yếu văn bản giao */
+        DATE(r_vb.StartDate)                                    AS ngay_ban_hanh_vb,
+        COALESCE(
+            NULLIF(TRIM(r_vb.Compendium), ''),
+            NULLIF(TRIM(t.Compendium), '')
+        )                                                       AS trich_yeu_vb,
+
+        /* 06. Số thứ tự nhóm NQ57 (số sau 'Nhóm ') để sắp xếp */
+        CASE
+            WHEN SUBSTRING_INDEX(SUBSTRING_INDEX(SUBSTRING(COALESCE(TRIM(SUBSTRING(nh.ten_nhom, LOCATE('Nhóm ', nh.ten_nhom))), NULLIF(TRIM(IF(t.NameGroup REGEXP 'Nhóm [0-9]', SUBSTRING(t.NameGroup, LOCATE('Nhóm ', t.NameGroup)), TRIM(LEADING '.' FROM TRIM(t.NameGroup)))), '')), 6), ':', 1), ' ', 1) REGEXP '^[0-9]+$'
+            THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(SUBSTRING(COALESCE(TRIM(SUBSTRING(nh.ten_nhom, LOCATE('Nhóm ', nh.ten_nhom))), NULLIF(TRIM(IF(t.NameGroup REGEXP 'Nhóm [0-9]', SUBSTRING(t.NameGroup, LOCATE('Nhóm ', t.NameGroup)), TRIM(LEADING '.' FROM TRIM(t.NameGroup)))), '')), 6), ':', 1), ' ', 1) AS UNSIGNED)
+        END                                                     AS stt_nhom_nhiem_vu,
+
+        /* 07. Thường trực BCĐ 57: chủ trì là Công an TP/xã, Tổ Thường trực, Tổ Tư vấn - chuyên gia */
+        IF(CONCAT_WS(' ', dp2.name, dp3.name, dp4.name, dp5.name, dp6.name, t.ResponsibleUnit) LIKE '%Công an%'
+           OR CONCAT_WS(' ', dp2.name, dp3.name, dp4.name, dp5.name, dp6.name, t.ResponsibleUnit) LIKE '%Tổ Thường trực%'
+           OR CONCAT_WS(' ', dp2.name, dp3.name, dp4.name, dp5.name, dp6.name, t.ResponsibleUnit) LIKE '%Tổ Tư vấn%',
+           1, 0)                                                AS la_thuong_truc_bcd,
 
         '${sync_ts}'                                            AS sync_date
 
@@ -235,37 +320,121 @@ SELECT u.* FROM (
     LEFT JOIN `db_theodoinv_hn`.`qlnv_user` u_target 
            ON u_target.eGovUserId = t.TargetUser
 
-    /* ĐIỀU KIỆN LẤY TASK: (BCĐ 57 nhóm 55, trừ xã/phường) HOẶC (Trung ương giao: DocCode 'NQ%') */
-    WHERE t.DeletedDate IS NULL
-      /* Chỉ lấy nhiệm vụ gốc (không lấy nhiệm vụ con) */
-      AND t.ParentId IS NULL
-      AND t.Status <> 5
+    /* VĂN BẢN GIAO (số, ngày ban hành, trích yếu, cơ quan ban hành) */
+    LEFT JOIN `db_theodoinv_hn`.`qlnv_resolution` r_vb
+           ON r_vb.ResolutionId = t.ResolutionId
+          AND r_vb.DeletedDate IS NULL
 
-      /* Nhiệm vụ Thành phố: Status 3/4 luôn tính Đã hoàn thành nên lấy hết */
-      AND t.Status IN (-1, 0, 1, 2, 3, 4)
+    /* PATH ĐƠN VỊ CHỦ TRÌ: dp1..dp6 = department của từng mã trong path
+       COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490') */
 
-      AND (
-          /* Nhiệm vụ Trung ương giao */
-          t.DocCode LIKE 'NQ%'
+    LEFT JOIN `db_theodoinv_hn`.`department` dp1
+           ON dp1.id = CASE
+                WHEN SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 1), '.', -1) REGEXP '^[0-9]+$'
+                THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 1), '.', -1) AS UNSIGNED)
+              END
+
+    LEFT JOIN `db_theodoinv_hn`.`department` dp2
+           ON dp2.id = CASE
+                WHEN LENGTH(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490')) - LENGTH(REPLACE(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', '')) >= 1
+                 AND SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 2), '.', -1) REGEXP '^[0-9]+$'
+                THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 2), '.', -1) AS UNSIGNED)
+              END
+
+    LEFT JOIN `db_theodoinv_hn`.`department` dp3
+           ON dp3.id = CASE
+                WHEN LENGTH(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490')) - LENGTH(REPLACE(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', '')) >= 2
+                 AND SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 3), '.', -1) REGEXP '^[0-9]+$'
+                THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 3), '.', -1) AS UNSIGNED)
+              END
+
+    LEFT JOIN `db_theodoinv_hn`.`department` dp4
+           ON dp4.id = CASE
+                WHEN LENGTH(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490')) - LENGTH(REPLACE(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', '')) >= 3
+                 AND SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 4), '.', -1) REGEXP '^[0-9]+$'
+                THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 4), '.', -1) AS UNSIGNED)
+              END
+
+    LEFT JOIN `db_theodoinv_hn`.`department` dp5
+           ON dp5.id = CASE
+                WHEN LENGTH(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490')) - LENGTH(REPLACE(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', '')) >= 4
+                 AND SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 5), '.', -1) REGEXP '^[0-9]+$'
+                THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 5), '.', -1) AS UNSIGNED)
+              END
+
+    LEFT JOIN `db_theodoinv_hn`.`department` dp6
+           ON dp6.id = CASE
+                WHEN LENGTH(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490')) - LENGTH(REPLACE(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', '')) >= 5
+                 AND SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 6), '.', -1) REGEXP '^[0-9]+$'
+                THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 6), '.', -1) AS UNSIGNED)
+              END
+
+    /* XÃ/PHƯỜNG NHẬN: đơn vị chủ trì là cơ quan cấp xã (bảng đối chiếu dm_xa_phuong_4truc_ddl.sql) */
+    LEFT JOIN `db_theodoinv_hn`.`dm_xa_phuong_4truc` xa_nhan
+           ON xa_nhan.id_don_vi = CASE
+                WHEN SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 4), '.', -1) REGEXP '^[0-9]+$'
+                THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 4), '.', -1) AS UNSIGNED)
+              END
+          AND COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490') LIKE CONCAT(xa_nhan.nhanh, '.%')
+
+    /* XÃ/PHƯỜNG NHẬN theo đơn vị nhận gốc (OriginalTargetDepartment) */
+    LEFT JOIN `db_theodoinv_hn`.`dm_xa_phuong_4truc` xa_goc
+           ON xa_goc.id_don_vi = CASE
+                WHEN SUBSTRING_INDEX(SUBSTRING_INDEX(t.OriginalTargetDepartment, '.', 4), '.', -1) REGEXP '^[0-9]+$'
+                THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(t.OriginalTargetDepartment, '.', 4), '.', -1) AS UNSIGNED)
+              END
+          AND t.OriginalTargetDepartment LIKE CONCAT(xa_goc.nhanh, '.%')
+
+    /* NHÓM NHIỆM VỤ NQ57: nhãn dạng 'Nhóm <số>...' có SortOrder nhỏ nhất của task */
+    LEFT JOIN (
+            SELECT mn.TaskId,
+                   SUBSTRING_INDEX(MIN(CONCAT(LPAD(COALESCE(tpn.SortOrder, 0), 10, '0'), '|', tpn.TopicName)), '|', -1) AS ten_nhom
+            FROM `db_theodoinv_hn`.`qlnv_task_topic_map` mn
+            INNER JOIN `db_theodoinv_hn`.`qlnv_task_topic` tpn
+                    ON tpn.TopicId = mn.TopicId
+                   AND tpn.DeletedDate IS NULL
+            WHERE tpn.TopicName REGEXP 'Nhóm [0-9]'
+            GROUP BY mn.TaskId
+    ) nh
+           ON nh.TaskId = t.TaskId
+
+    /* NHIỆM VỤ TRUNG ƯƠNG GIAO: TopicId = 16 + AssignDepartment '490.695' (1 dòng / task -> không nhân dòng) */
+    LEFT JOIN (
+            /* Nhiệm vụ Trung ương giao: task chưa xoá, AssignDepartment '490.695', gắn nhãn TopicId = 16 */
+            SELECT t_tw.TaskId
+            FROM `db_theodoinv_hn`.`qlnv_task` t_tw
+            WHERE t_tw.DeletedDate IS NULL
+              AND t_tw.AssignDepartment LIKE '490.695'
+              AND EXISTS (
+                  SELECT 1
+                  FROM `db_theodoinv_hn`.`qlnv_task_topic_map` m57
+                  WHERE m57.TaskId = t_tw.TaskId
+                    AND m57.TopicId = 16
+              )
+    ) tw
+           ON tw.TaskId = t.TaskId
+
+    /* ĐIỀU KIỆN LẤY TASK: (Trung ương giao: TopicId 16 + '490.695') HOẶC (Thành phố: nhãn NQ57, theo truy_van_571_tp.sql) */
+    WHERE (
+          /* Nhiệm vụ Trung ương giao: TopicId 16 + AssignDepartment '490.695' */
+          tw.TaskId IS NOT NULL
 
           OR
 
-          /* Nhiệm vụ BCĐ 57 cấp Thành phố */
+          /* Nhiệm vụ Thành phố: task chưa xoá, gắn nhãn NQ57 (nhóm "Nhãn", GroupId 1),
+             EXISTS để task gắn nhãn nhiều lần không bị nhân dòng */
           (
-              /* Thuộc nghị quyết nhóm 55 (qlnv_resolution -> qlnv_task_resolution -> qlnv_task),
-                 EXISTS để 1 task gắn nhiều nghị quyết nhóm 55 không bị nhân dòng */
-              EXISTS (
+              t.DeletedDate IS NULL
+              AND EXISTS (
                   SELECT 1
-                  FROM `db_theodoinv_hn`.`qlnv_task_resolution` tr
-                  INNER JOIN `db_theodoinv_hn`.`qlnv_resolution` r
-                          ON r.ResolutionId = tr.ResolutionId
-                  WHERE tr.TaskId = t.TaskId
-                    AND r.ResolutionGroupId = 55
-                    AND r.DeletedDate IS NULL
+                  FROM `db_theodoinv_hn`.`qlnv_task_topic_map` m57
+                  INNER JOIN `db_theodoinv_hn`.`qlnv_task_topic` tp57
+                          ON tp57.TopicId = m57.TopicId
+                  WHERE m57.TaskId = t.TaskId
+                    AND tp57.GroupId = 1
+                    AND tp57.TopicName = 'NQ57'
+                    AND tp57.DeletedDate IS NULL
               )
-
-              /* Xã/phường nhận (490.698.1310.%) thuộc nhánh cấp xã, phường bên dưới */
-              AND COALESCE(t.OriginalTargetDepartment, '') NOT LIKE '490.698.1310.%'
           )
       )
 
@@ -278,9 +447,7 @@ SELECT u.* FROM (
        ======================================================================= */
     SELECT
         /* 0. CẤP NHIỆM VỤ */
-        /* 4 nhiệm vụ Thành phố có xã/phường tham gia -> tính là cấp Thành phố */
-        CASE WHEN t.Code IN ('2026-277-TB/TU-015', '2026-309/VP-ĐT-983', '2026-59/UBND-ĐT-820', '2026-601-CV/TU-376')
-             THEN 'Cấp Thành phố' ELSE 'Cấp Xã, phường' END     AS cap_nhiem_vu,
+        'Cấp Xã, phường'     AS cap_nhiem_vu,
 
         /* 1. KHÓA HỆ THỐNG & TRẠNG THÁI */
         t.TaskId                                                AS task_id,
@@ -292,17 +459,21 @@ SELECT u.* FROM (
 
         /* NGUỒN GIAO (nhánh 1 chỉ có BCĐ / Thành phố; Trung ương lấy ở nhánh 2) */
         CASE
-            /* Ban Chỉ đạo giao / bút phê, chỉ đạo */
+            /* Ban Chỉ đạo giao / bút phê, chỉ đạo: bỏ nhóm 'Nhiệm vụ Ban Chỉ đạo' -> NULL */
             WHEN CONCAT_WS(' ', t.AssignOrganization, d_assign.name, u_assign.eGovUserPositionName)
                      LIKE '%Ban Chỉ đạo%'
               OR t.DocCode LIKE '%BCĐ%'
-            THEN 'Nhiệm vụ Ban Chỉ đạo'
+            THEN NULL
 
             /* Còn lại: Thành ủy, HĐND, UBND TP, sở ngành TP giao */
             ELSE 'Nhiệm vụ Thành phố'
         END                                                     AS nguon_giao,
-        /* Số văn bản '1' (nhiệm vụ trọng tâm) hiển thị là 'TT' */
-        IF(TRIM(t.DocCode) = '1', 'TT', t.DocCode)              AS van_ban_giao,
+        /* Số văn bản một dạng ('1' = nhiệm vụ trọng tâm hiển thị 'TT'): bỏ 'Số:', bỏ khoảng trắng quanh '-' '/';
+           mã viết tắt (không có '/', vd NQ79) -> số ký hiệu đầy đủ của văn bản (qlnv_resolution) */
+        CASE
+            WHEN TRIM(t.DocCode) = '1' THEN 'TT'
+            ELSE TRIM(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(CASE WHEN COALESCE(t.DocCode, '') NOT LIKE '%/%' AND NULLIF(TRIM(r_vb.DocCode), '') IS NOT NULL THEN r_vb.DocCode ELSE t.DocCode END, 'Số:', ''), 'số:', ''), 'SỐ:', ''), ' -', '-'), ' -', '-'), '- ', '-'), '- ', '-'), ' /', '/'), ' /', '/'), '/ ', '/'), '/ ', '/'))
+        END                                                     AS van_ban_giao,
         /* Loại văn bản (4 nhóm):
              TT (DocCode = '1')                    -> NV trọng tâm
              mã chứa 'KH' (vd 20-KH/BCĐ57)          -> Kế hoạch
@@ -319,24 +490,33 @@ SELECT u.* FROM (
         /* 3. THÔNG TIN NHIỆM VỤ, TIÊU ĐỀ & CHỦ ĐỀ */
         t.Code                                                  AS ma_nhiem_vu,
         /* TÊN XÃ/PHƯỜNG (xem JOIN d_xa), đồng bộ qlnv_lichsutiendo_captp_xp_bcd57 */
-        d_xa.name                                               AS ten_xa_phuong,
+        /* 02. Tên xã/phường chuẩn ('Phường Ba Đình'): xã nhận -> xã giao -> tên UBND xã cũ */
+        COALESCE(xa_nhan.ten_xa_phuong, xa_goc.ten_xa_phuong, xa_giao.ten_xa_phuong, d_xa.name) AS ten_xa_phuong,
         t.Title                                                 AS ten_nhiem_vu,
         COALESCE(NULLIF(tp.TopicName, ''), 'Chưa phân loại')    AS chu_de,
-        COALESCE(NULLIF(t.NameGroup, ''), 'Chưa phân loại')     AS nhom_nhiem_vu,
+        /* Nhóm nhiệm vụ NQ57 một dạng ('Nhóm 11: ...'), bỏ ký tự thừa ở đầu ('. Nhóm 8') */
+        COALESCE(COALESCE(TRIM(SUBSTRING(nh.ten_nhom, LOCATE('Nhóm ', nh.ten_nhom))), NULLIF(TRIM(IF(t.NameGroup REGEXP 'Nhóm [0-9]', SUBSTRING(t.NameGroup, LOCATE('Nhóm ', t.NameGroup)), TRIM(LEADING '.' FROM TRIM(t.NameGroup)))), '')), 'Chưa phân loại') AS nhom_nhiem_vu,
 
         /* ĐƠN VỊ GIAO & NGƯỜI GIAO */
         t.AssignDepartment                                      AS id_don_vi_giao,
-        COALESCE(d_assign.name, NULLIF(t.AssignOrganization, '')) AS don_vi_giao,
+        /* Cơ quan ban hành / giao nhiệm vụ, không lấy đơn vị nhập liệu (d_assign) trước */
+        COALESCE(
+            NULLIF(TRIM(r_vb.AssignOrganizationName), ''),
+            NULLIF(TRIM(t.AssignOrganization), ''),
+            d_assign.name
+        )                                                       AS don_vi_giao,
         t.AssignUser                                            AS id_nguoi_giao,
         u_assign.eGovUserFullname                               AS nguoi_giao,
 
         /* 4. ĐƠN VỊ THỰC HIỆN / CHỦ TRÌ & NGƯỜI THỰC HIỆN */
-        t.TargetDepartment                                      AS id_don_vi_chu_tri,
+        /* Path mã tới đơn vị nhận, không để trống (thiếu thì lấy đơn vị nhận gốc, cuối cùng là '490') */
+        COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490') AS id_don_vi_chu_tri,
+        /* Tên của mã sâu nhất trong path (không phải tên nhóm cha) */
         COALESCE(
-            NULLIF(t.ResponsibleUnit, ''), 
-            NULLIF(t.TargetOrganization, ''), 
-            d_cap.name,
-            d_donvi.name
+            dp6.name, dp5.name, dp4.name, dp3.name, dp2.name,
+            NULLIF(t.ResponsibleUnit, ''),
+            NULLIF(t.TargetOrganization, ''),
+            dp1.name
         )                                                       AS ten_don_vi_chu_tri,
     
         COALESCE(
@@ -362,15 +542,10 @@ SELECT u.* FROM (
 
         /* 6. PHÂN LOẠI 4 TÌNH TRẠNG CHUẨN */
         CASE
-            /* 4 nhiệm vụ tính cấp Thành phố: Status 3/4 là Đã hoàn thành (như nhánh TP) */
-            WHEN t.Code IN ('2026-277-TB/TU-015', '2026-309/VP-ĐT-983', '2026-59/UBND-ĐT-820', '2026-601-CV/TU-376')
-                 AND t.Status IN (3, 4)
-            THEN 'Đã hoàn thành'
-
             /* 1. Đã hoàn thành (đúng hạn hoặc quá hạn) */
             WHEN t.Status IN (3, 4)
-                 AND t.ExpireDate IS NOT NULL
-                 AND COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL
+                --  AND t.ExpireDate IS NOT NULL
+                --  AND COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL
             THEN 'Đã hoàn thành'
 
             /* 2. Thường xuyên (nhiệm vụ không có hạn) */
@@ -431,6 +606,53 @@ SELECT u.* FROM (
             '—'
         )                                                       AS de_xuat_kien_nghi,
 
+        /* ===== BỔ SUNG THEO test/dac-ta-truong-bcd57.md ===== */
+        /* 01. Path tên tương ứng id_don_vi_chu_tri, ngăn cách ' › ' */
+        CONCAT_WS(' › ',
+            IF(dp1.id = 490, 'Thành phố Hà Nội', dp1.name),
+            dp2.name, dp3.name, dp4.name, dp5.name, dp6.name
+        )                                                       AS path_ten_don_vi_chu_tri,
+
+        /* 02. Xã/phường và trục của cơ quan xã nhận (dm_xa_phuong_4truc); nhiệm vụ không thuộc cấp xã -> NULL */
+        COALESCE(xa_nhan.ma_xa_phuong, xa_goc.ma_xa_phuong, xa_giao.ma_xa_phuong) AS ma_xa_phuong,
+        COALESCE(xa_nhan.truc_xa_phuong, xa_goc.truc_xa_phuong, xa_giao.truc_xa_phuong) AS truc_xa_phuong,
+
+        /* 03. Nhãn chuyên đề dạng path '<Cấp 1>/<Cấp 2>': cấp 1 = NQ57 / Khác, cấp 2 = 10 chuyên đề (cd01-cd10).
+               Hiện 10 chuyên đề đều thuộc NQ57; nhiều nhãn ngăn cách ';' (tên nhãn có dấu phẩy);
+               không khớp chuyên đề nào -> 'Khác' (để thấy phần còn phân được theo lĩnh vực khác).
+               Quy tắc tạm theo từ khóa trong tên nhiệm vụ (chưa có nhãn gán tay) */
+        COALESCE(NULLIF(CONCAT_WS(';',
+            IF(t.Title LIKE '%thể chế%' OR t.Title LIKE '%quy chế%' OR t.Title LIKE '%cơ chế%' OR t.Title LIKE '%chính sách%' OR t.Title LIKE '%nghị quyết%' OR t.Title LIKE '%đề án%' OR t.Title LIKE '%kiện toàn%', 'NQ57/Thể chế, chỉ đạo', NULL),
+            IF(t.Title LIKE '%hạ tầng%' OR t.Title LIKE '%trung tâm dữ liệu%' OR t.Title LIKE '%đường truyền%' OR t.Title LIKE '%máy chủ%' OR t.Title LIKE '%5G%' OR t.Title LIKE '%điện toán đám mây%', 'NQ57/Hạ tầng', NULL),
+            IF(t.Title LIKE '%dữ liệu%' OR t.Title LIKE '%CSDL%' OR t.Title LIKE '%số hóa%' OR t.Title LIKE '%làm sạch%' OR t.Title LIKE '%đất đai%' OR t.Title LIKE '%dân cư%' OR t.Title LIKE '%dữ liệu mở%', 'NQ57/Dữ liệu', NULL),
+            IF(t.Title LIKE '%nền tảng%' OR t.Title LIKE '%IOC%' OR t.Title LIKE '%iHanoi%' OR t.Title LIKE '%HanoiWork%' OR t.Title LIKE '%phần mềm%' OR t.Title LIKE '%ứng dụng%' OR t.Title LIKE '%chữ ký số%', 'NQ57/Nền tảng', NULL),
+            IF(t.Title LIKE '%dịch vụ công%' OR t.Title LIKE '%thủ tục hành chính%' OR t.Title LIKE '%một cửa%' OR t.Title LIKE '%toàn trình%', 'NQ57/Dịch vụ công', NULL),
+            IF(t.Title LIKE '%giải ngân%' OR t.Title LIKE '%kinh phí%' OR t.Title LIKE '%ngân sách%' OR t.Title LIKE '%đầu tư công%' OR t.Title LIKE '%mua sắm%' OR t.Title LIKE '%quyết toán%', 'NQ57/Giải ngân', NULL),
+            IF(t.Title LIKE '%an toàn thông tin%' OR t.Title LIKE '%an ninh mạng%' OR t.Title LIKE '%bảo mật%' OR t.Title LIKE '%mã độc%' OR t.Title LIKE '%ứng cứu sự cố%', 'NQ57/An ninh, an toàn', NULL),
+            IF(t.Title LIKE '%đô thị thông minh%' OR t.Title LIKE '%giao thông thông minh%' OR t.Title LIKE '%camera%' OR t.Title LIKE '%IoT%' OR t.Title LIKE '%quan trắc%', 'NQ57/Đô thị thông minh', NULL),
+            IF(t.Title LIKE '%đột xuất%' OR t.Title LIKE '%khẩn trương%' OR t.Title LIKE '%cao điểm%' OR t.Title LIKE '%dứt điểm%' OR t.Title LIKE '%100 ngày%', 'NQ57/Chỉ đạo nóng', NULL),
+            IF(t.Title LIKE '%sản phẩm%' OR t.Title LIKE '%nghiệm thu%' OR t.Title LIKE '%đưa vào vận hành%' OR t.Title LIKE '%thí điểm%' OR t.Title LIKE '%bàn giao%', 'NQ57/Sản phẩm', NULL)
+        ), ''), 'Khác')                                         AS nhan_chuyen_de,
+
+        /* 04. Ngày ban hành, trích yếu văn bản giao */
+        DATE(r_vb.StartDate)                                    AS ngay_ban_hanh_vb,
+        COALESCE(
+            NULLIF(TRIM(r_vb.Compendium), ''),
+            NULLIF(TRIM(t.Compendium), '')
+        )                                                       AS trich_yeu_vb,
+
+        /* 06. Số thứ tự nhóm NQ57 (số sau 'Nhóm ') để sắp xếp */
+        CASE
+            WHEN SUBSTRING_INDEX(SUBSTRING_INDEX(SUBSTRING(COALESCE(TRIM(SUBSTRING(nh.ten_nhom, LOCATE('Nhóm ', nh.ten_nhom))), NULLIF(TRIM(IF(t.NameGroup REGEXP 'Nhóm [0-9]', SUBSTRING(t.NameGroup, LOCATE('Nhóm ', t.NameGroup)), TRIM(LEADING '.' FROM TRIM(t.NameGroup)))), '')), 6), ':', 1), ' ', 1) REGEXP '^[0-9]+$'
+            THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(SUBSTRING(COALESCE(TRIM(SUBSTRING(nh.ten_nhom, LOCATE('Nhóm ', nh.ten_nhom))), NULLIF(TRIM(IF(t.NameGroup REGEXP 'Nhóm [0-9]', SUBSTRING(t.NameGroup, LOCATE('Nhóm ', t.NameGroup)), TRIM(LEADING '.' FROM TRIM(t.NameGroup)))), '')), 6), ':', 1), ' ', 1) AS UNSIGNED)
+        END                                                     AS stt_nhom_nhiem_vu,
+
+        /* 07. Thường trực BCĐ 57: chủ trì là Công an TP/xã, Tổ Thường trực, Tổ Tư vấn - chuyên gia */
+        IF(CONCAT_WS(' ', dp2.name, dp3.name, dp4.name, dp5.name, dp6.name, t.ResponsibleUnit) LIKE '%Công an%'
+           OR CONCAT_WS(' ', dp2.name, dp3.name, dp4.name, dp5.name, dp6.name, t.ResponsibleUnit) LIKE '%Tổ Thường trực%'
+           OR CONCAT_WS(' ', dp2.name, dp3.name, dp4.name, dp5.name, dp6.name, t.ResponsibleUnit) LIKE '%Tổ Tư vấn%',
+           1, 0)                                                AS la_thuong_truc_bcd,
+
         '${sync_ts}'                                            AS sync_date
 
     FROM `db_theodoinv_hn`.`qlnv_task` t
@@ -482,6 +704,84 @@ SELECT u.* FROM (
     LEFT JOIN `db_theodoinv_hn`.`qlnv_user` u_target 
            ON u_target.eGovUserId = t.TargetUser
 
+    /* VĂN BẢN GIAO (số, ngày ban hành, trích yếu, cơ quan ban hành) */
+    LEFT JOIN `db_theodoinv_hn`.`qlnv_resolution` r_vb
+           ON r_vb.ResolutionId = t.ResolutionId
+          AND r_vb.DeletedDate IS NULL
+
+    /* PATH ĐƠN VỊ CHỦ TRÌ: dp1..dp6 = department của từng mã trong path
+       COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490') */
+
+    LEFT JOIN `db_theodoinv_hn`.`department` dp1
+           ON dp1.id = CASE
+                WHEN SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 1), '.', -1) REGEXP '^[0-9]+$'
+                THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 1), '.', -1) AS UNSIGNED)
+              END
+
+    LEFT JOIN `db_theodoinv_hn`.`department` dp2
+           ON dp2.id = CASE
+                WHEN LENGTH(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490')) - LENGTH(REPLACE(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', '')) >= 1
+                 AND SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 2), '.', -1) REGEXP '^[0-9]+$'
+                THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 2), '.', -1) AS UNSIGNED)
+              END
+
+    LEFT JOIN `db_theodoinv_hn`.`department` dp3
+           ON dp3.id = CASE
+                WHEN LENGTH(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490')) - LENGTH(REPLACE(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', '')) >= 2
+                 AND SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 3), '.', -1) REGEXP '^[0-9]+$'
+                THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 3), '.', -1) AS UNSIGNED)
+              END
+
+    LEFT JOIN `db_theodoinv_hn`.`department` dp4
+           ON dp4.id = CASE
+                WHEN LENGTH(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490')) - LENGTH(REPLACE(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', '')) >= 3
+                 AND SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 4), '.', -1) REGEXP '^[0-9]+$'
+                THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 4), '.', -1) AS UNSIGNED)
+              END
+
+    LEFT JOIN `db_theodoinv_hn`.`department` dp5
+           ON dp5.id = CASE
+                WHEN LENGTH(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490')) - LENGTH(REPLACE(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', '')) >= 4
+                 AND SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 5), '.', -1) REGEXP '^[0-9]+$'
+                THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 5), '.', -1) AS UNSIGNED)
+              END
+
+    LEFT JOIN `db_theodoinv_hn`.`department` dp6
+           ON dp6.id = CASE
+                WHEN LENGTH(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490')) - LENGTH(REPLACE(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', '')) >= 5
+                 AND SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 6), '.', -1) REGEXP '^[0-9]+$'
+                THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 6), '.', -1) AS UNSIGNED)
+              END
+
+    /* XÃ/PHƯỜNG NHẬN: đơn vị chủ trì là cơ quan cấp xã (bảng đối chiếu dm_xa_phuong_4truc_ddl.sql) */
+    LEFT JOIN `db_theodoinv_hn`.`dm_xa_phuong_4truc` xa_nhan
+           ON xa_nhan.id_don_vi = CASE
+                WHEN SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 4), '.', -1) REGEXP '^[0-9]+$'
+                THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490'), '.', 4), '.', -1) AS UNSIGNED)
+              END
+          AND COALESCE(NULLIF(TRIM(t.TargetDepartment), ''), NULLIF(TRIM(t.OriginalTargetDepartment), ''), '490') LIKE CONCAT(xa_nhan.nhanh, '.%')
+
+    /* XÃ/PHƯỜNG NHẬN theo đơn vị nhận gốc (OriginalTargetDepartment) */
+    LEFT JOIN `db_theodoinv_hn`.`dm_xa_phuong_4truc` xa_goc
+           ON xa_goc.id_don_vi = CASE
+                WHEN SUBSTRING_INDEX(SUBSTRING_INDEX(t.OriginalTargetDepartment, '.', 4), '.', -1) REGEXP '^[0-9]+$'
+                THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(t.OriginalTargetDepartment, '.', 4), '.', -1) AS UNSIGNED)
+              END
+          AND t.OriginalTargetDepartment LIKE CONCAT(xa_goc.nhanh, '.%')
+
+    /* NHÓM NHIỆM VỤ NQ57: nhãn dạng 'Nhóm <số>...' có SortOrder nhỏ nhất của task */
+    LEFT JOIN (
+            SELECT mn.TaskId,
+                   SUBSTRING_INDEX(MIN(CONCAT(LPAD(COALESCE(tpn.SortOrder, 0), 10, '0'), '|', tpn.TopicName)), '|', -1) AS ten_nhom
+            FROM `db_theodoinv_hn`.`qlnv_task_topic_map` mn
+            INNER JOIN `db_theodoinv_hn`.`qlnv_task_topic` tpn
+                    ON tpn.TopicId = mn.TopicId
+                   AND tpn.DeletedDate IS NULL
+            WHERE tpn.TopicName REGEXP 'Nhóm [0-9]'
+            GROUP BY mn.TaskId
+    ) nh
+           ON nh.TaskId = t.TaskId
+
     /* XÃ/PHƯỜNG: department có id = đoạn thứ 4 của path 490.698.1310.<id>...
        Ưu tiên xã/phường nhận -> xã/phường giao */
     LEFT JOIN `db_theodoinv_hn`.`department` d_xa
@@ -499,6 +799,14 @@ SELECT u.* FROM (
               END
           AND d_xa.IsDelete = 0
 
+    /* XÃ/PHƯỜNG GIAO (nhánh xã, phường: xã/phường là bên giao) */
+    LEFT JOIN `db_theodoinv_hn`.`dm_xa_phuong_4truc` xa_giao
+           ON xa_giao.id_don_vi = CASE
+                WHEN SUBSTRING_INDEX(SUBSTRING_INDEX(t.AssignDepartment, '.', 4), '.', -1) REGEXP '^[0-9]+$'
+                THEN CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(t.AssignDepartment, '.', 4), '.', -1) AS UNSIGNED)
+              END
+          AND t.AssignDepartment LIKE CONCAT(xa_giao.nhanh, '.%')
+
     /* ĐIỀU KIỆN LẤY TASK: BCĐ 57 + có liên quan đến xã/phường */
     WHERE t.DeletedDate IS NULL
       AND t.Status <> 5
@@ -508,7 +816,6 @@ SELECT u.* FROM (
            OR (t.Status IN (3, 4)
                AND (   COALESCE(t.IsRecurring, 0) = 1
                     OR t.ExpireDate IS NULL
-                    OR t.Code IN ('2026-277-TB/TU-015', '2026-309/VP-ĐT-983', '2026-59/UBND-ĐT-820', '2026-601-CV/TU-376')
                     OR COALESCE(t.CompletedDate, t.ApprovedDate) IS NOT NULL)))
 
       /* Task thuộc nghị quyết nhóm 55 (qua qlnv_task_resolution), EXISTS để không nhân dòng */
@@ -563,4 +870,12 @@ ON DUPLICATE KEY UPDATE
     ket_qua_thuc_hien = VALUES(ket_qua_thuc_hien),
     kho_khan_vuong_mac = VALUES(kho_khan_vuong_mac),
     de_xuat_kien_nghi = VALUES(de_xuat_kien_nghi),
+    path_ten_don_vi_chu_tri = VALUES(path_ten_don_vi_chu_tri),
+    ma_xa_phuong = VALUES(ma_xa_phuong),
+    truc_xa_phuong = VALUES(truc_xa_phuong),
+    nhan_chuyen_de = VALUES(nhan_chuyen_de),
+    ngay_ban_hanh_vb = VALUES(ngay_ban_hanh_vb),
+    trich_yeu_vb = VALUES(trich_yeu_vb),
+    stt_nhom_nhiem_vu = VALUES(stt_nhom_nhiem_vu),
+    la_thuong_truc_bcd = VALUES(la_thuong_truc_bcd),
     sync_date = VALUES(sync_date);
