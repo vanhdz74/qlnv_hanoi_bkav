@@ -1,0 +1,468 @@
+{
+ "nguon": {
+  "NGUON_GIAO": {
+   "T8/2026": "BC tháng 8/2026 - Phụ lục 01 (chốt 08h00 26/8/2026)",
+   "T9/2026": "BC tháng 9/2026 - Phụ lục 01 (chốt 17h00 25/9/2026)"
+  },
+  "XA_QUAN_TAM": {
+   "T8/2026": "BC tháng 8/2026 - Phụ lục 03, mục III (trang 36)",
+   "T9/2026": "BC tháng 9/2026 - Phụ lục 03, mục II (trang 31-32)"
+  },
+  "DIEM_NGHEN_XA": {
+   "T8/2026": "BC tháng 8/2026 - Phụ lục 03, mục II (trang 35)"
+  },
+  "NOI_DUNG_XA": {
+   "T8/2026": "BC tháng 8/2026 - Phụ lục 03, trang 34 (ảnh)",
+   "T9/2026": "BC tháng 9/2026 - Phụ lục 03, trang 29 (ảnh)"
+  }
+ },
+ "NGUON_GIAO": {
+  "T8/2026": {
+   "Nhiệm vụ Trung ương giao": [
+    296,
+    189,
+    107,
+    1,
+    0,
+    0
+   ],
+   "Kế hoạch 20-KH/BCĐ57": [
+    125,
+    56,
+    69,
+    5,
+    5,
+    0
+   ],
+   "Kế hoạch 35-KH/BCĐ57": [
+    26,
+    3,
+    23,
+    4,
+    4,
+    2
+   ],
+   "Thông báo kết luận": [
+    346,
+    153,
+    193,
+    11,
+    11,
+    7
+   ],
+   "Công văn truyền đạt ý kiến": [
+    44,
+    20,
+    24,
+    3,
+    3,
+    11
+   ],
+   "Nhiệm vụ trọng tâm, cấp bách": [
+    9,
+    3,
+    6,
+    0,
+    0,
+    0
+   ]
+  },
+  "T9/2026": {
+   "Nhiệm vụ Trung ương giao": [
+    296,
+    190,
+    106,
+    1,
+    0,
+    1
+   ],
+   "Kế hoạch 20-KH/BCĐ57": [
+    126,
+    58,
+    68,
+    0,
+    0,
+    8
+   ],
+   "Kế hoạch 35-KH/BCĐ57": [
+    26,
+    8,
+    18,
+    2,
+    2,
+    0
+   ],
+   "Thông báo kết luận": [
+    366,
+    166,
+    200,
+    12,
+    12,
+    3
+   ],
+   "Công văn truyền đạt ý kiến": [
+    44,
+    36,
+    8,
+    0,
+    0,
+    0
+   ],
+   "Nhiệm vụ trọng tâm, cấp bách": [
+    9,
+    3,
+    6,
+    0,
+    0,
+    0
+   ]
+  }
+ },
+ "XA_QUAN_TAM": {
+  "T8/2026": {
+   "Giảng Võ": [
+    31,
+    20,
+    11,
+    0
+   ],
+   "Hồng Vân": [
+    185,
+    141,
+    1,
+    3
+   ],
+   "Kiều Phú": [
+    195,
+    72,
+    12,
+    13
+   ],
+   "Phú Xuyên": [
+    51,
+    37,
+    7,
+    null
+   ],
+   "Ngọc Hồi": [
+    209,
+    95,
+    0,
+    17
+   ],
+   "Sơn Tây": [
+    35,
+    33,
+    0,
+    1
+   ],
+   "Sơn Đồng": [
+    null,
+    null,
+    0,
+    1
+   ],
+   "Thanh Xuân": [
+    219,
+    154,
+    0,
+    7
+   ],
+   "Từ Liêm": [
+    232,
+    130,
+    0,
+    20
+   ],
+   "Xuân Đỉnh": [
+    55,
+    19,
+    0,
+    2
+   ]
+  },
+  "T9/2026": {
+   "Kiều Phú": [
+    242,
+    97,
+    0,
+    25
+   ],
+   "Từ Liêm": [
+    279,
+    176,
+    0,
+    24
+   ],
+   "Ngọc Hồi": [
+    247,
+    124,
+    0,
+    17
+   ],
+   "Phú Xuyên": [
+    48,
+    40,
+    4,
+    0
+   ],
+   "Dân Hòa": [
+    260,
+    161,
+    0,
+    3
+   ],
+   "Xuân Đỉnh": [
+    64,
+    32,
+    0,
+    2
+   ],
+   "Hà Đông": [
+    100,
+    96,
+    1,
+    0
+   ],
+   "Phú Lương": [
+    162,
+    109,
+    1,
+    0
+   ],
+   "Sơn Tây": [
+    92,
+    80,
+    0,
+    1
+   ],
+   "Yên Bài": [
+    241,
+    219,
+    0,
+    1
+   ]
+  }
+ },
+ "DIEM_NGHEN_XA": {
+  "T8/2026": {
+   "Nền tảng, phần mềm, liên thông": [
+    105,
+    44
+   ],
+   "Dữ liệu, chuẩn hóa, chia sẻ": [
+    79,
+    39
+   ],
+   "Hạ tầng, thiết bị, đường truyền": [
+    66,
+    29
+   ],
+   "Nhân lực, kỹ năng số": [
+    59,
+    14
+   ],
+   "ATTT, chữ ký số, cơ yếu": [
+    34,
+    31
+   ],
+   "Cơ chế, hướng dẫn, phân quyền": [
+    28,
+    8
+   ],
+   "Kinh phí, mua sắm": [
+    18,
+    4
+   ],
+   "Khác/không nêu rõ": [
+    13,
+    2
+   ],
+   "DVC, TTHC, đảng phí": [
+    10,
+    5
+   ],
+   "Người dân, doanh nghiệp tiếp cận số": [
+    8,
+    4
+   ]
+  }
+ },
+ "NOI_DUNG_XA": {
+  "T8/2026": {
+   "Mô hình, sáng kiến nhân rộng": 87,
+   "Dữ liệu số": 73,
+   "DVC, TTHC": 56,
+   "Quản trị số, HanoiWork, IOC": 49,
+   "Xã hội số, kỹ năng số": 46,
+   "Kinh tế số, TMĐT, thanh toán": 29,
+   "Ứng dụng AI": 22,
+   "An toàn thông tin": 20,
+   "Hạ tầng số": 7
+  },
+  "T9/2026": {
+   "Mô hình, sáng kiến nhân rộng": 95,
+   "Dữ liệu số": 81,
+   "DVC, TTHC": 68,
+   "Quản trị số, HanoiWork, IOC": 68,
+   "Xã hội số, kỹ năng số": 58,
+   "Kinh tế số, TMĐT, thanh toán": 41,
+   "Ứng dụng AI": 33,
+   "An toàn thông tin": 28,
+   "Hạ tầng số": 11
+  }
+ },
+ "QUA_HAN": [
+  {
+   "stt": 1,
+   "ten": "Giao Đảng ủy UBND Thành phố lãnh đạo, chỉ đạo UBND Thành phố giao các sở, ban, ngành, chính quyền các địa phương xây dựng kế hoạch, lộ trình triển khai theo chức năng, nhiệm vụ và phạm vi dự án; gửi UBND Thành phố để tổng hợp, chỉ đạo triển khai; báo cáo Ban Chỉ đạo 57 Thành ủy trước ngày 15/03/2026",
+   "co_quan_chu_tri": "Đảng ủy UBND Thành phố",
+   "han": "2026-03-15",
+   "moc_kiem_tra": "01/10/2026",
+   "cho_trung_uong": false,
+   "nguon": "BC tháng 9/2026 - Phụ lục 02, mục I (chốt 17h00 25/9/2026)",
+   "ngay_chot": "2026-09-25"
+  },
+  {
+   "stt": 2,
+   "ten": "Rà soát, phân loại các đề xuất, kiến nghị của Ban Quản lý các Khu công nghệ cao và Khu công nghiệp thành phố Hà Nội; chủ động xem xét, xử lý theo thẩm quyền. Đối với nội dung vượt thẩm quyền, báo cáo cấp có thẩm quyền xem xét, quyết định. Kết quả rà soát, xử lý được tổng hợp trong Báo cáo tổng thể trình Ban Thường vụ Thành ủy.",
+   "co_quan_chu_tri": "UBND Thành phố",
+   "han": "2026-08-15",
+   "moc_kiem_tra": "01/10/2026",
+   "cho_trung_uong": false,
+   "nguon": "BC tháng 9/2026 - Phụ lục 02, mục I (chốt 17h00 25/9/2026)",
+   "ngay_chot": "2026-09-25"
+  },
+  {
+   "stt": 3,
+   "ten": "Tham mưu đồng chí Phó Bí thư Thành ủy chỉ đạo các đồng chí Bí thư Đảng ủy 126 xã, phường tập trung lãnh đạo, chỉ đạo thực hiện làm sạch dữ liệu đất đai. Kết quả thực hiện đến ngày 30/8/2026 được đối chiếu với KPI đã được thông báo đến từng xã, phường và sử dụng làm căn cứ đánh giá kết quả thực hiện nhiệm vụ, trách nhiệm người đứng đầu trong quý III/2026.",
+   "co_quan_chu_tri": "Văn phòng Thành ủy",
+   "han": "2026-08-30",
+   "moc_kiem_tra": "02/10/2026",
+   "cho_trung_uong": false,
+   "nguon": "BC tháng 9/2026 - Phụ lục 02, mục I (chốt 17h00 25/9/2026)",
+   "ngay_chot": "2026-09-25"
+  },
+  {
+   "stt": 4,
+   "ten": "Các sở, ngành lựa chọn, đăng ký từ 01-02 sản phẩm cụ thể gắn với phát triển kinh tế số của ngành, lĩnh vực; hoàn thành đăng ký trong đầu tháng 9/2026 để làm cơ sở kiểm đếm, đánh giá kết quả thực hiện vào cuối năm.",
+   "co_quan_chu_tri": "Sở, ngành Thành phố",
+   "han": "2026-09-15",
+   "moc_kiem_tra": "02/10/2026",
+   "cho_trung_uong": false,
+   "nguon": "BC tháng 9/2026 - Phụ lục 02, mục I (chốt 17h00 25/9/2026)",
+   "ngay_chot": "2026-09-25"
+  },
+  {
+   "stt": 5,
+   "ten": "Phê duyệt hồ sơ đề xuất cấp độ an toàn hệ thống thông tin đối với các hệ thống trước khi đưa vào vận hành, khai thác; tổ chức kiểm tra, đánh giá an ninh mạng định kỳ.",
+   "co_quan_chu_tri": "Các sở, ban, ngành Thành phố và UBND xã, phường",
+   "han": "2026-08-15",
+   "moc_kiem_tra": "01/10/2026",
+   "cho_trung_uong": false,
+   "nguon": "BC tháng 9/2026 - Phụ lục 02, mục I (chốt 17h00 25/9/2026)",
+   "ngay_chot": "2026-09-25"
+  },
+  {
+   "stt": 6,
+   "ten": "Các sở, ban, ngành rà soát, chuẩn hóa, hoàn thiện các cơ sở dữ liệu chuyên ngành thuộc phạm vi quản lý, bảo đảm dữ liệu đúng, đủ, sạch, sống, thống nhất, dùng chung, kết nối và chia sẻ được; hoàn thành trước ngày 30/8/2026. Sở Khoa học và Công nghệ chủ trì hướng dẫn tiêu chuẩn kỹ thuật, kiến trúc dữ liệu, kết nối, chia sẻ dữ liệu; bảo đảm đồng bộ, thống nhất trong xây dựng, chia sẻ, tích hợp dữ liệu của các cơ quan, đơn vị.",
+   "co_quan_chu_tri": "Các sở, ban, ngành Thành phố",
+   "han": "2026-08-30",
+   "moc_kiem_tra": "02/10/2026",
+   "cho_trung_uong": false,
+   "nguon": "BC tháng 9/2026 - Phụ lục 02, mục I (chốt 17h00 25/9/2026)",
+   "ngay_chot": "2026-09-25"
+  },
+  {
+   "stt": 7,
+   "ten": "Phân công đồng chí Trương Việt Dũng, Thành ủy viên, Phó Chủ tịch UBND Thành phố trực tiếp chỉ đạo Ban Quản lý các Khu công nghệ cao và Khu công nghiệp thành phố Hà Nội chủ trì, phối hợp với các cơ quan, đơn vị liên quan xây dựng Báo cáo tổng thể về định hướng, nhiệm vụ và giải pháp phát triển Khu công nghệ cao Hòa Lạc trong giai đoạn mới; báo cáo Ban Thường vụ Thành ủy. Báo cáo tập trung làm rõ: Kết quả thực hiện các kết luận, chỉ đạo liên quan; tồn tại, hạn chế, nguyên nhân, trách nhiệm và những nội dung cần thay đổi trong phương thức tổ chức thực hiện. Vị trí, vai trò, mục tiêu, định hướng và mô hình phát triển Khu công nghệ cao Hòa Lạc trong tổng thể phát triển khu vực phía Tây Thành phố. Việc rà soát quy hoạch Khu công nghệ cao Hòa Lạc với quy mô hiện có 1.586 ha và phạm vi mở rộng 460 ha, tổng quy mô 2.046 ha; việc kết nối với Đại học Quốc gia Hà Nội, các trường đại học, viện nghiên cứu, hệ thống giao thông, các khu đô thị, đô thị thông minh và không gian phát triển xung quanh. Lợi thế cạnh tranh thực chất của Khu Công nghệ cao Hòa Lạc so với các điểm đến đầu tư cạnh tranh trong khu vực; giải pháp thu hút nhà đầu tư có chất lượng, nhất là nhà đầu tư lớn, doanh nghiệp dẫn dắt có khả năng kéo hệ sinh thái, doanh nghiệp vệ tinh, chuỗi cung ứng, nhân lực chất lượng cao, trung tâm nghiên cứu và phát triển vào Hòa Lạc; đề xuất chính sách đặc biệt đủ sức cạnh tranh, gắn với ràng buộc cụ thể về vốn, công nghệ, tiến độ, hiệu quả sử dụng đất và mức độ đóng góp cho hệ sinh thái. Kết quả rà soát các dự án đã được chấp thuận và các dự án đang nghiên cứu, chuẩn bị đầu tư; năng lực nhà đầu tư, tiến độ thực hiện, hiệu quả sử dụng đất, mức độ đáp ứng tiêu chí công nghệ cao và phương án xử lý theo quy định đối với các dự án không triển khai, chậm triển khai, sử dụng đất kém hiệu quả hoặc không còn đáp ứng tiêu chí. Kết quả rà soát các cơ chế, chính sách, quy định và thủ tục hành chính liên quan đến hoạt động của Khu công nghệ cao Hòa Lạc; mô hình quản lý, vận hành, khai thác và phương án tổ chức bộ máy phù hợp, bảo đảm hoạt động hiệu lực, hiệu quả.",
+   "co_quan_chu_tri": "Ban Quản lý các Khu công nghệ cao và Khu công nghiệp thành phố Hà Nội",
+   "han": "2026-08-15",
+   "moc_kiem_tra": "02/10/2026",
+   "cho_trung_uong": false,
+   "nguon": "BC tháng 9/2026 - Phụ lục 02, mục I (chốt 17h00 25/9/2026)",
+   "ngay_chot": "2026-09-25"
+  },
+  {
+   "stt": 8,
+   "ten": "Chủ trì, phối hợp với các cơ quan liên quan xây dựng phương án cung cấp thiết bị công nghệ thông tin cho các cơ quan trong hệ thống chính trị Thành phố (Thành ủy, HĐND, UBND Thành phố, Ủy ban MTTQ Việt Nam Thành phố và các sở, ban, ngành), bảo đảm đồng bộ, hiệu quả, tránh chồng chéo, dàn trải, lãng phí; hoàn thành trước ngày 20/3/2026.",
+   "co_quan_chu_tri": "Sở Khoa học và Công nghệ",
+   "han": "2026-03-20",
+   "moc_kiem_tra": "02/10/2026",
+   "cho_trung_uong": false,
+   "nguon": "BC tháng 9/2026 - Phụ lục 02, mục I (chốt 17h00 25/9/2026)",
+   "ngay_chot": "2026-09-25"
+  },
+  {
+   "stt": 9,
+   "ten": "Đồng chí Nguyễn Xuân Lưu, Ủy viên Ban Thường vụ Thành ủy, Phó Chủ tịch UBND Thành phố, Tổ phó Tổ công tác của Ban Thường vụ Thành ủy về sắp xếp các đơn vị sự nghiệp công lập, doanh nghiệp nhà nước trên địa bàn Thành phố trực tiếp chỉ đạo Công ty Cổ phần Hanel, Công ty TNHH một thành viên Chiếu sáng và Thiết bị đô thị, Công ty TNHH một thành viên Thoát nước Hà Nội và Công ty Cổ phần Giống gia súc Hà Nội hoàn thiện đề án phát triển doanh nghiệp trên cơ sở Nghị quyết 57 của Bộ Chính trị. Các đề án phải đánh giá đúng thực chất năng lực hiện có; xác định rõ định hướng phát triển, lộ trình thực hiện, tổ chức bộ máy, nhân lực và các kiến nghị, đề xuất với Thành phố; hoàn thành trước ngày 15/8/2026. Giao Sở Khoa học và Công nghệ chủ trì, phối hợp với các sở, ngành liên quan thẩm định, tham mưu UBND Thành phố báo cáo Ban Chỉ đạo 57 Thành ủy trước ngày 30/8/2026.",
+   "co_quan_chu_tri": "Sở Khoa học và Công nghệ",
+   "han": "2026-08-30",
+   "moc_kiem_tra": "02/10/2026",
+   "cho_trung_uong": false,
+   "nguon": "BC tháng 9/2026 - Phụ lục 02, mục I (chốt 17h00 25/9/2026)",
+   "ngay_chot": "2026-09-25"
+  },
+  {
+   "stt": 10,
+   "ten": "Chỉ đạo Sở Nông nghiệp và Môi trường chủ trì, phối hợp Công an Thành phố và các cơ quan liên quan triển khai Kế hoạch cao điểm hoàn thiện dữ liệu đất đai; phân rã tiến độ theo tuần, theo địa bàn, theo nhóm dữ liệu; hoàn thành trước ngày 30/6/2026.",
+   "co_quan_chu_tri": "Sở Nông nghiệp và Môi trường",
+   "han": "2026-06-30",
+   "moc_kiem_tra": "02/10/2026",
+   "cho_trung_uong": false,
+   "nguon": "BC tháng 9/2026 - Phụ lục 02, mục I (chốt 17h00 25/9/2026)",
+   "ngay_chot": "2026-09-25"
+  },
+  {
+   "stt": 11,
+   "ten": "Khẩn trương rà soát khối lượng, hiện trạng, chỉ tiêu đã giao và tiến độ thực hiện của 126 xã, phường; đề xuất KPI phải hoàn thành đến ngày 30/8/2026 đối với từng đơn vị; lập bảng tổng hợp, nêu rõ tỷ lệ hoàn thành, KPI đề xuất và các đơn vị chưa quan tâm, thiếu quyết liệt hoặc có kết quả thấp, gửi Văn phòng Thành ủy trước ngày 21/8/2026",
+   "co_quan_chu_tri": "Sở Nông nghiệp và Môi trường",
+   "han": "2026-08-21",
+   "moc_kiem_tra": "02/10/2026",
+   "cho_trung_uong": false,
+   "nguon": "BC tháng 9/2026 - Phụ lục 02, mục I (chốt 17h00 25/9/2026)",
+   "ngay_chot": "2026-09-25"
+  },
+  {
+   "stt": 12,
+   "ten": "Phối hợp với Sở Khoa học và Công nghệ, Công an Thành phố và các cơ quan liên quan rà soát phương án bảo đảm an toàn, an ninh thông tin, định danh người sử dụng; kết nối cơ sở dữ liệu đất đai với nền tảng iHanoi để người dân kiểm tra, xác nhận và tham gia làm sạch dữ liệu, hoàn thành trước ngày 15/9/2026.",
+   "co_quan_chu_tri": "Sở Nông nghiệp và Môi trường",
+   "han": "2026-09-15",
+   "moc_kiem_tra": "02/10/2026",
+   "cho_trung_uong": false,
+   "nguon": "BC tháng 9/2026 - Phụ lục 02, mục I (chốt 17h00 25/9/2026)",
+   "ngay_chot": "2026-09-25"
+  },
+  {
+   "stt": 13,
+   "ten": "Rà soát, hoàn thiện phương án phân bổ, giao dự toán đối với kinh phí năm 2026 đã được bố trí nhưng chưa phân bổ, chưa giao dự toán; ưu tiên cơ sở dữ liệu, nền tảng dùng chung, an ninh mạng, thiết bị thiết yếu và nhiệm vụ cấp bách.",
+   "co_quan_chu_tri": "Sở Tài chính",
+   "han": "2026-08-15",
+   "moc_kiem_tra": null,
+   "cho_trung_uong": false,
+   "nguon": "BC tháng 9/2026 - Phụ lục 02, mục I (chốt 17h00 25/9/2026)",
+   "ngay_chot": "2026-09-25"
+  },
+  {
+   "stt": 14,
+   "ten": "Phối hợp Sở Khoa học và Công nghệ hoàn thành cập nhật các lớp dữ liệu hiện có của ngành phục vụ việc rà soát, cụ thể hóa Quy hoạch tổng thể Thủ đô Hà Nội tầm nhìn 100 năm, hoàn thành trước ngày 25/8/2026. (Y tế)",
+   "co_quan_chu_tri": "Sở Y tế",
+   "han": "2026-08-24",
+   "moc_kiem_tra": null,
+   "cho_trung_uong": false,
+   "nguon": "BC tháng 9/2026 - Phụ lục 02, mục I (chốt 17h00 25/9/2026)",
+   "ngay_chot": "2026-09-25"
+  },
+  {
+   "stt": 15,
+   "ten": "Nhiệm vụ Trung ương giao theo Thông báo số 05-TB/BCĐTW ngày 04/7/2025 (đang chờ Ban Chỉ đạo Trung ương ban hành Sổ tay hướng dẫn)",
+   "co_quan_chu_tri": null,
+   "han": null,
+   "moc_kiem_tra": null,
+   "cho_trung_uong": true,
+   "nguon": "BC tháng 9/2026 - Phụ lục 01, ghi chú",
+   "ngay_chot": "2026-09-25"
+  }
+ ],
+ "tong_so_xa": 126
+}

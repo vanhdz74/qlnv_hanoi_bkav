@@ -1,0 +1,8 @@
+{
+ "pg": "142f3d9a-6ef6-1fc2-3dd8-717285e6326b",
+ "gen": "142f3dae-6ef6-1fc2-a4ce-8a73e0d4ad64",
+ "put": "142f3daf-6ef6-1fc2-a3ed-4c7c5d28388d",
+ "chk": "142f3db0-6ef6-1fc2-435b-c9a3a41f4893",
+ "funnel_ok": "142f3db1-6ef6-1fc2-5b59-45d326ff5f62",
+ "funnel_err": "142f3db2-6ef6-1fc2-86ba-40247c604ea5"
+}

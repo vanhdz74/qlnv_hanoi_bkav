@@ -1,0 +1,148 @@
+# Danh mục 145 chỉ số dashboard NQ57 (ma | chuyên đề | tên | đơn vị | cách tính gợi ý | số dashboard hiện có theo kỳ)
+# Quy ước dashboard: chỉ số đơn vị % lưu dạng tỷ lệ 0..1 (vd 0.5317) kèm tử số/mẫu số nếu có.
+
+NV01 | 1. Nhiệm vụ | Tổng số nhiệm vụ đang theo dõi | nhiệm vụ | cách tính: - | lưu ý: Tháng 2 là cộng gộp hai nhóm báo cáo riêng | hiện có: T2/2026=585; T3/2026=606; T4/2026=628; T5/2026=695; T6/2026=713; T7/2026=749; T8/2026=846; T9/2026=867; Tuần 41=865
+NV02 | 1. Nhiệm vụ | Số nhiệm vụ đã hoàn thành | nhiệm vụ | cách tính: - | lưu ý: - | hiện có: T2/2026=227; T3/2026=266; T4/2026=277; T5/2026=306; T6/2026=344; T7/2026=380; T8/2026=424; T9/2026=461; Tuần 41=478
+NV03 | 1. Nhiệm vụ | Tỷ lệ nhiệm vụ hoàn thành | % | cách tính: - | lưu ý: Tự tính từ NV02 và NV01 | hiện có: T2/2026=0.388034 (227/585); T3/2026=0.438944 (266/606); T4/2026=0.441083 (277/628); T5/2026=0.440288 (306/695); T6/2026=0.482468 (344/713); T7/2026=0.507343 (380/749); T8/2026=0.501182 (424/846); T9/2026=0.531719 (461/867); Tuần 41=0.552601 (478/865)
+NV04 | 1. Nhiệm vụ | Số nhiệm vụ đang thực hiện | nhiệm vụ | cách tính: - | lưu ý: - | hiện có: T3/2026=340; T4/2026=351; T5/2026=389; T6/2026=369; T7/2026=369; T8/2026=422; T9/2026=406; Tuần 41=387
+NV05 | 1. Nhiệm vụ | Số nhiệm vụ đã quá thời hạn giao | nhiệm vụ | cách tính: - | lưu ý: Tháng 2 cộng gộp 4 (Trung ương) + 8 (BCĐ) | hiện có: T2/2026=12; T3/2026=36; T4/2026=26; T5/2026=22; T6/2026=19; T7/2026=33; T8/2026=24; T9/2026=15; Tuần 41=10
+NV06 | 1. Nhiệm vụ | Số nhiệm vụ quá hạn cần xử lý trực tiếp | nhiệm vụ | cách tính: - | lưu ý: T7: báo cáo viết "323", tôi hiểu là 32 (33 trừ 1) | hiện có: T6/2026=18; T7/2026=32; T8/2026=23; T9/2026=14; Tuần 41=9
+NV07 | 1. Nhiệm vụ | Nhiệm vụ Trung ương giao: tổng số | nhiệm vụ | cách tính: - | lưu ý: - | hiện có: T2/2026=258; T5/2026=292; T8/2026=296; T9/2026=296
+NV08 | 1. Nhiệm vụ | Nhiệm vụ Trung ương giao: đã hoàn thành | nhiệm vụ | cách tính: - | lưu ý: - | hiện có: T2/2026=145; T5/2026=164; T8/2026=189; T9/2026=190
+NV09 | 1. Nhiệm vụ | Kế hoạch 20-KH/BCĐ57: tổng số nhiệm vụ | nhiệm vụ | cách tính: - | lưu ý: Điều chỉnh theo QĐ 37-QĐ/BCĐ57 (15/9) | hiện có: T5/2026=125; T8/2026=125; T9/2026=126
+NV10 | 1. Nhiệm vụ | Kế hoạch 20-KH/BCĐ57: đã hoàn thành | nhiệm vụ | cách tính: - | lưu ý: - | hiện có: T5/2026=27; T8/2026=56; T9/2026=58
+NV11 | 1. Nhiệm vụ | Kế hoạch 20-KH/BCĐ57: quá hạn | nhiệm vụ | cách tính: - | lưu ý: - | hiện có: T5/2026=8; T8/2026=5; T9/2026=0
+NV12 | 1. Nhiệm vụ | Kế hoạch 35-KH/BCĐ57 (100 ngày): tổng số | nhiệm vụ | cách tính: - | lưu ý: - | hiện có: T8/2026=26; T9/2026=26
+NV13 | 1. Nhiệm vụ | Kế hoạch 35-KH/BCĐ57: đã hoàn thành | nhiệm vụ | cách tính: - | lưu ý: - | hiện có: T8/2026=3; T9/2026=8
+NV14 | 1. Nhiệm vụ | Kế hoạch 35-KH/BCĐ57: quá hạn | nhiệm vụ | cách tính: - | lưu ý: - | hiện có: T8/2026=4; T9/2026=2
+NV15 | 1. Nhiệm vụ | Thông báo kết luận: tổng số nhiệm vụ | nhiệm vụ | cách tính: - | lưu ý: - | hiện có: T5/2026=269; T8/2026=346; T9/2026=366
+NV16 | 1. Nhiệm vụ | Thông báo kết luận: đã hoàn thành | nhiệm vụ | cách tính: - | lưu ý: - | hiện có: T5/2026=114; T8/2026=153; T9/2026=166
+TC01 | 2. Nguồn lực tài chính | Tổng kinh phí bố trí 2026 cho KHCN, ĐMST, CĐS | tỷ đồng | cách tính: - | lưu ý: - | hiện có: T2/2026=9090.399
+TC02 | 2. Nguồn lực tài chính | Kinh phí đã phân bổ chi tiết | tỷ đồng | cách tính: - | lưu ý: - | hiện có: T2/2026=1866.044; T3/2026=2136.052; T4/2026=2529.289; T5/2026=3404.63; T6/2026=3479.86; T7/2026=4920.47; T8/2026=8942.06; T9/2026=8832.626
+TC03 | 2. Nguồn lực tài chính | Tỷ lệ phân bổ trên tổng dự toán | % | cách tính: - | lưu ý: Tự tính. T8, T9 phạm vi theo báo cáo | hiện có: T2/2026=0.205276 (1866.044/9090.399); T3/2026=0.234979 (2136.052/9090.399); T4/2026=0.278237 (2529.289/9090.399); T5/2026=0.37453 (3404.63/9090.399); T6/2026=0.382806 (3479.86/9090.399); T7/2026=0.541282 (4920.47/9090.399); T8/2026=0.983682 (8942.06/9090.399); T9/2026=0.971643 (8832.626/9090.399)
+TC04 | 2. Nguồn lực tài chính | Chi đầu tư: đã phân bổ / kế hoạch | % | cách tính: - | lưu ý: - | hiện có: T2/2026=0.111978 (622.6/5560); T5/2026=0.25846 (1437.04/5560); T9/2026=0.980583 (5452.042/5560)
+TC05 | 2. Nguồn lực tài chính | Chi thường xuyên: đã phân bổ / dự toán | % | cách tính: - | lưu ý: - | hiện có: T2/2026=0.352211 (1243.444/3530.399); T5/2026=0.557328 (1967.59/3530.399); T9/2026=0.957564 (3380.584/3530.399)
+TC06 | 2. Nguồn lực tài chính | Giải ngân chi thường xuyên (khối cơ quan TP) | % | cách tính: - | lưu ý: Mẫu số đổi qua các kỳ (T5, T6 chỉ có tỷ lệ). Số toàn TP theo TB 20/10 ở TC14 | hiện có: T5/2026=0.0298 (47.247/null); T6/2026=0.033 (53.772/null); T7/2026=0.078413 (321.897/4105.159); T8/2026=0.097835 (441.315/4510.813); T9/2026=0.157683 (650.72/4126.753); Tuần 41=0.17517 (726.458/4147.157)
+TC07 | 2. Nguồn lực tài chính | Giải ngân chi thường xuyên (khối xã, phường) | % | cách tính: - | lưu ý: - | hiện có: T9/2026=0.432412 (131.724/304.626); Tuần 41=0.5555 (179.962/323.964)
+TC08 | 2. Nguồn lực tài chính | Giải ngân chi đầu tư | % | cách tính: - | lưu ý: Mẫu số đổi qua các kỳ (2.017 → 5.482 → 5.987 → 5.452 tỷ) | hiện có: T5/2026=0.1751 (227.601/null); T6/2026=0.2196 (325.455/null); T7/2026=0.200918 (405.301/2017.241); T8/2026=0.060971 (334.247/5482.042); T9/2026=0.497885 (2980.959/5987.241); Tuần 41=0.564199 (3076.037/5452.042)
+TC09 | 2. Nguồn lực tài chính | Giải ngân trên tổng nguồn thuộc phạm vi theo dõi | % | cách tính: - | lưu ý: Chỉ có số T8. Số theo TB 20/10 có phạm vi khác, ở TC13 | hiện có: T8/2026=0.077612 (775.562/9992.855)
+TC10 | 2. Nguồn lực tài chính | Số đơn vị khối sở, ngành chưa phát sinh giải ngân | đơn vị | cách tính: - | lưu ý: - | hiện có: T7/2026=7
+TC11 | 2. Nguồn lực tài chính | Số xã, phường chưa phát sinh giải ngân | xã, phường | cách tính: - | lưu ý: - | hiện có: T7/2026=0.261905 (33/126)
+TC12 | 2. Nguồn lực tài chính | Kinh phí chưa phân bổ | tỷ đồng | cách tính: - | lưu ý: - | hiện có: T2/2026=7224.295; T5/2026=5685.77; T6/2026=5610.54; T8/2026=148.34; T9/2026=257.773
+TC13 | 2. Nguồn lực tài chính | Giải ngân trên tổng dự toán được giao (gồm kinh phí chuyển nguồn) | % | cách tính: - | lưu ý: Phạm vi khác TC09, không so sánh trực tiếp | hiện có: TB 20/10=0.4116
+TC14 | 2. Nguồn lực tài chính | Giải ngân chi thường xuyên toàn Thành phố (theo TB 20/10) | % | cách tính: - | lưu ý: Phạm vi khác TC06 và TC07 | hiện có: TB 20/10=0.2628
+DD01 | 3. Dữ liệu đất đai | Tổng số thửa đất trên bản đồ | thửa | cách tính: - | lưu ý: Mẫu số thay đổi theo từng kỳ (cập nhật thửa thuộc dự án GPMB) | hiện có: T5/2026=4189073; T8/2026=4986393; T9/2026=4899639; Tuần 41=4827135
+DD02 | 3. Dữ liệu đất đai | Số thửa đã xây dựng cơ sở dữ liệu | thửa | cách tính: - | lưu ý: - | hiện có: T5/2026=2115220; T8/2026=3204196; T9/2026=3770751; Tuần 41=4781746
+DD03 | 3. Dữ liệu đất đai | Tỷ lệ thửa đã có trong CSDL | % | cách tính: - | lưu ý: Tự tính | hiện có: T5/2026=0.504937 (2115220/4189073); T8/2026=0.642588 (3204196/4986393); T9/2026=0.769598 (3770751/4899639); Tuần 41=0.990597 (4781746/4827135)
+DD04 | 3. Dữ liệu đất đai | Số thửa Nhóm 1 "Đúng - Đủ - Sạch - Sống" | thửa | cách tính: - | lưu ý: - | hiện có: T5/2026=711116; T7/2026=1080181; T8/2026=2072808; T9/2026=2553383; Tuần 41=2782633
+DD05 | 3. Dữ liệu đất đai | Tỷ lệ thửa Nhóm 1 trên tổng thửa | % | cách tính: - | lưu ý: Tự tính, chỉ ở kỳ có đủ cả tử và mẫu | hiện có: T5/2026=0.169755 (711116/4189073); T8/2026=0.415693 (2072808/4986393); T9/2026=0.521137 (2553383/4899639); Tuần 41=0.576456 (2782633/4827135)
+DD06 | 3. Dữ liệu đất đai | Tỷ lệ dữ liệu đạt chuẩn theo báo cáo (cách tính khác nhau) | % | cách tính: - | lưu ý: Không so sánh với DD05 | hiện có: T4/2026=0.46; T6/2026=0.38
+DD07 | 3. Dữ liệu đất đai | Tiến độ thu nhận so với khối lượng hiện có | % | cách tính: - | lưu ý: Báo cáo T8 lưu ý rõ điểm này | hiện có: T8/2026=0.94
+DD08 | 3. Dữ liệu đất đai | Số thửa cần tiếp tục làm giàu, làm sạch | thửa | cách tính: - | lưu ý: - | hiện có: T9/2026=2410803
+DD09 | 3. Dữ liệu đất đai | Số địa phương còn khối lượng lớn được tổ công tác đôn đốc | xã, phường | cách tính: - | lưu ý: - | hiện có: T9/2026=0.174603 (22/126)
+DL01 | 4. Dữ liệu dùng chung | Số nguồn dữ liệu ưu tiên đã kết nối vào Kho dữ liệu | nguồn | cách tính: - | lưu ý: T7 báo cáo chưa đủ cơ sở xác định | hiện có: T8/2026=0.769231 (10/13); T9/2026=1 (13/13); Tuần 41=1 (13/13)
+DL02 | 4. Dữ liệu dùng chung | Dữ liệu thu ngân sách đã tích hợp | % | cách tính: - | lưu ý: T8: tăng từ 35% lên 100% (9.758.394 bản ghi) | hiện có: T8/2026=1
+DL03 | 4. Dữ liệu dùng chung | Dữ liệu quản lý văn bản, điều hành đã tích hợp | văn bản | cách tính: - | lưu ý: - | hiện có: T8/2026=755490
+DL04 | 4. Dữ liệu dùng chung | Số bộ dữ liệu mở đã công bố | bộ | cách tính: - | lưu ý: T8 chỉ đạo rà soát, tạm dừng công khai dữ liệu không cập nhật | hiện có: T6/2026=1 (93/93)
+DL05 | 4. Dữ liệu dùng chung | Số nhiệm vụ nhóm 3 (triển khai Kho dữ liệu) hoàn thành | nhiệm vụ | cách tính: - | lưu ý: - | hiện có: T9/2026=0.5 (2/4); Tuần 41=0.5 (2/4)
+DL06 | 4. Dữ liệu dùng chung | Số kịch bản khai thác dữ liệu đã xây dựng | kịch bản | cách tính: - | lưu ý: - | hiện có: T9/2026=4
+DL07 | 4. Dữ liệu dùng chung | Số loại dữ liệu được khai thác phục vụ giải quyết TTHC | loại | cách tính: - | lưu ý: TB 20/10 nêu chỉ 03 loại | hiện có: TB 20/10=0.230769 (3/13)
+DL08 | 4. Dữ liệu dùng chung | Số CSDL kết nối kỹ thuật với HTTT giải quyết TTHC | CSDL | cách tính: - | lưu ý: - | hiện có: T9/2026=1 (13/13)
+DL09 | 4. Dữ liệu dùng chung | Dung lượng lưu trữ Kho dữ liệu dùng chung | TB | cách tính: - | lưu ý: - | hiện có: T9/2026=39
+DL10 | 4. Dữ liệu dùng chung | Số tài sản công trong CSDL | tài sản | cách tính: - | lưu ý: - | hiện có: T6/2026=543000
+DL11 | 4. Dữ liệu dùng chung | Số dự án trong CSDL quản lý đầu tư | dự án | cách tính: - | lưu ý: - | hiện có: T6/2026=27000
+DL12 | 4. Dữ liệu dùng chung | Số hồ sơ cán bộ, công chức đồng bộ CSDL quốc gia | hồ sơ | cách tính: - | lưu ý: - | hiện có: T6/2026=129098
+DL13 | 4. Dữ liệu dùng chung | Số người dân có hồ sơ sức khỏe điện tử | người | cách tính: - | lưu ý: - | hiện có: T6/2026=9236484
+TT01 | 5. TTHC và dịch vụ công | Tổng số TTHC thực hiện trên địa bàn | TTHC | cách tính: - | lưu ý: Số đổi do Trung ương điều chỉnh, cắt giảm | hiện có: T2/2026=2072; T4/2026=2075; T7/2026=1941
+TT02 | 5. TTHC và dịch vụ công | Số TTHC dịch vụ công trực tuyến toàn trình | TTHC | cách tính: - | lưu ý: - | hiện có: T2/2026=1363; T4/2026=1120; T7/2026=1100; T8/2026=1173
+TT03 | 5. TTHC và dịch vụ công | Tỷ lệ TTHC trực tuyến toàn trình | % | cách tính: - | lưu ý: Tự tính. Là tỷ lệ thủ tục có dịch vụ, chưa phải tỷ lệ hồ sơ thực tế giải quyết trực tuyến | hiện có: T2/2026=0.657819 (1363/2072); T4/2026=0.539759 (1120/2075); T7/2026=0.566718 (1100/1941)
+TT04 | 5. TTHC và dịch vụ công | Số TTHC trực tuyến một phần | TTHC | cách tính: - | lưu ý: - | hiện có: T4/2026=921; T7/2026=812; T8/2026=762
+TT05 | 5. TTHC và dịch vụ công | Số TTHC đã phê duyệt phương án tái cấu trúc | TTHC | cách tính: - | lưu ý: - | hiện có: T6/2026=1512; T7/2026=1548; T8/2026=1552; T9/2026=1552
+TT06 | 5. TTHC và dịch vụ công | Tỷ lệ TTHC đã phê duyệt tái cấu trúc | % | cách tính: - | lưu ý: Tự tính | hiện có: T6/2026=0.878559 (1512/1721); T7/2026=0.899477 (1548/1721); T8/2026=0.901801 (1552/1721); T9/2026=0.901801 (1552/1721)
+TT07 | 5. TTHC và dịch vụ công | Chi phí tuân thủ giảm | tỷ đồng | cách tính: - | lưu ý: Báo cáo T8 nêu 60,8% | hiện có: T6/2026=408; T8/2026=408.4
+TT08 | 5. TTHC và dịch vụ công | Số TTHC trọng điểm đã chuyển toàn trình (không nhận hồ sơ trực tiếp) | TTHC | cách tính: - | lưu ý: - | hiện có: T5/2026=0.48 (12/25)
+TT09 | 5. TTHC và dịch vụ công | Số TTHC được phân cấp, ủy quyền | TTHC | cách tính: - | lưu ý: Định nghĩa khác nhau giữa các kỳ (phân cấp; ủy quyền; duy trì ủy quyền) | hiện có: T2/2026=243; T4/2026=661; T7/2026=535
+TT10 | 5. TTHC và dịch vụ công | Điểm Bộ chỉ số 766 | điểm | cách tính: - | lưu ý: Xếp hạng 19/34 (T3) | hiện có: T3/2026=95.32
+TT11 | 5. TTHC và dịch vụ công | Số hồ sơ phát sinh trên Cổng Dịch vụ công TP trong kỳ | hồ sơ | cách tính: - | lưu ý: - | hiện có: T8/2026=247614
+TT12 | 5. TTHC và dịch vụ công | Số lượt lấy số đặt lịch trực tuyến trong kỳ | lượt | cách tính: - | lưu ý: - | hiện có: T8/2026=146830
+TT13 | 5. TTHC và dịch vụ công | Thời gian phục vụ trung bình | phút | cách tính: - | lưu ý: - | hiện có: T8/2026=6.583333
+TT14 | 5. TTHC và dịch vụ công | Số TTHC trọng điểm chạy trên HTTT giải quyết TTHC của TP | TTHC | cách tính: - | lưu ý: - | hiện có: T9/2026=0.416667 (10/24)
+TT15 | 5. TTHC và dịch vụ công | Số tài khoản doanh nghiệp trên hệ thống văn bản điện tử | tài khoản | cách tính: - | lưu ý: - | hiện có: T8/2026=260285; T9/2026=260295
+TT16 | 5. TTHC và dịch vụ công | Tỷ lệ doanh nghiệp đã xác thực | % | cách tính: - | lưu ý: Tự tính | hiện có: T8/2026=0.02208 (5747/260285); T9/2026=0.023062 (6003/260295)
+TT17 | 5. TTHC và dịch vụ công | Số tài khoản định danh iHanoi | tài khoản | cách tính: - | lưu ý: - | hiện có: T6/2026=6200000
+NT01 | 6. Nền tảng số dùng chung | HanoiWork: số tài khoản kích hoạt | tài khoản | cách tính: - | lưu ý: T9 là số xấp xỉ (~84.000, tạo lập) | hiện có: T3/2026=20833; T5/2026=39300; T8/2026=79463; T9/2026=84000
+NT02 | 6. Nền tảng số dùng chung | HanoiWork: tỷ lệ kích hoạt / sử dụng | % | cách tính: - | lưu ý: T3, T5 báo cáo "khoảng 90%" trực tiếp. T8 tự tính | hiện có: T3/2026=0.9; T5/2026=0.9; T8/2026=0.909094 (79463/87409)
+NT03 | 6. Nền tảng số dùng chung | HanoiWork: số cơ quan, đơn vị triển khai | đơn vị | cách tính: - | lưu ý: - | hiện có: T5/2026=161; T9/2026=183
+NT04 | 6. Nền tảng số dùng chung | HanoiWork: số công việc khởi tạo | công việc | cách tính: - | lưu ý: - | hiện có: T8/2026=877672
+NT05 | 6. Nền tảng số dùng chung | HanoiWork: số cán bộ được đánh giá OKR/KPI trong tháng | người | cách tính: - | lưu ý: - | hiện có: T8/2026=42359
+NT06 | 6. Nền tảng số dùng chung | HanoiWork: số lượt dùng trợ lý AI | lượt | cách tính: - | lưu ý: - | hiện có: T8/2026=10858
+NT07 | 6. Nền tảng số dùng chung | HanoiWork: điểm chất lượng trả lời của trợ lý AI | điểm /100 | cách tính: - | lưu ý: - | hiện có: T8/2026=74.7
+NT08 | 6. Nền tảng số dùng chung | IOC Thành ủy: số chỉ số đã cấu hình | chỉ số | cách tính: - | lưu ý: - | hiện có: T6/2026=62; T8/2026=84; Tuần 41=84
+NT09 | 6. Nền tảng số dùng chung | IOC Thành ủy: số tài khoản đã cấp | tài khoản | cách tính: - | lưu ý: Tuần 41 ghi 28.000, tăng nhiều so với T8 (9.269) | hiện có: T6/2026=6252; T8/2026=9269; Tuần 41=28000
+NT10 | 6. Nền tảng số dùng chung | IOC Thành ủy: tỷ lệ đơn vị thống nhất dự thảo quy chế | % | cách tính: - | lưu ý: - | hiện có: T8/2026=0.992593 (134/135)
+NT11 | 6. Nền tảng số dùng chung | Hệ thống theo dõi nhiệm vụ 04 trục: số tài khoản | tài khoản | cách tính: - | lưu ý: - | hiện có: T6/2026=11392; T7/2026=11392; T8/2026=11392
+NT12 | 6. Nền tảng số dùng chung | Tỷ lệ đảng viên cài đặt, sử dụng Sổ tay đảng viên điện tử | % | cách tính: - | lưu ý: T4 báo cáo "trên 51%". Mẫu số 472.845 (T8) | hiện có: T4/2026=0.51; T8/2026=0.74877 (354052/472845)
+NT13 | 6. Nền tảng số dùng chung | Tỷ lệ đảng viên đăng nhập 04 dịch vụ công của Đảng | % | cách tính: - | lưu ý: - | hiện có: T2/2026=0.496949 (235503/473898)
+NT14 | 6. Nền tảng số dùng chung | Số giao dịch nộp đảng phí trực tuyến thành công | giao dịch | cách tính: - | lưu ý: - | hiện có: T2/2026=146371
+NT15 | 6. Nền tảng số dùng chung | Thư điện tử công vụ Đảng: số tài khoản khai mới | tài khoản | cách tính: - | lưu ý: - | hiện có: T2/2026=1027
+NT16 | 6. Nền tảng số dùng chung | Khối MTTQ: tỷ lệ hoàn thành đúng hạn trên HanoiWork | % | cách tính: - | lưu ý: - | hiện có: T8/2026=0.9597
+CS01 | 7. Xã, phường và hạ tầng cơ sở | Số xã, phường phát hành văn bản toàn trình từ 90% trở lên | xã, phường | cách tính: - | lưu ý: Cách đo của T7 khác (chỉ 17 đơn vị đạt 100%) | hiện có: T6/2026=0.761905 (96/126); T8/2026=0.873016 (110/126)
+CS02 | 7. Xã, phường và hạ tầng cơ sở | Số xã, phường đạt 100% văn bản toàn trình | xã, phường | cách tính: - | lưu ý: - | hiện có: T7/2026=0.134921 (17/126)
+CS03 | 7. Xã, phường và hạ tầng cơ sở | Số đơn vị có tỷ lệ văn bản toàn trình dưới 50% | đơn vị | cách tính: - | lưu ý: - | hiện có: T3/2026=18; T4/2026=2
+CS04 | 7. Xã, phường và hạ tầng cơ sở | Số máy tính đã bàn giao, lắp đặt cho xã, phường | máy | cách tính: - | lưu ý: - | hiện có: T3/2026=7411; T5/2026=7388
+CS05 | 7. Xã, phường và hạ tầng cơ sở | Số phòng họp trực tuyến đã lắp đặt | phòng | cách tính: - | lưu ý: - | hiện có: T6/2026=302; T8/2026=306
+CS06 | 7. Xã, phường và hạ tầng cơ sở | Chữ ký số cá nhân cấp cho cán bộ xử lý văn bản | chữ ký | cách tính: - | lưu ý: - | hiện có: T8/2026=0.90373 (1502/1662)
+CS07 | 7. Xã, phường và hạ tầng cơ sở | Số xã, phường có mô hình, sáng kiến nhân rộng | xã, phường | cách tính: - | lưu ý: - | hiện có: T8/2026=0.690476 (87/126); T9/2026=0.753968 (95/126)
+CS08 | 7. Xã, phường và hạ tầng cơ sở | Số xã, phường có kết quả dữ liệu số | xã, phường | cách tính: - | lưu ý: - | hiện có: T8/2026=0.579365 (73/126); T9/2026=0.642857 (81/126)
+CS09 | 7. Xã, phường và hạ tầng cơ sở | Số xã, phường có kết quả dịch vụ công, TTHC | xã, phường | cách tính: - | lưu ý: - | hiện có: T8/2026=0.444444 (56/126); T9/2026=0.539683 (68/126)
+CS10 | 7. Xã, phường và hạ tầng cơ sở | Xếp loại A: hoàn thành toàn bộ | xã, phường | cách tính: - | lưu ý: - | hiện có: T8/2026=14; T9/2026=14
+CS11 | 7. Xã, phường và hạ tầng cơ sở | Xếp loại B: tiến độ tốt (từ 80%) | xã, phường | cách tính: - | lưu ý: - | hiện có: T8/2026=17; T9/2026=17
+CS12 | 7. Xã, phường và hạ tầng cơ sở | Xếp loại C: đang triển khai bình thường | xã, phường | cách tính: - | lưu ý: - | hiện có: T8/2026=48; T9/2026=48
+CS13 | 7. Xã, phường và hạ tầng cơ sở | Xếp loại D/D2: có tín hiệu quá hạn | xã, phường | cách tính: - | lưu ý: - | hiện có: T8/2026=10; T9/2026=10
+CS14 | 7. Xã, phường và hạ tầng cơ sở | Xếp loại E: cần chuẩn hóa, chưa đủ số liệu | xã, phường | cách tính: - | lưu ý: - | hiện có: T8/2026=37; T9/2026=37
+CS15 | 7. Xã, phường và hạ tầng cơ sở | Số phiên livestream giới thiệu sản phẩm | phiên | cách tính: - | lưu ý: - | hiện có: T9/2026=445
+CS16 | 7. Xã, phường và hạ tầng cơ sở | Số sản phẩm được giới thiệu | sản phẩm | cách tính: - | lưu ý: - | hiện có: T9/2026=2520
+CS17 | 7. Xã, phường và hạ tầng cơ sở | Số xã, phường triển khai Thôn, Tổ dân phố số | xã, phường | cách tính: - | lưu ý: - | hiện có: T8/2026=1 (126/126)
+CS18 | 7. Xã, phường và hạ tầng cơ sở | Số nhóm Chat, nhóm Cộng đồng cơ sở | nhóm | cách tính: - | lưu ý: - | hiện có: T8/2026=2770
+KH01 | 8. KHCN, đổi mới sáng tạo, kinh tế số | Tỷ trọng kinh tế số trong GRDP | % | cách tính: - | lưu ý: TB 20/10 yêu cầu tách rõ tỷ trọng và mức đóng góp tăng trưởng | hiện có: T7/2026=0.167; T8/2026=0.167
+KH02 | 8. KHCN, đổi mới sáng tạo, kinh tế số | Kinh tế số lõi trong GRDP | % | cách tính: - | lưu ý: - | hiện có: T7/2026=0.097; T8/2026=0.097
+KH03 | 8. KHCN, đổi mới sáng tạo, kinh tế số | Kinh tế số ngành trong GRDP | % | cách tính: - | lưu ý: - | hiện có: T7/2026=0.07; T8/2026=0.07
+KH04 | 8. KHCN, đổi mới sáng tạo, kinh tế số | Số nhiệm vụ phát triển kinh tế số đã hoàn thành | nhiệm vụ | cách tính: - | lưu ý: - | hiện có: T7/2026=0.153846 (10/65)
+KH05 | 8. KHCN, đổi mới sáng tạo, kinh tế số | Số đơn vị đã đăng ký sản phẩm gắn với kinh tế số | đơn vị | cách tính: - | lưu ý: Đăng ký sản phẩm lượng hóa được trước 07/11/2026 (TB 20/10) | hiện có: T9/2026=9
+KH06 | 8. KHCN, đổi mới sáng tạo, kinh tế số | Số đề xuất giải quyết 30 bài toán lớn | đề xuất | cách tính: - | lưu ý: - | hiện có: T2/2026=93; T6/2026=120; T8/2026=127
+KH07 | 8. KHCN, đổi mới sáng tạo, kinh tế số | Số nhiệm vụ KHCN đặt hàng đã phê duyệt | nhiệm vụ | cách tính: - | lưu ý: - | hiện có: T8/2026=11
+KH08 | 8. KHCN, đổi mới sáng tạo, kinh tế số | Số bài toán lớn ưu tiên triển khai ngay | bài toán | cách tính: - | lưu ý: - | hiện có: T8/2026=9
+KH09 | 8. KHCN, đổi mới sáng tạo, kinh tế số | Số chuyên gia, nhà khoa học trong cơ sở dữ liệu | người | cách tính: - | lưu ý: - | hiện có: T8/2026=3060
+KH10 | 8. KHCN, đổi mới sáng tạo, kinh tế số | HanoTEX: số tài khoản đăng ký | tài khoản | cách tính: - | lưu ý: - | hiện có: T5/2026=213; T8/2026=242
+KH11 | 8. KHCN, đổi mới sáng tạo, kinh tế số | HanoTEX: số doanh nghiệp tham gia, niêm yết | doanh nghiệp | cách tính: - | lưu ý: - | hiện có: T5/2026=224; T8/2026=227
+KH12 | 8. KHCN, đổi mới sáng tạo, kinh tế số | HanoTEX: số giải pháp công nghệ trên sàn | giải pháp | cách tính: - | lưu ý: - | hiện có: T5/2026=40; T8/2026=44
+KH13 | 8. KHCN, đổi mới sáng tạo, kinh tế số | HanoTEX: số hợp đồng ký kết | hợp đồng | cách tính: - | lưu ý: - | hiện có: T8/2026=6
+KH14 | 8. KHCN, đổi mới sáng tạo, kinh tế số | Số doanh nghiệp khoa học và công nghệ | doanh nghiệp | cách tính: - | lưu ý: - | hiện có: T7/2026=222
+KH15 | 8. KHCN, đổi mới sáng tạo, kinh tế số | Số mô hình đề xuất thử nghiệm có kiểm soát (sandbox) | mô hình | cách tính: - | lưu ý: - | hiện có: T8/2026=182
+AT01 | 9. An toàn thông tin, an ninh mạng | Số hệ thống thông tin được phê duyệt cấp độ ATTT | hệ thống | cách tính: - | lưu ý: Nhảy từ 101 (25/6) lên 238 (30/6): có thể khác cách đếm hồ sơ và hệ thống | hiện có: T5/2026=91; T6/2026=101; T7/2026=238; T8/2026=238; T9/2026=245; Tuần 41=259
+AT02 | 9. An toàn thông tin, an ninh mạng | Tỷ lệ hệ thống được phê duyệt cấp độ | % | cách tính: - | lưu ý: Tổng số hệ thống: 245 (T5, T6), 249 (T8). Tự tính | hiện có: T5/2026=0.371429 (91/245); T6/2026=0.412245 (101/245); T8/2026=0.955823 (238/249)
+AT03 | 9. An toàn thông tin, an ninh mạng | Số hồ sơ cấp độ đang thẩm định | hồ sơ | cách tính: - | lưu ý: - | hiện có: T9/2026=4; Tuần 41=3
+AT04 | 9. An toàn thông tin, an ninh mạng | Số đơn vị chưa lập hồ sơ cấp độ | đơn vị | cách tính: - | lưu ý: - | hiện có: T7/2026=11
+AT05 | 9. An toàn thông tin, an ninh mạng | Số máy tính được SOC giám sát | máy | cách tính: - | lưu ý: - | hiện có: T5/2026=10024; T8/2026=18206; T9/2026=19492
+AT06 | 9. An toàn thông tin, an ninh mạng | Số máy chủ Internet được SOC giám sát | máy | cách tính: - | lưu ý: - | hiện có: T5/2026=158; T8/2026=178; T9/2026=178
+AT07 | 9. An toàn thông tin, an ninh mạng | Số cảnh báo an ninh rất nghiêm trọng (EDR) | cảnh báo | cách tính: - | lưu ý: - | hiện có: T5/2026=15878
+AT08 | 9. An toàn thông tin, an ninh mạng | Số cảnh báo nguy cơ mất an ninh mạng trong kỳ | cảnh báo | cách tính: - | lưu ý: - | hiện có: T8/2026=111
+AT09 | 9. An toàn thông tin, an ninh mạng | Tỷ lệ đơn vị gửi báo cáo tình hình ATTT | % | cách tính: - | lưu ý: - | hiện có: T9/2026=0.702128 (99/141)
+BS01 | 6. Nền tảng số dùng chung | Tỷ lệ dữ liệu IOC cập nhật tự động |  | cách tính: Dữ liệu cập nhật tự động / tổng dữ liệu cấu hình | lưu ý: - | hiện có: (chưa có)
+BS02 | 6. Nền tảng số dùng chung | Tỷ lệ dữ liệu IOC được xác nhận đúng hạn |  | cách tính: Đã xác nhận đúng hạn / phải xác nhận | lưu ý: - | hiện có: (chưa có)
+BS03 | 6. Nền tảng số dùng chung | Tần suất khai thác IOC và số nội dung chỉ đạo, điều hành được hỗ trợ từ hệ thống |  | cách tính: Lượt truy cập; số chỉ đạo dùng dữ liệu IOC | lưu ý: - | hiện có: (chưa có)
+BS04 | 6. Nền tảng số dùng chung | Tỷ lệ cán bộ hoạt động thường xuyên trên nền tảng dùng chung |  | cách tính: Tài khoản có thao tác trong kỳ / tổng tài khoản | lưu ý: - | hiện có: (chưa có)
+BS05 | 6. Nền tảng số dùng chung | Tỷ lệ nhiệm vụ giao và cập nhật hoàn toàn trên hệ thống |  | cách tính: Nhiệm vụ xử lý hoàn toàn trên hệ thống / tổng nhiệm vụ | lưu ý: - | hiện có: (chưa có)
+BS06 | 6. Nền tảng số dùng chung | Tỷ lệ hoàn thành đúng hạn và mức độ gắn nhiệm vụ với sản phẩm đầu ra |  | cách tính: Hoàn thành đúng hạn / hoàn thành; nhiệm vụ có sản phẩm đầu ra / tổng | lưu ý: - | hiện có: (chưa có)
+BS07 | 5. TTHC và dịch vụ công | Tỷ lệ hồ sơ thực tế giải quyết trực tuyến toàn trình |  | cách tính: Hồ sơ trực tuyến toàn trình / tổng hồ sơ tiếp nhận | lưu ý: - | hiện có: (chưa có)
+BS08 | 5. TTHC và dịch vụ công | Số thành phần hồ sơ, giấy tờ được cắt giảm; thời gian xử lý và chi phí thực giảm |  | cách tính: Trước và sau tái cấu trúc, theo từng TTHC | lưu ý: - | hiện có: (chưa có)
+BS09 | 5. TTHC và dịch vụ công | Tỷ lệ tái sử dụng dữ liệu dùng chung trong giải quyết TTHC |  | cách tính: Hồ sơ dùng dữ liệu có sẵn / tổng hồ sơ | lưu ý: - | hiện có: (chưa có)
+BS10 | 4. Dữ liệu dùng chung | Tỷ lệ nguồn dữ liệu đạt kiểm chứng chất lượng, nghiệm thu, phân quyền |  | cách tính: Nguồn đã nghiệm thu / 13 | lưu ý: - | hiện có: (chưa có)
+BS11 | 4. Dữ liệu dùng chung | Tần suất cập nhật và tiêu chí chất lượng theo từng nguồn dữ liệu |  | cách tính: Theo từng nguồn trong 13 nguồn | lưu ý: - | hiện có: (chưa có)
+BS12 | 3. Dữ liệu đất đai | Tỷ lệ hoàn thành làm sạch theo từng xã, phường (126 đơn vị) so với KPI |  | cách tính: Thửa Nhóm 1 / thửa phải hoàn thành theo KPI từng xã | lưu ý: - | hiện có: (chưa có)
+BS13 | 8. KHCN, đổi mới sáng tạo, kinh tế số | Doanh thu mới, năng suất tăng thêm, chi phí cắt giảm, sản phẩm dịch vụ mới từ chuyển đổi số theo ngành |  | cách tính: Theo từng sản phẩm đăng ký của sở, ngành | lưu ý: - | hiện có: (chưa có)
+BS14 | 8. KHCN, đổi mới sáng tạo, kinh tế số | Số giao dịch, hợp đồng, giá trị thương mại hóa qua Sàn giao dịch công nghệ, Chợ Chuyển đổi số |  | cách tính: Số hợp đồng, giá trị hợp đồng | lưu ý: - | hiện có: (chưa có)
+BS15 | 8. KHCN, đổi mới sáng tạo, kinh tế số | Số người dùng và hiệu quả khai thác của các ứng dụng đã triển khai (HanoiCheck, camera AI...) |  | cách tính: Người dùng; kết quả nghiệm thu; chuyển giao | lưu ý: - | hiện có: (chưa có)
+BS16 | 8. KHCN, đổi mới sáng tạo, kinh tế số | Tỷ trọng kinh tế số trong GRDP và mức đóng góp vào tăng trưởng GRDP (tách riêng) |  | cách tính: Hai chỉ số khác nhau, cần chuẩn hóa phương pháp | lưu ý: - | hiện có: (chưa có)
+BS17 | 7. Xã, phường và hạ tầng cơ sở | Số xã, phường thiếu nhân lực công nghệ thông tin chuyên trách theo nhóm (thiếu nhân lực, kỹ năng, điều kiện kỹ thuật) |  | cách tính: Phân loại 126 xã, phường | lưu ý: - | hiện có: (chưa có)
+BS18 | 2. Nguồn lực tài chính | Giải ngân theo từng đơn vị và hồ sơ còn thiếu, khối lượng có thể nghiệm thu |  | cách tính: Danh sách theo đơn vị, theo khoản chi | lưu ý: - | hiện có: (chưa có)

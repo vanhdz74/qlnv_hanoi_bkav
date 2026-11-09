@@ -1,0 +1,51 @@
+/* Nhiệm vụ trong phụ lục báo cáo tháng NQ57 (tai_lieu/BC tháng 2-10) đã map với nhiệm vụ trong QLNV.
+   Grain: 1 nhiệm vụ phụ lục x 1 task QLNV khớp (task_id = 0 nếu chưa map được -> dashboard hiện '!').
+   Map: tiêu đề QLNV (đã chuẩn hóa) chứa đoạn giữa (~50% số từ) tiêu đề phụ lục; nếu khớp nhiều nhiệm vụ thì ưu tiên
+        nhiệm vụ cùng văn bản giao. Không khớp đoạn giữa -> thử đoạn đầu/cuối (~40%) nhưng bắt buộc cùng văn bản giao.
+   Nguồn QLNV: datamart_hanoi.qlnv_chitiet_captp_xp_bcd57 (cap_nhiem_vu = 'Cấp Thành phố').
+   Sinh bởi bcd57_chitiet/chuyen_de/sql/nhiem_vu/build_sql.py - chạy qua NiFi (HN-Datamart-NEW). */
+CREATE TABLE IF NOT EXISTS `datamart_hanoi`.`chuyen_de_chi_tiet_nhiem_vu_nq57` (
+    ky                  VARCHAR(20)    NOT NULL COMMENT 'Kỳ báo cáo T2/2026..T10/2026',
+    thu_tu_ky           INT            NULL,
+    thu_tu              INT            NOT NULL COMMENT 'Thứ tự nhiệm vụ trong phụ lục của kỳ',
+    task_id             BIGINT         NOT NULL DEFAULT 0 COMMENT '0 = chưa map được với QLNV',
+    nguon_phu_luc       VARCHAR(255)   NULL COMMENT 'BC tháng x - trang/bảng',
+    phu_luc             VARCHAR(255)   NULL COMMENT 'Tên phụ lục, vd PHỤ LỤC 03 - DANH MỤC NHIỆM VỤ ĐÃ QUÁ THỜI HẠN GIAO...',
+    loai_danh_sach      VARCHAR(50)    NULL COMMENT 'Quá hạn, chậm muộn | Đến hạn trong kỳ | Hoàn thành | Nguy cơ chậm | Theo dõi',
+    muc_phu_luc         VARCHAR(255)   NULL COMMENT 'Nhóm/mục trong phụ lục',
+    stt_phu_luc         VARCHAR(20)    NULL,
+    ten_phu_luc         TEXT           NULL,
+    van_ban_phu_luc     TEXT           NULL,
+    co_quan_phu_luc     TEXT           NULL,
+    han_phu_luc         TEXT           NULL,
+    tinh_trang_phu_luc  TEXT           NULL,
+    ket_qua_phu_luc     TEXT           NULL,
+    de_xuat_phu_luc     TEXT           NULL,
+    doan_so_khop        TEXT           NULL COMMENT 'Đoạn giữa tiêu đề dùng để so',
+    co_khop             TINYINT        NOT NULL DEFAULT 0,
+    cach_map            VARCHAR(20)    NULL COMMENT 'doan_giua | doan_phu',
+    vb_khop             TINYINT        NULL COMMENT '1 = văn bản giao QLNV trùng văn bản trong phụ lục',
+    so_nhiem_vu_khop    INT            NULL COMMENT 'Số nhiệm vụ (id_cha) khớp; > 1 = cần xem lại',
+    so_task_khop        INT            NULL COMMENT 'Số task khớp (1 nhiệm vụ giao nhiều đơn vị)',
+    id_cha              VARCHAR(50)    NULL,
+    ma_nhiem_vu         VARCHAR(255)   NULL,
+    ten_nhiem_vu        TEXT           NULL,
+    nguon_giao          VARCHAR(50)    NULL,
+    van_ban_giao        VARCHAR(500)   NULL,
+    loai_van_ban        VARCHAR(100)   NULL,
+    chu_de              VARCHAR(500)   NULL,
+    don_vi_giao         VARCHAR(500)   NULL,
+    ten_don_vi_chu_tri  VARCHAR(500)   NULL,
+    ten_don_vi_thuc_hien VARCHAR(500)  NULL,
+    nguoi_thuc_hien     VARCHAR(255)   NULL,
+    ngay_giao           VARCHAR(10)    NULL,
+    han_xu_ly           VARCHAR(10)    NULL,
+    ngay_hoan_thanh     VARCHAR(10)    NULL,
+    tinh_trang          VARCHAR(50)    NULL,
+    tien_do             INT            NULL,
+    sync_date           DATETIME       NOT NULL,
+    PRIMARY KEY (ky, thu_tu, task_id),
+    KEY idx_task (task_id),
+    KEY idx_ky (thu_tu_ky),
+    KEY idx_loai (loai_danh_sach)
+) ENGINE=InnoDB ROW_FORMAT=DYNAMIC DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
