@@ -113,10 +113,16 @@ def tabs():
     tq = [[i, m, CD[n]] for n, (i, m) in enumerate(TQ)]
     rows.append([(dict(loai="bang_tq", tq=tq, tieuDe="Chín chuyên đề"), 8, 76),
                  ("COL", 4, [(dict(loai="donut_nv", tieuDe="Tình trạng nhiệm vụ"), 38), (dict(loai="donut_xl", tieuDe="Xếp loại tiến độ xã, phường"), 38)])])
+    TEN_TAB = {"tong-quan": "Tổng quan", **{tid: ten for tid, ten, *_ in TRANG}, "danh-muc": "Danh mục chỉ số"}
+    for row in rows:
+        for it in row:
+            for c in _cfgs_of(it):
+                if c.get("link") or c["loai"] == "bang_tq":
+                    c["tabTen"] = TEN_TAB
     T.append(("Tổng quan", "tong-quan", rows))
     # ---- 9 chuyên đề
     for tid, ten, scd, kpi, bds in TRANG:
-        rows = [[(dict(loai="kpi", ma=m, icon=tid), 3, 21) for m in kpi]]
+        rows = [[(dict(loai="kpi", ma=m, icon=tid, gon=True), 3, 14) for m in kpi]]  # thẻ thấp (112px) cho đỡ cuộn
         # như UI mẫu: cột trái = các biểu đồ (lưới 2 cột), cột phải = bảng, nằm ngang hàng nhau
         LW, RW = 8, 4
         left, cur = [], []
@@ -283,6 +289,25 @@ body { overflow-x: hidden; }
 .dashboard-component-tabs .ant-tabs-tab.ant-tabs-tab-active:hover { background: #1D6FE8 !important; color: #fff !important; font-weight: 600 !important; }
 .dashboard-component-tabs .ant-tabs-tab .ant-tabs-tab-btn:focus-visible { outline: 2px solid #1D6FE8; outline-offset: 2px; border-radius: 8px; }
 .dashboard-component-tabs .ant-tabs-tab .anchor-link-container { display: none !important; }
+
+/* ---- Icon trên tab (bộ Lucide như UI mẫu), xanh khi thường, trắng khi đang chọn ---- */
+.dashboard-component-tabs .ant-tabs-nav-list > .ant-tabs-tab .ant-tabs-tab-btn { display: inline-flex !important; align-items: center; gap: 8px; }
+.dashboard-component-tabs .ant-tabs-nav-list > .ant-tabs-tab .ant-tabs-tab-btn::before {
+  content: ""; flex: none; width: 18px; height: 18px; background-color: #1D6FE8;
+  -webkit-mask: var(--ico) center / contain no-repeat; mask: var(--ico) center / contain no-repeat;
+}
+.dashboard-component-tabs .ant-tabs-nav-list > .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn::before { background-color: #fff; }
+.dashboard-component-tabs .ant-tabs-nav-list > .ant-tabs-tab:nth-child(1) { --ico: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%223%22 y=%223%22 width=%227%22 height=%229%22 rx=%221%22/%3E%3Crect x=%2214%22 y=%223%22 width=%227%22 height=%225%22 rx=%221%22/%3E%3Crect x=%2214%22 y=%2212%22 width=%227%22 height=%229%22 rx=%221%22/%3E%3Crect x=%223%22 y=%2216%22 width=%227%22 height=%225%22 rx=%221%22/%3E%3C/svg%3E"); }
+.dashboard-component-tabs .ant-tabs-nav-list > .ant-tabs-tab:nth-child(2) { --ico: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%228%22 y=%222%22 width=%228%22 height=%224%22 rx=%221%22/%3E%3Cpath d=%22M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2%22/%3E%3Cpath d=%22m9 14 2 2 4-4%22/%3E%3C/svg%3E"); }
+.dashboard-component-tabs .ant-tabs-nav-list > .ant-tabs-tab:nth-child(3) { --ico: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1%22/%3E%3Cpath d=%22M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4%22/%3E%3C/svg%3E"); }
+.dashboard-component-tabs .ant-tabs-nav-list > .ant-tabs-tab:nth-child(4) { --ico: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z%22/%3E%3Cpath d=%22M15 5.764v15%22/%3E%3Cpath d=%22M9 3.236v15%22/%3E%3C/svg%3E"); }
+.dashboard-component-tabs .ant-tabs-nav-list > .ant-tabs-tab:nth-child(5) { --ico: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cellipse cx=%2212%22 cy=%225%22 rx=%229%22 ry=%223%22/%3E%3Cpath d=%22M3 5V19A9 3 0 0 0 21 19V5%22/%3E%3Cpath d=%22M3 12A9 3 0 0 0 21 12%22/%3E%3C/svg%3E"); }
+.dashboard-component-tabs .ant-tabs-nav-list > .ant-tabs-tab:nth-child(6) { --ico: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z%22/%3E%3Cpath d=%22M14 2v4a2 2 0 0 0 2 2h4%22/%3E%3Cpath d=%22M16 13H8%22/%3E%3Cpath d=%22M16 17H8%22/%3E%3Cpath d=%22M10 9H8%22/%3E%3C/svg%3E"); }
+.dashboard-component-tabs .ant-tabs-nav-list > .ant-tabs-tab:nth-child(7) { --ico: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z%22/%3E%3Cpath d=%22m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65%22/%3E%3Cpath d=%22m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65%22/%3E%3C/svg%3E"); }
+.dashboard-component-tabs .ant-tabs-nav-list > .ant-tabs-tab:nth-child(8) { --ico: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M3 22h18%22/%3E%3Cpath d=%22M6 18v-7%22/%3E%3Cpath d=%22M10 18v-7%22/%3E%3Cpath d=%22M14 18v-7%22/%3E%3Cpath d=%22M18 18v-7%22/%3E%3Cpath d=%22M12 2 20 7H4z%22/%3E%3C/svg%3E"); }
+.dashboard-component-tabs .ant-tabs-nav-list > .ant-tabs-tab:nth-child(9) { --ico: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5%22/%3E%3Cpath d=%22M9 18h6%22/%3E%3Cpath d=%22M10 22h4%22/%3E%3C/svg%3E"); }
+.dashboard-component-tabs .ant-tabs-nav-list > .ant-tabs-tab:nth-child(10) { --ico: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z%22/%3E%3Cpath d=%22m9 12 2 2 4-4%22/%3E%3C/svg%3E"); }
+.dashboard-component-tabs .ant-tabs-nav-list > .ant-tabs-tab:nth-child(11) { --ico: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M3 5h.01%22/%3E%3Cpath d=%22M3 12h.01%22/%3E%3Cpath d=%22M3 19h.01%22/%3E%3Cpath d=%22M8 5h13%22/%3E%3Cpath d=%22M8 12h13%22/%3E%3Cpath d=%22M8 19h13%22/%3E%3C/svg%3E"); }
 
 /* ---- Vùng nội dung: 20px trên/dưới (lề ngang nằm ở grid-container) ---- */
 .dashboard-component-tabs .ant-tabs-content-holder { padding: 20px 0 !important; background: #fff !important; }

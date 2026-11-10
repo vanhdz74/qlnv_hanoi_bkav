@@ -8,7 +8,7 @@ jsEchartScriptFunc = function (queryData, option, echarts, context) {
      Chỉ số chưa có số liệu (co_so_lieu = 0 / gia_tri NULL) → biểu tượng "!" màu cam.
      File sinh bằng superset/tao_dashboard.py – sửa ở template rồi chạy lại.
      ========================================================================== */
-  const CFG = {"loai": "kpi", "ma": "CS08", "icon": "xa-phuong", "key": "xa-phuong-03"};
+  const CFG = {"loai": "kpi", "ma": "CS08", "icon": "xa-phuong", "gon": true, "key": "xa-phuong-03"};
   const elementId = context && context.elementId ? context.elementId : "nq57-" + CFG.key;
   const width = context && context.width ? context.width : null;
   const height = context && context.height ? context.height : null;
@@ -116,15 +116,16 @@ ${S} .nod{position:absolute;inset:0;display:flex;align-items:center;justify-cont
 ${S} .kpi{height:100%;display:flex;flex-direction:column;justify-content:space-between;border-radius:16px;padding:14px 18px;background:#fff;border:1px solid ${P.vien};box-shadow:0 8px 22px -12px rgba(15,42,92,.28),0 1px 2px rgba(15,42,92,.05)}
 ${S} .kpi-t{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:${P.ink2};min-width:0}
 ${S} .kpi-t span.n{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-${S} .ico{flex:none;min-width:30px;height:30px;padding:0 7px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:700}
+${S} .ico{flex:none;display:flex;align-items:center;justify-content:center}
 ${S} .kpi-v{font-size:40px;font-weight:700;line-height:1;letter-spacing:-.03em;white-space:nowrap}
 ${S} .kpi-v small{font-size:13px;font-weight:500;color:${P.mo};margin-left:6px;letter-spacing:0}
 ${S} .kpi-s{margin-top:8px;display:flex;align-items:center;gap:8px;font-size:13px;color:${P.mo};white-space:nowrap}
 ${S} .dl{border-radius:6px;padding:2px 8px;font-weight:600}
 ${S} .kpi-f{display:flex;align-items:flex-end;justify-content:space-between;gap:10px}
+${S} .kpi.gon{padding:10px 16px;border-radius:14px} ${S} .kpi.gon .kpi-v{font-size:30px} ${S} .kpi.gon .kpi-s{margin-top:4px}
 ${S} .kpi-miss{display:flex;align-items:center;gap:10px;color:${C.warn};font-weight:600;font-size:15px}
 ${S} table{width:100%;border-collapse:collapse;font-size:13px;text-align:left}
-${S} th{position:sticky;top:0;z-index:1;background:#fff;padding:8px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:${P.mo};border-bottom:1px solid ${P.vien};white-space:nowrap}
+${S} th{position:sticky;top:0;z-index:1;background:#fff;padding:8px;font-size:13px;font-weight:600;color:${P.mo};border-bottom:1px solid ${P.vien};white-space:nowrap}
 ${S} td{padding:7px 8px;border-bottom:1px solid #E4E7EC;vertical-align:middle}
 ${S} tr.cl{cursor:pointer} ${S} tr.cl:hover td{background:#FAFBFC}
 ${S} .r{text-align:right} ${S} .nw{white-space:nowrap}
@@ -166,9 +167,23 @@ ${S} .ech{position:absolute;inset:0}
     return `<div style="position:relative;width:${size}px;height:${size}px;flex:none"><svg width="${size}" height="${size}" style="transform:rotate(-90deg)">` +
       `<circle cx="${size / 2}" cy="${size / 2}" r="${r}" fill="none" stroke="${C.track}" stroke-width="${sw}"/>` +
       `<circle cx="${size / 2}" cy="${size / 2}" r="${r}" fill="none" stroke="${col}" stroke-width="${sw}" stroke-linecap="round" stroke-dasharray="${p * c} ${c}"/></svg>` +
-      `<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700">${so(p * 100, 0)}%</div></div>`;
+      `<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:${size < 60 ? 12 : 14}px;font-weight:700">${so(p * 100, 0)}%</div></div>`;
   };
-  const icon = (id, txt) => `<span class="ico" style="background:${HUE[id] || HUE["nhiem-vu"]}">${esc(txt || "")}</span>`;
+  const ICO = {
+    "tong-quan": '<rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/>',
+    "nhiem-vu": '<rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/>',
+    "tai-chinh": '<path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/>',
+    "dat-dai": '<path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/>',
+    "du-lieu": '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/>',
+    "tthc": '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/>',
+    "nen-tang": '<path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/>',
+    "xa-phuong": '<path d="M3 22h18"/><path d="M6 18v-7"/><path d="M10 18v-7"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="M12 2 20 7H4z"/>',
+    "khcn": '<path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/>',
+    "attt": '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
+    "danh-muc": '<path d="M3 5h.01"/><path d="M3 12h.01"/><path d="M3 19h.01"/><path d="M8 5h13"/><path d="M8 12h13"/><path d="M8 19h13"/>',
+    "canh-bao": '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/>',
+  };
+  const icon = (id, sz) => { sz = sz || 32; return `<span class="ico" style="width:${sz}px;height:${sz}px;border-radius:${Math.round(sz * 0.27)}px;background:${HUE[id] || HUE["nhiem-vu"]}"><svg width="${Math.round(sz * 0.55)}" height="${Math.round(sz * 0.55)}" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICO[id] || ICO["nhiem-vu"]}</svg></span>`; };
   const giaTriO = (o) => (o.m ? `<span class="val">${esc(o.m.hienThi)}</span>${donVi(o) ? ` <span style="font-size:11px;color:${P.mo}">${esc(donVi(o))}</span>` : ""}` :
     `<span style="display:inline-flex;align-items:center;gap:6px;color:${C.warn};font-weight:600">${warn(o.lyDo)}Chưa có</span>`);
 
@@ -258,12 +273,12 @@ ${S} .ech{position:absolute;inset:0}
   const sau = []; // việc chạy sau khi gắn HTML (echarts)
   const L = CFG.loai;
   if (L === "kpi") {
-    const o = cs(CFG.ma), m = o.m, p = tyLe(m);
+    const o = cs(CFG.ma), m = o.m, p = tyLe(m), g = !!CFG.gon; // gon: thẻ thấp (tab chuyên đề)
     const vach = m && m.xh === "tot" ? C.tot : m && m.xh === "xau" ? C.xau : m ? P.xanh : C.warn;
-    html = `<div class="kpi" style="border-top:4px solid ${vach}${CFG.link ? ";cursor:pointer" : ""}" title="${esc(o.ten)}">
-      <div class="kpi-t">${icon(CFG.icon, CFG.ma)}<span class="n">${esc(CFG.nhan || o.tn)}</span></div>
+    html = `<div class="kpi${g ? " gon" : ""}"${CFG.link ? ` data-tab="${esc(CFG.icon)}"` : ""} style="border-top:4px solid ${vach}${CFG.link ? ";cursor:pointer" : ""}" title="${esc(o.ten)}">
+      <div class="kpi-t">${icon(CFG.icon, g ? 26 : 32)}<span class="n">${esc(CFG.nhan || o.tn)}</span></div>
       ${m ? `<div class="kpi-f"><div style="min-width:0"><div class="kpi-v">${esc(m.hienThi)}${donVi(o) ? `<small>${esc(donVi(o))}</small>` : ""}</div>
-        <div class="kpi-s">${delta(m)}<span>${esc(m.ky)}</span></div></div>${p != null ? ring(p, P.xanh, 66, 8) : spark(o.pts, 110, 46, P.xanh)}</div>`
+        <div class="kpi-s">${delta(m)}<span>${esc(m.ky)}</span></div></div>${p != null ? (g ? ring(p, P.xanh, 52, 7) : ring(p, P.xanh, 66, 8)) : (g ? spark(o.pts, 100, 36, P.xanh) : spark(o.pts, 110, 46, P.xanh))}</div>`
       : `<div class="kpi-f"><div class="kpi-miss">${warn(o.lyDo, true)}<span>${esc(NOD)}<span class="sub" style="font-weight:400">${esc(o.lyDo)}</span></span></div></div>`}
     </div>`;
   } else if (L === "dem") {
@@ -356,7 +371,7 @@ ${S} .ech{position:absolute;inset:0}
       const o = cs(ma), ds = Object.values(CS).filter((x) => x.cd === o.cd);
       const moi = ds.filter((x) => x.m && x.m.tt >= KY_MOI).length, cu = ds.filter((x) => x.m && x.m.tt < KY_MOI).length, chua = ds.length - moi - cu;
       const tl = tyLe(o.m);
-      return `<tr><td><div style="display:flex;align-items:center;gap:10px">${icon(id, String(o.scd || ""))}<div style="min-width:0"><b style="font-size:14px">${esc(ten)}</b><span class="sub">${esc(o.tn)}</span></div></div></td>` +
+      return `<tr data-tab="${esc(id)}" style="cursor:pointer" title="Mở tab ${esc(ten)}"><td><div style="display:flex;align-items:center;gap:10px">${icon(id, 34)}<div style="min-width:0"><b style="font-size:14px">${esc(ten)}</b><span class="sub">${esc(o.tn)}</span></div></div></td>` +
         `<td class="r nw">${o.m ? `<span style="font-size:20px;font-weight:650">${esc(o.m.hienThi)}</span>${donVi(o) ? ` <span style="font-size:11px;color:${P.mo}">${esc(donVi(o))}</span>` : ""}` : warn(o.lyDo, true)}</td>` +
         `<td style="width:140px">${tl != null ? `<div style="display:flex;align-items:center;gap:8px"><div class="bar"><div style="width:${Math.min(100, tl * 100)}%;background:${P.xanh}"></div></div><b style="font-size:12px">${so(tl * 100, 0)}%</b></div>` : ""}</td>` +
         `<td class="nw">${delta(o.m)}<span class="sub">${o.m ? esc(o.m.ky) : ""}</span></td><td>${spark(o.pts, 110, 30, P.xanh)}</td>` +
@@ -386,6 +401,19 @@ ${S} .ech{position:absolute;inset:0}
     wrapEl.querySelectorAll("tr[data-q]").forEach((tr) => { const ok = (!q || tr.getAttribute("data-q").includes(q.toLowerCase())) && (!cd || tr.getAttribute("data-cd") === cd); tr.style.display = ok ? "" : "none"; n += ok ? 1 : 0; });
     const t = wrapEl.querySelector(".muc-t"); if (t) t.textContent = `Danh mục chỉ số (${n})`;
   };
+  // bấm thẻ KPI / dòng chuyên đề ở Tổng quan -> mở tab tương ứng (tab Superset id TAB-<id>, tên trong CFG.tabTen)
+  const onClick = (e) => {
+    const el = e.target.closest && e.target.closest("[data-tab]");
+    if (!el || !CFG.tabTen) return;
+    const ten = CFG.tabTen[el.getAttribute("data-tab")];
+    if (!ten) return;
+    const tabs = Array.from(document.querySelectorAll(".dashboard-component-tabs .ant-tabs-tab"));
+    const tab = tabs.find((x) => (x.textContent || "").trim() === ten);
+    if (!tab) return;
+    (tab.querySelector(".ant-tabs-tab-btn") || tab).click();
+    try { window.scrollTo({ top: 0, behavior: "smooth" }); } catch (er) {}
+  };
+  wrapEl.addEventListener("click", onClick);
   wrapEl.addEventListener("input", onInput);
   wrapEl.addEventListener("change", onInput);
 
@@ -397,6 +425,7 @@ ${S} .ech{position:absolute;inset:0}
   }
   rootEl.__nq57Cleanup = function () {
     if (ro) ro.disconnect();
+    wrapEl.removeEventListener("click", onClick);
     wrapEl.removeEventListener("input", onInput);
     wrapEl.removeEventListener("change", onInput);
     inst.forEach((c) => { try { c.dispose(); } catch (e) {} });

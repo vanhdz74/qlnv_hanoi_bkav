@@ -1,0 +1,33 @@
+
+body, .dashboard, .dashboard-content, #app { background: #fff !important; }
+/* lề 40px đặt trên grid-container để Superset tính đúng độ rộng chart; thanh tab kéo tràn lại bằng margin âm */
+.standalone .grid-container, .grid-container { margin: 0 40px !important; background: #fff !important; }
+body { overflow-x: hidden; }
+.sidebar-resizer, .sidebar-resizer::after { display: none !important; }
+
+/* ---- Thanh tab chuyên đề ---- */
+#TABS-nq57 .ant-tabs-nav, .dashboard-component-tabs .ant-tabs-card > .ant-tabs-nav {
+  height: 64px !important; margin: 0 -40px !important; padding: 0 32px !important;
+  background: #fff !important; border-bottom: 1px solid #D9DEE7 !important;
+}
+.dashboard-component-tabs .ant-tabs-nav::before { border-bottom: 0 !important; }
+.dashboard-component-tabs .ant-tabs-nav-list { align-items: center !important; gap: 4px; }
+.dashboard-component-tabs .ant-tabs-ink-bar { display: none !important; }
+.dashboard-component-tabs .ant-tabs-tab {
+  height: 44px !important; margin: 0 !important; padding: 0 12px !important;
+  border: 0 !important; border-radius: 8px !important; background: transparent !important;
+  font-size: 15px !important; font-weight: 500 !important; color: #344054 !important;
+  letter-spacing: -0.011em; transition: background-color .15s, color .15s;
+}
+.dashboard-component-tabs .ant-tabs-tab .ant-tabs-tab-btn,
+.dashboard-component-tabs .ant-tabs-tab .editable-title,
+.dashboard-component-tabs .ant-tabs-tab .editable-title * { color: inherit !important; font-weight: inherit !important; }
+.dashboard-component-tabs .ant-tabs-tab:hover { background: #E4E7EC !important; color: #344054 !important; }
+.dashboard-component-tabs .ant-tabs-tab.ant-tabs-tab-active,
+.dashboard-component-tabs .ant-tabs-tab.ant-tabs-tab-active:hover { background: #1D6FE8 !important; color: #fff !important; font-weight: 600 !important; }
+.dashboard-component-tabs .ant-tabs-tab .ant-tabs-tab-btn:focus-visible { outline: 2px solid #1D6FE8; outline-offset: 2px; border-radius: 8px; }
+.dashboard-component-tabs .ant-tabs-tab .anchor-link-container { display: none !important; }
+
+/* ---- Vùng nội dung: 20px trên/dưới (lề ngang nằm ở grid-container) ---- */
+.dashboard-component-tabs .ant-tabs-content-holder { padding: 20px 0 !important; background: #fff !important; }
+.dashboard-component-chart-holder { background: transparent !important; }

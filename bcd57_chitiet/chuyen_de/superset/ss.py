@@ -1,7 +1,7 @@
 """Helper Superset REST API (đăng nhập JWT + CSRF + cookie session)."""
 import json, os, urllib.request, urllib.parse, http.cookiejar
 
-REPO = "/Users/hoangvietanh/Documents/BKAV/Superset, Nifi/qlnv_hanoi/qlnv_hanoi_bkav"
+REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.."))
 ENV = {}
 for line in open(os.path.join(REPO, ".env")):
     if "=" in line and not line.strip().startswith("#"):
@@ -32,7 +32,7 @@ def _req(method, path, body=None, auth=True):
 
 
 def login():
-    d = _req("POST", "/api/v1/security/login", {"username": ENV["SUPERSET_USER"], "password": ENV["SUPERSET_PASS"],
+    d = _req("POST", "/api/v1/security/login", {"username": ENV.get("SUPERSET_USER") or ENV["SUPERSET_USERNAME"], "password": ENV.get("SUPERSET_PASS") or ENV["SUPERSET_PASSWORD"],
                                                 "provider": "db", "refresh": True}, auth=False)
     _tok["access"] = d["access_token"]
     _tok["csrf"] = _req("GET", "/api/v1/security/csrf_token/")["result"]
