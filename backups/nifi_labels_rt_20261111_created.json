@@ -1,0 +1,337 @@
+[
+ {
+  "groupId": "73bb318e-cea7-1f5d-3670-3a528463967a",
+  "labelId": "142f3e30-6ef6-1fc2-d3f4-840833781b9a",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng Thành ủy / QLNV - Tổng quan & chi tiết các nhiệm vụ 'Nhận'"
+ },
+ {
+  "groupId": "73bb31bb-cea7-1f5d-a89a-0b16f891d900",
+  "labelId": "142f3e31-6ef6-1fc2-e754-f47af140df62",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng Thành ủy / QLNV - Lịch sử nhiệm vụ 'Nhận'"
+ },
+ {
+  "groupId": "73bb316c-cea7-1f5d-9e7d-c93caf1ea793",
+  "labelId": "142f3e32-6ef6-1fc2-33c1-f600e93871ec",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng Thành ủy / QLNV - Chi tiết nhiệm vụ 'Nhận'"
+ },
+ {
+  "groupId": "73bb3182-cea7-1f5d-189b-623fc529d772",
+  "labelId": "142f3e33-6ef6-1fc2-4bd3-1de8d7370b5b",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng Thành ủy / QLNV - Tổng quan & chi tiết nhiệm vụ cần phê duyệt"
+ },
+ {
+  "groupId": "73bb3154-cea7-1f5d-d70c-a78b48f52f0f",
+  "labelId": "142f3e34-6ef6-1fc2-b25e-fdfd5f4d0fcd",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng Thành ủy / QLNV - Tổng quan & chi tiết các nhiệm vụ 'Giao'"
+ },
+ {
+  "groupId": "73bb3160-cea7-1f5d-b59c-8bdf80531c77",
+  "labelId": "142f3e35-6ef6-1fc2-7d40-848f4be51a6b",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng Thành ủy / QLNV - Chi tiết nhiệm vụ 'Giao'"
+ },
+ {
+  "groupId": "73bb31b1-cea7-1f5d-1f5b-5ee461b0d6f8",
+  "labelId": "142f3e36-6ef6-1fc2-6768-f0fb1377f9d0",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng Thành ủy / QLVB - Chi tiết"
+ },
+ {
+  "groupId": "73bb319a-cea7-1f5d-a7e1-107fc7232a25",
+  "labelId": "142f3e37-6ef6-1fc2-6256-bf18b04540dd",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng Thành ủy / QLNV - Lịch sử nhiệm vụ 'Chờ duyệt'"
+ },
+ {
+  "groupId": "73bb31a7-cea7-1f5d-cac8-83060a897e23",
+  "labelId": "142f3e38-6ef6-1fc2-a860-092f35091975",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng Thành ủy / QLNV - Chi tiết nhiệm vụ 'Chờ duyệt'"
+ },
+ {
+  "groupId": "73bb3176-cea7-1f5d-2b5e-ecc0cb164600",
+  "labelId": "142f3e39-6ef6-1fc2-437a-bf968829196e",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng Thành ủy / QLNV - Lịch sử nhiệm vụ 'Giao'"
+ },
+ {
+  "groupId": "73bb31dd-cea7-1f5d-75e2-cb1e0de91e1e",
+  "labelId": "142f3e3a-6ef6-1fc2-bb63-10edaf07823d",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng Thành ủy / QLNV - Thống kê nhanh"
+ },
+ {
+  "groupId": "73bb357b-cea7-1f5d-2395-2678c5815d3d",
+  "labelId": "142f3e3b-6ef6-1fc2-28d4-781a6a8737c2",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng Thành ủy / QLNV - Thống kê nhanh chi tiết"
+ },
+ {
+  "groupId": "142f3d9a-6ef6-1fc2-3dd8-717285e6326b",
+  "labelId": "142f3e3c-6ef6-1fc2-5167-33fa03bcd987",
+  "where": "QLNV - Ban chỉ đạo 57 chi tiết / NQ57 - chuyen_de_chi_tiet_nq57 (BC tháng)"
+ },
+ {
+  "groupId": "142f3bae-6ef6-1fc2-1778-b2ec351316a0",
+  "labelId": "142f3e3d-6ef6-1fc2-9ce4-71241cbdb211",
+  "where": "QLNV - Ban chỉ đạo 57 chi tiết / nv_captp_xp (gộp TP + Xã, phường) / Đồng bộ nv_tw (294 mã TW)"
+ },
+ {
+  "groupId": "f5293b42-bda1-1354-2ee5-a9cd66a45f19",
+  "labelId": "142f3e3e-6ef6-1fc2-e0f1-653d30a44675",
+  "where": "QLNV - Ban chỉ đạo 57 chi tiết / nv_captp_xp (gộp TP + Xã, phường) / BTH - Chi tiết"
+ },
+ {
+  "groupId": "f5293b4f-bda1-1354-0b1d-919dcbd190d8",
+  "labelId": "142f3e3f-6ef6-1fc2-bb95-0efb8a0de488",
+  "where": "QLNV - Ban chỉ đạo 57 chi tiết / nv_captp_xp (gộp TP + Xã, phường) / BTH - Lịch sử tiến độ"
+ },
+ {
+  "groupId": "142f3c52-6ef6-1fc2-a385-be4d090930e0",
+  "labelId": "142f3e40-6ef6-1fc2-15ce-d38d7593c378",
+  "where": "QLNV - Ban chỉ đạo 57 chi tiết / Chuyên đề lớn"
+ },
+ {
+  "groupId": "acf51729-116f-119e-67fb-9a89c3ebd375",
+  "labelId": "142f3e41-6ef6-1fc2-026e-c8b7d2956ea5",
+  "where": "QLNV - Đảng ủy UBND TP / BTH - Details"
+ },
+ {
+  "groupId": "5ebe3efb-c913-1f31-0e36-04ecbb74ae82",
+  "labelId": "142f3e42-6ef6-1fc2-8f27-2887ab0bba3e",
+  "where": "QLNV - Đảng ủy UBND TP / BTH - Gom nhóm nhiệm vụ giao"
+ },
+ {
+  "groupId": "acf5172a-116f-119e-0647-a32bde95cd45",
+  "labelId": "142f3e43-6ef6-1fc2-668d-853c87506a61",
+  "where": "QLNV - Đảng ủy UBND TP / BTH - Summary"
+ },
+ {
+  "groupId": "73bb38b8-cea7-1f5d-f783-890439367c87",
+  "labelId": "142f3e44-6ef6-1fc2-a492-07959458274b",
+  "where": "QLNV - Thống kê nhanh / QLNV - Tổng quan thống kê nhanh"
+ },
+ {
+  "groupId": "73bb38db-cea7-1f5d-dc73-455403dc4079",
+  "labelId": "142f3e45-6ef6-1fc2-2485-3b104ed839de",
+  "where": "QLNV - Thống kê nhanh / QLVB - Lịch sử thống kê nhanh"
+ },
+ {
+  "groupId": "acf51af7-116f-119e-1092-fd90bcfbeb75",
+  "labelId": "142f3e46-6ef6-1fc2-1f2c-4af6cf5dfd89",
+  "where": "QLNV - Theo dõi thông báo kết luận và nhiệm vụ Sơn Tây / QLNV - Tiến trình xử lý"
+ },
+ {
+  "groupId": "acf51a4a-116f-119e-5c62-1b1d5f4a9786",
+  "labelId": "142f3e47-6ef6-1fc2-64b8-20d24be07b41",
+  "where": "QLNV - Theo dõi thông báo kết luận và nhiệm vụ Sơn Tây / QLNV - Chi tiết "
+ },
+ {
+  "groupId": "acf51726-116f-119e-1d22-9da7407642cb",
+  "labelId": "142f3e48-6ef6-1fc2-e80d-9316cb359e05",
+  "where": "QLNV - Ban chỉ đạo 57 / BTH - Tổng quan"
+ },
+ {
+  "groupId": "d7143aa6-dd0c-1de8-174f-660acf96c5c5",
+  "labelId": "142f3e49-6ef6-1fc2-7fe0-42ee7d7ee878",
+  "where": "QLNV - Ban chỉ đạo 57 / BTH - Lịch sử tiến độ"
+ },
+ {
+  "groupId": "d7143afe-dd0c-1de8-eb33-0d54763ab9ed",
+  "labelId": "142f3e4a-6ef6-1fc2-da67-efcef890506c",
+  "where": "QLNV - Ban chỉ đạo 57 / BTH - Chi tiết"
+ },
+ {
+  "groupId": "acf5194c-116f-119e-4821-ec991690afa6",
+  "labelId": "142f3e4b-6ef6-1fc2-30f1-a76e9d5e07ff",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng UBND TP / QLNV - Tổng quan & chi tiết các nhiệm vụ 'Giao'"
+ },
+ {
+  "groupId": "142f3e15-6ef6-1fc2-533b-6ab8035abe0c",
+  "labelId": "142f3e4c-6ef6-1fc2-d3a3-156be807d65f",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng UBND TP / TEST - QLNV - Lịch sử nhiệm vụ 'Nhận' (1 phút, READ COMMITTED)"
+ },
+ {
+  "groupId": "142f3e08-6ef6-1fc2-d941-ef8de54023f5",
+  "labelId": "142f3e4d-6ef6-1fc2-bd02-5f3c40ad8457",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng UBND TP / TEST - QLNV - Tổng quan & chi tiết các nhiệm vụ 'Nhận' (1 phút, READ COMMITTED)"
+ },
+ {
+  "groupId": "acf51976-116f-119e-e731-5222038eaac5",
+  "labelId": "142f3e4e-6ef6-1fc2-4a00-789b892e1410",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng UBND TP / QLNV - Chi tiết nhiệm vụ 'Nhận'"
+ },
+ {
+  "groupId": "acf51992-116f-119e-441a-884f7943b940",
+  "labelId": "142f3e4f-6ef6-1fc2-ec5f-c0ca1505814d",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng UBND TP / QLNV - Lịch sử nhiệm vụ 'Giao'"
+ },
+ {
+  "groupId": "acf5190d-116f-119e-a9dc-b9591a3edbf7",
+  "labelId": "142f3e50-6ef6-1fc2-5407-8f281a3670ba",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng UBND TP / QLNV - Tổng quan & chi tiết các nhiệm vụ 'Nhận'"
+ },
+ {
+  "groupId": "acf519f8-116f-119e-7549-2e011fada254",
+  "labelId": "142f3e51-6ef6-1fc2-fb51-cc8b1842837a",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng UBND TP / QLNV - Chi tiết nhiệm vụ 'Chờ duyệt'"
+ },
+ {
+  "groupId": "acf51918-116f-119e-dc99-9994ef7a97ff",
+  "labelId": "142f3e52-6ef6-1fc2-2b3c-ccb81f98784d",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng UBND TP / QLVB - Chi tiết"
+ },
+ {
+  "groupId": "5ebe3eab-c913-1f31-c4ac-74fef7bb851b",
+  "labelId": "142f3e53-6ef6-1fc2-943a-ccf1e9b549a2",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng UBND TP / QLNV - TQ & chi tiết các nhiệm vụ 'Giao' - Gom nhóm nhiệm vụ"
+ },
+ {
+  "groupId": "acf51987-116f-119e-323e-da26d4426824",
+  "labelId": "142f3e54-6ef6-1fc2-60d4-7b02a025852f",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng UBND TP / QLNV - Chi tiết nhiệm vụ 'Giao'"
+ },
+ {
+  "groupId": "142f3dfb-6ef6-1fc2-a51f-ea5a5f686cf9",
+  "labelId": "142f3e55-6ef6-1fc2-27f2-bf4528bb3a9f",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng UBND TP / TEST - QLNV - Chi tiết nhiệm vụ 'Nhận' (1 phút, READ COMMITTED)"
+ },
+ {
+  "groupId": "acf51959-116f-119e-b6fe-5a14c456f277",
+  "labelId": "142f3e56-6ef6-1fc2-1d4b-a68e2b172224",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng UBND TP / QLNV - Tổng quan & chi tiết nhiệm vụ cần phê duyệt"
+ },
+ {
+  "groupId": "acf51a03-116f-119e-8c9b-b21319a85726",
+  "labelId": "142f3e57-6ef6-1fc2-d40c-f15f16c3788b",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng UBND TP / QLNV - Lịch sử nhiệm vụ 'Chờ duyệt'"
+ },
+ {
+  "groupId": "acf5199f-116f-119e-d404-5e4dc57c0710",
+  "labelId": "142f3e58-6ef6-1fc2-1242-5467671f5e20",
+  "where": "QLNV - Phòng Tổng hợp, Văn phòng UBND TP / QLNV - Lịch sử nhiệm vụ 'Nhận'"
+ },
+ {
+  "groupId": "73bb3921-cea7-1f5d-a320-314e31ad5c7d",
+  "labelId": "142f3e59-6ef6-1fc2-d6f0-9d3ca48fe0c3",
+  "where": "QLNV - Kiểm đếm nv, Phòng ban thuộc UBND TP / QLNV - Chi tiết nhiệm vụ 'Nhận'"
+ },
+ {
+  "groupId": "73bb3915-cea7-1f5d-9454-18be235eeb48",
+  "labelId": "142f3e5a-6ef6-1fc2-bde9-73bac615a82f",
+  "where": "QLNV - Kiểm đếm nv, Phòng ban thuộc UBND TP / QLNV - Chi tiết nhiệm vụ 'Giao'"
+ },
+ {
+  "groupId": "73bb3909-cea7-1f5d-6081-85d475b5a54c",
+  "labelId": "142f3e5b-6ef6-1fc2-9de3-18ac15f149a1",
+  "where": "QLNV - Kiểm đếm nv, Phòng ban thuộc UBND TP / QLNV - Tổng quan & chi tiết các nhiệm vụ 'Giao'"
+ },
+ {
+  "groupId": "73bb3945-cea7-1f5d-f4a6-106314446b0e",
+  "labelId": "142f3e5c-6ef6-1fc2-732a-2e413c10e11e",
+  "where": "QLNV - Kiểm đếm nv, Phòng ban thuộc UBND TP / QLNV - Tổng quan & chi tiết các nhiệm vụ 'Nhận'"
+ },
+ {
+  "groupId": "73bb395e-cea7-1f5d-592a-005fad5d8261",
+  "labelId": "142f3e5d-6ef6-1fc2-cb1d-7a2faf2ce612",
+  "where": "QLNV - Kiểm đếm nv, Phòng ban thuộc UBND TP / QLNV - Chi tiết nhiệm vụ 'Chờ duyệt'"
+ },
+ {
+  "groupId": "73bb3972-cea7-1f5d-9fd1-7b6eacafc69d",
+  "labelId": "142f3e5e-6ef6-1fc2-dd99-87f8b48ab6aa",
+  "where": "QLNV - Kiểm đếm nv, Phòng ban thuộc UBND TP / QLNV - Lịch sử nhiệm vụ 'Nhận'"
+ },
+ {
+  "groupId": "142f3de6-6ef6-1fc2-79b2-10007cc553b3",
+  "labelId": "142f3e5f-6ef6-1fc2-90be-0cd14ba8dda9",
+  "where": "QLNV - Kiểm đếm nv, Phòng ban thuộc UBND TP / QLNV - TQ & chi tiết các nhiệm vụ 'Giao' - Gom nhóm nhiệm vụ"
+ },
+ {
+  "groupId": "73bb392d-cea7-1f5d-42bf-d653f0c6a83f",
+  "labelId": "142f3e60-6ef6-1fc2-76f5-bf438ce440fe",
+  "where": "QLNV - Kiểm đếm nv, Phòng ban thuộc UBND TP / QLNV - Lịch sử nhiệm vụ 'Giao'"
+ },
+ {
+  "groupId": "73bb3951-cea7-1f5d-f279-e64c66cce7f5",
+  "labelId": "142f3e61-6ef6-1fc2-4e27-676a764e2dd3",
+  "where": "QLNV - Kiểm đếm nv, Phòng ban thuộc UBND TP / QLNV - Lịch sử nhiệm vụ 'Chờ duyệt'"
+ },
+ {
+  "groupId": "73bb3968-cea7-1f5d-6837-e2739708cb71",
+  "labelId": "142f3e62-6ef6-1fc2-21c3-2017f4624c18",
+  "where": "QLNV - Kiểm đếm nv, Phòng ban thuộc UBND TP / QLVB - Chi tiết"
+ },
+ {
+  "groupId": "73bb3939-cea7-1f5d-3935-aba7452f7e34",
+  "labelId": "142f3e63-6ef6-1fc2-8781-55a08f40a374",
+  "where": "QLNV - Kiểm đếm nv, Phòng ban thuộc UBND TP / QLNV - Tổng quan & chi tiết nhiệm vụ cần phê duyệt"
+ },
+ {
+  "groupId": "acf518b5-116f-119e-cb1d-9f0ff40edf8b",
+  "labelId": "142f3e64-6ef6-1fc2-13e7-266d79cbd2f6",
+  "where": "QLNV - Ban TCTW / BTH - Lịch sử tiến độ"
+ },
+ {
+  "groupId": "acf5187a-116f-119e-94de-0dc5702e0eae",
+  "labelId": "142f3e65-6ef6-1fc2-8de7-c78e3d6a5e85",
+  "where": "QLNV - Ban TCTW / BTH - Chi tiết nhiệm vụ"
+ },
+ {
+  "groupId": "acf51802-116f-119e-97e8-3e49d170e3b5",
+  "labelId": "142f3e66-6ef6-1fc2-f428-bd1c2c9faaef",
+  "where": "QLNV - Ban TCTW / BTH - Chi tiết"
+ },
+ {
+  "groupId": "5ebe3f0d-c913-1f31-04a3-e87ee812ee20",
+  "labelId": "142f3e67-6ef6-1fc2-f1fe-52a419480140",
+  "where": "Phân quyền"
+ },
+ {
+  "groupId": "acf516ec-116f-119e-6a1c-aa864d1ac565",
+  "labelId": "142f3e68-6ef6-1fc2-7303-459922a79407",
+  "where": "BTH - Quản lý nhiệm vụ (TỔNG HỢP)"
+ },
+ {
+  "groupId": "73bb314d-cea7-1f5d-265f-893fe96bbed1",
+  "labelId": "142f3e69-6ef6-1fc2-d40e-025283fc81f2",
+  "where": "BTH - Quản lý nhiệm vụ / QLNV - Phòng Tổng hợp, Văn phòng Thành ủy (TỔNG HỢP)"
+ },
+ {
+  "groupId": "5ebe3d34-c913-1f31-8eb9-10b6b15afd2e",
+  "labelId": "142f3e6a-6ef6-1fc2-a9ef-1bbacc556b30",
+  "where": "BTH - Quản lý nhiệm vụ / QLNV - Ban chỉ đạo 57 chi tiết (TỔNG HỢP)"
+ },
+ {
+  "groupId": "f5293b40-bda1-1354-399d-0ee3a61df894",
+  "labelId": "142f3e6b-6ef6-1fc2-7319-538888e0571a",
+  "where": "BTH - Quản lý nhiệm vụ / QLNV - Ban chỉ đạo 57 chi tiết / nv_captp_xp (gộp TP + Xã, phường) (TỔNG HỢP)"
+ },
+ {
+  "groupId": "acf51728-116f-119e-be1e-106969287222",
+  "labelId": "142f3e6c-6ef6-1fc2-5229-47dbba22c920",
+  "where": "BTH - Quản lý nhiệm vụ / QLNV - Đảng ủy UBND TP (TỔNG HỢP)"
+ },
+ {
+  "groupId": "73bb3875-cea7-1f5d-a3e5-c54fc4667575",
+  "labelId": "142f3e6d-6ef6-1fc2-566b-e15f4321dafc",
+  "where": "BTH - Quản lý nhiệm vụ / QLNV - Thống kê nhanh (TỔNG HỢP)"
+ },
+ {
+  "groupId": "acf51a21-116f-119e-822b-687a79e57bb7",
+  "labelId": "142f3e6e-6ef6-1fc2-e39a-5a92392426ab",
+  "where": "BTH - Quản lý nhiệm vụ / QLNV - Theo dõi thông báo kết luận và nhiệm vụ Sơn Tây (TỔNG HỢP)"
+ },
+ {
+  "groupId": "acf51724-116f-119e-e8f5-f90596bf2a00",
+  "labelId": "142f3e6f-6ef6-1fc2-65bb-62670f5cc649",
+  "where": "BTH - Quản lý nhiệm vụ / QLNV - Ban chỉ đạo 57 (TỔNG HỢP)"
+ },
+ {
+  "groupId": "acf518f8-116f-119e-4c68-955850fe93ab",
+  "labelId": "142f3e70-6ef6-1fc2-09e5-e641dff42c81",
+  "where": "BTH - Quản lý nhiệm vụ / QLNV - Phòng Tổng hợp, Văn phòng UBND TP (TỔNG HỢP)"
+ },
+ {
+  "groupId": "73bb3902-cea7-1f5d-527e-93d811128752",
+  "labelId": "142f3e71-6ef6-1fc2-66b8-713423e9c4c3",
+  "where": "BTH - Quản lý nhiệm vụ / QLNV - Kiểm đếm nv, Phòng ban thuộc UBND TP (TỔNG HỢP)"
+ },
+ {
+  "groupId": "acf517f4-116f-119e-3c3c-79405e474d91",
+  "labelId": "142f3e72-6ef6-1fc2-742e-fce2beb12bfe",
+  "where": "BTH - Quản lý nhiệm vụ / QLNV - Ban TCTW (TỔNG HỢP)"
+ }
+]

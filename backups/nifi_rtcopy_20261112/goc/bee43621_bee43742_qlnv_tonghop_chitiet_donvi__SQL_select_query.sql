@@ -1,0 +1,1 @@
+TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_donvi;

@@ -1,0 +1,17 @@
+qlnv_tongquan_dieuhanh_lanhdao         nhóm cũ=485 mới=485 nhóm lệch=2 tổng|Δ|=2
+     (('1496', 'UBND phường Sơn Tây'), 39, 38)
+     (('11752', 'Chi cục Thủy lợi và Phòng chống thiên tai Hà Nội'), 56, 57)
+qlnv_tongquan_donvi                    nhóm cũ=791 mới=791 nhóm lệch=2 tổng|Δ|=2
+     (('1496', 'UBND phường Sơn Tây'), 137, 138)
+     (('11422', 'Công an phường Sơn Tây'), 25, 24)
+qlnv_tonghop_chitiet_donvi             nhóm cũ=793 mới=793 nhóm lệch=2 tổng|Δ|=2
+     (('1496', 'UBND phường Sơn Tây'), 137, 138)
+     (('11422', 'Công an phường Sơn Tây'), 25, 24)
+qlnv_th_tongquan_donvi_tiepnhan        nhóm cũ=943 mới=943 nhóm lệch=2 tổng|Δ|=2
+     (('1343', 'Sở Nông nghiệp và Môi trường'), 949, 950)
+     (('11752', 'Chi cục Thủy lợi và Phòng chống thiên tai Hà Nội'), 71, 70)
+qlnv_th_tongquan_donvi_giaonv          nhóm cũ=943 mới=943 nhóm lệch=2 tổng|Δ|=2
+     (('1343', 'Sở Nông nghiệp và Môi trường'), 949, 950)
+     (('11752', 'Chi cục Thủy lợi và Phòng chống thiên tai Hà Nội'), 71, 70)
+qlnv_tongquan_vanban_chitiet           nhóm cũ=20 mới=20 nhóm lệch=1 tổng|Δ|=2
+     (('761', 'Phòng Đô thị'), 2249, 2247)

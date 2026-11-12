@@ -1,0 +1,9 @@
+14:49:17 mốc luồng cũ: 2026-11-12T14:44:12 | mới: 2026-11-12T14:49:17
+qlnv_tonghop_chitiet_giaonv                   cũ=      0 mới=  94380 chỉ_cũ=None chỉ_mới=94380 lệch_nội_dung=None
+qlnv_tonghop_chitiet_giaonv_don_le            cũ=  94346 mới=  94346 chỉ_cũ=0 chỉ_mới=0 lệch_nội_dung=22
+qlnv_tonghop_chitiet_giaonv_theo_chuoi        cũ=     34 mới=     34 chỉ_cũ=0 chỉ_mới=0 lệch_nội_dung=0
+qlnv_tonghop_chitiet_nhom_giaonv              cũ=  22589 mới=  22589 chỉ_cũ=0 chỉ_mới=0 lệch_nội_dung=22
+qlnv_tonghop_chitiet                          cũ= 116969 mới= 116969 chỉ_cũ=0 chỉ_mới=0 lệch_nội_dung=4
+qlnv_tonghop_chitiet_nhom                     cũ=  46398 mới=  46398 chỉ_cũ=0 chỉ_mới=0 lệch_nội_dung=4
+qlnv_tonghop_chitiet_khoi                     cũ=  23886 mới=  23886 chỉ_cũ=0 chỉ_mới=0 lệch_nội_dung=2
+qlnv_tongquan                                 cũ=  12799 mới=  12799  (không khóa, chỉ đếm)

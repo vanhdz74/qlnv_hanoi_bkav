@@ -1,0 +1,1399 @@
+[
+ [
+  [
+   "Chi tiết HĐND",
+   "qlnv_tonghop_chitiet_hdndtp",
+   "142f"
+  ],
+  "KHÁC (0.86)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_tonghop_chitiet_hdndtp like datamart_hanoi.qlnv_tonghop_chitiet"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "; set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_tonghop_chitiet_hdndtp to datamart_han"
+   ]
+  ]
+ ],
+ [
+  [
+   "Chi tiết HĐND",
+   "qlnv_tonghop_chitiet_khoi_hdndtp",
+   "142f"
+  ],
+  "KHÁC (0.86)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp like datamart_hanoi.qlnv_tonghop_ch"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "; set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp to datamar"
+   ]
+  ]
+ ],
+ [
+  [
+   "Chi tiết HĐND",
+   "qlnv_tongquan_donvi_hdndtp",
+   "142f"
+  ],
+  "KHÁC (0.76)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_tongquan_donvi_hdndtp like datamart_hanoi.qlnv_tongquan_donvi_h"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "; set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_tongquan_donvi_hdndtp to datamart_hano"
+   ]
+  ]
+ ],
+ [
+  [
+   "Chi tiết HĐND",
+   "qlnv_tongquan_hdndtp",
+   "142f"
+  ],
+  "KHÁC (0.75)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_tongquan_hdndtp like datamart_hanoi.qlnv_tongquan_hdndtp ;"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "; set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_tongquan_hdndtp to datamart_hanoi.qlnv"
+   ]
+  ]
+ ],
+ [
+  [
+   "Chi tiết đơn vị",
+   "qlnv_tonghop_chitiet_donvi",
+   "142f"
+  ],
+  "KHÁC (0.96)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_tonghop_chitiet_donvi like datamart_hanoi.qlnv_tonghop_chitiet_"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_tonghop_chitiet_donvi to datamart_hanoi."
+   ]
+  ]
+ ],
+ [
+  [
+   "Chi tiết đơn vị",
+   "qlnv_tongquan_donvi",
+   "142f"
+  ],
+  "KHÁC (0.94)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_tongquan_donvi like datamart_hanoi.qlnv_tongquan_donvi ;"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_tongquan_donvi to datamart_hanoi.qlnv_to"
+   ]
+  ]
+ ],
+ [
+  [
+   "Copy of Chi tiết HĐND",
+   "qlnv_cbcc_danhgia_hdndtp",
+   "142f"
+  ],
+  "GIỐNG",
+  ""
+ ],
+ [
+  [
+   "Copy of Chi tiết HĐND",
+   "qlnv_tonghop_chitiet_hdndtp",
+   "142f"
+  ],
+  "KHÁC (0.86)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp like db_hdnd_qttt.qlnv_tonghop_chitiet_hdn"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 10 ; rename table db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp to db_hdnd_qttt.qln"
+   ]
+  ]
+ ],
+ [
+  [
+   "Copy of Chi tiết HĐND",
+   "qlnv_tonghop_chitiet_khoi_hdndtp",
+   "142f"
+  ],
+  "KHÁC (0.86)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp like db_hdnd_qttt.qlnv_tonghop_chitie"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 10 ; rename table db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp to db_hdnd_qtt"
+   ]
+  ]
+ ],
+ [
+  [
+   "Copy of Chi tiết HĐND",
+   "qlnv_tongquan_donvi_hdndtp",
+   "142f"
+  ],
+  "KHÁC (0.76)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp like db_hdnd_qttt.qlnv_tongquan_donvi_hdndt"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 10 ; rename table db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp to db_hdnd_qttt.qlnv"
+   ]
+  ]
+ ],
+ [
+  [
+   "Copy of Chi tiết HĐND",
+   "qlnv_tongquan_hdndtp",
+   "142f"
+  ],
+  "KHÁC (0.75)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists db_hdnd_qttt.qlnv_tongquan_hdndtp like db_hdnd_qttt.qlnv_tongquan_hdndtp ;"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 10 ; rename table db_hdnd_qttt.qlnv_tongquan_hdndtp to db_hdnd_qttt.qlnv_tongq"
+   ]
+  ]
+ ],
+ [
+  [
+   "Dashboard Lãnh đạo các phòng, sở ngành, xã phường",
+   "qlnv_tonghop_chitiet_dieuhanh_lanhdao",
+   "142f"
+  ],
+  "KHÁC (0.93)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao like datamart_hanoi.qlnv_tongh"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao to data"
+   ]
+  ]
+ ],
+ [
+  [
+   "Dashboard Lãnh đạo các phòng, sở ngành, xã phường",
+   "qlnv_tongquan_dieuhanh_lanhdao",
+   "142f"
+  ],
+  "KHÁC (0.92)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao like datamart_hanoi.qlnv_tongquan_die"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "; set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao to datamart_"
+   ]
+  ]
+ ],
+ [
+  [
+   "Giao + Nhận NV",
+   "qlnv_tonghop_chitiet",
+   "142f"
+  ],
+  "KHÁC (0.64)",
+  [
+   [
+    "replace",
+    "truncate table datamart_hanoi.qlnv_tonghop_chitiet",
+    "set transaction isolation level read committed"
+   ],
+   [
+    "replace",
+    "now ( )",
+    "'${sync_ts}'"
+   ],
+   [
+    "replace",
+    "now ( )",
+    "'${sync_ts}'"
+   ],
+   [
+    "insert",
+    "",
+    "on duplicate key update ` monthkey ` = values ( ` monthkey ` ) , ` date ` = values ( ` date ` ) , ` month ` = "
+   ],
+   [
+    "insert",
+    "",
+    "delete from datamart_hanoi.qlnv_tonghop_chitiet where syncdate < '${sync_ts}' or syncdate is null ;"
+   ]
+  ]
+ ],
+ [
+  [
+   "Giao + Nhận NV",
+   "qlnv_tonghop_chitiet_khoi",
+   "142f"
+  ],
+  "KHÁC (0.14)",
+  [
+   [
+    "replace",
+    "truncate table datamart_hanoi.qlnv_tonghop_chitiet_khoi",
+    "set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "( ` monthkey ` , ` date ` , ` month ` , ` year ` , ` nhomvb_ma ` , ` nhomvb ` , ` ma_nv_cha ` , ` code ` , ` i"
+   ],
+   [
+    "replace",
+    "*",
+    "t. ` monthkey ` , t. ` date ` , t. ` month ` , t. ` year ` , t. ` nhomvb_ma ` , t. ` nhomvb ` , t. ` ma_nv_cha"
+   ],
+   [
+    "insert",
+    "",
+    "on duplicate key update ` monthkey ` = values ( ` monthkey ` ) , ` date ` = values ( ` date ` ) , ` month ` = "
+   ],
+   [
+    "insert",
+    "",
+    "delete from datamart_hanoi.qlnv_tonghop_chitiet_khoi where syncdate < '${sync_ts}' or syncdate is null ;"
+   ]
+  ]
+ ],
+ [
+  [
+   "Giao + Nhận NV",
+   "qlnv_tonghop_chitiet_nhom",
+   "142f"
+  ],
+  "KHÁC (0.65)",
+  [
+   [
+    "replace",
+    "truncate table datamart_hanoi.qlnv_tonghop_chitiet_nhom",
+    "set transaction isolation level read committed"
+   ],
+   [
+    "replace",
+    "now ( )",
+    "'${sync_ts}'"
+   ],
+   [
+    "replace",
+    "now ( )",
+    "'${sync_ts}'"
+   ],
+   [
+    "insert",
+    "",
+    "on duplicate key update ` monthkey ` = values ( ` monthkey ` ) , ` date ` = values ( ` date ` ) , ` month ` = "
+   ],
+   [
+    "insert",
+    "",
+    "delete from datamart_hanoi.qlnv_tonghop_chitiet_nhom where syncdate < '${sync_ts}' or syncdate is null ;"
+   ]
+  ]
+ ],
+ [
+  [
+   "Giao + Nhận NV",
+   "qlnv_tongquan",
+   "142f"
+  ],
+  "KHÁC (0.96)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_tongquan like datamart_hanoi.qlnv_tongquan ;"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_tongquan to datamart_hanoi.qlnv_tongquan"
+   ]
+  ]
+ ],
+ [
+  [
+   "Giao NV",
+   "Update DonViChuTri",
+   "142f"
+  ],
+  "KHÁC (0.66)",
+  [
+   [
+    "insert",
+    "",
+    ", g.syncdate = g.syncdate where not ( g.iddv_dvchutri < = > case when g.nhomcautrucnhiemvu = 'nhiệm vụ đơn lẻ'"
+   ]
+  ]
+ ],
+ [
+  [
+   "Giao NV",
+   "Update NhomCauTrucNhiemVu Giao",
+   "142f"
+  ],
+  "KHÁC (0.20)",
+  [
+   [
+    "replace",
+    "update",
+    "drop temporary table if exists rt_cha , rt_ten ; create temporary table rt_cha ( ma int not null primary key )"
+   ],
+   [
+    "delete",
+    "t left join datamart_hanoi.qlnv_tonghop_chitiet_giaonv c on c.ma_nv_ch",
+    ""
+   ],
+   [
+    "replace",
+    "t.ma_nv_cha",
+    "ma_nv_cha"
+   ],
+   [
+    "replace",
+    "or c.ma_nv_cha",
+    "; create temporary table rt_ten ( tennv_viettat varchar ( 255 ) character set utf8mb4 collate utf8mb4_unicode_"
+   ],
+   [
+    "insert",
+    "",
+    "group by tennv_viettat"
+   ],
+   [
+    "replace",
+    "datamart_hanoi.qlnv_tonghop_chitiet_giaonv t2",
+    "rt_cha c"
+   ]
+  ]
+ ],
+ [
+  [
+   "Giao NV",
+   "qlnv_th_tongquan_donvi_giaonv",
+   "142f"
+  ],
+  "KHÁC (0.97)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_th_tongquan_donvi_giaonv like datamart_hanoi.qlnv_th_tongquan_d"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_th_tongquan_donvi_giaonv to datamart_han"
+   ]
+  ]
+ ],
+ [
+  [
+   "Giao NV",
+   "qlnv_tonghop_chitiet_giaonv",
+   "142f"
+  ],
+  "KHÁC (0.85)",
+  [
+   [
+    "replace",
+    "truncate table datamart_hanoi.qlnv_tonghop_chitiet_giaonv",
+    "set transaction isolation level read committed"
+   ],
+   [
+    "replace",
+    "now ( )",
+    "'${sync_ts}'"
+   ],
+   [
+    "insert",
+    "",
+    "on duplicate key update ` monthkey ` = values ( ` monthkey ` ) , ` date ` = values ( ` date ` ) , ` month ` = "
+   ],
+   [
+    "insert",
+    "",
+    "delete from datamart_hanoi.qlnv_tonghop_chitiet_giaonv where syncdate < '${sync_ts}' or syncdate is null ;"
+   ]
+  ]
+ ],
+ [
+  [
+   "Giao NV",
+   "qlnv_tonghop_chitiet_giaonv_don_le",
+   "142f"
+  ],
+  "KHÁC (0.04)",
+  [
+   [
+    "replace",
+    "truncate table datamart_hanoi.qlnv_tonghop_chitiet_giaonv_don_le",
+    "set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "( ` monthkey ` , ` date ` , ` month ` , ` year ` , ` nhomvb_ma ` , ` nhomvb ` , ` nhomnhiemvu ` , ` ma_nv_cha "
+   ],
+   [
+    "replace",
+    "*",
+    "t. ` monthkey ` , t. ` date ` , t. ` month ` , t. ` year ` , t. ` nhomvb_ma ` , t. ` nhomvb ` , t. ` nhomnhiem"
+   ],
+   [
+    "insert",
+    "",
+    "on duplicate key update ` monthkey ` = values ( ` monthkey ` ) , ` date ` = values ( ` date ` ) , ` month ` = "
+   ],
+   [
+    "insert",
+    "",
+    "delete from datamart_hanoi.qlnv_tonghop_chitiet_giaonv_don_le where syncdate < '${sync_ts}' or syncdate is nul"
+   ]
+  ]
+ ],
+ [
+  [
+   "Giao NV",
+   "qlnv_tonghop_chitiet_giaonv_theo_chuoi",
+   "142f"
+  ],
+  "KHÁC (0.04)",
+  [
+   [
+    "replace",
+    "truncate table datamart_hanoi.qlnv_tonghop_chitiet_giaonv_theo_chuoi",
+    "set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "( ` monthkey ` , ` date ` , ` month ` , ` year ` , ` nhomvb_ma ` , ` nhomvb ` , ` nhomnhiemvu ` , ` ma_nv_cha "
+   ],
+   [
+    "replace",
+    "*",
+    "t. ` monthkey ` , t. ` date ` , t. ` month ` , t. ` year ` , t. ` nhomvb_ma ` , t. ` nhomvb ` , t. ` nhomnhiem"
+   ],
+   [
+    "insert",
+    "",
+    "on duplicate key update ` monthkey ` = values ( ` monthkey ` ) , ` date ` = values ( ` date ` ) , ` month ` = "
+   ],
+   [
+    "insert",
+    "",
+    "delete from datamart_hanoi.qlnv_tonghop_chitiet_giaonv_theo_chuoi where syncdate < '${sync_ts}' or syncdate is"
+   ]
+  ]
+ ],
+ [
+  [
+   "Giao NV",
+   "qlnv_tonghop_chitiet_nhom_giaonv",
+   "142f"
+  ],
+  "KHÁC (0.76)",
+  [
+   [
+    "delete",
+    "truncate table datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv ;",
+    ""
+   ],
+   [
+    "insert",
+    "",
+    "set transaction isolation level read committed ;"
+   ],
+   [
+    "insert",
+    "",
+    "( ` monthkey ` , ` date ` , ` month ` , ` year ` , ` nhomvb_ma ` , ` nhomvb ` , ` ma_nv_cha ` , ` code ` , ` i"
+   ],
+   [
+    "insert",
+    "",
+    ", '${sync_ts}' as syncdate"
+   ],
+   [
+    "insert",
+    "",
+    "on duplicate key update ` monthkey ` = values ( ` monthkey ` ) , ` date ` = values ( ` date ` ) , ` month ` = "
+   ],
+   [
+    "insert",
+    "",
+    "delete from datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv where syncdate < '${sync_ts}' or syncdate is null "
+   ]
+  ]
+ ],
+ [
+  [
+   "Khối",
+   "qlnv_tongquan_khoi",
+   "142f"
+  ],
+  "KHÁC (0.92)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_tongquan_khoi like datamart_hanoi.qlnv_tongquan_khoi ;"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_tongquan_khoi to datamart_hanoi.qlnv_ton"
+   ]
+  ]
+ ],
+ [
+  [
+   "Kiểm đếm",
+   "qlnv_tongquan_donvi_kiemdem",
+   "142f"
+  ],
+  "KHÁC (0.96)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_tongquan_donvi_kiemdem like datamart_hanoi.qlnv_tongquan_donvi_"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_tongquan_donvi_kiemdem to datamart_hanoi"
+   ]
+  ]
+ ],
+ [
+  [
+   "Kiểm đếm",
+   "qlnv_tongquan_vanban_kiemdem",
+   "142f"
+  ],
+  "KHÁC (0.95)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_tongquan_vanban_kiemdem like datamart_hanoi.qlnv_tongquan_vanba"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_tongquan_vanban_kiemdem to datamart_hano"
+   ]
+  ]
+ ],
+ [
+  [
+   "Mốc thời gian",
+   "qlnv_tonghop_chitiet_nhom_moc_thoi_gian",
+   "142f"
+  ],
+  "KHÁC (0.90)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian like datamart_hanoi.qlnv_ton"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian to da"
+   ]
+  ]
+ ],
+ [
+  [
+   "Mốc thời gian",
+   "qlnv_tongquan_cham_muon_theo_don_vi",
+   "142f"
+  ],
+  "KHÁC (0.84)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi like datamart_hanoi.qlnv_tongqua"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi to datama"
+   ]
+  ]
+ ],
+ [
+  [
+   "Mốc thời gian",
+   "qlnv_tongquan_nhom_moc_thoi_gian",
+   "142f"
+  ],
+  "KHÁC (0.90)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian like datamart_hanoi.qlnv_ton"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian to da"
+   ]
+  ]
+ ],
+ [
+  [
+   "NV theo NQ57",
+   "qlnv_tonghop_chitiet_nq57",
+   "142f"
+  ],
+  "KHÁC (0.85)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_tonghop_chitiet_nq57 like datamart_hanoi.qlnv_tonghop_chitiet_n"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "; set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_tonghop_chitiet_nq57 to datamart_hanoi"
+   ]
+  ]
+ ],
+ [
+  [
+   "NV theo NQ57",
+   "qlnv_tongquan_nq57",
+   "142f"
+  ],
+  "KHÁC (0.95)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_tongquan_nq57 like datamart_hanoi.qlnv_tongquan_nq57 ;"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_tongquan_nq57 to datamart_hanoi.qlnv_ton"
+   ]
+  ]
+ ],
+ [
+  [
+   "Tiếp nhận NV",
+   "Update DonViChuTri",
+   "142f"
+  ],
+  "KHÁC (0.67)",
+  [
+   [
+    "delete",
+    "when g.nhomcautrucnhiemvu = 'nhiệm vụ đơn lẻ' then g.iddv",
+    ""
+   ],
+   [
+    "replace",
+    "'nhiệm vụ đơn lẻ'",
+    "'nhiệm vụ theo chuỗi'"
+   ],
+   [
+    "insert",
+    "",
+    "coalesce ( g_cha.donvi ,"
+   ],
+   [
+    "insert",
+    "",
+    ") else g.donvi end , g.syncdate = g.syncdate where not ( g.iddv_dvchutri < = > case when g.nhomcautrucnhiemvu "
+   ],
+   [
+    "insert",
+    "",
+    ")"
+   ]
+  ]
+ ],
+ [
+  [
+   "Tiếp nhận NV",
+   "Update NhomCauTrucNhiemVu Nhan",
+   "142f"
+  ],
+  "KHÁC (0.20)",
+  [
+   [
+    "replace",
+    "update",
+    "drop temporary table if exists rt_cha , rt_ten ; create temporary table rt_cha ( ma int not null primary key )"
+   ],
+   [
+    "delete",
+    "t left join datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan c on c.ma_nv_",
+    ""
+   ],
+   [
+    "replace",
+    "t.ma_nv_cha",
+    "ma_nv_cha"
+   ],
+   [
+    "replace",
+    "or c.ma_nv_cha",
+    "; create temporary table rt_ten ( tennv_viettat varchar ( 255 ) character set utf8mb4 collate utf8mb4_unicode_"
+   ],
+   [
+    "insert",
+    "",
+    "group by tennv_viettat"
+   ],
+   [
+    "replace",
+    "datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan t2",
+    "rt_cha c"
+   ]
+  ]
+ ],
+ [
+  [
+   "Tiếp nhận NV",
+   "qlnv_th_tongquan_donvi_tiepnhan",
+   "142f"
+  ],
+  "KHÁC (0.97)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan like datamart_hanoi.qlnv_th_tongquan"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan to datamart_h"
+   ]
+  ]
+ ],
+ [
+  [
+   "Tiếp nhận NV",
+   "qlnv_tonghop_chitiet_nhom_tiepnhan",
+   "142f"
+  ],
+  "KHÁC (0.74)",
+  [
+   [
+    "delete",
+    "truncate table datamart_hanoi.qlnv_tonghop_chitiet_nhom_tiepnhan ;",
+    ""
+   ],
+   [
+    "insert",
+    "",
+    "set transaction isolation level read committed ;"
+   ],
+   [
+    "insert",
+    "",
+    "( ` monthkey ` , ` date ` , ` month ` , ` year ` , ` nhomvb_ma ` , ` nhomvb ` , ` ma_nv_cha ` , ` code ` , ` i"
+   ],
+   [
+    "insert",
+    "",
+    ", '${sync_ts}' as syncdate"
+   ],
+   [
+    "insert",
+    "",
+    "on duplicate key update ` monthkey ` = values ( ` monthkey ` ) , ` date ` = values ( ` date ` ) , ` month ` = "
+   ],
+   [
+    "insert",
+    "",
+    "delete from datamart_hanoi.qlnv_tonghop_chitiet_nhom_tiepnhan where syncdate < '${sync_ts}' or syncdate is nul"
+   ]
+  ]
+ ],
+ [
+  [
+   "Tiếp nhận NV",
+   "qlnv_tonghop_chitiet_tiepnhan",
+   "142f"
+  ],
+  "KHÁC (0.85)",
+  [
+   [
+    "replace",
+    "truncate table datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan",
+    "set transaction isolation level read committed"
+   ],
+   [
+    "replace",
+    "now ( )",
+    "'${sync_ts}'"
+   ],
+   [
+    "insert",
+    "",
+    "on duplicate key update ` monthkey ` = values ( ` monthkey ` ) , ` date ` = values ( ` date ` ) , ` month ` = "
+   ],
+   [
+    "insert",
+    "",
+    "delete from datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan where syncdate < '${sync_ts}' or syncdate is null ;"
+   ]
+  ]
+ ],
+ [
+  [
+   "Tiếp nhận NV",
+   "qlnv_tonghop_chitiet_tiepnhan_don_le",
+   "142f"
+  ],
+  "KHÁC (0.04)",
+  [
+   [
+    "replace",
+    "truncate table datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_don_le",
+    "set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "( ` monthkey ` , ` date ` , ` month ` , ` year ` , ` nhomvb_ma ` , ` nhomvb ` , ` nhomnhiemvu ` , ` ma_nv_cha "
+   ],
+   [
+    "replace",
+    "*",
+    "t. ` monthkey ` , t. ` date ` , t. ` month ` , t. ` year ` , t. ` nhomvb_ma ` , t. ` nhomvb ` , t. ` nhomnhiem"
+   ],
+   [
+    "insert",
+    "",
+    "on duplicate key update ` monthkey ` = values ( ` monthkey ` ) , ` date ` = values ( ` date ` ) , ` month ` = "
+   ],
+   [
+    "insert",
+    "",
+    "delete from datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_don_le where syncdate < '${sync_ts}' or syncdate is n"
+   ]
+  ]
+ ],
+ [
+  [
+   "Tiếp nhận NV",
+   "qlnv_tonghop_chitiet_tiepnhan_theo_chuoi",
+   "142f"
+  ],
+  "KHÁC (0.04)",
+  [
+   [
+    "replace",
+    "truncate table datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_theo_chuoi",
+    "set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "( ` monthkey ` , ` date ` , ` month ` , ` year ` , ` nhomvb_ma ` , ` nhomvb ` , ` nhomnhiemvu ` , ` ma_nv_cha "
+   ],
+   [
+    "replace",
+    "*",
+    "t. ` monthkey ` , t. ` date ` , t. ` month ` , t. ` year ` , t. ` nhomvb_ma ` , t. ` nhomvb ` , t. ` nhomnhiem"
+   ],
+   [
+    "insert",
+    "",
+    "on duplicate key update ` monthkey ` = values ( ` monthkey ` ) , ` date ` = values ( ` date ` ) , ` month ` = "
+   ],
+   [
+    "insert",
+    "",
+    "delete from datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_theo_chuoi where syncdate < '${sync_ts}' or syncdate "
+   ]
+  ]
+ ],
+ [
+  [
+   "Văn bản giao nhiệm vụ",
+   "qlnv_tongquan_vanban",
+   "142f"
+  ],
+  "KHÁC (0.82)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_tongquan_vanban like datamart_hanoi.qlnv_tongquan_vanban ;"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_tongquan_vanban to datamart_hanoi.qlnv_t"
+   ]
+  ]
+ ],
+ [
+  [
+   "Văn bản giao nhiệm vụ",
+   "qlnv_tongquan_vanban_chitiet",
+   "142f"
+  ],
+  "KHÁC (0.96)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_tongquan_vanban_chitiet like datamart_hanoi.qlnv_tongquan_vanba"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_tongquan_vanban_chitiet to datamart_hano"
+   ]
+  ]
+ ],
+ [
+  [
+   "qlnv_kl_ctpct_chitiet",
+   "01_stage01",
+   "142f"
+  ],
+  "GIỐNG",
+  ""
+ ],
+ [
+  [
+   "qlnv_kl_ctpct_chitiet",
+   "02_stage02",
+   "142f"
+  ],
+  "GIỐNG",
+  ""
+ ],
+ [
+  [
+   "qlnv_kl_ctpct_chitiet",
+   "03_chitiet",
+   "142f"
+  ],
+  "GIỐNG",
+  ""
+ ],
+ [
+  [
+   "qlnv_kl_ctpct_chitiet",
+   "DỌN chitiet",
+   "142f"
+  ],
+  "GIỐNG",
+  ""
+ ],
+ [
+  [
+   "qlnv_kl_ctpct_chitiet",
+   "DỌN stage01",
+   "142f"
+  ],
+  "GIỐNG",
+  ""
+ ],
+ [
+  [
+   "qlnv_kl_ctpct_chitiet",
+   "DỌN stage02",
+   "142f"
+  ],
+  "GIỐNG",
+  ""
+ ],
+ [
+  [
+   "qlnv_kl_ctpct_chitiet",
+   "PUT chitiet",
+   "142f"
+  ],
+  "GIỐNG",
+  ""
+ ],
+ [
+  [
+   "qlnv_kl_ctpct_chitiet",
+   "PUT stage01",
+   "142f"
+  ],
+  "GIỐNG",
+  ""
+ ],
+ [
+  [
+   "qlnv_kl_ctpct_chitiet",
+   "PUT stage02",
+   "142f"
+  ],
+  "GIỐNG",
+  ""
+ ],
+ [
+  [
+   "qlnv_kl_ctpct_chitiet",
+   "PutDatabaseRecord",
+   "142f"
+  ],
+  "GIỐNG",
+  ""
+ ],
+ [
+  [
+   "qlnv_kl_ctpct_chitiet",
+   "qlnv_kl_ctpct_chitiet",
+   "142f"
+  ],
+  "KHÁC (0.80)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_kl_ctpct_chitiet like datamart_hanoi.qlnv_kl_ctpct_chitiet ;"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_kl_ctpct_chitiet to datamart_hanoi.qlnv_"
+   ]
+  ]
+ ],
+ [
+  [
+   "qlnv_kl_ctpct_chitiet",
+   "qlnv_kl_ctpct_chitiet_stage01",
+   "142f"
+  ],
+  "KHÁC (0.93)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01 like datamart_hanoi.qlnv_kl_ctpct_chit"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01 to datamart_han"
+   ]
+  ]
+ ],
+ [
+  [
+   "qlnv_kl_ctpct_chitiet",
+   "qlnv_kl_ctpct_chitiet_stage02",
+   "142f"
+  ],
+  "KHÁC (0.90)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02 like datamart_hanoi.qlnv_kl_ctpct_chit"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02 to datamart_han"
+   ]
+  ]
+ ],
+ [
+  [
+   "Đánh giá cán bộ",
+   "PutDatabaseRecord",
+   "142f"
+  ],
+  "GIỐNG",
+  ""
+ ],
+ [
+  [
+   "Đánh giá cán bộ",
+   "qlnv_cbcc_danhgia",
+   "142f"
+  ],
+  "GIỐNG",
+  ""
+ ],
+ [
+  [
+   "Đánh giá cán bộ",
+   "qlnv_tongquan_kpi_theo_don_vi",
+   "142f"
+  ],
+  "KHÁC (0.96)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi like datamart_hanoi.qlnv_tongquan_kpi_"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 10 ; rename table datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi to datamart_han"
+   ]
+  ]
+ ],
+ [
+  [
+   "Đánh giá cán bộ",
+   "qlnv_tongquan_kpi_theo_nguoi_xu_ly",
+   "142f"
+  ],
+  "KHÁC (0.97)",
+  [
+   [
+    "insert",
+    "",
+    "create table if not exists datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly like datamart_hanoi.qlnv_tongquan"
+   ],
+   [
+    "insert",
+    "",
+    "; set transaction isolation level read committed"
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 10"
+   ],
+   [
+    "replace",
+    "truncate",
+    "rename"
+   ],
+   [
+    "insert",
+    "",
+    "to datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly__old , datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly "
+   ],
+   [
+    "insert",
+    "",
+    "set session lock_wait_timeout = 31536000 ;"
+   ]
+  ]
+ ]
+]

@@ -1,0 +1,757 @@
+[
+ {
+  "revision": {
+   "version": 1
+  },
+  "id": "142f3f0e-6ef6-1fc2-5baf-31c5932d3a63",
+  "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/142f3f0e-6ef6-1fc2-5baf-31c5932d3a63",
+  "permissions": {
+   "canRead": true,
+   "canWrite": true
+  },
+  "component": {
+   "id": "142f3f0e-6ef6-1fc2-5baf-31c5932d3a63",
+   "parentGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "source": {
+    "id": "142f3eb1-6ef6-1fc2-6ac9-997572067b0f",
+    "versionedComponentId": "a5dadaaf-f50c-3c3e-9d6a-674bafc7ea6b",
+    "type": "OUTPUT_PORT",
+    "groupId": "142f3eae-6ef6-1fc2-8831-69d392c2e111",
+    "name": "output",
+    "running": true
+   },
+   "destination": {
+    "id": "142f3f04-6ef6-1fc2-b5fe-3e0f107b22a3",
+    "type": "PROCESSOR",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "Cổng 15 phút (sau Giao)",
+    "running": true,
+    "comments": ""
+   },
+   "labelIndex": 1,
+   "zIndex": 0,
+   "backPressureObjectThreshold": 10000,
+   "backPressureDataSizeThreshold": "1 GB",
+   "flowFileExpiration": "0 sec",
+   "prioritizers": [],
+   "bends": [],
+   "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+   "loadBalanceCompression": "DO_NOT_COMPRESS",
+   "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+  },
+  "status": {
+   "id": "142f3f0e-6ef6-1fc2-5baf-31c5932d3a63",
+   "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "name": "",
+   "statsLastRefreshed": "11:40:26 ICT",
+   "sourceId": "142f3eb1-6ef6-1fc2-6ac9-997572067b0f",
+   "sourceName": "output",
+   "destinationId": "142f3f04-6ef6-1fc2-b5fe-3e0f107b22a3",
+   "destinationName": "Cổng 15 phút (sau Giao)",
+   "aggregateSnapshot": {
+    "id": "142f3f0e-6ef6-1fc2-5baf-31c5932d3a63",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "",
+    "sourceName": "output",
+    "destinationName": "Cổng 15 phút (sau Giao)",
+    "flowFilesIn": 5,
+    "bytesIn": 600,
+    "input": "5 (600 bytes)",
+    "flowFilesOut": 5,
+    "bytesOut": 600,
+    "output": "5 (600 bytes)",
+    "flowFilesQueued": 0,
+    "bytesQueued": 0,
+    "queued": "0 (0 bytes)",
+    "queuedSize": "0 bytes",
+    "queuedCount": "0",
+    "percentUseCount": 0,
+    "percentUseBytes": 0,
+    "flowFileAvailability": "ACTIVE_QUEUE_EMPTY"
+   }
+  },
+  "bends": [],
+  "labelIndex": 1,
+  "zIndex": 0,
+  "sourceId": "142f3eb1-6ef6-1fc2-6ac9-997572067b0f",
+  "sourceGroupId": "142f3eae-6ef6-1fc2-8831-69d392c2e111",
+  "sourceType": "OUTPUT_PORT",
+  "destinationId": "142f3f04-6ef6-1fc2-b5fe-3e0f107b22a3",
+  "destinationGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+  "destinationType": "PROCESSOR"
+ },
+ {
+  "revision": {
+   "version": 1
+  },
+  "id": "142f3f06-6ef6-1fc2-8e7e-d2206c260ef9",
+  "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/142f3f06-6ef6-1fc2-8e7e-d2206c260ef9",
+  "permissions": {
+   "canRead": true,
+   "canWrite": true
+  },
+  "component": {
+   "id": "142f3f06-6ef6-1fc2-8e7e-d2206c260ef9",
+   "parentGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "source": {
+    "id": "142f3f04-6ef6-1fc2-b5fe-3e0f107b22a3",
+    "type": "PROCESSOR",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "Cổng 15 phút (sau Giao)",
+    "running": true,
+    "comments": ""
+   },
+   "destination": {
+    "id": "142f3f05-6ef6-1fc2-c889-461525346dbd",
+    "type": "OUTPUT_PORT",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "ra downstream sau Giao (15 phút)",
+    "running": false
+   },
+   "labelIndex": 1,
+   "zIndex": 0,
+   "selectedRelationships": [
+    "qua_15phut"
+   ],
+   "availableRelationships": [
+    "qua_15phut",
+    "unmatched"
+   ],
+   "backPressureObjectThreshold": 10000,
+   "backPressureDataSizeThreshold": "1 GB",
+   "flowFileExpiration": "0 sec",
+   "prioritizers": [],
+   "bends": [],
+   "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+   "loadBalanceCompression": "DO_NOT_COMPRESS",
+   "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+  },
+  "status": {
+   "id": "142f3f06-6ef6-1fc2-8e7e-d2206c260ef9",
+   "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "name": "qua_15phut",
+   "statsLastRefreshed": "11:40:26 ICT",
+   "sourceId": "142f3f04-6ef6-1fc2-b5fe-3e0f107b22a3",
+   "sourceName": "Cổng 15 phút (sau Giao)",
+   "destinationId": "142f3f05-6ef6-1fc2-c889-461525346dbd",
+   "destinationName": "ra downstream sau Giao (15 phút)",
+   "aggregateSnapshot": {
+    "id": "142f3f06-6ef6-1fc2-8e7e-d2206c260ef9",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "qua_15phut",
+    "sourceName": "Cổng 15 phút (sau Giao)",
+    "destinationName": "ra downstream sau Giao (15 phút)",
+    "flowFilesIn": 0,
+    "bytesIn": 0,
+    "input": "0 (0 bytes)",
+    "flowFilesOut": 0,
+    "bytesOut": 0,
+    "output": "0 (0 bytes)",
+    "flowFilesQueued": 1,
+    "bytesQueued": 120,
+    "queued": "1 (120 bytes)",
+    "queuedSize": "120 bytes",
+    "queuedCount": "1",
+    "percentUseCount": 0,
+    "percentUseBytes": 0,
+    "flowFileAvailability": "FLOWFILE_AVAILABLE"
+   }
+  },
+  "bends": [],
+  "labelIndex": 1,
+  "zIndex": 0,
+  "sourceId": "142f3f04-6ef6-1fc2-b5fe-3e0f107b22a3",
+  "sourceGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+  "sourceType": "PROCESSOR",
+  "destinationId": "142f3f05-6ef6-1fc2-c889-461525346dbd",
+  "destinationGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+  "destinationType": "OUTPUT_PORT"
+ },
+ {
+  "revision": {
+   "version": 1
+  },
+  "id": "142f3f03-6ef6-1fc2-5217-dacd1ab84a00",
+  "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/142f3f03-6ef6-1fc2-5217-dacd1ab84a00",
+  "permissions": {
+   "canRead": true,
+   "canWrite": true
+  },
+  "component": {
+   "id": "142f3f03-6ef6-1fc2-5217-dacd1ab84a00",
+   "parentGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "source": {
+    "id": "142f3f01-6ef6-1fc2-9bf0-e99c04015efa",
+    "type": "PROCESSOR",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "Cổng 15 phút (sau Tiếp nhận)",
+    "running": true,
+    "comments": ""
+   },
+   "destination": {
+    "id": "142f3f02-6ef6-1fc2-1246-e3ab60778d0b",
+    "type": "OUTPUT_PORT",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "ra downstream sau Tiếp nhận (15 phút)",
+    "running": false
+   },
+   "labelIndex": 1,
+   "zIndex": 0,
+   "selectedRelationships": [
+    "qua_15phut"
+   ],
+   "availableRelationships": [
+    "qua_15phut",
+    "unmatched"
+   ],
+   "backPressureObjectThreshold": 10000,
+   "backPressureDataSizeThreshold": "1 GB",
+   "flowFileExpiration": "0 sec",
+   "prioritizers": [],
+   "bends": [],
+   "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+   "loadBalanceCompression": "DO_NOT_COMPRESS",
+   "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+  },
+  "status": {
+   "id": "142f3f03-6ef6-1fc2-5217-dacd1ab84a00",
+   "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "name": "qua_15phut",
+   "statsLastRefreshed": "11:40:26 ICT",
+   "sourceId": "142f3f01-6ef6-1fc2-9bf0-e99c04015efa",
+   "sourceName": "Cổng 15 phút (sau Tiếp nhận)",
+   "destinationId": "142f3f02-6ef6-1fc2-1246-e3ab60778d0b",
+   "destinationName": "ra downstream sau Tiếp nhận (15 phút)",
+   "aggregateSnapshot": {
+    "id": "142f3f03-6ef6-1fc2-5217-dacd1ab84a00",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "qua_15phut",
+    "sourceName": "Cổng 15 phút (sau Tiếp nhận)",
+    "destinationName": "ra downstream sau Tiếp nhận (15 phút)",
+    "flowFilesIn": 0,
+    "bytesIn": 0,
+    "input": "0 (0 bytes)",
+    "flowFilesOut": 0,
+    "bytesOut": 0,
+    "output": "0 (0 bytes)",
+    "flowFilesQueued": 1,
+    "bytesQueued": 0,
+    "queued": "1 (0 bytes)",
+    "queuedSize": "0 bytes",
+    "queuedCount": "1",
+    "percentUseCount": 0,
+    "percentUseBytes": 0,
+    "flowFileAvailability": "FLOWFILE_AVAILABLE"
+   }
+  },
+  "bends": [],
+  "labelIndex": 1,
+  "zIndex": 0,
+  "sourceId": "142f3f01-6ef6-1fc2-9bf0-e99c04015efa",
+  "sourceGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+  "sourceType": "PROCESSOR",
+  "destinationId": "142f3f02-6ef6-1fc2-1246-e3ab60778d0b",
+  "destinationGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+  "destinationType": "OUTPUT_PORT"
+ },
+ {
+  "revision": {
+   "version": 1
+  },
+  "id": "142f3f0b-6ef6-1fc2-dd44-34e2d3f38441",
+  "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/142f3f0b-6ef6-1fc2-dd44-34e2d3f38441",
+  "permissions": {
+   "canRead": true,
+   "canWrite": true
+  },
+  "component": {
+   "id": "142f3f0b-6ef6-1fc2-dd44-34e2d3f38441",
+   "parentGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "source": {
+    "id": "142f3e8e-6ef6-1fc2-f96c-d94c012c6fb0",
+    "versionedComponentId": "2114ef96-05f0-3eae-949d-9c0e5619fd59",
+    "type": "OUTPUT_PORT",
+    "groupId": "142f3e8c-6ef6-1fc2-ede8-4c1172022351",
+    "name": "output",
+    "running": true,
+    "comments": ""
+   },
+   "destination": {
+    "id": "142f3eb0-6ef6-1fc2-9427-790210bc7885",
+    "versionedComponentId": "17e0d888-4d17-3118-a954-0a56c84aacb9",
+    "type": "INPUT_PORT",
+    "groupId": "142f3eae-6ef6-1fc2-8831-69d392c2e111",
+    "name": "input",
+    "running": true
+   },
+   "labelIndex": 1,
+   "zIndex": 0,
+   "backPressureObjectThreshold": 10000,
+   "backPressureDataSizeThreshold": "1 GB",
+   "flowFileExpiration": "0 sec",
+   "prioritizers": [],
+   "bends": [],
+   "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+   "loadBalanceCompression": "DO_NOT_COMPRESS",
+   "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+  },
+  "status": {
+   "id": "142f3f0b-6ef6-1fc2-dd44-34e2d3f38441",
+   "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "name": "",
+   "statsLastRefreshed": "11:40:26 ICT",
+   "sourceId": "142f3e8e-6ef6-1fc2-f96c-d94c012c6fb0",
+   "sourceName": "output",
+   "destinationId": "142f3eb0-6ef6-1fc2-9427-790210bc7885",
+   "destinationName": "input",
+   "aggregateSnapshot": {
+    "id": "142f3f0b-6ef6-1fc2-dd44-34e2d3f38441",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "",
+    "sourceName": "output",
+    "destinationName": "input",
+    "flowFilesIn": 5,
+    "bytesIn": 0,
+    "input": "5 (0 bytes)",
+    "flowFilesOut": 5,
+    "bytesOut": 0,
+    "output": "5 (0 bytes)",
+    "flowFilesQueued": 0,
+    "bytesQueued": 0,
+    "queued": "0 (0 bytes)",
+    "queuedSize": "0 bytes",
+    "queuedCount": "0",
+    "percentUseCount": 0,
+    "percentUseBytes": 0,
+    "flowFileAvailability": "ACTIVE_QUEUE_EMPTY"
+   }
+  },
+  "bends": [],
+  "labelIndex": 1,
+  "zIndex": 0,
+  "sourceId": "142f3e8e-6ef6-1fc2-f96c-d94c012c6fb0",
+  "sourceGroupId": "142f3e8c-6ef6-1fc2-ede8-4c1172022351",
+  "sourceType": "OUTPUT_PORT",
+  "destinationId": "142f3eb0-6ef6-1fc2-9427-790210bc7885",
+  "destinationGroupId": "142f3eae-6ef6-1fc2-8831-69d392c2e111",
+  "destinationType": "INPUT_PORT"
+ },
+ {
+  "revision": {
+   "version": 1
+  },
+  "id": "142f3f0c-6ef6-1fc2-a15e-8dec1e4ff54f",
+  "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/142f3f0c-6ef6-1fc2-a15e-8dec1e4ff54f",
+  "permissions": {
+   "canRead": true,
+   "canWrite": true
+  },
+  "component": {
+   "id": "142f3f0c-6ef6-1fc2-a15e-8dec1e4ff54f",
+   "parentGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "source": {
+    "id": "142f3eb1-6ef6-1fc2-6ac9-997572067b0f",
+    "versionedComponentId": "a5dadaaf-f50c-3c3e-9d6a-674bafc7ea6b",
+    "type": "OUTPUT_PORT",
+    "groupId": "142f3eae-6ef6-1fc2-8831-69d392c2e111",
+    "name": "output",
+    "running": true
+   },
+   "destination": {
+    "id": "142f3ed9-6ef6-1fc2-0522-f6b444cbf107",
+    "versionedComponentId": "49b78944-74aa-35cc-9538-06f4ac7ce1d8",
+    "type": "INPUT_PORT",
+    "groupId": "142f3ed8-6ef6-1fc2-d06d-d0c4aa837b0b",
+    "name": "input",
+    "running": true
+   },
+   "labelIndex": 1,
+   "zIndex": 0,
+   "backPressureObjectThreshold": 10000,
+   "backPressureDataSizeThreshold": "1 GB",
+   "flowFileExpiration": "0 sec",
+   "prioritizers": [],
+   "bends": [],
+   "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+   "loadBalanceCompression": "DO_NOT_COMPRESS",
+   "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+  },
+  "status": {
+   "id": "142f3f0c-6ef6-1fc2-a15e-8dec1e4ff54f",
+   "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "name": "",
+   "statsLastRefreshed": "11:40:26 ICT",
+   "sourceId": "142f3eb1-6ef6-1fc2-6ac9-997572067b0f",
+   "sourceName": "output",
+   "destinationId": "142f3ed9-6ef6-1fc2-0522-f6b444cbf107",
+   "destinationName": "input",
+   "aggregateSnapshot": {
+    "id": "142f3f0c-6ef6-1fc2-a15e-8dec1e4ff54f",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "",
+    "sourceName": "output",
+    "destinationName": "input",
+    "flowFilesIn": 5,
+    "bytesIn": 600,
+    "input": "5 (600 bytes)",
+    "flowFilesOut": 5,
+    "bytesOut": 600,
+    "output": "5 (600 bytes)",
+    "flowFilesQueued": 0,
+    "bytesQueued": 0,
+    "queued": "0 (0 bytes)",
+    "queuedSize": "0 bytes",
+    "queuedCount": "0",
+    "percentUseCount": 0,
+    "percentUseBytes": 0,
+    "flowFileAvailability": "ACTIVE_QUEUE_EMPTY"
+   }
+  },
+  "bends": [],
+  "labelIndex": 1,
+  "zIndex": 0,
+  "sourceId": "142f3eb1-6ef6-1fc2-6ac9-997572067b0f",
+  "sourceGroupId": "142f3eae-6ef6-1fc2-8831-69d392c2e111",
+  "sourceType": "OUTPUT_PORT",
+  "destinationId": "142f3ed9-6ef6-1fc2-0522-f6b444cbf107",
+  "destinationGroupId": "142f3ed8-6ef6-1fc2-d06d-d0c4aa837b0b",
+  "destinationType": "INPUT_PORT"
+ },
+ {
+  "revision": {
+   "version": 1
+  },
+  "id": "142f3f0d-6ef6-1fc2-22d6-41c8764d8f32",
+  "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/142f3f0d-6ef6-1fc2-22d6-41c8764d8f32",
+  "permissions": {
+   "canRead": true,
+   "canWrite": true
+  },
+  "component": {
+   "id": "142f3f0d-6ef6-1fc2-22d6-41c8764d8f32",
+   "parentGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "source": {
+    "id": "142f3e8e-6ef6-1fc2-f96c-d94c012c6fb0",
+    "versionedComponentId": "2114ef96-05f0-3eae-949d-9c0e5619fd59",
+    "type": "OUTPUT_PORT",
+    "groupId": "142f3e8c-6ef6-1fc2-ede8-4c1172022351",
+    "name": "output",
+    "running": true,
+    "comments": ""
+   },
+   "destination": {
+    "id": "142f3f01-6ef6-1fc2-9bf0-e99c04015efa",
+    "type": "PROCESSOR",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "Cổng 15 phút (sau Tiếp nhận)",
+    "running": true,
+    "comments": ""
+   },
+   "labelIndex": 1,
+   "zIndex": 0,
+   "backPressureObjectThreshold": 10000,
+   "backPressureDataSizeThreshold": "1 GB",
+   "flowFileExpiration": "0 sec",
+   "prioritizers": [],
+   "bends": [],
+   "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+   "loadBalanceCompression": "DO_NOT_COMPRESS",
+   "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+  },
+  "status": {
+   "id": "142f3f0d-6ef6-1fc2-22d6-41c8764d8f32",
+   "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "name": "",
+   "statsLastRefreshed": "11:40:26 ICT",
+   "sourceId": "142f3e8e-6ef6-1fc2-f96c-d94c012c6fb0",
+   "sourceName": "output",
+   "destinationId": "142f3f01-6ef6-1fc2-9bf0-e99c04015efa",
+   "destinationName": "Cổng 15 phút (sau Tiếp nhận)",
+   "aggregateSnapshot": {
+    "id": "142f3f0d-6ef6-1fc2-22d6-41c8764d8f32",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "",
+    "sourceName": "output",
+    "destinationName": "Cổng 15 phút (sau Tiếp nhận)",
+    "flowFilesIn": 5,
+    "bytesIn": 0,
+    "input": "5 (0 bytes)",
+    "flowFilesOut": 5,
+    "bytesOut": 0,
+    "output": "5 (0 bytes)",
+    "flowFilesQueued": 0,
+    "bytesQueued": 0,
+    "queued": "0 (0 bytes)",
+    "queuedSize": "0 bytes",
+    "queuedCount": "0",
+    "percentUseCount": 0,
+    "percentUseBytes": 0,
+    "flowFileAvailability": "ACTIVE_QUEUE_EMPTY"
+   }
+  },
+  "bends": [],
+  "labelIndex": 1,
+  "zIndex": 0,
+  "sourceId": "142f3e8e-6ef6-1fc2-f96c-d94c012c6fb0",
+  "sourceGroupId": "142f3e8c-6ef6-1fc2-ede8-4c1172022351",
+  "sourceType": "OUTPUT_PORT",
+  "destinationId": "142f3f01-6ef6-1fc2-9bf0-e99c04015efa",
+  "destinationGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+  "destinationType": "PROCESSOR"
+ },
+ {
+  "revision": {
+   "version": 1
+  },
+  "id": "142f3f09-6ef6-1fc2-8f3a-9a6457017f1b",
+  "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/142f3f09-6ef6-1fc2-8f3a-9a6457017f1b",
+  "permissions": {
+   "canRead": true,
+   "canWrite": true
+  },
+  "component": {
+   "id": "142f3f09-6ef6-1fc2-8f3a-9a6457017f1b",
+   "parentGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "source": {
+    "id": "142f3f07-6ef6-1fc2-31a6-eac5fc8029b8",
+    "type": "PROCESSOR",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "Cổng 15 phút (sau Giao+Nhận)",
+    "running": true,
+    "comments": ""
+   },
+   "destination": {
+    "id": "142f3f08-6ef6-1fc2-9969-20a9c4f37019",
+    "type": "OUTPUT_PORT",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "ra downstream sau Giao+Nhận (15 phút)",
+    "running": false
+   },
+   "labelIndex": 1,
+   "zIndex": 0,
+   "selectedRelationships": [
+    "qua_15phut"
+   ],
+   "availableRelationships": [
+    "qua_15phut",
+    "unmatched"
+   ],
+   "backPressureObjectThreshold": 10000,
+   "backPressureDataSizeThreshold": "1 GB",
+   "flowFileExpiration": "0 sec",
+   "prioritizers": [],
+   "bends": [],
+   "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+   "loadBalanceCompression": "DO_NOT_COMPRESS",
+   "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+  },
+  "status": {
+   "id": "142f3f09-6ef6-1fc2-8f3a-9a6457017f1b",
+   "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "name": "qua_15phut",
+   "statsLastRefreshed": "11:40:26 ICT",
+   "sourceId": "142f3f07-6ef6-1fc2-31a6-eac5fc8029b8",
+   "sourceName": "Cổng 15 phút (sau Giao+Nhận)",
+   "destinationId": "142f3f08-6ef6-1fc2-9969-20a9c4f37019",
+   "destinationName": "ra downstream sau Giao+Nhận (15 phút)",
+   "aggregateSnapshot": {
+    "id": "142f3f09-6ef6-1fc2-8f3a-9a6457017f1b",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "qua_15phut",
+    "sourceName": "Cổng 15 phút (sau Giao+Nhận)",
+    "destinationName": "ra downstream sau Giao+Nhận (15 phút)",
+    "flowFilesIn": 0,
+    "bytesIn": 0,
+    "input": "0 (0 bytes)",
+    "flowFilesOut": 0,
+    "bytesOut": 0,
+    "output": "0 (0 bytes)",
+    "flowFilesQueued": 1,
+    "bytesQueued": 120,
+    "queued": "1 (120 bytes)",
+    "queuedSize": "120 bytes",
+    "queuedCount": "1",
+    "percentUseCount": 0,
+    "percentUseBytes": 0,
+    "flowFileAvailability": "FLOWFILE_AVAILABLE"
+   }
+  },
+  "bends": [],
+  "labelIndex": 1,
+  "zIndex": 0,
+  "sourceId": "142f3f07-6ef6-1fc2-31a6-eac5fc8029b8",
+  "sourceGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+  "sourceType": "PROCESSOR",
+  "destinationId": "142f3f08-6ef6-1fc2-9969-20a9c4f37019",
+  "destinationGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+  "destinationType": "OUTPUT_PORT"
+ },
+ {
+  "revision": {
+   "version": 1
+  },
+  "id": "142f3f0a-6ef6-1fc2-7051-8dd7c5c92f08",
+  "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/142f3f0a-6ef6-1fc2-7051-8dd7c5c92f08",
+  "permissions": {
+   "canRead": true,
+   "canWrite": true
+  },
+  "component": {
+   "id": "142f3f0a-6ef6-1fc2-7051-8dd7c5c92f08",
+   "parentGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "source": {
+    "id": "142f3f00-6ef6-1fc2-88e9-5f49f8a9cc5a",
+    "type": "PROCESSOR",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "1 PHÚT / 1 LẦN (CRON :17)",
+    "running": false,
+    "comments": ""
+   },
+   "destination": {
+    "id": "142f3e8d-6ef6-1fc2-7021-b6ff78eb3e2e",
+    "versionedComponentId": "c115a33b-6e45-3bca-8470-a1edf4d00784",
+    "type": "INPUT_PORT",
+    "groupId": "142f3e8c-6ef6-1fc2-ede8-4c1172022351",
+    "name": "input",
+    "running": true
+   },
+   "labelIndex": 1,
+   "zIndex": 0,
+   "selectedRelationships": [
+    "success"
+   ],
+   "availableRelationships": [
+    "success"
+   ],
+   "backPressureObjectThreshold": 1,
+   "backPressureDataSizeThreshold": "1 GB",
+   "flowFileExpiration": "0 sec",
+   "prioritizers": [],
+   "bends": [],
+   "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+   "loadBalanceCompression": "DO_NOT_COMPRESS",
+   "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+  },
+  "status": {
+   "id": "142f3f0a-6ef6-1fc2-7051-8dd7c5c92f08",
+   "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "name": "success",
+   "statsLastRefreshed": "11:40:26 ICT",
+   "sourceId": "142f3f00-6ef6-1fc2-88e9-5f49f8a9cc5a",
+   "sourceName": "1 PHÚT / 1 LẦN (CRON :17)",
+   "destinationId": "142f3e8d-6ef6-1fc2-7021-b6ff78eb3e2e",
+   "destinationName": "input",
+   "aggregateSnapshot": {
+    "id": "142f3f0a-6ef6-1fc2-7051-8dd7c5c92f08",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "success",
+    "sourceName": "1 PHÚT / 1 LẦN (CRON :17)",
+    "destinationName": "input",
+    "flowFilesIn": 5,
+    "bytesIn": 0,
+    "input": "5 (0 bytes)",
+    "flowFilesOut": 5,
+    "bytesOut": 0,
+    "output": "5 (0 bytes)",
+    "flowFilesQueued": 0,
+    "bytesQueued": 0,
+    "queued": "0 (0 bytes)",
+    "queuedSize": "0 bytes",
+    "queuedCount": "0",
+    "percentUseCount": 0,
+    "percentUseBytes": 0,
+    "flowFileAvailability": "ACTIVE_QUEUE_EMPTY"
+   }
+  },
+  "bends": [],
+  "labelIndex": 1,
+  "zIndex": 0,
+  "sourceId": "142f3f00-6ef6-1fc2-88e9-5f49f8a9cc5a",
+  "sourceGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+  "sourceType": "PROCESSOR",
+  "destinationId": "142f3e8d-6ef6-1fc2-7021-b6ff78eb3e2e",
+  "destinationGroupId": "142f3e8c-6ef6-1fc2-ede8-4c1172022351",
+  "destinationType": "INPUT_PORT"
+ },
+ {
+  "revision": {
+   "version": 1
+  },
+  "id": "142f3f0f-6ef6-1fc2-a5a3-4dfa0d38ad5e",
+  "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/142f3f0f-6ef6-1fc2-a5a3-4dfa0d38ad5e",
+  "permissions": {
+   "canRead": true,
+   "canWrite": true
+  },
+  "component": {
+   "id": "142f3f0f-6ef6-1fc2-a5a3-4dfa0d38ad5e",
+   "parentGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "source": {
+    "id": "142f3eda-6ef6-1fc2-dfc8-6cf973f974fb",
+    "versionedComponentId": "6f1412ac-0dc4-39ce-94bf-b916a9a694b2",
+    "type": "OUTPUT_PORT",
+    "groupId": "142f3ed8-6ef6-1fc2-d06d-d0c4aa837b0b",
+    "name": "output",
+    "running": true
+   },
+   "destination": {
+    "id": "142f3f07-6ef6-1fc2-31a6-eac5fc8029b8",
+    "type": "PROCESSOR",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "Cổng 15 phút (sau Giao+Nhận)",
+    "running": true,
+    "comments": ""
+   },
+   "labelIndex": 1,
+   "zIndex": 0,
+   "backPressureObjectThreshold": 10000,
+   "backPressureDataSizeThreshold": "1 GB",
+   "flowFileExpiration": "0 sec",
+   "prioritizers": [],
+   "bends": [],
+   "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+   "loadBalanceCompression": "DO_NOT_COMPRESS",
+   "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+  },
+  "status": {
+   "id": "142f3f0f-6ef6-1fc2-a5a3-4dfa0d38ad5e",
+   "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "name": "",
+   "statsLastRefreshed": "11:40:26 ICT",
+   "sourceId": "142f3eda-6ef6-1fc2-dfc8-6cf973f974fb",
+   "sourceName": "output",
+   "destinationId": "142f3f07-6ef6-1fc2-31a6-eac5fc8029b8",
+   "destinationName": "Cổng 15 phút (sau Giao+Nhận)",
+   "aggregateSnapshot": {
+    "id": "142f3f0f-6ef6-1fc2-a5a3-4dfa0d38ad5e",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "",
+    "sourceName": "output",
+    "destinationName": "Cổng 15 phút (sau Giao+Nhận)",
+    "flowFilesIn": 5,
+    "bytesIn": 600,
+    "input": "5 (600 bytes)",
+    "flowFilesOut": 5,
+    "bytesOut": 600,
+    "output": "5 (600 bytes)",
+    "flowFilesQueued": 0,
+    "bytesQueued": 0,
+    "queued": "0 (0 bytes)",
+    "queuedSize": "0 bytes",
+    "queuedCount": "0",
+    "percentUseCount": 0,
+    "percentUseBytes": 0,
+    "flowFileAvailability": "ACTIVE_QUEUE_EMPTY"
+   }
+  },
+  "bends": [],
+  "labelIndex": 1,
+  "zIndex": 0,
+  "sourceId": "142f3eda-6ef6-1fc2-dfc8-6cf973f974fb",
+  "sourceGroupId": "142f3ed8-6ef6-1fc2-d06d-d0c4aa837b0b",
+  "sourceType": "OUTPUT_PORT",
+  "destinationId": "142f3f07-6ef6-1fc2-31a6-eac5fc8029b8",
+  "destinationGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+  "destinationType": "PROCESSOR"
+ }
+]

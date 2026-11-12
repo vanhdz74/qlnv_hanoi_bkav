@@ -1,0 +1,60 @@
+group / processor                                                      cũ lượt cũ s/lượt | mới lượt mới s/lượt
+Chi tiết HĐND / qlnv_tonghop_chitiet_hdndtp                                  1       0.9 |       0       0.0
+Chi tiết HĐND / qlnv_tonghop_chitiet_khoi_hdndtp                             1       0.6 |       0       0.0
+Chi tiết HĐND / qlnv_tongquan_donvi_hdndtp                                   1       0.7 |       0       0.0
+Chi tiết HĐND / qlnv_tongquan_hdndtp                                         1       0.4 |       0       0.0
+Chi tiết đơn vị / qlnv_tonghop_chitiet_donvi                                 1      16.1 |       0       0.0
+Chi tiết đơn vị / qlnv_tongquan_donvi                                        1       9.3 |       0       0.0
+Copy of Chi tiết HĐND / qlnv_cbcc_danhgia_hdndtp                             1       0.1 |       0       0.0
+Copy of Chi tiết HĐND / qlnv_tonghop_chitiet_hdndtp                          1       0.8 |       0       0.0
+Copy of Chi tiết HĐND / qlnv_tonghop_chitiet_khoi_hdndtp                     1       0.5 |       0       0.0
+Copy of Chi tiết HĐND / qlnv_tongquan_donvi_hdndtp                           1       0.7 |       0       0.0
+Copy of Chi tiết HĐND / qlnv_tongquan_hdndtp                                 1       0.4 |       0       0.0
+Dashboard Lãnh đạo các phòng / qlnv_tonghop_chitiet_dieuhanh_lanhdao         1       3.5 |       5       2.9
+Dashboard Lãnh đạo các phòng / qlnv_tongquan_dieuhanh_lanhdao                1       1.7 |       5       1.7
+Giao + Nhận NV / qlnv_tonghop_chitiet                                        1       4.7 |       5       9.8
+Giao + Nhận NV / qlnv_tonghop_chitiet_khoi                                   1       1.2 |       5       1.2
+Giao + Nhận NV / qlnv_tonghop_chitiet_nhom                                   1       2.2 |       5       3.0
+Giao + Nhận NV / qlnv_tongquan                                               1       1.7 |       5       1.9
+Giao NV / Update DonViChuTri                                                 1       3.5 |       5       0.4
+Giao NV / Update NhomCauTrucNhiemVu Giao                                     1       3.9 |       5       1.4
+Giao NV / qlnv_th_tongquan_donvi_giaonv                                      0       0.0 |       0       0.0
+Giao NV / qlnv_tonghop_chitiet_giaonv                                        1      23.5 |       5      13.5
+Giao NV / qlnv_tonghop_chitiet_giaonv_don_le                                 1      10.8 |       5       4.8
+Giao NV / qlnv_tonghop_chitiet_giaonv_theo_chuoi                             1       1.0 |       5       0.4
+Giao NV / qlnv_tonghop_chitiet_nhom_giaonv                                   1       4.2 |       5       4.6
+Khối / qlnv_tongquan_khoi                                                    1       1.7 |       5       1.2
+Kiểm đếm / qlnv_tongquan_donvi_kiemdem                                       1      16.4 |       0       0.0
+Kiểm đếm / qlnv_tongquan_vanban_kiemdem                                      1       0.9 |       0       0.0
+Mốc thời gian / qlnv_tonghop_chitiet_nhom_moc_thoi_gian                      1       1.1 |       5       1.2
+Mốc thời gian / qlnv_tongquan_cham_muon_theo_don_vi                          0       0.0 |       0       0.0
+Mốc thời gian / qlnv_tongquan_nhom_moc_thoi_gian                             0       0.0 |       0       0.0
+NV theo NQ57 / qlnv_tonghop_chitiet_nq57                                     1       1.0 |       5       0.8
+NV theo NQ57 / qlnv_tongquan_nq57                                            1       0.4 |       5       0.5
+Tiếp nhận NV / Update DonViChuTri                                            1       3.2 |       5       0.3
+Tiếp nhận NV / Update NhomCauTrucNhiemVu Nhan                                1       3.5 |       5       1.4
+Tiếp nhận NV / qlnv_th_tongquan_donvi_tiepnhan                               0       0.0 |       0       0.0
+Tiếp nhận NV / qlnv_tonghop_chitiet_nhom_tiepnhan                            1       8.2 |       5       7.5
+Tiếp nhận NV / qlnv_tonghop_chitiet_tiepnhan                                 1      22.8 |       5      12.6
+Tiếp nhận NV / qlnv_tonghop_chitiet_tiepnhan_don_le                          1      14.5 |       5       4.9
+Tiếp nhận NV / qlnv_tonghop_chitiet_tiepnhan_theo_chuoi                      1       0.9 |       5       0.4
+Văn bản giao nhiệm vụ / qlnv_tongquan_vanban                                 1       0.4 |       0       0.0
+Văn bản giao nhiệm vụ / qlnv_tongquan_vanban_chitiet                         1       5.7 |       0       0.0
+qlnv_kl_ctpct_chitiet / 01_stage01                                           0       0.0 |       0       0.0
+qlnv_kl_ctpct_chitiet / 02_stage02                                           0       0.0 |       0       0.0
+qlnv_kl_ctpct_chitiet / 03_chitiet                                           0       0.0 |       0       0.0
+qlnv_kl_ctpct_chitiet / DỌN chitiet                                          0       0.0 |       0       0.0
+qlnv_kl_ctpct_chitiet / DỌN stage01                                          0       0.0 |       0       0.0
+qlnv_kl_ctpct_chitiet / DỌN stage02                                          0       0.0 |       0       0.0
+qlnv_kl_ctpct_chitiet / PUT chitiet                                          0       0.0 |       0       0.0
+qlnv_kl_ctpct_chitiet / PUT stage01                                          0       0.0 |       0       0.0
+qlnv_kl_ctpct_chitiet / PUT stage02                                          0       0.0 |       0       0.0
+qlnv_kl_ctpct_chitiet / PutDatabaseRecord                                    1       0.0 |       1       0.0
+qlnv_kl_ctpct_chitiet / qlnv_kl_ctpct_chitiet                                1       2.1 |       0       0.0
+qlnv_kl_ctpct_chitiet / qlnv_kl_ctpct_chitiet_stage01                        1       2.4 |       1       2.9
+qlnv_kl_ctpct_chitiet / qlnv_kl_ctpct_chitiet_stage02                        1       2.1 |       0       0.0
+Đánh giá cán bộ / PutDatabaseRecord                                          1       6.5 |       0       0.0
+Đánh giá cán bộ / qlnv_cbcc_danhgia                                          1      57.2 |       0       0.0
+Đánh giá cán bộ / qlnv_tongquan_kpi_theo_don_vi                              1       0.6 |       0       0.0
+Đánh giá cán bộ / qlnv_tongquan_kpi_theo_nguoi_xu_ly                         1       2.2 |       4       1.3
+Tổng giây SQL trong 5 phút: cũ 246s (≈0.82 câu song song) | mới 390s (≈1.30)

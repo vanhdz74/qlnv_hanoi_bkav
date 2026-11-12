@@ -1,0 +1,28 @@
+/* [RT 12/11 new_rt] Tạo bảng *_new_rt cho chạy thử song song. Không đụng bảng thật. Idempotent. */
+CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt LIKE datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan;
+CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_don_le_new_rt LIKE datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_don_le;
+CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_theo_chuoi_new_rt LIKE datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_theo_chuoi;
+CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_nhom_tiepnhan_new_rt LIKE datamart_hanoi.qlnv_tonghop_chitiet_nhom_tiepnhan;
+CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_giaonv_new_rt LIKE datamart_hanoi.qlnv_tonghop_chitiet_giaonv;
+CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_giaonv_don_le_new_rt LIKE datamart_hanoi.qlnv_tonghop_chitiet_giaonv_don_le;
+CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_giaonv_theo_chuoi_new_rt LIKE datamart_hanoi.qlnv_tonghop_chitiet_giaonv_theo_chuoi;
+CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv_new_rt LIKE datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv;
+CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_new_rt LIKE datamart_hanoi.qlnv_tonghop_chitiet;
+CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_nhom_new_rt LIKE datamart_hanoi.qlnv_tonghop_chitiet_nhom;
+CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_khoi_new_rt LIKE datamart_hanoi.qlnv_tonghop_chitiet_khoi;
+CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_new_rt LIKE datamart_hanoi.qlnv_tongquan;
+CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan;
+SET @s = (SELECT IF((1 - (SELECT COUNT(*) FROM information_schema.statistics WHERE table_schema='datamart_hanoi' AND table_name='qlnv_tonghop_chitiet_new_rt' AND index_name='uk_rt_ma_nhom')) > 0, 'ALTER TABLE datamart_hanoi.qlnv_tonghop_chitiet_new_rt ADD UNIQUE KEY uk_rt_ma_nhom (Ma, NhomGiaoNhan)', 'DO 0'));
+PREPARE st FROM @s; EXECUTE st; DEALLOCATE PREPARE st;
+SET @s = (SELECT IF((1 - (SELECT COUNT(*) FROM information_schema.statistics WHERE table_schema='datamart_hanoi' AND table_name='qlnv_tonghop_chitiet_nhom_new_rt' AND index_name='uk_rt_ma_nhom')) > 0, 'ALTER TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom_new_rt ADD UNIQUE KEY uk_rt_ma_nhom (Ma, NhomGiaoNhan)', 'DO 0'));
+PREPARE st FROM @s; EXECUTE st; DEALLOCATE PREPARE st;
+SET @s = (SELECT IF((1 - (SELECT COUNT(*) FROM information_schema.statistics WHERE table_schema='datamart_hanoi' AND table_name='qlnv_tonghop_chitiet_khoi_new_rt' AND index_name='uk_rt_ma_nhom')) > 0, 'ALTER TABLE datamart_hanoi.qlnv_tonghop_chitiet_khoi_new_rt ADD UNIQUE KEY uk_rt_ma_nhom (Ma, NhomGiaoNhan)', 'DO 0'));
+PREPARE st FROM @s; EXECUTE st; DEALLOCATE PREPARE st;
+SET @s = (SELECT IF((1 - (SELECT COUNT(*) FROM information_schema.statistics WHERE table_schema='datamart_hanoi' AND table_name='qlnv_tonghop_chitiet_nhom_tiepnhan_new_rt' AND index_name='uk_rt_ma')) > 0, 'ALTER TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom_tiepnhan_new_rt ADD UNIQUE KEY uk_rt_ma (Ma)', 'DO 0'));
+PREPARE st FROM @s; EXECUTE st; DEALLOCATE PREPARE st;
+SET @s = (SELECT IF((1 - (SELECT COUNT(*) FROM information_schema.columns WHERE table_schema='datamart_hanoi' AND table_name='qlnv_tonghop_chitiet_nhom_tiepnhan_new_rt' AND column_name='syncdate')) > 0, 'ALTER TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom_tiepnhan_new_rt ADD COLUMN syncdate DATETIME NULL', 'DO 0'));
+PREPARE st FROM @s; EXECUTE st; DEALLOCATE PREPARE st;
+SET @s = (SELECT IF((1 - (SELECT COUNT(*) FROM information_schema.statistics WHERE table_schema='datamart_hanoi' AND table_name='qlnv_tonghop_chitiet_nhom_giaonv_new_rt' AND index_name='uk_rt_ma')) > 0, 'ALTER TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv_new_rt ADD UNIQUE KEY uk_rt_ma (Ma)', 'DO 0'));
+PREPARE st FROM @s; EXECUTE st; DEALLOCATE PREPARE st;
+SET @s = (SELECT IF((1 - (SELECT COUNT(*) FROM information_schema.columns WHERE table_schema='datamart_hanoi' AND table_name='qlnv_tonghop_chitiet_nhom_giaonv_new_rt' AND column_name='syncdate')) > 0, 'ALTER TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv_new_rt ADD COLUMN syncdate DATETIME NULL', 'DO 0'));
+PREPARE st FROM @s; EXECUTE st; DEALLOCATE PREPARE st;

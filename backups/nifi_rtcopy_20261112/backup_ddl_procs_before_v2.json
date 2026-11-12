@@ -1,0 +1,862 @@
+{
+ "0. DDL upsert — Run once SAU KHI dừng chuỗi cũ": {
+  "revision": {
+   "version": 1
+  },
+  "id": "142f3f25-6ef6-1fc2-2b93-8f65947374c8",
+  "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/processors/142f3f25-6ef6-1fc2-2b93-8f65947374c8",
+  "position": {
+   "x": -500.0,
+   "y": -300.0
+  },
+  "permissions": {
+   "canRead": true,
+   "canWrite": true
+  },
+  "bulletins": [],
+  "component": {
+   "id": "142f3f25-6ef6-1fc2-2b93-8f65947374c8",
+   "parentGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "position": {
+    "x": -500.0,
+    "y": -300.0
+   },
+   "name": "0. DDL upsert — Run once SAU KHI dừng chuỗi cũ",
+   "type": "org.apache.nifi.processors.standard.ExecuteSQL",
+   "bundle": {
+    "group": "org.apache.nifi",
+    "artifact": "nifi-standard-nar",
+    "version": "1.27.0"
+   },
+   "state": "STOPPED",
+   "style": {},
+   "relationships": [
+    {
+     "name": "failure",
+     "description": "SQL query execution failed. Incoming FlowFile will be penalized and routed to this relationship",
+     "autoTerminate": true,
+     "retry": false
+    },
+    {
+     "name": "success",
+     "description": "Successfully created FlowFile from SQL query result set.",
+     "autoTerminate": true,
+     "retry": false
+    }
+   ],
+   "supportsParallelProcessing": true,
+   "supportsEventDriven": true,
+   "supportsBatching": false,
+   "supportsSensitiveDynamicProperties": true,
+   "persistsState": false,
+   "restricted": false,
+   "deprecated": false,
+   "executionNodeRestricted": false,
+   "multipleVersionsAvailable": false,
+   "inputRequirement": "INPUT_ALLOWED",
+   "config": {
+    "properties": {
+     "Database Connection Pooling Service": "a06e038b-019a-1000-f4f2-fdf9e5995ada",
+     "sql-pre-query": null,
+     "SQL select query": "/* [RT 12/11] DDL cho upsert — chạy 1 lần SAU KHI đã dừng chuỗi cũ (INSERT cũ của nhom_* không có danh sách cột) */\nSET SESSION lock_wait_timeout = 10;\nALTER TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom_tiepnhan ADD COLUMN syncdate DATETIME NULL, ADD UNIQUE KEY uk_rt_ma (Ma);\nALTER TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv ADD COLUMN syncdate DATETIME NULL, ADD UNIQUE KEY uk_rt_ma (Ma);\nALTER TABLE datamart_hanoi.qlnv_tonghop_chitiet ADD UNIQUE KEY uk_rt_ma_nhom (Ma, NhomGiaoNhan);\nALTER TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom ADD UNIQUE KEY uk_rt_ma_nhom (Ma, NhomGiaoNhan);\nALTER TABLE datamart_hanoi.qlnv_tonghop_chitiet_khoi ADD UNIQUE KEY uk_rt_ma_nhom (Ma, NhomGiaoNhan);\nSET SESSION lock_wait_timeout = 31536000;",
+     "sql-post-query": null,
+     "Max Wait Time": "0 seconds",
+     "dbf-normalize": "false",
+     "dbf-user-logical-types": "false",
+     "compression-format": "NONE",
+     "dbf-default-precision": "10",
+     "dbf-default-scale": "0",
+     "esql-max-rows": "0",
+     "esql-output-batch-size": "0",
+     "esql-fetch-size": "0",
+     "esql-auto-commit": "true"
+    },
+    "descriptors": {
+     "Database Connection Pooling Service": {
+      "name": "Database Connection Pooling Service",
+      "displayName": "Database Connection Pooling Service",
+      "description": "The Controller Service that is used to obtain connection to database",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "HN-Datamart-NEW",
+         "value": "acf51838-116f-119e-c09b-1b31f6c8d1ae"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "HaNoi_DB_HNI_KNCT",
+         "value": "bee45711-c2d0-1c10-9b4b-33febf757b70"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "HaNoi_Datamart",
+         "value": "0bfb327e-8a21-1e6a-776c-e17610335bef"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "HaNoi_Datamart_5s",
+         "value": "73bb3774-cea7-1f5d-629d-4e34862120ab"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "HaNoi_ThanhUy_DB",
+         "value": "a06e038b-019a-1000-f4f2-fdf9e5995ada"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "identifiesControllerService": "org.apache.nifi.dbcp.DBCPService",
+      "identifiesControllerServiceBundle": {
+       "group": "org.apache.nifi",
+       "artifact": "nifi-standard-services-api-nar",
+       "version": "1.27.0"
+      },
+      "dependencies": []
+     },
+     "sql-pre-query": {
+      "name": "sql-pre-query",
+      "displayName": "SQL Pre-Query",
+      "description": "A semicolon-delimited list of queries executed before the main SQL query is executed. For example, set session properties before main query. It's possible to include semicolons in the statements themselves by escaping them with a backslash ('\\;'). Results/outputs from these queries will be suppressed if there are no errors.",
+      "required": false,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "SQL select query": {
+      "name": "SQL select query",
+      "displayName": "SQL select query",
+      "description": "The SQL select query to execute. The query can be empty, a constant value, or built from attributes using Expression Language. If this property is specified, it will be used regardless of the content of incoming flowfiles. If this property is empty, the content of the incoming flow file is expected to contain a valid SQL select query, to be issued by the processor to the database. Note that Expression Language is not evaluated for flow file contents.",
+      "required": false,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "sql-post-query": {
+      "name": "sql-post-query",
+      "displayName": "SQL Post-Query",
+      "description": "A semicolon-delimited list of queries executed after the main SQL query is executed. Example like setting session properties after main query. It's possible to include semicolons in the statements themselves by escaping them with a backslash ('\\;'). Results/outputs from these queries will be suppressed if there are no errors.",
+      "required": false,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "Max Wait Time": {
+      "name": "Max Wait Time",
+      "displayName": "Max Wait Time",
+      "description": "The maximum amount of time allowed for a running SQL select query  , zero means there is no limit. Max time less than 1 second will be equal to zero.",
+      "defaultValue": "0 seconds",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "dbf-normalize": {
+      "name": "dbf-normalize",
+      "displayName": "Normalize Table/Column Names",
+      "description": "Whether to change non-Avro-compatible characters in column names to Avro-compatible characters. For example, colons and periods will be changed to underscores in order to build a valid Avro record.",
+      "defaultValue": "false",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "true",
+         "value": "true"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "false",
+         "value": "false"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "dbf-user-logical-types": {
+      "name": "dbf-user-logical-types",
+      "displayName": "Use Avro Logical Types",
+      "description": "Whether to use Avro Logical Types for DECIMAL/NUMBER, DATE, TIME and TIMESTAMP columns. If disabled, written as string. If enabled, Logical types are used and written as its underlying type, specifically, DECIMAL/NUMBER as logical 'decimal': written as bytes with additional precision and scale meta data, DATE as logical 'date-millis': written as int denoting days since Unix epoch (1970-01-01), TIME as logical 'time-millis': written as int denoting milliseconds since Unix epoch, and TIMESTAMP as logical 'timestamp-millis': written as long denoting milliseconds since Unix epoch. If a reader of written Avro records also knows these logical types, then these values can be deserialized with more context depending on reader implementation.",
+      "defaultValue": "false",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "true",
+         "value": "true"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "false",
+         "value": "false"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "compression-format": {
+      "name": "compression-format",
+      "displayName": "Compression Format",
+      "description": "Compression type to use when writing Avro files. Default is None.",
+      "defaultValue": "NONE",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "BZIP2",
+         "value": "BZIP2"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "DEFLATE",
+         "value": "DEFLATE"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "NONE",
+         "value": "NONE"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "SNAPPY",
+         "value": "SNAPPY"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "LZO",
+         "value": "LZO"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "dbf-default-precision": {
+      "name": "dbf-default-precision",
+      "displayName": "Default Decimal Precision",
+      "description": "When a DECIMAL/NUMBER value is written as a 'decimal' Avro logical type, a specific 'precision' denoting number of available digits is required. Generally, precision is defined by column data type definition or database engines default. However undefined precision (0) can be returned from some database engines. 'Default Decimal Precision' is used when writing those undefined precision numbers.",
+      "defaultValue": "10",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "dbf-default-scale": {
+      "name": "dbf-default-scale",
+      "displayName": "Default Decimal Scale",
+      "description": "When a DECIMAL/NUMBER value is written as a 'decimal' Avro logical type, a specific 'scale' denoting number of available decimal digits is required. Generally, scale is defined by column data type definition or database engines default. However when undefined precision (0) is returned, scale can also be uncertain with some database engines. 'Default Decimal Scale' is used when writing those undefined numbers. If a value has more decimals than specified scale, then the value will be rounded-up, e.g. 1.53 becomes 2 with scale 0, and 1.5 with scale 1.",
+      "defaultValue": "0",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "esql-max-rows": {
+      "name": "esql-max-rows",
+      "displayName": "Max Rows Per Flow File",
+      "description": "The maximum number of result rows that will be included in a single FlowFile. This will allow you to break up very large result sets into multiple FlowFiles. If the value specified is zero, then all rows are returned in a single FlowFile.",
+      "defaultValue": "0",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "esql-output-batch-size": {
+      "name": "esql-output-batch-size",
+      "displayName": "Output Batch Size",
+      "description": "The number of output FlowFiles to queue before committing the process session. When set to zero, the session will be committed when all result set rows have been processed and the output FlowFiles are ready for transfer to the downstream relationship. For large result sets, this can cause a large burst of FlowFiles to be transferred at the end of processor execution. If this property is set, then when the specified number of FlowFiles are ready for transfer, then the session will be committed, thus releasing the FlowFiles to the downstream relationship. NOTE: The fragment.count attribute will not be set on FlowFiles when this property is set.",
+      "defaultValue": "0",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "esql-fetch-size": {
+      "name": "esql-fetch-size",
+      "displayName": "Fetch Size",
+      "description": "The number of result rows to be fetched from the result set at a time. This is a hint to the database driver and may not be honored and/or exact. If the value specified is zero, then the hint is ignored.",
+      "defaultValue": "0",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "esql-auto-commit": {
+      "name": "esql-auto-commit",
+      "displayName": "Set Auto Commit",
+      "description": "Enables or disables the auto commit functionality of the DB connection. Default value is 'true'. The default value can be used with most of the JDBC drivers and this functionality doesn't have any impact in most of the cases since this processor is used to read data. However, for some JDBC drivers such as PostgreSQL driver, it is required to disable the auto committing functionality to limit the number of result rows fetching at a time. When auto commit is enabled, postgreSQL driver loads whole result set to memory at once. This could lead for a large amount of memory usage when executing queries which fetch large data sets. More Details of this behaviour in PostgreSQL driver can be found in https://jdbc.postgresql.org//documentation/head/query.html. ",
+      "defaultValue": "true",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "true",
+         "value": "true"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "false",
+         "value": "false"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     }
+    },
+    "schedulingPeriod": "1 day",
+    "schedulingStrategy": "TIMER_DRIVEN",
+    "executionNode": "ALL",
+    "penaltyDuration": "30 sec",
+    "yieldDuration": "1 sec",
+    "bulletinLevel": "WARN",
+    "runDurationMillis": 0,
+    "concurrentlySchedulableTaskCount": 1,
+    "comments": "",
+    "lossTolerant": false,
+    "defaultConcurrentTasks": {
+     "TIMER_DRIVEN": "1",
+     "EVENT_DRIVEN": "0",
+     "CRON_DRIVEN": "1"
+    },
+    "defaultSchedulingPeriod": {
+     "TIMER_DRIVEN": "0 sec",
+     "CRON_DRIVEN": "* * * * * ?"
+    },
+    "retryCount": 10,
+    "retriedRelationships": [],
+    "backoffMechanism": "PENALIZE_FLOWFILE",
+    "maxBackoffPeriod": "10 mins"
+   },
+   "validationStatus": "VALID",
+   "extensionMissing": false
+  },
+  "inputRequirement": "INPUT_ALLOWED",
+  "status": {
+   "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "id": "142f3f25-6ef6-1fc2-2b93-8f65947374c8",
+   "name": "0. DDL upsert — Run once SAU KHI dừng chuỗi cũ",
+   "runStatus": "Stopped",
+   "statsLastRefreshed": "11:20:38 ICT",
+   "aggregateSnapshot": {
+    "id": "142f3f25-6ef6-1fc2-2b93-8f65947374c8",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "0. DDL upsert — Run once SAU KHI dừng chuỗi cũ",
+    "type": "ExecuteSQL",
+    "runStatus": "Stopped",
+    "executionNode": "ALL",
+    "bytesRead": 0,
+    "bytesWritten": 0,
+    "read": "0 bytes",
+    "written": "0 bytes",
+    "flowFilesIn": 0,
+    "bytesIn": 0,
+    "input": "0 (0 bytes)",
+    "flowFilesOut": 0,
+    "bytesOut": 0,
+    "output": "0 (0 bytes)",
+    "taskCount": 0,
+    "tasksDurationNanos": 0,
+    "tasks": "0",
+    "tasksDuration": "00:00:00.000",
+    "activeThreadCount": 0,
+    "terminatedThreadCount": 0
+   }
+  },
+  "operatePermissions": {
+   "canRead": true,
+   "canWrite": true
+  }
+ },
+ "0. ROLLBACK DDL — Run once TRƯỚC KHI bật lại chuỗi cũ": {
+  "revision": {
+   "version": 2
+  },
+  "id": "142f3f26-6ef6-1fc2-af45-94c7ff969fbc",
+  "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/processors/142f3f26-6ef6-1fc2-af45-94c7ff969fbc",
+  "position": {
+   "x": -500.0,
+   "y": -60.0
+  },
+  "permissions": {
+   "canRead": true,
+   "canWrite": true
+  },
+  "bulletins": [],
+  "component": {
+   "id": "142f3f26-6ef6-1fc2-af45-94c7ff969fbc",
+   "parentGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "position": {
+    "x": -500.0,
+    "y": -60.0
+   },
+   "name": "0. ROLLBACK DDL — Run once TRƯỚC KHI bật lại chuỗi cũ",
+   "type": "org.apache.nifi.processors.standard.ExecuteSQL",
+   "bundle": {
+    "group": "org.apache.nifi",
+    "artifact": "nifi-standard-nar",
+    "version": "1.27.0"
+   },
+   "state": "DISABLED",
+   "style": {},
+   "relationships": [
+    {
+     "name": "failure",
+     "description": "SQL query execution failed. Incoming FlowFile will be penalized and routed to this relationship",
+     "autoTerminate": true,
+     "retry": false
+    },
+    {
+     "name": "success",
+     "description": "Successfully created FlowFile from SQL query result set.",
+     "autoTerminate": true,
+     "retry": false
+    }
+   ],
+   "supportsParallelProcessing": true,
+   "supportsEventDriven": true,
+   "supportsBatching": false,
+   "supportsSensitiveDynamicProperties": true,
+   "persistsState": false,
+   "restricted": false,
+   "deprecated": false,
+   "executionNodeRestricted": false,
+   "multipleVersionsAvailable": false,
+   "inputRequirement": "INPUT_ALLOWED",
+   "config": {
+    "properties": {
+     "Database Connection Pooling Service": "a06e038b-019a-1000-f4f2-fdf9e5995ada",
+     "sql-pre-query": null,
+     "SQL select query": "/* [RT 12/11] ROLLBACK DDL — chạy trước khi bật lại chuỗi cũ (INSERT cũ của nhom_* sẽ lỗi nếu còn cột syncdate) */\nSET SESSION lock_wait_timeout = 10;\nALTER TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom_tiepnhan DROP COLUMN syncdate, DROP KEY uk_rt_ma;\nALTER TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv DROP COLUMN syncdate, DROP KEY uk_rt_ma;\nALTER TABLE datamart_hanoi.qlnv_tonghop_chitiet DROP KEY uk_rt_ma_nhom;\nALTER TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom DROP KEY uk_rt_ma_nhom;\nALTER TABLE datamart_hanoi.qlnv_tonghop_chitiet_khoi DROP KEY uk_rt_ma_nhom;\nSET SESSION lock_wait_timeout = 31536000;",
+     "sql-post-query": null,
+     "Max Wait Time": "0 seconds",
+     "dbf-normalize": "false",
+     "dbf-user-logical-types": "false",
+     "compression-format": "NONE",
+     "dbf-default-precision": "10",
+     "dbf-default-scale": "0",
+     "esql-max-rows": "0",
+     "esql-output-batch-size": "0",
+     "esql-fetch-size": "0",
+     "esql-auto-commit": "true"
+    },
+    "descriptors": {
+     "Database Connection Pooling Service": {
+      "name": "Database Connection Pooling Service",
+      "displayName": "Database Connection Pooling Service",
+      "description": "The Controller Service that is used to obtain connection to database",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "HN-Datamart-NEW",
+         "value": "acf51838-116f-119e-c09b-1b31f6c8d1ae"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "HaNoi_DB_HNI_KNCT",
+         "value": "bee45711-c2d0-1c10-9b4b-33febf757b70"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "HaNoi_Datamart",
+         "value": "0bfb327e-8a21-1e6a-776c-e17610335bef"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "HaNoi_Datamart_5s",
+         "value": "73bb3774-cea7-1f5d-629d-4e34862120ab"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "HaNoi_ThanhUy_DB",
+         "value": "a06e038b-019a-1000-f4f2-fdf9e5995ada"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "identifiesControllerService": "org.apache.nifi.dbcp.DBCPService",
+      "identifiesControllerServiceBundle": {
+       "group": "org.apache.nifi",
+       "artifact": "nifi-standard-services-api-nar",
+       "version": "1.27.0"
+      },
+      "dependencies": []
+     },
+     "sql-pre-query": {
+      "name": "sql-pre-query",
+      "displayName": "SQL Pre-Query",
+      "description": "A semicolon-delimited list of queries executed before the main SQL query is executed. For example, set session properties before main query. It's possible to include semicolons in the statements themselves by escaping them with a backslash ('\\;'). Results/outputs from these queries will be suppressed if there are no errors.",
+      "required": false,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "SQL select query": {
+      "name": "SQL select query",
+      "displayName": "SQL select query",
+      "description": "The SQL select query to execute. The query can be empty, a constant value, or built from attributes using Expression Language. If this property is specified, it will be used regardless of the content of incoming flowfiles. If this property is empty, the content of the incoming flow file is expected to contain a valid SQL select query, to be issued by the processor to the database. Note that Expression Language is not evaluated for flow file contents.",
+      "required": false,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "sql-post-query": {
+      "name": "sql-post-query",
+      "displayName": "SQL Post-Query",
+      "description": "A semicolon-delimited list of queries executed after the main SQL query is executed. Example like setting session properties after main query. It's possible to include semicolons in the statements themselves by escaping them with a backslash ('\\;'). Results/outputs from these queries will be suppressed if there are no errors.",
+      "required": false,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "Max Wait Time": {
+      "name": "Max Wait Time",
+      "displayName": "Max Wait Time",
+      "description": "The maximum amount of time allowed for a running SQL select query  , zero means there is no limit. Max time less than 1 second will be equal to zero.",
+      "defaultValue": "0 seconds",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "dbf-normalize": {
+      "name": "dbf-normalize",
+      "displayName": "Normalize Table/Column Names",
+      "description": "Whether to change non-Avro-compatible characters in column names to Avro-compatible characters. For example, colons and periods will be changed to underscores in order to build a valid Avro record.",
+      "defaultValue": "false",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "true",
+         "value": "true"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "false",
+         "value": "false"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "dbf-user-logical-types": {
+      "name": "dbf-user-logical-types",
+      "displayName": "Use Avro Logical Types",
+      "description": "Whether to use Avro Logical Types for DECIMAL/NUMBER, DATE, TIME and TIMESTAMP columns. If disabled, written as string. If enabled, Logical types are used and written as its underlying type, specifically, DECIMAL/NUMBER as logical 'decimal': written as bytes with additional precision and scale meta data, DATE as logical 'date-millis': written as int denoting days since Unix epoch (1970-01-01), TIME as logical 'time-millis': written as int denoting milliseconds since Unix epoch, and TIMESTAMP as logical 'timestamp-millis': written as long denoting milliseconds since Unix epoch. If a reader of written Avro records also knows these logical types, then these values can be deserialized with more context depending on reader implementation.",
+      "defaultValue": "false",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "true",
+         "value": "true"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "false",
+         "value": "false"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "compression-format": {
+      "name": "compression-format",
+      "displayName": "Compression Format",
+      "description": "Compression type to use when writing Avro files. Default is None.",
+      "defaultValue": "NONE",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "BZIP2",
+         "value": "BZIP2"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "DEFLATE",
+         "value": "DEFLATE"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "NONE",
+         "value": "NONE"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "SNAPPY",
+         "value": "SNAPPY"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "LZO",
+         "value": "LZO"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "dbf-default-precision": {
+      "name": "dbf-default-precision",
+      "displayName": "Default Decimal Precision",
+      "description": "When a DECIMAL/NUMBER value is written as a 'decimal' Avro logical type, a specific 'precision' denoting number of available digits is required. Generally, precision is defined by column data type definition or database engines default. However undefined precision (0) can be returned from some database engines. 'Default Decimal Precision' is used when writing those undefined precision numbers.",
+      "defaultValue": "10",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "dbf-default-scale": {
+      "name": "dbf-default-scale",
+      "displayName": "Default Decimal Scale",
+      "description": "When a DECIMAL/NUMBER value is written as a 'decimal' Avro logical type, a specific 'scale' denoting number of available decimal digits is required. Generally, scale is defined by column data type definition or database engines default. However when undefined precision (0) is returned, scale can also be uncertain with some database engines. 'Default Decimal Scale' is used when writing those undefined numbers. If a value has more decimals than specified scale, then the value will be rounded-up, e.g. 1.53 becomes 2 with scale 0, and 1.5 with scale 1.",
+      "defaultValue": "0",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "esql-max-rows": {
+      "name": "esql-max-rows",
+      "displayName": "Max Rows Per Flow File",
+      "description": "The maximum number of result rows that will be included in a single FlowFile. This will allow you to break up very large result sets into multiple FlowFiles. If the value specified is zero, then all rows are returned in a single FlowFile.",
+      "defaultValue": "0",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "esql-output-batch-size": {
+      "name": "esql-output-batch-size",
+      "displayName": "Output Batch Size",
+      "description": "The number of output FlowFiles to queue before committing the process session. When set to zero, the session will be committed when all result set rows have been processed and the output FlowFiles are ready for transfer to the downstream relationship. For large result sets, this can cause a large burst of FlowFiles to be transferred at the end of processor execution. If this property is set, then when the specified number of FlowFiles are ready for transfer, then the session will be committed, thus releasing the FlowFiles to the downstream relationship. NOTE: The fragment.count attribute will not be set on FlowFiles when this property is set.",
+      "defaultValue": "0",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "esql-fetch-size": {
+      "name": "esql-fetch-size",
+      "displayName": "Fetch Size",
+      "description": "The number of result rows to be fetched from the result set at a time. This is a hint to the database driver and may not be honored and/or exact. If the value specified is zero, then the hint is ignored.",
+      "defaultValue": "0",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "esql-auto-commit": {
+      "name": "esql-auto-commit",
+      "displayName": "Set Auto Commit",
+      "description": "Enables or disables the auto commit functionality of the DB connection. Default value is 'true'. The default value can be used with most of the JDBC drivers and this functionality doesn't have any impact in most of the cases since this processor is used to read data. However, for some JDBC drivers such as PostgreSQL driver, it is required to disable the auto committing functionality to limit the number of result rows fetching at a time. When auto commit is enabled, postgreSQL driver loads whole result set to memory at once. This could lead for a large amount of memory usage when executing queries which fetch large data sets. More Details of this behaviour in PostgreSQL driver can be found in https://jdbc.postgresql.org//documentation/head/query.html. ",
+      "defaultValue": "true",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "true",
+         "value": "true"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "false",
+         "value": "false"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     }
+    },
+    "schedulingPeriod": "1 day",
+    "schedulingStrategy": "TIMER_DRIVEN",
+    "executionNode": "ALL",
+    "penaltyDuration": "30 sec",
+    "yieldDuration": "1 sec",
+    "bulletinLevel": "WARN",
+    "runDurationMillis": 0,
+    "concurrentlySchedulableTaskCount": 1,
+    "comments": "",
+    "lossTolerant": false,
+    "defaultConcurrentTasks": {
+     "TIMER_DRIVEN": "1",
+     "EVENT_DRIVEN": "0",
+     "CRON_DRIVEN": "1"
+    },
+    "defaultSchedulingPeriod": {
+     "TIMER_DRIVEN": "0 sec",
+     "CRON_DRIVEN": "* * * * * ?"
+    },
+    "retryCount": 10,
+    "retriedRelationships": [],
+    "backoffMechanism": "PENALIZE_FLOWFILE",
+    "maxBackoffPeriod": "10 mins"
+   },
+   "validationStatus": "VALID",
+   "extensionMissing": false
+  },
+  "inputRequirement": "INPUT_ALLOWED",
+  "status": {
+   "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "id": "142f3f26-6ef6-1fc2-af45-94c7ff969fbc",
+   "name": "0. ROLLBACK DDL — Run once TRƯỚC KHI bật lại chuỗi cũ",
+   "runStatus": "Disabled",
+   "statsLastRefreshed": "11:20:38 ICT",
+   "aggregateSnapshot": {
+    "id": "142f3f26-6ef6-1fc2-af45-94c7ff969fbc",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "0. ROLLBACK DDL — Run once TRƯỚC KHI bật lại chuỗi cũ",
+    "type": "ExecuteSQL",
+    "runStatus": "Disabled",
+    "executionNode": "ALL",
+    "bytesRead": 0,
+    "bytesWritten": 0,
+    "read": "0 bytes",
+    "written": "0 bytes",
+    "flowFilesIn": 0,
+    "bytesIn": 0,
+    "input": "0 (0 bytes)",
+    "flowFilesOut": 0,
+    "bytesOut": 0,
+    "output": "0 (0 bytes)",
+    "taskCount": 0,
+    "tasksDurationNanos": 0,
+    "tasks": "0",
+    "tasksDuration": "00:00:00.000",
+    "activeThreadCount": 0,
+    "terminatedThreadCount": 0
+   }
+  },
+  "operatePermissions": {
+   "canRead": true,
+   "canWrite": true
+  }
+ }
+}

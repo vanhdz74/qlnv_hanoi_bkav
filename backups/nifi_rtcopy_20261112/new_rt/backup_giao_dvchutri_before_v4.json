@@ -1,0 +1,339 @@
+{
+ "revision": {
+  "version": 9
+ },
+ "id": "142f3ebd-6ef6-1fc2-8845-213daa109af3",
+ "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/processors/142f3ebd-6ef6-1fc2-8845-213daa109af3",
+ "position": {
+  "x": 1744.0,
+  "y": 504.0
+ },
+ "permissions": {
+  "canRead": true,
+  "canWrite": true
+ },
+ "bulletins": [],
+ "component": {
+  "id": "142f3ebd-6ef6-1fc2-8845-213daa109af3",
+  "versionedComponentId": "c0a96988-ae92-382a-85cf-7a03a4c117ab",
+  "parentGroupId": "142f3eae-6ef6-1fc2-8831-69d392c2e111",
+  "position": {
+   "x": 1744.0,
+   "y": 504.0
+  },
+  "name": "Update DonViChuTri [upsert]",
+  "type": "org.apache.nifi.processors.standard.PutSQL",
+  "bundle": {
+   "group": "org.apache.nifi",
+   "artifact": "nifi-standard-nar",
+   "version": "1.27.0"
+  },
+  "state": "RUNNING",
+  "style": {},
+  "relationships": [
+   {
+    "name": "failure",
+    "description": "A FlowFile is routed to this relationship if the database cannot be updated and retrying the operation will also fail, such as an invalid query or an integrity constraint violation",
+    "autoTerminate": false,
+    "retry": false
+   },
+   {
+    "name": "retry",
+    "description": "A FlowFile is routed to this relationship if the database cannot be updated but attempting the operation again may succeed",
+    "autoTerminate": false,
+    "retry": false
+   },
+   {
+    "name": "success",
+    "description": "A FlowFile is routed to this relationship after the database is successfully updated",
+    "autoTerminate": false,
+    "retry": false
+   }
+  ],
+  "supportsParallelProcessing": true,
+  "supportsEventDriven": false,
+  "supportsBatching": true,
+  "supportsSensitiveDynamicProperties": false,
+  "persistsState": false,
+  "restricted": false,
+  "deprecated": false,
+  "executionNodeRestricted": false,
+  "multipleVersionsAvailable": false,
+  "inputRequirement": "INPUT_REQUIRED",
+  "config": {
+   "properties": {
+    "JDBC Connection Pool": "0bfb327e-8a21-1e6a-776c-e17610335bef",
+    "putsql-sql-statement": "/* [RT 12/11 v3] tính lại toàn bộ, chỉ ghi dòng đổi giá trị; giữ syncdate */\nUPDATE datamart_hanoi.qlnv_tonghop_chitiet_giaonv_new_rt g\nLEFT JOIN datamart_hanoi.qlnv_tonghop_chitiet_giaonv_new_rt g_cha ON g.ma_nv_cha = g_cha.Ma\nSET g.iddv_dvchutri = CASE WHEN g.NhomCauTrucNhiemVu = 'Nhiệm vụ theo chuỗi' THEN COALESCE(g_cha.iddv, g.iddv) ELSE g.iddv END,\n    g.DonViChuTri = CASE WHEN g.NhomCauTrucNhiemVu = 'Nhiệm vụ theo chuỗi' THEN COALESCE(g_cha.donvi, g.donvi) ELSE g.donvi END,\n    g.syncdate = g.syncdate\nWHERE NOT (g.iddv_dvchutri <=> CASE WHEN g.NhomCauTrucNhiemVu = 'Nhiệm vụ theo chuỗi' THEN COALESCE(g_cha.iddv, g.iddv) ELSE g.iddv END) OR NOT (g.DonViChuTri <=> CASE WHEN g.NhomCauTrucNhiemVu = 'Nhiệm vụ theo chuỗi' THEN COALESCE(g_cha.donvi, g.donvi) ELSE g.donvi END);",
+    "Support Fragmented Transactions": "true",
+    "database-session-autocommit": "false",
+    "Transaction Timeout": null,
+    "Batch Size": "100",
+    "Obtain Generated Keys": "false",
+    "rollback-on-failure": "false"
+   },
+   "descriptors": {
+    "JDBC Connection Pool": {
+     "name": "JDBC Connection Pool",
+     "displayName": "JDBC Connection Pool",
+     "description": "Specifies the JDBC Connection Pool to use in order to convert the JSON message to a SQL statement. The Connection Pool is necessary in order to determine the appropriate database column types.",
+     "allowableValues": [
+      {
+       "allowableValue": {
+        "displayName": "HN-Datamart-NEW",
+        "value": "acf51838-116f-119e-c09b-1b31f6c8d1ae"
+       },
+       "canRead": true
+      },
+      {
+       "allowableValue": {
+        "displayName": "HaNoi_DB_HNI_KNCT",
+        "value": "bee45711-c2d0-1c10-9b4b-33febf757b70"
+       },
+       "canRead": true
+      },
+      {
+       "allowableValue": {
+        "displayName": "HaNoi_Datamart",
+        "value": "0bfb327e-8a21-1e6a-776c-e17610335bef"
+       },
+       "canRead": true
+      },
+      {
+       "allowableValue": {
+        "displayName": "HaNoi_Datamart_5s",
+        "value": "73bb3774-cea7-1f5d-629d-4e34862120ab"
+       },
+       "canRead": true
+      },
+      {
+       "allowableValue": {
+        "displayName": "HaNoi_ThanhUy_DB",
+        "value": "a06e038b-019a-1000-f4f2-fdf9e5995ada"
+       },
+       "canRead": true
+      }
+     ],
+     "required": true,
+     "sensitive": false,
+     "dynamic": false,
+     "supportsEl": false,
+     "expressionLanguageScope": "Not Supported",
+     "identifiesControllerService": "org.apache.nifi.dbcp.DBCPService",
+     "identifiesControllerServiceBundle": {
+      "group": "org.apache.nifi",
+      "artifact": "nifi-standard-services-api-nar",
+      "version": "1.27.0"
+     },
+     "dependencies": []
+    },
+    "putsql-sql-statement": {
+     "name": "putsql-sql-statement",
+     "displayName": "SQL Statement",
+     "description": "The SQL statement to execute. The statement can be empty, a constant value, or built from attributes using Expression Language. If this property is specified, it will be used regardless of the content of incoming FlowFiles. If this property is empty, the content of the incoming FlowFile is expected to contain a valid SQL statement, to be issued by the processor to the database.",
+     "required": false,
+     "sensitive": false,
+     "dynamic": false,
+     "supportsEl": true,
+     "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+     "dependencies": []
+    },
+    "Support Fragmented Transactions": {
+     "name": "Support Fragmented Transactions",
+     "displayName": "Support Fragmented Transactions",
+     "description": "If true, when a FlowFile is consumed by this Processor, the Processor will first check the fragment.identifier and fragment.count attributes of that FlowFile. If the fragment.count value is greater than 1, the Processor will not process any FlowFile with that fragment.identifier until all are available; at that point, it will process all FlowFiles with that fragment.identifier as a single transaction, in the order specified by the FlowFiles' fragment.index attributes. This Provides atomicity of those SQL statements. Once any statement of this transaction throws exception when executing, this transaction will be rolled back. When transaction rollback happened, none of these FlowFiles would be routed to 'success'. If the <Rollback On Failure> is set true, these FlowFiles will stay in the input relationship. When the <Rollback On Failure> is set false,, if any of these FlowFiles will be routed to 'retry', all of these FlowFiles will be routed to 'retry'.Otherwise, they will be routed to 'failure'. If this value is false, these attributes will be ignored and the updates will occur independent of one another.",
+     "defaultValue": "true",
+     "allowableValues": [
+      {
+       "allowableValue": {
+        "displayName": "true",
+        "value": "true"
+       },
+       "canRead": true
+      },
+      {
+       "allowableValue": {
+        "displayName": "false",
+        "value": "false"
+       },
+       "canRead": true
+      }
+     ],
+     "required": false,
+     "sensitive": false,
+     "dynamic": false,
+     "supportsEl": false,
+     "expressionLanguageScope": "Not Supported",
+     "dependencies": []
+    },
+    "database-session-autocommit": {
+     "name": "database-session-autocommit",
+     "displayName": "Database Session AutoCommit",
+     "description": "The autocommit mode to set on the database connection being used. If set to false, the operation(s) will be explicitly committed or rolled back (based on success or failure respectively), if set to true the driver/database handles the commit/rollback.",
+     "defaultValue": "false",
+     "allowableValues": [
+      {
+       "allowableValue": {
+        "displayName": "true",
+        "value": "true"
+       },
+       "canRead": true
+      },
+      {
+       "allowableValue": {
+        "displayName": "false",
+        "value": "false"
+       },
+       "canRead": true
+      }
+     ],
+     "required": false,
+     "sensitive": false,
+     "dynamic": false,
+     "supportsEl": false,
+     "expressionLanguageScope": "Not Supported",
+     "dependencies": []
+    },
+    "Transaction Timeout": {
+     "name": "Transaction Timeout",
+     "displayName": "Transaction Timeout",
+     "description": "If the <Support Fragmented Transactions> property is set to true, specifies how long to wait for all FlowFiles for a particular fragment.identifier attribute to arrive before just transferring all of the FlowFiles with that identifier to the 'failure' relationship",
+     "required": false,
+     "sensitive": false,
+     "dynamic": false,
+     "supportsEl": false,
+     "expressionLanguageScope": "Not Supported",
+     "dependencies": []
+    },
+    "Batch Size": {
+     "name": "Batch Size",
+     "displayName": "Batch Size",
+     "description": "The preferred number of FlowFiles to put to the database in a single transaction",
+     "defaultValue": "100",
+     "required": true,
+     "sensitive": false,
+     "dynamic": false,
+     "supportsEl": false,
+     "expressionLanguageScope": "Not Supported",
+     "dependencies": []
+    },
+    "Obtain Generated Keys": {
+     "name": "Obtain Generated Keys",
+     "displayName": "Obtain Generated Keys",
+     "description": "If true, any key that is automatically generated by the database will be added to the FlowFile that generated it using the sql.generate.key attribute. This may result in slightly slower performance and is not supported by all databases.",
+     "defaultValue": "false",
+     "allowableValues": [
+      {
+       "allowableValue": {
+        "displayName": "true",
+        "value": "true"
+       },
+       "canRead": true
+      },
+      {
+       "allowableValue": {
+        "displayName": "false",
+        "value": "false"
+       },
+       "canRead": true
+      }
+     ],
+     "required": false,
+     "sensitive": false,
+     "dynamic": false,
+     "supportsEl": false,
+     "expressionLanguageScope": "Not Supported",
+     "dependencies": []
+    },
+    "rollback-on-failure": {
+     "name": "rollback-on-failure",
+     "displayName": "Rollback On Failure",
+     "description": "Specify how to handle error. By default (false), if an error occurs while processing a FlowFile, the FlowFile will be routed to 'failure' or 'retry' relationship based on error type, and processor can continue with next FlowFile. Instead, you may want to rollback currently processed FlowFiles and stop further processing immediately. In that case, you can do so by enabling this 'Rollback On Failure' property.  If enabled, failed FlowFiles will stay in the input relationship without penalizing it and being processed repeatedly until it gets processed successfully or removed by other means. It is important to set adequate 'Yield Duration' to avoid retrying too frequently.",
+     "defaultValue": "false",
+     "allowableValues": [
+      {
+       "allowableValue": {
+        "displayName": "true",
+        "value": "true"
+       },
+       "canRead": true
+      },
+      {
+       "allowableValue": {
+        "displayName": "false",
+        "value": "false"
+       },
+       "canRead": true
+      }
+     ],
+     "required": true,
+     "sensitive": false,
+     "dynamic": false,
+     "supportsEl": false,
+     "expressionLanguageScope": "Not Supported",
+     "dependencies": []
+    }
+   },
+   "schedulingPeriod": "0 sec",
+   "schedulingStrategy": "TIMER_DRIVEN",
+   "executionNode": "ALL",
+   "penaltyDuration": "30 sec",
+   "yieldDuration": "1 sec",
+   "bulletinLevel": "WARN",
+   "runDurationMillis": 0,
+   "concurrentlySchedulableTaskCount": 1,
+   "comments": "",
+   "lossTolerant": false,
+   "defaultConcurrentTasks": {
+    "TIMER_DRIVEN": "1",
+    "EVENT_DRIVEN": "0",
+    "CRON_DRIVEN": "1"
+   },
+   "defaultSchedulingPeriod": {
+    "TIMER_DRIVEN": "0 sec",
+    "CRON_DRIVEN": "* * * * * ?"
+   },
+   "retryCount": 10,
+   "retriedRelationships": [],
+   "backoffMechanism": "PENALIZE_FLOWFILE",
+   "maxBackoffPeriod": "10 mins"
+  },
+  "validationStatus": "VALID",
+  "extensionMissing": false
+ },
+ "inputRequirement": "INPUT_REQUIRED",
+ "status": {
+  "groupId": "142f3eae-6ef6-1fc2-8831-69d392c2e111",
+  "id": "142f3ebd-6ef6-1fc2-8845-213daa109af3",
+  "name": "Update DonViChuTri [upsert]",
+  "runStatus": "Running",
+  "statsLastRefreshed": "14:46:59 ICT",
+  "aggregateSnapshot": {
+   "id": "142f3ebd-6ef6-1fc2-8845-213daa109af3",
+   "groupId": "142f3eae-6ef6-1fc2-8831-69d392c2e111",
+   "name": "Update DonViChuTri [upsert]",
+   "type": "PutSQL",
+   "runStatus": "Running",
+   "executionNode": "ALL",
+   "bytesRead": 0,
+   "bytesWritten": 0,
+   "read": "0 bytes",
+   "written": "0 bytes",
+   "flowFilesIn": 5,
+   "bytesIn": 0,
+   "input": "5 (0 bytes)",
+   "flowFilesOut": 5,
+   "bytesOut": 0,
+   "output": "5 (0 bytes)",
+   "taskCount": 5,
+   "tasksDurationNanos": 1627235971,
+   "tasks": "5",
+   "tasksDuration": "00:00:01.627",
+   "activeThreadCount": 0,
+   "terminatedThreadCount": 0
+  }
+ },
+ "operatePermissions": {
+  "canRead": true,
+  "canWrite": true
+ }
+}

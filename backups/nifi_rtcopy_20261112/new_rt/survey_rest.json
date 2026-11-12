@@ -1,0 +1,1221 @@
+[
+ {
+  "grp": "/",
+  "gid": "f8207212-019b-1000-fcc5-817989167c53",
+  "id": "bee43592-c2d0-1c10-f125-4abd0acb46fa",
+  "name": "15 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "RUNNING",
+  "sched": "15 min",
+  "targets": {}
+ },
+ {
+  "grp": "/Chi tiết HĐND",
+  "gid": "bee45bfc-c2d0-1c10-8893-4d46771c684c",
+  "id": "bee45c13-c2d0-1c10-2413-4a95ee9517bd",
+  "name": "qlnv_tongquan_donvi_hdndtp",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_tongquan_donvi_hdndtp"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_tongquan_donvi"
+  ],
+  "sql_len": 479,
+  "avg_s": 1.0,
+  "max_s": 1.5,
+  "targets": {
+   "qlnv_tongquan_donvi_hdndtp": {
+    "rows": 8716,
+    "mb": 3,
+    "uniq": []
+   }
+  }
+ },
+ {
+  "grp": "/Chi tiết HĐND",
+  "gid": "bee45bfc-c2d0-1c10-8893-4d46771c684c",
+  "id": "bee45c0e-c2d0-1c10-a64f-fe26a8c08043",
+  "name": "qlnv_tonghop_chitiet_hdndtp",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_tonghop_chitiet_hdndtp"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_tonghop_chitiet"
+  ],
+  "sql_len": 923,
+  "avg_s": 1.1,
+  "max_s": 1.6,
+  "targets": {
+   "qlnv_tonghop_chitiet_hdndtp": {
+    "rows": 4179,
+    "mb": 6,
+    "uniq": []
+   }
+  }
+ },
+ {
+  "grp": "/Chi tiết HĐND",
+  "gid": "bee45bfc-c2d0-1c10-8893-4d46771c684c",
+  "id": "bee45c03-c2d0-1c10-6743-c5fddda870a2",
+  "name": "qlnv_tongquan_hdndtp",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_tongquan_hdndtp"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_tongquan"
+  ],
+  "sql_len": 435,
+  "avg_s": 0.8,
+  "max_s": 1.1,
+  "targets": {
+   "qlnv_tongquan_hdndtp": {
+    "rows": 287,
+    "mb": 0,
+    "uniq": []
+   }
+  }
+ },
+ {
+  "grp": "/Chi tiết HĐND",
+  "gid": "bee45bfc-c2d0-1c10-8893-4d46771c684c",
+  "id": "bee45c01-c2d0-1c10-2f6c-e4bb88bc1f50",
+  "name": "qlnv_tonghop_chitiet_khoi_hdndtp",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_tonghop_chitiet_khoi_hdndtp"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_tonghop_chitiet_khoi"
+  ],
+  "sql_len": 938,
+  "avg_s": 1.0,
+  "max_s": 1.4,
+  "targets": {
+   "qlnv_tonghop_chitiet_khoi_hdndtp": {
+    "rows": 858,
+    "mb": 2,
+    "uniq": []
+   }
+  }
+ },
+ {
+  "grp": "/Khối",
+  "gid": "f80d911d-019b-1000-a2fe-fbad2d519234",
+  "id": "bee45605-c2d0-1c10-3c49-b3156d1ca707",
+  "name": "qlnv_tongquan_khoi",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_tongquan_khoi"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_tonghop_chitiet_khoi"
+  ],
+  "sql_len": 2185,
+  "avg_s": 2.0,
+  "max_s": 3.5,
+  "targets": {
+   "qlnv_tongquan_khoi": {
+    "rows": 12554,
+    "mb": 5,
+    "uniq": []
+   }
+  }
+ },
+ {
+  "grp": "/qlnv_kl_ctpct_chitiet",
+  "gid": "f230cfc3-019e-1000-214f-91d43d738146",
+  "id": "acf519c4-116f-119e-f1d3-ab7053fc72b1",
+  "name": "02_stage02",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [],
+  "kinds": [],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01",
+   "datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan"
+  ],
+  "sql_len": 2858,
+  "avg_s": null,
+  "max_s": null,
+  "targets": {}
+ },
+ {
+  "grp": "/qlnv_kl_ctpct_chitiet",
+  "gid": "f230cfc3-019e-1000-214f-91d43d738146",
+  "id": "acf519c6-116f-119e-c02b-8304b6944cb2",
+  "name": "PUT stage02",
+  "type": "PutDatabaseRecord",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "targets": {}
+ },
+ {
+  "grp": "/qlnv_kl_ctpct_chitiet",
+  "gid": "f230cfc3-019e-1000-214f-91d43d738146",
+  "id": "acf5158d-116f-119e-80d3-a93d9c804d86",
+  "name": "qlnv_kl_ctpct_chitiet_stage01",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_kl_ctpct_chitiet_stage01"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.dm_user",
+   "db_theodoinv_hn.qlnv_report",
+   "db_theodoinv_hn.qlnv_resolution",
+   "db_theodoinv_hn.qlnv_task",
+   "db_theodoinv_hn.qlnv_task_topic"
+  ],
+  "sql_len": 1872,
+  "avg_s": 5.2,
+  "max_s": 115.2,
+  "targets": {
+   "qlnv_kl_ctpct_chitiet_stage01": {
+    "rows": 76112,
+    "mb": 103,
+    "uniq": [
+     "PRIMARY(tt)"
+    ]
+   }
+  }
+ },
+ {
+  "grp": "/qlnv_kl_ctpct_chitiet",
+  "gid": "f230cfc3-019e-1000-214f-91d43d738146",
+  "id": "acf519be-116f-119e-65de-010d59460ee9",
+  "name": "PUT stage01",
+  "type": "PutDatabaseRecord",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "targets": {}
+ },
+ {
+  "grp": "/qlnv_kl_ctpct_chitiet",
+  "gid": "f230cfc3-019e-1000-214f-91d43d738146",
+  "id": "acf5158b-116f-119e-a325-e2686fd27b78",
+  "name": "30 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "RUNNING",
+  "sched": "30 min",
+  "targets": {}
+ },
+ {
+  "grp": "/qlnv_kl_ctpct_chitiet",
+  "gid": "f230cfc3-019e-1000-214f-91d43d738146",
+  "id": "acf519bf-116f-119e-903c-0ca03f669568",
+  "name": "DỌN stage01",
+  "type": "PutSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_kl_ctpct_chitiet_stage01"
+  ],
+  "kinds": [
+   "DELETE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01"
+  ],
+  "sql_len": 197,
+  "avg_s": null,
+  "max_s": null,
+  "targets": {
+   "qlnv_kl_ctpct_chitiet_stage01": {
+    "rows": 76112,
+    "mb": 103,
+    "uniq": [
+     "PRIMARY(tt)"
+    ]
+   }
+  }
+ },
+ {
+  "grp": "/qlnv_kl_ctpct_chitiet",
+  "gid": "f230cfc3-019e-1000-214f-91d43d738146",
+  "id": "acf515da-116f-119e-c746-4b5174295c49",
+  "name": "PutDatabaseRecord",
+  "type": "PutDatabaseRecord",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "targets": {}
+ },
+ {
+  "grp": "/qlnv_kl_ctpct_chitiet",
+  "gid": "f230cfc3-019e-1000-214f-91d43d738146",
+  "id": "f230cfc9-019e-1000-1307-bbfc371bbf01",
+  "name": "qlnv_kl_ctpct_chitiet",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_kl_ctpct_chitiet"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_dm_donvi_chutichubnd",
+   "datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02"
+  ],
+  "sql_len": 776,
+  "avg_s": 2.1,
+  "max_s": 3.0,
+  "targets": {
+   "qlnv_kl_ctpct_chitiet": {
+    "rows": 66300,
+    "mb": 108,
+    "uniq": [
+     "PRIMARY(tt)"
+    ]
+   }
+  }
+ },
+ {
+  "grp": "/qlnv_kl_ctpct_chitiet",
+  "gid": "f230cfc3-019e-1000-214f-91d43d738146",
+  "id": "acf5158c-116f-119e-2207-d93878f55ab5",
+  "name": "PutDatabaseRecord",
+  "type": "PutDatabaseRecord",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "targets": {}
+ },
+ {
+  "grp": "/qlnv_kl_ctpct_chitiet",
+  "gid": "f230cfc3-019e-1000-214f-91d43d738146",
+  "id": "acf519c8-116f-119e-cbf8-1de171009183",
+  "name": "PUT chitiet",
+  "type": "PutDatabaseRecord",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "targets": {}
+ },
+ {
+  "grp": "/qlnv_kl_ctpct_chitiet",
+  "gid": "f230cfc3-019e-1000-214f-91d43d738146",
+  "id": "acf519ca-116f-119e-b1e7-954fc22420a7",
+  "name": "DỌN stage02",
+  "type": "PutSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_kl_ctpct_chitiet_stage02"
+  ],
+  "kinds": [
+   "DELETE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01",
+   "datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02"
+  ],
+  "sql_len": 158,
+  "avg_s": null,
+  "max_s": null,
+  "targets": {
+   "qlnv_kl_ctpct_chitiet_stage02": {
+    "rows": 63194,
+    "mb": 104,
+    "uniq": [
+     "PRIMARY(tt)"
+    ]
+   }
+  }
+ },
+ {
+  "grp": "/qlnv_kl_ctpct_chitiet",
+  "gid": "f230cfc3-019e-1000-214f-91d43d738146",
+  "id": "acf515db-116f-119e-3b7b-2dfe78143f7c",
+  "name": "qlnv_kl_ctpct_chitiet_stage02",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_kl_ctpct_chitiet_stage02"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01",
+   "datamart_hanoi.qlnv_tonghop_chitiet_giaonv"
+  ],
+  "sql_len": 1494,
+  "avg_s": 2.3,
+  "max_s": 3.1,
+  "targets": {
+   "qlnv_kl_ctpct_chitiet_stage02": {
+    "rows": 63194,
+    "mb": 104,
+    "uniq": [
+     "PRIMARY(tt)"
+    ]
+   }
+  }
+ },
+ {
+  "grp": "/qlnv_kl_ctpct_chitiet",
+  "gid": "f230cfc3-019e-1000-214f-91d43d738146",
+  "id": "acf519bd-116f-119e-2a45-c631687bce5d",
+  "name": "01_stage01",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [],
+  "kinds": [],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.dm_user",
+   "db_theodoinv_hn.qlnv_report",
+   "db_theodoinv_hn.qlnv_resolution",
+   "db_theodoinv_hn.qlnv_task",
+   "db_theodoinv_hn.qlnv_task_topic"
+  ],
+  "sql_len": 2188,
+  "avg_s": null,
+  "max_s": null,
+  "targets": {}
+ },
+ {
+  "grp": "/qlnv_kl_ctpct_chitiet",
+  "gid": "f230cfc3-019e-1000-214f-91d43d738146",
+  "id": "acf519cc-116f-119e-a408-06a35b7c50be",
+  "name": "DỌN chitiet",
+  "type": "PutSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_kl_ctpct_chitiet"
+  ],
+  "kinds": [
+   "DELETE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_kl_ctpct_chitiet",
+   "datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02"
+  ],
+  "sql_len": 150,
+  "avg_s": null,
+  "max_s": null,
+  "targets": {
+   "qlnv_kl_ctpct_chitiet": {
+    "rows": 66300,
+    "mb": 108,
+    "uniq": [
+     "PRIMARY(tt)"
+    ]
+   }
+  }
+ },
+ {
+  "grp": "/qlnv_kl_ctpct_chitiet",
+  "gid": "f230cfc3-019e-1000-214f-91d43d738146",
+  "id": "acf519c2-116f-119e-3fc1-93faaf1c312b",
+  "name": "03_chitiet",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [],
+  "kinds": [],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01",
+   "datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan"
+  ],
+  "sql_len": 2858,
+  "avg_s": null,
+  "max_s": null,
+  "targets": {}
+ },
+ {
+  "grp": "/Nhiệm vụ chờ duyệt",
+  "gid": "acf5152e-116f-119e-9c7d-bb79fb0b6b7f",
+  "id": "acf5155c-116f-119e-cb05-13573b046768",
+  "name": "PutDatabaseRecord",
+  "type": "PutDatabaseRecord",
+  "state": "STOPPED",
+  "sched": "0 sec",
+  "targets": {}
+ },
+ {
+  "grp": "/Nhiệm vụ chờ duyệt",
+  "gid": "acf5152e-116f-119e-9c7d-bb79fb0b6b7f",
+  "id": "acf5155d-116f-119e-7684-68f7c59128ba",
+  "name": "qlnv_tonghop_chitiet_nhiem_vu_cho_duyet",
+  "type": "ExecuteSQL",
+  "state": "STOPPED",
+  "sched": "0 sec",
+  "writes": [],
+  "kinds": [],
+  "upsert": false,
+  "reads": [
+   "db_theodoinv_hn.qlnv_report",
+   "db_theodoinv_hn.qlnv_task"
+  ],
+  "sql_len": 476,
+  "avg_s": null,
+  "max_s": null,
+  "targets": {}
+ },
+ {
+  "grp": "/Nhiệm vụ chờ duyệt",
+  "gid": "acf5152e-116f-119e-9c7d-bb79fb0b6b7f",
+  "id": "acf51533-116f-119e-e431-efc994aa70a9",
+  "name": "qlnv_tonghop_chitiet_nhiem_vu_cho_duyet",
+  "type": "ExecuteSQL",
+  "state": "STOPPED",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_tonghop_chitiet_nhiem_vu_cho_duyet"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan"
+  ],
+  "sql_len": 2294,
+  "avg_s": null,
+  "max_s": null,
+  "targets": {
+   "qlnv_tonghop_chitiet_nhiem_vu_cho_duyet": {
+    "rows": 3381,
+    "mb": 6,
+    "uniq": []
+   }
+  }
+ },
+ {
+  "grp": "/Nhiệm vụ chờ duyệt",
+  "gid": "acf5152e-116f-119e-9c7d-bb79fb0b6b7f",
+  "id": "acf51532-116f-119e-4a7f-8799f5c8d620",
+  "name": "PutDatabaseRecord",
+  "type": "PutDatabaseRecord",
+  "state": "STOPPED",
+  "sched": "0 sec",
+  "targets": {}
+ },
+ {
+  "grp": "/Nhiệm vụ chờ duyệt",
+  "gid": "acf5152e-116f-119e-9c7d-bb79fb0b6b7f",
+  "id": "acf5155b-116f-119e-9e7c-dba2ea1192a5",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "STOPPED",
+  "sched": "3 min",
+  "targets": {}
+ },
+ {
+  "grp": "/Kiểm đếm",
+  "gid": "bee45b79-c2d0-1c10-0aa0-f6cde03c039a",
+  "id": "bee45b6b-c2d0-1c10-5be7-b61ec8483cce",
+  "name": "qlnv_tongquan_donvi_kiemdem",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_tongquan_donvi_kiemdem"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.department",
+   "datamart_hanoi.qlnv_tonghop_chitiet_donvi"
+  ],
+  "sql_len": 3739,
+  "avg_s": 42.4,
+  "max_s": 61.2,
+  "targets": {
+   "qlnv_tongquan_donvi_kiemdem": {
+    "rows": 118272,
+    "mb": 67,
+    "uniq": []
+   }
+  }
+ },
+ {
+  "grp": "/Kiểm đếm",
+  "gid": "bee45b79-c2d0-1c10-0aa0-f6cde03c039a",
+  "id": "bee45b80-c2d0-1c10-1562-5711bff7e869",
+  "name": "qlnv_tongquan_vanban_kiemdem",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_tongquan_vanban_kiemdem"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.department",
+   "datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv"
+  ],
+  "sql_len": 2786,
+  "avg_s": 1.3,
+  "max_s": 1.7,
+  "targets": {
+   "qlnv_tongquan_vanban_kiemdem": {
+    "rows": 12356,
+    "mb": 5,
+    "uniq": []
+   }
+  }
+ },
+ {
+  "grp": "/Dashboard Lãnh đạo các phòng, sở ngành, xã phường",
+  "gid": "acf5120d-116f-119e-765d-ed1fc7374a72",
+  "id": "acf51211-116f-119e-e803-b02c279175fd",
+  "name": "qlnv_tonghop_chitiet_dieuhanh_lanhdao",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_tonghop_chitiet_dieuhanh_lanhdao"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.department",
+   "datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan"
+  ],
+  "sql_len": 2285,
+  "avg_s": 3.6,
+  "max_s": 4.5,
+  "targets": {
+   "qlnv_tonghop_chitiet_dieuhanh_lanhdao": {
+    "rows": 70280,
+    "mb": 112,
+    "uniq": []
+   }
+  }
+ },
+ {
+  "grp": "/Dashboard Lãnh đạo các phòng, sở ngành, xã phường",
+  "gid": "acf5120d-116f-119e-765d-ed1fc7374a72",
+  "id": "acf51219-116f-119e-81c4-c85264ef39c5",
+  "name": "qlnv_tongquan_dieuhanh_lanhdao",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_tongquan_dieuhanh_lanhdao"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao"
+  ],
+  "sql_len": 2148,
+  "avg_s": 2.3,
+  "max_s": 4.9,
+  "targets": {
+   "qlnv_tongquan_dieuhanh_lanhdao": {
+    "rows": 21696,
+    "mb": 7,
+    "uniq": []
+   }
+  }
+ },
+ {
+  "grp": "/Đánh giá cán bộ",
+  "gid": "bee45b54-c2d0-1c10-354a-231122d4d90f",
+  "id": "bee45b59-c2d0-1c10-b88a-46b87eb453cc",
+  "name": "60 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "RUNNING",
+  "sched": "60 min",
+  "targets": {}
+ },
+ {
+  "grp": "/Đánh giá cán bộ",
+  "gid": "bee45b54-c2d0-1c10-354a-231122d4d90f",
+  "id": "bee45b58-c2d0-1c10-c451-0a69b8a7e4bd",
+  "name": "qlnv_cbcc_danhgia",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [],
+  "kinds": [],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly"
+  ],
+  "sql_len": 5413,
+  "avg_s": 57.6,
+  "max_s": 84.0,
+  "targets": {}
+ },
+ {
+  "grp": "/Đánh giá cán bộ",
+  "gid": "bee45b54-c2d0-1c10-354a-231122d4d90f",
+  "id": "bee45b5b-c2d0-1c10-4a7a-d6a82a65d92c",
+  "name": "qlnv_tongquan_kpi_theo_nguoi_xu_ly",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_tongquan_kpi_theo_nguoi_xu_ly"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.dm_user",
+   "datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan"
+  ],
+  "sql_len": 4996,
+  "avg_s": 2.8,
+  "max_s": 3.9,
+  "targets": {
+   "qlnv_tongquan_kpi_theo_nguoi_xu_ly": {
+    "rows": 43192,
+    "mb": 12,
+    "uniq": []
+   }
+  }
+ },
+ {
+  "grp": "/Đánh giá cán bộ",
+  "gid": "bee45b54-c2d0-1c10-354a-231122d4d90f",
+  "id": "019e116a-acf5-1208-7e2d-4822e03b04b7",
+  "name": "PutDatabaseRecord",
+  "type": "PutDatabaseRecord",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "targets": {}
+ },
+ {
+  "grp": "/Đánh giá cán bộ",
+  "gid": "bee45b54-c2d0-1c10-354a-231122d4d90f",
+  "id": "019e1102-acf5-1208-d5c3-a043ccf43255",
+  "name": "qlnv_tongquan_kpi_theo_don_vi",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_tongquan_kpi_theo_don_vi"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_cbcc_danhgia"
+  ],
+  "sql_len": 2498,
+  "avg_s": 0.9,
+  "max_s": 1.2,
+  "targets": {
+   "qlnv_tongquan_kpi_theo_don_vi": {
+    "rows": 713,
+    "mb": 0,
+    "uniq": [
+     "PRIMARY(monthkey,don_vi)"
+    ]
+   }
+  }
+ },
+ {
+  "grp": "/Văn bản giao nhiệm vụ",
+  "gid": "f80bb6cb-019b-1000-b0a6-09aa42b1eb07",
+  "id": "f80bb6d5-019b-1000-0c9a-342dc440cbd2",
+  "name": "qlnv_tongquan_vanban",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_tongquan_vanban"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_tongquan_vanban_chitiet"
+  ],
+  "sql_len": 696,
+  "avg_s": 0.8,
+  "max_s": 1.3,
+  "targets": {
+   "qlnv_tongquan_vanban": {
+    "rows": 165,
+    "mb": 0,
+    "uniq": []
+   }
+  }
+ },
+ {
+  "grp": "/Văn bản giao nhiệm vụ",
+  "gid": "f80bb6cb-019b-1000-b0a6-09aa42b1eb07",
+  "id": "f80bb6e0-019b-1000-3bee-b9d72be8a846",
+  "name": "qlnv_tongquan_vanban_chitiet",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_tongquan_vanban_chitiet"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.department",
+   "db_theodoinv_hn.qlnv_resolution",
+   "db_theodoinv_hn.qlnv_sector",
+   "db_theodoinv_hn.qlnv_task",
+   "db_theodoinv_hn.qlnv_user"
+  ],
+  "sql_len": 3870,
+  "avg_s": 8.5,
+  "max_s": 17.2,
+  "targets": {
+   "qlnv_tongquan_vanban_chitiet": {
+    "rows": 9717,
+    "mb": 6,
+    "uniq": []
+   }
+  }
+ },
+ {
+  "grp": "/Chi tiết đơn vị",
+  "gid": "916211c3-1007-119c-2295-69dd6e92b153",
+  "id": "916211ca-1007-119c-6a0e-47623ea18a3f",
+  "name": "qlnv_tonghop_chitiet_donvi",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_tonghop_chitiet_donvi"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_tonghop_chitiet_giaonv",
+   "datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan"
+  ],
+  "sql_len": 4544,
+  "avg_s": 13.3,
+  "max_s": 23.0,
+  "targets": {
+   "qlnv_tonghop_chitiet_donvi": {
+    "rows": 169466,
+    "mb": 373,
+    "uniq": []
+   }
+  }
+ },
+ {
+  "grp": "/Chi tiết đơn vị",
+  "gid": "916211c3-1007-119c-2295-69dd6e92b153",
+  "id": "bee45557-c2d0-1c10-42fb-b57e704bcc94",
+  "name": "qlnv_tongquan_donvi",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_tongquan_donvi"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.department",
+   "datamart_hanoi.qlnv_tonghop_chitiet_donvi"
+  ],
+  "sql_len": 2537,
+  "avg_s": 26.4,
+  "max_s": 51.1,
+  "targets": {
+   "qlnv_tongquan_donvi": {
+    "rows": 187487,
+    "mb": 60,
+    "uniq": []
+   }
+  }
+ },
+ {
+  "grp": "/Copy of Chi tiết HĐND",
+  "gid": "bee45c1b-c2d0-1c10-68e6-1ce6bd2f7ca5",
+  "id": "bee45c1f-c2d0-1c10-4c4c-5961f59e3c21",
+  "name": "qlnv_tongquan_donvi_hdndtp",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "db_hdnd_qttt"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_tongquan_donvi"
+  ],
+  "sql_len": 504,
+  "avg_s": 1.2,
+  "max_s": 5.6,
+  "targets": {
+   "db_hdnd_qttt": {
+    "rows": null,
+    "mb": null,
+    "uniq": []
+   }
+  }
+ },
+ {
+  "grp": "/Copy of Chi tiết HĐND",
+  "gid": "bee45c1b-c2d0-1c10-68e6-1ce6bd2f7ca5",
+  "id": "bee45c23-c2d0-1c10-2e1f-e6022341c39b",
+  "name": "qlnv_tongquan_hdndtp",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "db_hdnd_qttt"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_tongquan"
+  ],
+  "sql_len": 457,
+  "avg_s": 0.8,
+  "max_s": 2.9,
+  "targets": {
+   "db_hdnd_qttt": {
+    "rows": null,
+    "mb": null,
+    "uniq": []
+   }
+  }
+ },
+ {
+  "grp": "/Copy of Chi tiết HĐND",
+  "gid": "bee45c1b-c2d0-1c10-68e6-1ce6bd2f7ca5",
+  "id": "bee45d70-c2d0-1c10-cbef-9a0e514bde6a",
+  "name": "qlnv_cbcc_danhgia_hdndtp",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "db_hdnd_qttt",
+   "loaicapcha"
+  ],
+  "kinds": [
+   "INSERT",
+   "UPDATE"
+  ],
+  "upsert": true,
+  "reads": [
+   "datamart_hanoi.dm_user",
+   "datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan"
+  ],
+  "sql_len": 6475,
+  "avg_s": 0.1,
+  "max_s": 1.4,
+  "targets": {
+   "db_hdnd_qttt": {
+    "rows": null,
+    "mb": null,
+    "uniq": []
+   },
+   "loaicapcha": {
+    "rows": null,
+    "mb": null,
+    "uniq": []
+   }
+  }
+ },
+ {
+  "grp": "/Copy of Chi tiết HĐND",
+  "gid": "bee45c1b-c2d0-1c10-68e6-1ce6bd2f7ca5",
+  "id": "bee45c20-c2d0-1c10-0920-38522ff5d50a",
+  "name": "qlnv_tonghop_chitiet_hdndtp",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "db_hdnd_qttt"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_tonghop_chitiet"
+  ],
+  "sql_len": 974,
+  "avg_s": 1.2,
+  "max_s": 2.8,
+  "targets": {
+   "db_hdnd_qttt": {
+    "rows": null,
+    "mb": null,
+    "uniq": []
+   }
+  }
+ },
+ {
+  "grp": "/Copy of Chi tiết HĐND",
+  "gid": "bee45c1b-c2d0-1c10-68e6-1ce6bd2f7ca5",
+  "id": "bee45c26-c2d0-1c10-c577-8c31d6f32379",
+  "name": "qlnv_tonghop_chitiet_khoi_hdndtp",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "db_hdnd_qttt"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_tonghop_chitiet_khoi"
+  ],
+  "sql_len": 989,
+  "avg_s": 0.9,
+  "max_s": 1.5,
+  "targets": {
+   "db_hdnd_qttt": {
+    "rows": null,
+    "mb": null,
+    "uniq": []
+   }
+  }
+ },
+ {
+  "grp": "/NV theo NQ57",
+  "gid": "bee45689-c2d0-1c10-5224-0e4dfc2ac439",
+  "id": "bee4568e-c2d0-1c10-45d1-783c24e2840c",
+  "name": "qlnv_tonghop_chitiet_nq57",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_tonghop_chitiet_nq57"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_tonghop_chitiet"
+  ],
+  "sql_len": 922,
+  "avg_s": 1.5,
+  "max_s": 2.3,
+  "targets": {
+   "qlnv_tonghop_chitiet_nq57": {
+    "rows": 2282,
+    "mb": 4,
+    "uniq": []
+   }
+  }
+ },
+ {
+  "grp": "/NV theo NQ57",
+  "gid": "bee45689-c2d0-1c10-5224-0e4dfc2ac439",
+  "id": "bee45690-c2d0-1c10-85b1-8a49837ef66b",
+  "name": "qlnv_tongquan_nq57",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_tongquan_nq57"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_tonghop_chitiet_nq57",
+   "datamart_hanoi.tla_bao_cao_tong_quan"
+  ],
+  "sql_len": 3240,
+  "avg_s": 0.8,
+  "max_s": 1.1,
+  "targets": {
+   "qlnv_tongquan_nq57": {
+    "rows": 150,
+    "mb": 0,
+    "uniq": []
+   }
+  }
+ },
+ {
+  "grp": "/Mốc thời gian",
+  "gid": "bee43e21-c2d0-1c10-447d-bc225c869f70",
+  "id": "019e108f-acf5-1208-c0bc-ed034c981447",
+  "name": "qlnv_tongquan_cham_muon_theo_don_vi",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_tongquan_cham_muon_theo_don_vi"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_tonghop_chitiet_giaonv"
+  ],
+  "sql_len": 1041,
+  "avg_s": null,
+  "max_s": null,
+  "targets": {
+   "qlnv_tongquan_cham_muon_theo_don_vi": {
+    "rows": 7487,
+    "mb": 2,
+    "uniq": []
+   }
+  }
+ },
+ {
+  "grp": "/Mốc thời gian",
+  "gid": "bee43e21-c2d0-1c10-447d-bc225c869f70",
+  "id": "019e107c-acf5-1208-afcc-9000f93bf4e7",
+  "name": "qlnv_tongquan_nhom_moc_thoi_gian",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_tonghop_chitiet_nhom_moc_thoi_gian"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv"
+  ],
+  "sql_len": 1391,
+  "avg_s": null,
+  "max_s": null,
+  "targets": {
+   "qlnv_tonghop_chitiet_nhom_moc_thoi_gian": {
+    "rows": 20488,
+    "mb": 45,
+    "uniq": []
+   }
+  }
+ },
+ {
+  "grp": "/Mốc thời gian",
+  "gid": "bee43e21-c2d0-1c10-447d-bc225c869f70",
+  "id": "019e1076-acf5-1208-04e2-8ce2d31315c0",
+  "name": "qlnv_tonghop_chitiet_nhom_moc_thoi_gian",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "sched": "0 sec",
+  "writes": [
+   "qlnv_tonghop_chitiet_nhom_moc_thoi_gian"
+  ],
+  "kinds": [
+   "INSERT",
+   "TRUNCATE"
+  ],
+  "upsert": false,
+  "reads": [
+   "datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv"
+  ],
+  "sql_len": 1391,
+  "avg_s": 1.5,
+  "max_s": 2.0,
+  "targets": {
+   "qlnv_tonghop_chitiet_nhom_moc_thoi_gian": {
+    "rows": 20488,
+    "mb": 45,
+    "uniq": []
+   }
+  }
+ }
+]

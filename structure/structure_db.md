@@ -41,10 +41,11 @@ Tài liệu mô tả cấu trúc từng bảng và ý nghĩa từng cột trong 
 |   6 | [`qlnv_task_resolution`](#qlnv_task_resolution)         |
 |   7 | [`qlnv_task_pin`](#qlnv_task_pin)                       |
 |   8 | [`qlnv_task_period_configs`](#qlnv_task_period_configs) |
-|   9 | [`qlnv_resolution`](#qlnv_resolution)                   |
-|  10 | [`qlnv_report`](#qlnv_report)                           |
-|  11 | [`qlnv_combination`](#qlnv_combination)                 |
-|  12 | [`qlnv_file`](#qlnv_file)                               |
+|   9 | [`qlnv_task_topic`](#qlnv_task_topic)                   |
+|  10 | [`qlnv_resolution`](#qlnv_resolution)                   |
+|  11 | [`qlnv_report`](#qlnv_report)                           |
+|  12 | [`qlnv_combination`](#qlnv_combination)                 |
+|  13 | [`qlnv_file`](#qlnv_file)                               |
 
 ---
 
@@ -52,55 +53,74 @@ Tài liệu mô tả cấu trúc từng bảng và ý nghĩa từng cột trong 
 
 **Mục đích:** Bảng trung tâm lưu toàn bộ nhiệm vụ (công việc được giao) của hệ thống. Mỗi bản ghi là một nhiệm vụ với thông tin người giao, đơn vị/người thực hiện, nguồn phát sinh, tiến độ và trạng thái xử lý.
 
-|   # | Cột                    | Kiểu            | Ràng buộc  | Mô tả / mục đích                                                                                                           |
-| --: | :--------------------- | :-------------- | :--------- | :------------------------------------------------------------------------------------------------------------------------- |
-|   1 | `TaskId`               | `int(11)`       | `PK`, `AI` | Khóa chính, mã nhiệm vụ                                                                                                    |
-|   2 | `CreateUser`           | `int(11)`       |            | Id người tạo nhiệm vụ; giá trị 0 = do hệ thống tạo                                                                         |
-|   3 | `ParentId`             | `int(11)`       |            | Id nhiệm vụ cha (nhiệm vụ con giao xuống); dùng cho cây phân cấp nhiệm vụ                                                  |
-|   4 | `Type`                 | `tinyint(4)`    | `NN`       | Loại nhiệm vụ: 0 = Cá nhân, 1 = Đơn vị                                                                                     |
-|   5 | `Status`               | `tinyint(4)`    | `NN`       | Trạng thái nhiệm vụ: 0 = Mới tạo, 1 = Chờ báo cáo tiến độ, 2 = Xin gia hạn, 3 = Hoàn thành, 4 = Kết thúc, 5 = Thu hồi      |
-|   6 | `State`                | `tinyint(4)`    | `NN`       | Tình trạng tiếp nhận: 0 = Mới tạo (có thể thu hồi), 1 = Đã nhận, 2 = Đã gửi báo cáo tiến độ, 3 = Đã gửi báo cáo hoàn thành |
-|   7 | `Priority`             | `tinyint(4)`    | `NN`       | Mức độ ưu tiên của nhiệm vụ                                                                                                |
-|   8 | `Progress`             | `int(11)`       | `NN`       | Tiến độ hoàn thành (%)                                                                                                     |
-|   9 | `Title`                | `varchar(6000)` | `NN`       | Tiêu đề nhiệm vụ (có FULLTEXT index để tìm kiếm)                                                                           |
-|  10 | `AssignOrganization`   | `varchar(255)`  |            | Cơ quan giao nhiệm vụ (phase 2)                                                                                            |
-|  11 | `AssignDepartment`     | `varchar(50)`   | `NN`       | Đơn vị giao nhiệm vụ (mã Part/phòng ban)                                                                                   |
-|  12 | `AssignUser`           | `int(11)`       |            | Người giao nhiệm vụ (UserId)                                                                                               |
-|  13 | `TargetOrganization`   | `varchar(255)`  |            | Cơ quan thực hiện (phase 2)                                                                                                |
-|  14 | `TargetDepartment`     | `varchar(50)`   | `NN`       | Đơn vị thực hiện (mã Part/phòng ban)                                                                                       |
-|  15 | `TargetUser`           | `int(11)`       |            | Người thực hiện (UserId)                                                                                                   |
-|  16 | `SourceId`             | `tinyint(4)`    | `NN`       | Nguồn phát sinh nhiệm vụ: 0 = từ văn bản, 1 = trực tiếp, 2 = khác                                                          |
-|  17 | `DocumentId`           | `varchar(40)`   |            | Mã DocumentId trên hệ thống eGov (văn bản gốc)                                                                             |
-|  18 | `Compendium`           | `varchar(255)`  |            | Trích yếu văn bản                                                                                                          |
-|  19 | `DocCode`              | `varchar(50)`   |            | Số ký hiệu văn bản                                                                                                         |
-|  20 | `Content`              | `longtext`      |            | Nội dung chi tiết nhiệm vụ                                                                                                 |
-|  21 | `ExpireDate`           | `datetime(6)`   |            | Hạn xử lý nhiệm vụ                                                                                                         |
-|  22 | `CompletedDate`        | `datetime(0)`   |            | Ngày kết thúc nhiệm vụ                                                                                                     |
-|  23 | `ApprovedDate`         | `datetime(0)`   |            | Ngày duyệt báo cáo hoàn thành                                                                                              |
-|  24 | `CreatedDate`          | `datetime(0)`   | `NN`       | Ngày tạo bản ghi (mặc định thời điểm hiện tại)                                                                             |
-|  25 | `UpdatedDate`          | `datetime(0)`   | `NN`       | Ngày cập nhật gần nhất (tự động cập nhật)                                                                                  |
-|  26 | `DeletedDate`          | `datetime(0)`   |            | Ngày xóa mềm; khác NULL nghĩa là đã bị xóa                                                                                 |
-|  27 | `ExternalId`           | `int(11)`       |            | TaskId đối chiếu từ cơ quan khác (đồng bộ liên thông)                                                                      |
-|  28 | `Code`                 | `varchar(255)`  |            | Mã nhiệm vụ (mã hiển thị/tra cứu)                                                                                          |
-|  29 | `CreateUserDepartment` | `varchar(255)`  |            | Đơn vị của người tạo nhiệm vụ                                                                                              |
-|  30 | `ChargeUser`           | `varchar(255)`  |            | Người phụ trách/chịu trách nhiệm                                                                                           |
-|  31 | `ResolutionId`         | `int(11)`       |            | Id nghị quyết/văn bản gắn với nhiệm vụ (→ qlnv_resolution)                                                                 |
-|  32 | `OtherSourceDes`       | `varchar(255)`  |            | Mô tả nguồn khác (khi SourceId = 2)                                                                                        |
-|  33 | `IsReturned`           | `tinyint(4)`    |            | Cờ đánh dấu nhiệm vụ bị trả lại                                                                                            |
-|  34 | `TaskSourceId`         | `int(11)`       |            | Id nguồn nhiệm vụ (→ qlnv_task_source)                                                                                     |
-|  35 | `NameGroup`            | `varchar(255)`  |            | Tên nhóm nhiệm vụ (hiển thị)                                                                                               |
-|  36 | `FollowUser`           | `varchar(255)`  |            | Danh sách người theo dõi nhiệm vụ                                                                                          |
-|  37 | `Synced`               | `varchar(255)`  |            | Trạng thái đồng bộ dữ liệu                                                                                                 |
-|  38 | `DataSync`             | `longtext`      |            | Dữ liệu đồng bộ (JSON) từ/đến hệ thống ngoài                                                                               |
-|  39 | `level`                | `int(11)`       |            | Cấp/bậc của nhiệm vụ trong cây phân cấp                                                                                    |
-|  40 | `Order`                | `int(11)`       |            | Thứ tự sắp xếp hiển thị                                                                                                    |
-|  41 | `IsRecurring`          | `tinyint(1)`    | `NN`       | Loại lặp lại: 0 = nhiệm vụ thường, 1 = nhiệm vụ định kỳ                                                                    |
-|  42 | `StartedDate`          | `datetime(0)`   |            | Ngày bắt đầu thực hiện nhiệm vụ                                                                                            |
-|  43 | `Sector`               | `varchar(256)`  |            | Lĩnh vực của nhiệm vụ                                                                                                      |
-|  44 | `ResponsibleUnit`      | `varchar(256)`  |            | Đơn vị chịu trách nhiệm chính                                                                                              |
-|  45 | `DocumentCompendium`   | `varchar(255)`  |            | Trích yếu văn bản nguồn                                                                                                    |
-|  46 | `DocumentCode`         | `varchar(255)`  |            | Số ký hiệu văn bản nguồn                                                                                                   |
-|  47 | `DocumentOrganization` | `varchar(255)`  |            | Cơ quan ban hành văn bản nguồn                                                                                             |
+> **Cập nhật 12/11/2026** theo `DESCRIBE qlnv_task` trên CSDL thật (63 cột, đúng thứ tự vật lý). Cột `IDX` = có index (`MUL`). Mô tả có dấu _(suy từ tên)_ là chưa xác minh bằng mã nguồn/dữ liệu.
+> **Đã bỏ khỏi CSDL:** `DocumentCompendium`, `DocumentCode`, `DocumentOrganization` (tài liệu cũ có) — thông tin văn bản nguồn nay chỉ còn ở `Compendium`/`DocCode`/`DocTypeCode`/`DocNumber` và `qlnv_task_source`.
+
+|   # | Cột                        | Kiểu            | Ràng buộc / mặc định                    | Mô tả / mục đích                                                                                                           |
+| --: | :------------------------- | :-------------- | :-------------------------------------- | :------------------------------------------------------------------------------------------------------------------------- |
+|   1 | `TaskId`                   | `int(11)`       | `PK`, `AI`                              | Khóa chính, mã nhiệm vụ                                                                                                    |
+|   2 | `ParentId`                 | `int(11)`       | `IDX`                                   | Id nhiệm vụ cha (nhiệm vụ con giao xuống); dùng cho cây phân cấp nhiệm vụ                                                  |
+|   3 | `ResolutionId`             | `int(11)`       | `IDX`                                   | Id nghị quyết/văn bản gắn với nhiệm vụ (→ qlnv_resolution)                                                                 |
+|   4 | `ReportId`                 | `int(11)`       | `IDX`                                   | Id báo cáo liên quan (→ qlnv_report) _(suy từ tên)_ — NV phát sinh từ báo cáo                                              |
+|   5 | `Title`                    | `varchar(6000)` | `NN`, `IDX`                             | Tiêu đề nhiệm vụ (có FULLTEXT index để tìm kiếm)                                                                           |
+|   6 | `Code`                     | `varchar(255)`  | `IDX`                                   | Mã nhiệm vụ (mã hiển thị/tra cứu)                                                                                          |
+|   7 | `DocCode`                  | `varchar(50)`   |                                         | Số ký hiệu văn bản                                                                                                         |
+|   8 | `CreateUser`               | `int(11)`       |                                         | Id người tạo nhiệm vụ; giá trị 0 = do hệ thống tạo                                                                         |
+|   9 | `CreateUserDepartment`     | `varchar(255)`  |                                         | Đơn vị của người tạo nhiệm vụ                                                                                              |
+|  10 | `AssignUser`               | `int(11)`       | `IDX`                                   | Người giao nhiệm vụ (UserId)                                                                                               |
+|  11 | `AssignDepartment`         | `varchar(50)`   | `NN`, `IDX`                             | Đơn vị giao nhiệm vụ (mã Part/phòng ban)                                                                                   |
+|  12 | `TargetUser`               | `int(11)`       | `IDX`                                   | Người thực hiện (UserId)                                                                                                   |
+|  13 | `TargetDepartment`         | `varchar(50)`   | `NN`, `IDX`                             | Đơn vị thực hiện (mã Part/phòng ban)                                                                                       |
+|  14 | `Priority`                 | `tinyint(4)`    | `NN`, mặc định 0                        | Mức độ ưu tiên của nhiệm vụ                                                                                                |
+|  15 | `Type`                     | `tinyint(4)`    | `NN`, `IDX`, mặc định 0                 | Loại nhiệm vụ: 0 = Cá nhân, 1 = Đơn vị                                                                                     |
+|  16 | `Status`                   | `tinyint(4)`    | `NN`, `IDX`, mặc định 0                 | Trạng thái nhiệm vụ: 0 = Mới tạo, 1 = Chờ báo cáo tiến độ, 2 = Xin gia hạn, 3 = Hoàn thành, 4 = Kết thúc, 5 = Thu hồi      |
+|  17 | `State`                    | `tinyint(4)`    | `NN`, mặc định 0                        | Tình trạng tiếp nhận: 0 = Mới tạo (có thể thu hồi), 1 = Đã nhận, 2 = Đã gửi báo cáo tiến độ, 3 = Đã gửi báo cáo hoàn thành |
+|  18 | `Progress`                 | `int(11)`       | `NN`, mặc định 0                        | Tiến độ hoàn thành (%)                                                                                                     |
+|  19 | `SourceId`                 | `tinyint(4)`    | `NN`                                    | Nguồn phát sinh nhiệm vụ: 0 = từ văn bản, 1 = trực tiếp, 2 = khác                                                          |
+|  20 | `DocumentId`               | `varchar(40)`   |                                         | Mã DocumentId trên hệ thống eGov (văn bản gốc)                                                                             |
+|  21 | `Compendium`               | `varchar(1000)` |                                         | Trích yếu văn bản (đã nới từ 255 → 1000)                                                                                   |
+|  22 | `ChargeUser`               | `varchar(255)`  |                                         | Người phụ trách/chịu trách nhiệm                                                                                           |
+|  23 | `Content`                  | `longtext`      |                                         | Nội dung chi tiết nhiệm vụ                                                                                                 |
+|  24 | `ExpireDate`               | `datetime(6)`   |                                         | Hạn xử lý nhiệm vụ                                                                                                         |
+|  25 | `CompletedDate`            | `datetime`      |                                         | Ngày kết thúc nhiệm vụ                                                                                                     |
+|  26 | `ApprovedDate`             | `datetime`      |                                         | Ngày duyệt báo cáo hoàn thành                                                                                              |
+|  27 | `CreatedDate`              | `datetime`      | `NN`, `IDX`, mặc định CURRENT_TIMESTAMP | Ngày tạo bản ghi                                                                                                           |
+|  28 | `UpdatedDate`              | `datetime`      | `NN`, ON UPDATE CURRENT_TIMESTAMP       | Ngày cập nhật gần nhất (tự động cập nhật) — dùng làm watermark đồng bộ                                                     |
+|  29 | `DeletedDate`              | `datetime`      | `IDX`                                   | Ngày xóa mềm; khác NULL nghĩa là đã bị xóa                                                                                 |
+|  30 | `AssignOrganization`       | `varchar(255)`  |                                         | Cơ quan giao nhiệm vụ (phase 2)                                                                                            |
+|  31 | `TargetOrganization`       | `varchar(255)`  |                                         | Cơ quan thực hiện (phase 2)                                                                                                |
+|  32 | `ExternalId`               | `int(11)`       |                                         | TaskId đối chiếu từ cơ quan khác (đồng bộ liên thông)                                                                      |
+|  33 | `SourceCode`               | `varchar(255)`  | `IDX`                                   | Mã nguồn nhiệm vụ _(suy từ tên)_                                                                                           |
+|  34 | `CodeScheme`               | `tinyint(4)`    | `NN`, mặc định 0                        | Kiểu/sơ đồ sinh mã nhiệm vụ _(suy từ tên)_                                                                                 |
+|  35 | `CodeRole`                 | `tinyint(4)`    | `NN`, mặc định 0                        | Vai trò dùng khi sinh mã nhiệm vụ _(suy từ tên)_                                                                           |
+|  36 | `ParentPath`               | `varchar(1000)` | `IDX`                                   | Đường dẫn tổ tiên trong cây nhiệm vụ (materialized path) _(suy từ tên)_ — lọc cả nhánh không cần đệ quy                    |
+|  37 | `DocTypeCode`              | `varchar(10)`   |                                         | Mã loại văn bản nguồn _(suy từ tên)_                                                                                       |
+|  38 | `DocNumber`                | `varchar(20)`   |                                         | Số văn bản nguồn _(suy từ tên)_                                                                                            |
+|  39 | `CodeUnique`               | `varchar(255)`  | `UQ`                                    | Mã nhiệm vụ duy nhất toàn hệ thống _(suy từ tên)_ — khóa nghiệp vụ, NULL được phép                                         |
+|  40 | `OtherSourceDes`           | `varchar(255)`  |                                         | Mô tả nguồn khác (khi SourceId = 2)                                                                                        |
+|  41 | `IsReturned`               | `tinyint(4)`    |                                         | Cờ đánh dấu nhiệm vụ bị trả lại                                                                                            |
+|  42 | `TaskSourceId`             | `int(11)`       |                                         | Id nguồn nhiệm vụ (→ qlnv_task_source)                                                                                     |
+|  43 | `NameGroup`                | `varchar(255)`  |                                         | Tên nhóm nhiệm vụ (hiển thị)                                                                                               |
+|  44 | `FollowUser`               | `varchar(255)`  |                                         | Danh sách người theo dõi nhiệm vụ                                                                                          |
+|  45 | `Synced`                   | `varchar(255)`  |                                         | Trạng thái đồng bộ dữ liệu                                                                                                 |
+|  46 | `DataSync`                 | `longtext`      |                                         | Dữ liệu đồng bộ (JSON) từ/đến hệ thống ngoài                                                                               |
+|  47 | `level`                    | `int(11)`       |                                         | Cấp/bậc của nhiệm vụ trong cây phân cấp                                                                                    |
+|  48 | `Order`                    | `int(11)`       | mặc định 0                              | Thứ tự sắp xếp hiển thị (từ khóa SQL — phải bọc `` `Order` ``)                                                             |
+|  49 | `IsRecurring`              | `tinyint(1)`    | `NN`, mặc định 0                        | Loại lặp lại: 0 = nhiệm vụ thường, 1 = nhiệm vụ định kỳ                                                                    |
+|  50 | `StartedDate`              | `datetime`      |                                         | Ngày bắt đầu thực hiện nhiệm vụ                                                                                            |
+|  51 | `Sector`                   | `varchar(256)`  |                                         | Lĩnh vực của nhiệm vụ                                                                                                      |
+|  52 | `ResponsibleUnit`          | `varchar(256)`  |                                         | Đơn vị chịu trách nhiệm chính                                                                                              |
+|  53 | `IsDirective`              | `tinyint(1)`    | `NN`, mặc định 0                        | Cờ nhiệm vụ chỉ đạo _(suy từ tên)_                                                                                         |
+|  54 | `IsFocus`                  | `tinyint(1)`    | `NN`, `IDX`, mặc định 0                 | Cờ nhiệm vụ trọng tâm _(suy từ tên)_                                                                                       |
+|  55 | `TopicId`                  | `int(11)`       | `IDX`                                   | Chủ đề/chuyên đề của nhiệm vụ (→ [`qlnv_task_topic`](#qlnv_task_topic).`TopicId`)                                          |
+|  56 | `IsAiExtracted`            | `tinyint(4)`    | `NN`, mặc định 0                        | Cờ nhiệm vụ được AI trích xuất từ văn bản _(suy từ tên)_                                                                   |
+|  57 | `ImportBatchId`            | `int(11)`       | `IDX`                                   | Id lô nhập (import) tạo ra nhiệm vụ _(suy từ tên)_                                                                         |
+|  58 | `OkrLevel`                 | `tinyint(4)`    | `NN`, mặc định 0                        | Cấp OKR của nhiệm vụ _(suy từ tên)_                                                                                        |
+|  59 | `ParentResolutionTaskId`   | `int(11)`       | `IDX`                                   | Nhiệm vụ gốc thuộc văn bản/nghị quyết cấp trên mà NV này được giao từ đó _(suy từ tên)_                                    |
+|  60 | `OriginalTargetUser`       | `int(11)`       |                                         | Người thực hiện ban đầu (trước khi chuyển giao) _(suy từ tên)_                                                             |
+|  61 | `OriginalTargetDepartment` | `varchar(50)`   |                                         | Đơn vị thực hiện ban đầu (trước khi chuyển giao) _(suy từ tên)_                                                            |
+|  62 | `AssignBatchId`            | `int(11)`       | `IDX`                                   | Id lô giao nhiệm vụ hàng loạt _(suy từ tên)_                                                                               |
+|  63 | `TopicCode`                | `varchar(255)`  |                                         | Mã chủ đề (denormalize từ `qlnv_task_topic.Code`) _(suy từ tên)_                                                           |
 
 ### `qlnv_task_group`
 
@@ -199,6 +219,26 @@ Tài liệu mô tả cấu trúc từng bảng và ý nghĩa từng cột trong 
 |  10 | `ValidTo`        | `date`        |                      | Ngày kết thúc hiệu lực (NULL = không giới hạn)       |
 |  11 | `CreatedDate`    | `datetime(0)` | `NN`                 | Ngày tạo bản ghi                                     |
 |  12 | `UpdatedDate`    | `datetime(0)` | `NN`                 | Ngày cập nhật gần nhất                               |
+
+### `qlnv_task_topic`
+
+**Mục đích:** Danh mục chủ đề/chuyên đề nhiệm vụ (phân cấp cha–con qua `ParentTopicId`), được tham chiếu bởi `qlnv_task.TopicId`. _(Thêm 12/11/2026 theo `DESCRIBE` CSDL thật; mô tả có dấu (suy từ tên) chưa xác minh.)_
+
+|   # | Cột             | Kiểu           | Ràng buộc / mặc định              | Mô tả / mục đích                                                    |
+| --: | :-------------- | :------------- | :-------------------------------- | :------------------------------------------------------------------ |
+|   1 | `TopicId`       | `int(11)`      | `PK`, `AI`                        | Khóa chính, mã chủ đề                                               |
+|   2 | `TopicName`     | `varchar(190)` | `NN`                              | Tên chủ đề                                                          |
+|   3 | `Code`          | `varchar(50)`  |                                   | Mã chủ đề (khớp `qlnv_task.TopicCode`) _(suy từ tên)_               |
+|   4 | `Color`         | `varchar(20)`  |                                   | Màu hiển thị chủ đề trên giao diện                                  |
+|   5 | `IsActive`      | `tinyint(1)`   | `NN`, `IDX`, mặc định 1           | Cờ đang sử dụng (1 = hoạt động)                                     |
+|   6 | `CreateUser`    | `int(11)`      |                                   | Người tạo (UserId)                                                  |
+|   7 | `CreatedDate`   | `datetime`     | `NN`, mặc định CURRENT_TIMESTAMP  | Ngày tạo bản ghi                                                    |
+|   8 | `UpdatedDate`   | `datetime`     | `NN`, mặc định CURRENT_TIMESTAMP  | Ngày cập nhật (**không** có ON UPDATE — app tự ghi)                 |
+|   9 | `DeletedDate`   | `datetime`     |                                   | Ngày xóa mềm; khác NULL = đã xóa                                    |
+|  10 | `GroupId`       | `int(11)`      | `NN`, `IDX`, mặc định 1           | Nhóm chủ đề _(suy từ tên — chưa rõ trỏ bảng nào)_                   |
+|  11 | `ParentTopicId` | `int(11)`      |                                   | Chủ đề cha (→ `qlnv_task_topic.TopicId`), NULL = chủ đề gốc         |
+|  12 | `SortOrder`     | `int(11)`      | `NN`, mặc định 0                  | Thứ tự sắp xếp hiển thị                                             |
+|  13 | `IsRestricted`  | `tinyint(1)`   | `NN`, mặc định 0                  | Cờ chủ đề hạn chế quyền xem _(suy từ tên)_                          |
 
 ### `qlnv_resolution`
 

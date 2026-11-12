@@ -117,12 +117,18 @@ ${S} .kpi{height:100%;display:flex;flex-direction:column;justify-content:space-b
 ${S} .kpi-t{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:${P.ink2};min-width:0}
 ${S} .kpi-t span.n{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 ${S} .ico{flex:none;display:flex;align-items:center;justify-content:center}
-${S} .kpi-v{font-size:40px;font-weight:700;line-height:1;letter-spacing:-.03em;white-space:nowrap}
+${S}.cq{container-type:inline-size}
+${S} .kpi-v{font-size:clamp(24px,17cqi,40px);font-weight:700;line-height:1;letter-spacing:-.03em;white-space:nowrap}
 ${S} .kpi-v small{font-size:13px;font-weight:500;color:${P.mo};margin-left:6px;letter-spacing:0}
-${S} .kpi-s{margin-top:8px;display:flex;align-items:center;gap:8px;font-size:13px;color:${P.mo};white-space:nowrap}
+${S} .kpi-s{margin-top:8px;display:flex;align-items:center;gap:8px;font-size:13px;color:${P.mo};white-space:nowrap;overflow:hidden;min-width:0}
+${S} .kpi-s>*{flex:none} ${S} .kpi-s>span:last-child{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis}
+${S} .kpi-l{flex:1 1 auto;min-width:0;overflow:hidden} ${S} .kpi-x{flex:none}
 ${S} .dl{border-radius:6px;padding:2px 8px;font-weight:600}
 ${S} .kpi-f{display:flex;align-items:flex-end;justify-content:space-between;gap:10px}
-${S} .kpi.gon{padding:10px 16px;border-radius:14px} ${S} .kpi.gon .kpi-v{font-size:30px} ${S} .kpi.gon .kpi-s{margin-top:4px}
+${S} .kpi.gon{padding:10px 16px;border-radius:14px} ${S} .kpi.gon .kpi-v{font-size:clamp(20px,11cqi,30px)} ${S} .kpi.gon .kpi-s{margin-top:4px}
+@container (max-width:300px){${S} .kpi,${S} .dem{padding-left:12px;padding-right:12px} ${S} .kpi-x{zoom:.8} ${S} .kpi-s{gap:5px;font-size:12px} ${S} .kpi-t{font-size:14px}}
+@container (max-width:260px){${S} .kpi-x.sp{display:none}}
+@container (max-width:215px){${S} .kpi-x{display:none}}
 ${S} .kpi-miss{display:flex;align-items:center;gap:10px;color:${C.warn};font-weight:600;font-size:15px}
 ${S} table{width:100%;border-collapse:collapse;font-size:13px;text-align:left}
 ${S} th{position:sticky;top:0;z-index:1;background:#fff;padding:8px;font-size:13px;font-weight:600;color:${P.mo};border-bottom:1px solid ${P.vien};white-space:nowrap}
@@ -277,15 +283,15 @@ ${S} .ech{position:absolute;inset:0}
     const vach = m && m.xh === "tot" ? C.tot : m && m.xh === "xau" ? C.xau : m ? P.xanh : C.warn;
     html = `<div class="kpi${g ? " gon" : ""}"${CFG.link ? ` data-tab="${esc(CFG.icon)}"` : ""} style="border-top:4px solid ${vach}${CFG.link ? ";cursor:pointer" : ""}" title="${esc(o.ten)}">
       <div class="kpi-t">${icon(CFG.icon, g ? 26 : 32)}<span class="n">${esc(CFG.nhan || o.tn)}</span></div>
-      ${m ? `<div class="kpi-f"><div style="min-width:0"><div class="kpi-v">${esc(m.hienThi)}${donVi(o) ? `<small>${esc(donVi(o))}</small>` : ""}</div>
-        <div class="kpi-s">${delta(m)}<span>${esc(m.ky)}</span></div></div>${p != null ? (g ? ring(p, P.xanh, 52, 7) : ring(p, P.xanh, 66, 8)) : (g ? spark(o.pts, 100, 36, P.xanh) : spark(o.pts, 110, 46, P.xanh))}</div>`
+      ${m ? `<div class="kpi-f"><div class="kpi-l"><div class="kpi-v">${esc(m.hienThi)}${donVi(o) ? `<small>${esc(donVi(o))}</small>` : ""}</div>
+        <div class="kpi-s">${delta(m)}<span>${esc(m.ky)}</span></div></div><div class="kpi-x${p == null ? " sp" : ""}">${p != null ? (g ? ring(p, P.xanh, 52, 7) : ring(p, P.xanh, 66, 8)) : (g ? spark(o.pts, 100, 36, P.xanh) : spark(o.pts, 110, 46, P.xanh))}</div></div>`
       : `<div class="kpi-f"><div class="kpi-miss">${warn(o.lyDo, true)}<span>${esc(NOD)}<span class="sub" style="font-weight:400">${esc(o.lyDo)}</span></span></div></div>`}
     </div>`;
   } else if (L === "dem") {
     const all = Object.values(CS), moi = all.filter((o) => o.m && o.m.tt >= KY_MOI).length, cu = all.filter((o) => o.m && o.m.tt < KY_MOI).length, chua = all.filter((o) => !o.m).length;
     const D = { tong: [all.length, P.navy], moi: [moi, P.xanh], cu: [cu, C.warn], chua: [chua, C.xau] }[CFG.dem];
     html = `<div class="dem" style="border-top:3px solid ${D[1]}"><div class="kpi-t">${CFG.dem === "chua" ? warn(NOD) : ""}<span class="n">${esc(CFG.dem === "moi" ? CFG.nhan + " " + TEN_KY_MOI : CFG.nhan)}</span></div>
-      <div class="kpi-f"><div class="kpi-v">${D[0]}</div>${ring(D[0] / (all.length || 1), D[1], 58, 7)}</div></div>`;
+      <div class="kpi-f"><div class="kpi-l"><div class="kpi-v">${D[0]}</div></div><div class="kpi-x">${ring(D[0] / (all.length || 1), D[1], 58, 7)}</div></div></div>`;
   } else if (L === "line" || L === "cot") {
     const ss = seriesOf(CFG.ma);
     const extra = CFG.nguong && cs(CFG.nguong).ng != null ? [{ n: cs(CFG.nguong).tng, c: P.navy }] : [];
@@ -390,7 +396,7 @@ ${S} .ech{position:absolute;inset:0}
       `<div class="tool"><input type="search" placeholder="Tìm chỉ số, đầu mối" class="q"><select class="cd"><option value="">Tất cả chuyên đề</option>${cds.map((c) => `<option>${esc(c)}</option>`).join("")}</select></div>`);
   }
 
-  rootEl.innerHTML = `<div id="${wrapId}">${css}${html}</div>`;
+  rootEl.innerHTML = `<div id="${wrapId}"${L === "kpi" || L === "dem" ? ' class="cq"' : ""}>${css}${html}</div>`;
   const wrapEl = document.getElementById(wrapId);
   sau.forEach((f) => { try { f(wrapEl); } catch (e) { if (window.console) console.error("nq57", CFG.key, e); } });
 

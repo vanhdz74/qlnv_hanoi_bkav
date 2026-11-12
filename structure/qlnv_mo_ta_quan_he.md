@@ -41,6 +41,9 @@ qlnv_task_user            qlnv_task_group  │  qlnv_task_pin  qlnv_report │
                    ── TaskIdParent      → qlnv_task (NV cha giao xuống VB)
 
   qlnv_file (PK FileId) ── TaskId | ReportId | ResolutionId  ← gắn 1 trong 3
+
+  qlnv_task.TopicId ──► qlnv_task_topic (PK TopicId, ParentTopicId tự nối, GroupId)
+  qlnv_task.ParentPath  = đường dẫn cây (thay đệ quy ParentId) · CodeUnique UQ
 ```
 
 ## 2. Vai trò từng bảng — 1 dòng
@@ -55,6 +58,7 @@ qlnv_task_user            qlnv_task_group  │  qlnv_task_pin  qlnv_report │
 | `qlnv_task_source` | 1 nguồn × 1 NV | Truy nguồn văn bản eGov (`DocumentID`, `DocumentCopyID`) |
 | `qlnv_task_group` / `_tag` / `_resolution` | cặp | 3 bảng nối N-N thuần |
 | `qlnv_task_pin` / `_period_configs` | phụ trợ | Ghim cá nhân · cấu hình chu kỳ NV định kỳ |
+| `qlnv_task_topic` | 1 chủ đề | Danh mục chủ đề/chuyên đề (cây `ParentTopicId`), `qlnv_task.TopicId` → `TopicId` (1 NV : 1 chủ đề); `qlnv_task.TopicCode` ~ `Code`. Lọc `IsActive=1 AND DeletedDate IS NULL` |
 | `qlnv_file` | 1 file | Đính kèm; `Type` 2 VB chỉ đạo · 3 KH/HD · 4 CTHĐ |
 
 ## 3. Bốn cái bẫy khi viết query
@@ -65,9 +69,10 @@ Join cả hai → nhân dòng. Tài liệu nói `qlnv_task_resolution` mới là
 
 **(2) Hai đường đi tới nguồn văn bản, ba chỗ lưu cùng dữ liệu.**
 `qlnv_task.TaskSourceId → qlnv_task_source.TaskSourceId` ngược chiều với
-`qlnv_task_source.TaskId → qlnv_task.TaskId`. Và thông tin văn bản nằm ở **3 nơi**:
-`qlnv_task.Compendium/DocCode`, `qlnv_task.DocumentCompendium/DocumentCode/DocumentOrganization`,
-`qlnv_task_source.Compendium/DocCode/Organization`. Với dashboard, **đọc thẳng cột trên
+`qlnv_task_source.TaskId → qlnv_task.TaskId`. Và thông tin văn bản nằm ở **2 nơi**:
+`qlnv_task.Compendium/DocCode/DocTypeCode/DocNumber` và
+`qlnv_task_source.Compendium/DocCode/Organization`. (CSDL thật **không còn**
+`DocumentCompendium/DocumentCode/DocumentOrganization` — cập nhật 12/11/2026.) Với dashboard, **đọc thẳng cột trên
 `qlnv_task` là rẻ nhất** — khỏi join, khỏi rủi ro nhân dòng.
 
 **(3) Năm cách biết "nhiệm vụ xong chưa"** — `Status`, `State`, `Progress`,

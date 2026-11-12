@@ -6,7 +6,7 @@
 CREATE TABLE IF NOT EXISTS `datamart_hanoi`.`chuyen_de_chi_tiet_nq57` (
     nhom_du_lieu    VARCHAR(30)    NOT NULL,
     ma_chi_so       VARCHAR(30)    NOT NULL,
-    ky              VARCHAR(20)    NOT NULL COMMENT 'T2/2026..T10/2026, Tuần 41, TB 20/10',
+    ky              VARCHAR(20)    NOT NULL COMMENT 'T2/2026..T10/2026, TB 20/10',
     phan_to         VARCHAR(255)   NOT NULL DEFAULT '' COMMENT 'nguồn giao / xã / nhóm, rỗng với CHI_SO',
     thu_tu_ky       INT            NULL,
     thu_tu_chi_so   INT            NULL,

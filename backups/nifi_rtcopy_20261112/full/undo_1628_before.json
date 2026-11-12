@@ -1,0 +1,50 @@
+[
+ {
+  "kind": "processors",
+  "id": "142f3f25-6ef6-1fc2-2b93-8f65947374c8",
+  "name": "0. DDL tạo bảng _new_rt (lõi + hạ nguồn)",
+  "state": "RUNNING"
+ },
+ {
+  "kind": "output-ports",
+  "id": "142f3fac-6ef6-1fc2-9cd1-bbd90c4b1f83",
+  "name": "output",
+  "state": "RUNNING"
+ },
+ {
+  "kind": "output-ports",
+  "id": "142f3f41-6ef6-1fc2-c9a9-acc8890f3730",
+  "name": "output",
+  "state": "RUNNING"
+ },
+ {
+  "kind": "processors",
+  "id": "acf5155c-116f-119e-cb05-13573b046768",
+  "name": "PutDatabaseRecord",
+  "state": "RUNNING"
+ },
+ {
+  "kind": "processors",
+  "id": "acf5155d-116f-119e-7684-68f7c59128ba",
+  "name": "qlnv_tonghop_chitiet_nhiem_vu_cho_duyet",
+  "state": "RUNNING"
+ },
+ {
+  "kind": "processors",
+  "id": "acf51533-116f-119e-e431-efc994aa70a9",
+  "name": "qlnv_tonghop_chitiet_nhiem_vu_cho_duyet",
+  "state": "RUNNING"
+ },
+ {
+  "kind": "processors",
+  "id": "acf51532-116f-119e-4a7f-8799f5c8d620",
+  "name": "PutDatabaseRecord",
+  "state": "RUNNING"
+ },
+ {
+  "kind": "processors",
+  "id": "acf5155b-116f-119e-9e7c-dba2ea1192a5",
+  "name": "3 PHÚT / 1 LẦN",
+  "state": "RUNNING"
+ }
+]

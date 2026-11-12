@@ -1,0 +1,4 @@
+15:06:25 threads=2 queued=5 (480 bytes) | mysql chạy=4 chờ_khóa=3 lâu_nhất=1s | failure: 0 | dồn: 0
+15:09:25 threads=0 queued=3 (240 bytes) | mysql chạy=1 chờ_khóa=0 lâu_nhất=0s | failure: 0 | dồn: 0
+15:12:26 threads=2 queued=5 (480 bytes) | mysql chạy=1 chờ_khóa=0 lâu_nhất=0s | failure: 0 | dồn: 0
+15:15:26 threads=2 queued=8 (720 bytes) | mysql chạy=5 chờ_khóa=0 lâu_nhất=4s | failure: 0 | dồn: 0

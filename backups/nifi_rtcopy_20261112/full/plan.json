@@ -1,0 +1,990 @@
+[
+ {
+  "g": "acf5120d",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "acf5120d",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "acf5120d",
+  "name": "LogAttribute",
+  "type": "LogAttribute",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "acf5120d",
+  "name": "qlnv_tonghop_chitiet_dieuhanh_lanhdao",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "acf5120d",
+  "name": "qlnv_tongquan_dieuhanh_lanhdao",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "acf5120d",
+  "name": "LogAttribute",
+  "type": "LogAttribute",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45b54",
+  "name": "60 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "RUNNING",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45b54",
+  "name": "LogAttribute",
+  "type": "LogAttribute",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45b54",
+  "name": "qlnv_cbcc_danhgia",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": []
+ },
+ {
+  "g": "bee45b54",
+  "name": "qlnv_tongquan_kpi_theo_nguoi_xu_ly",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query",
+   "sql-pre-query"
+  ],
+  "note": [
+   "swap",
+   "bỏ pre-TRUNCATE"
+  ]
+ },
+ {
+  "g": "bee45b54",
+  "name": "qlnv_cbcc_danhgia",
+  "type": "ExecuteSQL",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45b54",
+  "name": "180 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45b54",
+  "name": "PutDatabaseRecord",
+  "type": "PutDatabaseRecord",
+  "state": "RUNNING",
+  "props": [
+   "put-db-record-table-name"
+  ],
+  "note": [
+   "PDR"
+  ]
+ },
+ {
+  "g": "bee45b54",
+  "name": "PutDatabaseRecord",
+  "type": "PutDatabaseRecord",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45b54",
+  "name": "qlnv_tongquan_kpi_theo_don_vi",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "bee45b54",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee43e21",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee43e21",
+  "name": "qlnv_tongquan_cham_muon_theo_don_vi",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "bee43e21",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee43e21",
+  "name": "qlnv_tongquan_nhom_moc_thoi_gian",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "bee43e21",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee43e21",
+  "name": "LogAttribute",
+  "type": "LogAttribute",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee43e21",
+  "name": "qlnv_tonghop_chitiet_nhom_moc_thoi_gian",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "bee45689",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45689",
+  "name": "qlnv_tonghop_chitiet_nq57",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "bee45689",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45689",
+  "name": "LogAttribute",
+  "type": "LogAttribute",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45689",
+  "name": "qlnv_tongquan_nq57",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "f80d911d",
+  "name": "LogAttribute",
+  "type": "LogAttribute",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "f80d911d",
+  "name": "qlnv_tonghop_loaicapcha_chitiet",
+  "type": "ExecuteSQL",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "f80d911d",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "f80d911d",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "f80d911d",
+  "name": "qlnv_tongquan_khoi",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "f80d911d",
+  "name": "qlnv_tongquan_loaicapcha",
+  "type": "ExecuteSQL",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "f80d911d",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "f80bb6cb",
+  "name": "qlnv_tongquan_donvi_quahan",
+  "type": "ExecuteSQL",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "f80bb6cb",
+  "name": "LogAttribute",
+  "type": "LogAttribute",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "f80bb6cb",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "f80bb6cb",
+  "name": "qlnv_tongquan_vanban",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "f80bb6cb",
+  "name": "qlnv_tongquan_vanban_chitiet",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "f80bb6cb",
+  "name": "qlnv_tongquan_vanban_chitiet",
+  "type": "ExecuteSQL",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "f80bb6cb",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "916211c3",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "916211c3",
+  "name": "LogAttribute",
+  "type": "LogAttribute",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "916211c3",
+  "name": "qlnv_tonghop_chitiet_donvi",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "916211c3",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "916211c3",
+  "name": "qlnv_tongquan_donvi",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "bee45b79",
+  "name": "qlnv_tongquan_donvi_kiemdem_btctw",
+  "type": "ExecuteSQL",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45b79",
+  "name": "qlnv_tongquan_vanban_kiemdem_btctw",
+  "type": "ExecuteSQL",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45b79",
+  "name": "LogAttribute",
+  "type": "LogAttribute",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45b79",
+  "name": "qlnv_tongquan_donvi_kiemdem",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "bee45b79",
+  "name": "15 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45b79",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45b79",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45b79",
+  "name": "qlnv_tongquan_vanban_kiemdem",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "bee45b79",
+  "name": "15 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45bfc",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45bfc",
+  "name": "qlnv_tongquan_donvi_hdndtp",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "bee45bfc",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45bfc",
+  "name": "qlnv_tonghop_chitiet_hdndtp",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "bee45bfc",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45bfc",
+  "name": "qlnv_cbcc_danhgia",
+  "type": "ExecuteSQL",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45bfc",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45bfc",
+  "name": "qlnv_tongquan_hdndtp",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "bee45bfc",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45bfc",
+  "name": "LogAttribute",
+  "type": "LogAttribute",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45bfc",
+  "name": "qlnv_tonghop_chitiet_khoi_hdndtp",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "bee45c1b",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45c1b",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45c1b",
+  "name": "qlnv_tongquan_donvi_hdndtp",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "bee45c1b",
+  "name": "qlnv_tongquan_hdndtp",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "bee45c1b",
+  "name": "qlnv_cbcc_danhgia_hdndtp",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": []
+ },
+ {
+  "g": "bee45c1b",
+  "name": "LogAttribute",
+  "type": "LogAttribute",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45c1b",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45c1b",
+  "name": "qlnv_tonghop_chitiet_hdndtp",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "bee45c1b",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45c1b",
+  "name": "3 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "bee45c1b",
+  "name": "qlnv_tonghop_chitiet_khoi_hdndtp",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "f230cfc3",
+  "name": "02_stage02",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": []
+ },
+ {
+  "g": "f230cfc3",
+  "name": "PUT stage02",
+  "type": "PutDatabaseRecord",
+  "state": "RUNNING",
+  "props": [
+   "put-db-record-table-name"
+  ],
+  "note": [
+   "PDR"
+  ]
+ },
+ {
+  "g": "f230cfc3",
+  "name": "LogAttribute",
+  "type": "LogAttribute",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "f230cfc3",
+  "name": "qlnv_kl_ctpct_chitiet_stage01",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "f230cfc3",
+  "name": "PUT stage01",
+  "type": "PutDatabaseRecord",
+  "state": "RUNNING",
+  "props": [
+   "put-db-record-table-name"
+  ],
+  "note": [
+   "PDR"
+  ]
+ },
+ {
+  "g": "f230cfc3",
+  "name": "60 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "f230cfc3",
+  "name": "30 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "RUNNING",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "f230cfc3",
+  "name": "60 PHÚT / 1 LẦN",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "f230cfc3",
+  "name": "DỌN stage01",
+  "type": "PutSQL",
+  "state": "RUNNING",
+  "props": [
+   "putsql-sql-statement"
+  ],
+  "note": []
+ },
+ {
+  "g": "f230cfc3",
+  "name": "PutDatabaseRecord",
+  "type": "PutDatabaseRecord",
+  "state": "RUNNING",
+  "props": [
+   "put-db-record-table-name"
+  ],
+  "note": [
+   "PDR"
+  ]
+ },
+ {
+  "g": "f230cfc3",
+  "name": "LogAttribute",
+  "type": "LogAttribute",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "f230cfc3",
+  "name": "qlnv_kl_ctpct_chitiet",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "f230cfc3",
+  "name": "PutDatabaseRecord",
+  "type": "PutDatabaseRecord",
+  "state": "RUNNING",
+  "props": [
+   "put-db-record-table-name"
+  ],
+  "note": [
+   "PDR"
+  ]
+ },
+ {
+  "g": "f230cfc3",
+  "name": "qlnv_kl_ctpct_chitiet",
+  "type": "ExecuteSQL",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "f230cfc3",
+  "name": "PUT chitiet",
+  "type": "PutDatabaseRecord",
+  "state": "RUNNING",
+  "props": [
+   "put-db-record-table-name"
+  ],
+  "note": [
+   "PDR"
+  ]
+ },
+ {
+  "g": "f230cfc3",
+  "name": "LogAttribute",
+  "type": "LogAttribute",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "f230cfc3",
+  "name": "DỌN stage02",
+  "type": "PutSQL",
+  "state": "RUNNING",
+  "props": [
+   "putsql-sql-statement"
+  ],
+  "note": []
+ },
+ {
+  "g": "f230cfc3",
+  "name": "30p/lần",
+  "type": "GenerateFlowFile",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "f230cfc3",
+  "name": "PutDatabaseRecord",
+  "type": "PutDatabaseRecord",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "f230cfc3",
+  "name": "qlnv_kl_ctpct_chitiet_stage02",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "f230cfc3",
+  "name": "01_stage01",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "f230cfc3",
+  "name": "DỌN chitiet",
+  "type": "PutSQL",
+  "state": "RUNNING",
+  "props": [
+   "putsql-sql-statement"
+  ],
+  "note": []
+ },
+ {
+  "g": "f230cfc3",
+  "name": "03_chitiet",
+  "type": "ExecuteSQL",
+  "state": "RUNNING",
+  "props": [
+   "SQL select query"
+  ],
+  "note": []
+ },
+ {
+  "g": "f230cfc3",
+  "name": "LogAttribute",
+  "type": "LogAttribute",
+  "state": "DISABLED",
+  "props": [],
+  "note": []
+ },
+ {
+  "g": "142f3e8c",
+  "name": "qlnv_th_tongquan_donvi_tiepnhan",
+  "type": "ExecuteSQL",
+  "state": "STOPPED",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ },
+ {
+  "g": "142f3eae",
+  "name": "qlnv_th_tongquan_donvi_giaonv",
+  "type": "ExecuteSQL",
+  "state": "STOPPED",
+  "props": [
+   "SQL select query"
+  ],
+  "note": [
+   "swap"
+  ]
+ }
+]

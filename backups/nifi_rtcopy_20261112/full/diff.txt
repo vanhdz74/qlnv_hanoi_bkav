@@ -1,0 +1,636 @@
+--- qlnv_tonghop_chitiet_dieuhanh_lanhdao::SQL select query
++++ qlnv_tonghop_chitiet_dieuhanh_lanhdao::SQL select query (mới)
+@@ -1,2 +1,5 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao;
+-INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao_new_rt__stg LIKE datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao_new_rt__stg;
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao_new_rt__stg
+@@ -58 +61 @@
+-( SELECT * FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan WHERE loaicapcha = "UBND Thành phố" ) t
++( SELECT * FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt WHERE loaicapcha = "UBND Thành phố" ) t
+@@ -65,0 +69,4 @@
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao_new_rt TO datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao_new_rt__old, datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao_new_rt__stg TO datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao_new_rt, datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao_new_rt__old TO datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- qlnv_tongquan_dieuhanh_lanhdao::SQL select query
++++ qlnv_tongquan_dieuhanh_lanhdao::SQL select query (mới)
+@@ -1,2 +1,5 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao;
+-INSERT INTO datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao_new_rt__stg;
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao_new_rt__stg
+@@ -85 +88 @@
+-FROM datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao t
++FROM datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao_new_rt t
+@@ -95 +98,5 @@
+-		t.tenviettat
++		t.tenviettat;
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao_new_rt TO datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao_new_rt__old, datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao_new_rt__stg TO datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao_new_rt, datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao_new_rt__old TO datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- qlnv_cbcc_danhgia::SQL select query
++++ qlnv_cbcc_danhgia::SQL select query (mới)
+@@ -138 +138 @@
+-    FROM datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly a
++    FROM datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly_new_rt a
+@@ -145 +145 @@
+-    LEFT JOIN datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly t_prev
++    LEFT JOIN datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly_new_rt t_prev
+--- qlnv_tongquan_kpi_theo_nguoi_xu_ly::SQL select query
++++ qlnv_tongquan_kpi_theo_nguoi_xu_ly::SQL select query (mới)
+@@ -0,0 +1 @@
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+@@ -3 +4,2 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly;
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly_new_rt__stg;
+@@ -5 +7,2 @@
+-INSERT INTO datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly_new_rt__stg
+@@ -44 +47 @@
+-    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan
++    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt
+@@ -90 +93 @@
+-    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan t
++    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt t
+@@ -127 +130 @@
+-    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan t
++    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt t
+@@ -145 +148,5 @@
+-    u.canbo_id
++    u.canbo_id;
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly_new_rt TO datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly_new_rt__old, datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly_new_rt__stg TO datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly_new_rt, datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly_new_rt__old TO datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- qlnv_tongquan_kpi_theo_nguoi_xu_ly::sql-pre-query
++++ qlnv_tongquan_kpi_theo_nguoi_xu_ly::sql-pre-query (mới)
+@@ -1 +0,0 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly;
+--- PutDatabaseRecord::put-db-record-table-name
++++ PutDatabaseRecord::put-db-record-table-name (mới)
+@@ -1 +1 @@
+-qlnv_cbcc_danhgia
++qlnv_cbcc_danhgia_new_rt
+--- qlnv_tongquan_kpi_theo_don_vi::SQL select query
++++ qlnv_tongquan_kpi_theo_don_vi::SQL select query (mới)
+@@ -1,2 +1,5 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi;
+-INSERT INTO datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi_new_rt__stg;
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi_new_rt__stg
+@@ -40 +43 @@
+-    FROM datamart_hanoi.qlnv_cbcc_danhgia t
++    FROM datamart_hanoi.qlnv_cbcc_danhgia_new_rt t
+@@ -73 +76 @@
+-    FROM datamart_hanoi.qlnv_cbcc_danhgia t
++    FROM datamart_hanoi.qlnv_cbcc_danhgia_new_rt t
+@@ -75,0 +79,4 @@
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi_new_rt TO datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi_new_rt__old, datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi_new_rt__stg TO datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi_new_rt, datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi_new_rt__old TO datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- qlnv_tongquan_cham_muon_theo_don_vi::SQL select query
++++ qlnv_tongquan_cham_muon_theo_don_vi::SQL select query (mới)
+@@ -1 +1,3 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi;
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi_new_rt__stg;
+@@ -3 +5,2 @@
+-INSERT INTO datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi (
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi_new_rt__stg (
+@@ -30 +33 @@
+-FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv g
++FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv_new_rt g
+@@ -40,0 +44,4 @@
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi_new_rt TO datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi_new_rt__old, datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi_new_rt__stg TO datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi_new_rt, datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi_new_rt__old TO datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- qlnv_tongquan_nhom_moc_thoi_gian::SQL select query
++++ qlnv_tongquan_nhom_moc_thoi_gian::SQL select query (mới)
+@@ -1,2 +1,5 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian;
+-INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian 
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt__stg LIKE datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt__stg;
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt__stg 
+@@ -43 +46 @@
+-FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv g
++FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv_new_rt g
+@@ -44,0 +48,4 @@
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt TO datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt__old, datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt__stg TO datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt, datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt__old TO datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- qlnv_tonghop_chitiet_nhom_moc_thoi_gian::SQL select query
++++ qlnv_tonghop_chitiet_nhom_moc_thoi_gian::SQL select query (mới)
+@@ -1,2 +1,5 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian;
+-INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian 
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt__stg LIKE datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt__stg;
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt__stg 
+@@ -43 +46 @@
+-FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv g
++FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv_new_rt g
+@@ -44,0 +48,4 @@
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt TO datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt__old, datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt__stg TO datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt, datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt__old TO datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- qlnv_tonghop_chitiet_nq57::SQL select query
++++ qlnv_tonghop_chitiet_nq57::SQL select query (mới)
+@@ -1,2 +1,5 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_nq57;
+-INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_nq57
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_nq57_new_rt__stg LIKE datamart_hanoi.qlnv_tonghop_chitiet_nq57_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_nq57_new_rt__stg;
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_nq57_new_rt__stg
+@@ -58,2 +61,6 @@
+-FROM datamart_hanoi.qlnv_tonghop_chitiet t
+-WHERE t.nhomvb = 'Nghị quyết 57'
++FROM datamart_hanoi.qlnv_tonghop_chitiet_new_rt t
++WHERE t.nhomvb = 'Nghị quyết 57';
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_tonghop_chitiet_nq57_new_rt TO datamart_hanoi.qlnv_tonghop_chitiet_nq57_new_rt__old, datamart_hanoi.qlnv_tonghop_chitiet_nq57_new_rt__stg TO datamart_hanoi.qlnv_tonghop_chitiet_nq57_new_rt, datamart_hanoi.qlnv_tonghop_chitiet_nq57_new_rt__old TO datamart_hanoi.qlnv_tonghop_chitiet_nq57_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- qlnv_tongquan_nq57::SQL select query
++++ qlnv_tongquan_nq57::SQL select query (mới)
+@@ -1,2 +1,5 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_nq57;
+-INSERT INTO datamart_hanoi.qlnv_tongquan_nq57
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_nq57_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_nq57_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_nq57_new_rt__stg;
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_tongquan_nq57_new_rt__stg
+@@ -88 +91 @@
+-FROM datamart_hanoi.qlnv_tonghop_chitiet_nq57 t
++FROM datamart_hanoi.qlnv_tonghop_chitiet_nq57_new_rt t
+@@ -149,0 +153,4 @@
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_tongquan_nq57_new_rt TO datamart_hanoi.qlnv_tongquan_nq57_new_rt__old, datamart_hanoi.qlnv_tongquan_nq57_new_rt__stg TO datamart_hanoi.qlnv_tongquan_nq57_new_rt, datamart_hanoi.qlnv_tongquan_nq57_new_rt__old TO datamart_hanoi.qlnv_tongquan_nq57_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- qlnv_tongquan_khoi::SQL select query
++++ qlnv_tongquan_khoi::SQL select query (mới)
+@@ -1 +1,3 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_khoi;
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_khoi_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_khoi_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_khoi_new_rt__stg;
+@@ -3 +5,2 @@
+-INSERT INTO datamart_hanoi.qlnv_tongquan_khoi
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_tongquan_khoi_new_rt__stg
+@@ -91 +94 @@
+-FROM datamart_hanoi.qlnv_tonghop_chitiet_khoi t
++FROM datamart_hanoi.qlnv_tonghop_chitiet_khoi_new_rt t
+@@ -106,0 +110,4 @@
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_tongquan_khoi_new_rt TO datamart_hanoi.qlnv_tongquan_khoi_new_rt__old, datamart_hanoi.qlnv_tongquan_khoi_new_rt__stg TO datamart_hanoi.qlnv_tongquan_khoi_new_rt, datamart_hanoi.qlnv_tongquan_khoi_new_rt__old TO datamart_hanoi.qlnv_tongquan_khoi_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- qlnv_tongquan_vanban::SQL select query
++++ qlnv_tongquan_vanban::SQL select query (mới)
+@@ -1,2 +1,5 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_vanban;
+-INSERT INTO datamart_hanoi.qlnv_tongquan_vanban 
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_vanban_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_vanban_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_vanban_new_rt__stg;
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_tongquan_vanban_new_rt__stg 
+@@ -20 +23 @@
+-FROM datamart_hanoi.qlnv_tongquan_vanban_chitiet main
++FROM datamart_hanoi.qlnv_tongquan_vanban_chitiet_new_rt main
+@@ -31,0 +35,4 @@
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_tongquan_vanban_new_rt TO datamart_hanoi.qlnv_tongquan_vanban_new_rt__old, datamart_hanoi.qlnv_tongquan_vanban_new_rt__stg TO datamart_hanoi.qlnv_tongquan_vanban_new_rt, datamart_hanoi.qlnv_tongquan_vanban_new_rt__old TO datamart_hanoi.qlnv_tongquan_vanban_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- qlnv_tongquan_vanban_chitiet::SQL select query
++++ qlnv_tongquan_vanban_chitiet::SQL select query (mới)
+@@ -1,2 +1,5 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_vanban_chitiet;
+-INSERT INTO datamart_hanoi.qlnv_tongquan_vanban_chitiet
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_vanban_chitiet_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_vanban_chitiet_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_vanban_chitiet_new_rt__stg;
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_tongquan_vanban_chitiet_new_rt__stg
+@@ -92,0 +96,4 @@
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_tongquan_vanban_chitiet_new_rt TO datamart_hanoi.qlnv_tongquan_vanban_chitiet_new_rt__old, datamart_hanoi.qlnv_tongquan_vanban_chitiet_new_rt__stg TO datamart_hanoi.qlnv_tongquan_vanban_chitiet_new_rt, datamart_hanoi.qlnv_tongquan_vanban_chitiet_new_rt__old TO datamart_hanoi.qlnv_tongquan_vanban_chitiet_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- qlnv_tonghop_chitiet_donvi::SQL select query
++++ qlnv_tonghop_chitiet_donvi::SQL select query (mới)
+@@ -1,2 +1,5 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_donvi;
+-INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_donvi (
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_donvi_new_rt__stg LIKE datamart_hanoi.qlnv_tonghop_chitiet_donvi_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_donvi_new_rt__stg;
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_donvi_new_rt__stg (
+@@ -148 +151 @@
+-FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv t
++FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv_new_rt t
+@@ -224 +227,5 @@
+-FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan t;
++FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt t;
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_tonghop_chitiet_donvi_new_rt TO datamart_hanoi.qlnv_tonghop_chitiet_donvi_new_rt__old, datamart_hanoi.qlnv_tonghop_chitiet_donvi_new_rt__stg TO datamart_hanoi.qlnv_tonghop_chitiet_donvi_new_rt, datamart_hanoi.qlnv_tonghop_chitiet_donvi_new_rt__old TO datamart_hanoi.qlnv_tonghop_chitiet_donvi_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- qlnv_tongquan_donvi::SQL select query
++++ qlnv_tongquan_donvi::SQL select query (mới)
+@@ -1,2 +1,5 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_donvi;
+-INSERT INTO datamart_hanoi.qlnv_tongquan_donvi
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_donvi_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_donvi_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_donvi_new_rt__stg;
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_tongquan_donvi_new_rt__stg
+@@ -49 +52 @@
+-FROM ( SELECT * FROM datamart_hanoi.qlnv_tonghop_chitiet_donvi
++FROM ( SELECT * FROM datamart_hanoi.qlnv_tonghop_chitiet_donvi_new_rt
+@@ -96,0 +100,4 @@
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_tongquan_donvi_new_rt TO datamart_hanoi.qlnv_tongquan_donvi_new_rt__old, datamart_hanoi.qlnv_tongquan_donvi_new_rt__stg TO datamart_hanoi.qlnv_tongquan_donvi_new_rt, datamart_hanoi.qlnv_tongquan_donvi_new_rt__old TO datamart_hanoi.qlnv_tongquan_donvi_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- qlnv_tongquan_donvi_kiemdem::SQL select query
++++ qlnv_tongquan_donvi_kiemdem::SQL select query (mới)
+@@ -1,2 +1,5 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_donvi_kiemdem;
+-INSERT INTO datamart_hanoi.qlnv_tongquan_donvi_kiemdem
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_donvi_kiemdem_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_donvi_kiemdem_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_donvi_kiemdem_new_rt__stg;
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_tongquan_donvi_kiemdem_new_rt__stg
+@@ -72 +75 @@
+-FROM datamart_hanoi.qlnv_tonghop_chitiet_donvi c
++FROM datamart_hanoi.qlnv_tonghop_chitiet_donvi_new_rt c
+@@ -121,0 +125,4 @@
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_tongquan_donvi_kiemdem_new_rt TO datamart_hanoi.qlnv_tongquan_donvi_kiemdem_new_rt__old, datamart_hanoi.qlnv_tongquan_donvi_kiemdem_new_rt__stg TO datamart_hanoi.qlnv_tongquan_donvi_kiemdem_new_rt, datamart_hanoi.qlnv_tongquan_donvi_kiemdem_new_rt__old TO datamart_hanoi.qlnv_tongquan_donvi_kiemdem_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- qlnv_tongquan_vanban_kiemdem::SQL select query
++++ qlnv_tongquan_vanban_kiemdem::SQL select query (mới)
+@@ -1,2 +1,5 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_vanban_kiemdem;
+-INSERT INTO datamart_hanoi.qlnv_tongquan_vanban_kiemdem
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_vanban_kiemdem_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_vanban_kiemdem_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_vanban_kiemdem_new_rt__stg;
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_tongquan_vanban_kiemdem_new_rt__stg
+@@ -51 +54 @@
+-FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv c
++FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv_new_rt c
+@@ -94,0 +98,4 @@
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_tongquan_vanban_kiemdem_new_rt TO datamart_hanoi.qlnv_tongquan_vanban_kiemdem_new_rt__old, datamart_hanoi.qlnv_tongquan_vanban_kiemdem_new_rt__stg TO datamart_hanoi.qlnv_tongquan_vanban_kiemdem_new_rt, datamart_hanoi.qlnv_tongquan_vanban_kiemdem_new_rt__old TO datamart_hanoi.qlnv_tongquan_vanban_kiemdem_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- qlnv_tongquan_donvi_hdndtp::SQL select query
++++ qlnv_tongquan_donvi_hdndtp::SQL select query (mới)
+@@ -1 +1,3 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_donvi_hdndtp;
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_donvi_hdndtp_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_donvi_hdndtp_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_donvi_hdndtp_new_rt__stg;
+@@ -3 +5,2 @@
+-INSERT INTO datamart_hanoi.qlnv_tongquan_donvi_hdndtp
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_tongquan_donvi_hdndtp_new_rt__stg
+@@ -32,2 +35,6 @@
+-FROM datamart_hanoi.qlnv_tongquan_donvi
+-WHERE loaicapcha = 'HĐND Thành phố'
++FROM datamart_hanoi.qlnv_tongquan_donvi_new_rt
++WHERE loaicapcha = 'HĐND Thành phố';
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_tongquan_donvi_hdndtp_new_rt TO datamart_hanoi.qlnv_tongquan_donvi_hdndtp_new_rt__old, datamart_hanoi.qlnv_tongquan_donvi_hdndtp_new_rt__stg TO datamart_hanoi.qlnv_tongquan_donvi_hdndtp_new_rt, datamart_hanoi.qlnv_tongquan_donvi_hdndtp_new_rt__old TO datamart_hanoi.qlnv_tongquan_donvi_hdndtp_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- qlnv_tonghop_chitiet_hdndtp::SQL select query
++++ qlnv_tonghop_chitiet_hdndtp::SQL select query (mới)
+@@ -1 +1,3 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_hdndtp;
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_hdndtp_new_rt__stg LIKE datamart_hanoi.qlnv_tonghop_chitiet_hdndtp_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_hdndtp_new_rt__stg;
+@@ -3 +5,2 @@
+-INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_hdndtp
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_hdndtp_new_rt__stg
+@@ -58,2 +61,6 @@
+-FROM datamart_hanoi.qlnv_tonghop_chitiet
+-WHERE loaicapcha = 'HĐND Thành phố'
++FROM datamart_hanoi.qlnv_tonghop_chitiet_new_rt
++WHERE loaicapcha = 'HĐND Thành phố';
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_tonghop_chitiet_hdndtp_new_rt TO datamart_hanoi.qlnv_tonghop_chitiet_hdndtp_new_rt__old, datamart_hanoi.qlnv_tonghop_chitiet_hdndtp_new_rt__stg TO datamart_hanoi.qlnv_tonghop_chitiet_hdndtp_new_rt, datamart_hanoi.qlnv_tonghop_chitiet_hdndtp_new_rt__old TO datamart_hanoi.qlnv_tonghop_chitiet_hdndtp_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- qlnv_tongquan_hdndtp::SQL select query
++++ qlnv_tongquan_hdndtp::SQL select query (mới)
+@@ -1 +1,3 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_hdndtp;
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_hdndtp_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_hdndtp_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_hdndtp_new_rt__stg;
+@@ -3 +5,2 @@
+-INSERT INTO datamart_hanoi.qlnv_tongquan_hdndtp
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_tongquan_hdndtp_new_rt__stg
+@@ -29,2 +32,6 @@
+-FROM datamart_hanoi.qlnv_tongquan
+-WHERE loaicapcha = 'HĐND Thành phố'
++FROM datamart_hanoi.qlnv_tongquan_new_rt
++WHERE loaicapcha = 'HĐND Thành phố';
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_tongquan_hdndtp_new_rt TO datamart_hanoi.qlnv_tongquan_hdndtp_new_rt__old, datamart_hanoi.qlnv_tongquan_hdndtp_new_rt__stg TO datamart_hanoi.qlnv_tongquan_hdndtp_new_rt, datamart_hanoi.qlnv_tongquan_hdndtp_new_rt__old TO datamart_hanoi.qlnv_tongquan_hdndtp_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- qlnv_tonghop_chitiet_khoi_hdndtp::SQL select query
++++ qlnv_tonghop_chitiet_khoi_hdndtp::SQL select query (mới)
+@@ -1 +1,3 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp;
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt__stg LIKE datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt__stg;
+@@ -3 +5,2 @@
+-INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt__stg
+@@ -58,2 +61,6 @@
+-FROM datamart_hanoi.qlnv_tonghop_chitiet_khoi
+-WHERE loaicapcha = 'HĐND Thành phố'
++FROM datamart_hanoi.qlnv_tonghop_chitiet_khoi_new_rt
++WHERE loaicapcha = 'HĐND Thành phố';
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt TO datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt__old, datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt__stg TO datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt, datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt__old TO datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- qlnv_tongquan_donvi_hdndtp::SQL select query
++++ qlnv_tongquan_donvi_hdndtp::SQL select query (mới)
+@@ -1 +1,3 @@
+-TRUNCATE TABLE db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp;
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp_new_rt__stg LIKE db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp_new_rt;
++TRUNCATE TABLE db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp_new_rt__stg;
+@@ -3 +5,2 @@
+-INSERT INTO db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp_new_rt__stg
+@@ -32 +35 @@
+-FROM datamart_hanoi.qlnv_tongquan_donvi
++FROM datamart_hanoi.qlnv_tongquan_donvi_new_rt
+@@ -34,0 +38,4 @@
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp_new_rt TO db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp_new_rt__old, db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp_new_rt__stg TO db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp_new_rt, db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp_new_rt__old TO db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- qlnv_tongquan_hdndtp::SQL select query
++++ qlnv_tongquan_hdndtp::SQL select query (mới)
+@@ -1 +1,3 @@
+-TRUNCATE TABLE db_hdnd_qttt.qlnv_tongquan_hdndtp;
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS db_hdnd_qttt.qlnv_tongquan_hdndtp_new_rt__stg LIKE db_hdnd_qttt.qlnv_tongquan_hdndtp_new_rt;
++TRUNCATE TABLE db_hdnd_qttt.qlnv_tongquan_hdndtp_new_rt__stg;
+@@ -3 +5,2 @@
+-INSERT INTO db_hdnd_qttt.qlnv_tongquan_hdndtp
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO db_hdnd_qttt.qlnv_tongquan_hdndtp_new_rt__stg
+@@ -29 +32 @@
+-FROM datamart_hanoi.qlnv_tongquan
++FROM datamart_hanoi.qlnv_tongquan_new_rt
+@@ -31,0 +35,4 @@
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE db_hdnd_qttt.qlnv_tongquan_hdndtp_new_rt TO db_hdnd_qttt.qlnv_tongquan_hdndtp_new_rt__old, db_hdnd_qttt.qlnv_tongquan_hdndtp_new_rt__stg TO db_hdnd_qttt.qlnv_tongquan_hdndtp_new_rt, db_hdnd_qttt.qlnv_tongquan_hdndtp_new_rt__old TO db_hdnd_qttt.qlnv_tongquan_hdndtp_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- qlnv_cbcc_danhgia_hdndtp::SQL select query
++++ qlnv_cbcc_danhgia_hdndtp::SQL select query (mới)
+@@ -4 +4 @@
+-INSERT INTO db_hdnd_qttt.qlnv_cbcc_danhgia_hdndtp
++INSERT INTO db_hdnd_qttt.qlnv_cbcc_danhgia_hdndtp_new_rt
+@@ -175 +175 @@
+-    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan
++    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt
+@@ -219 +219 @@
+-    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan t
++    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt t
+--- qlnv_tonghop_chitiet_hdndtp::SQL select query
++++ qlnv_tonghop_chitiet_hdndtp::SQL select query (mới)
+@@ -1 +1,3 @@
+-TRUNCATE TABLE db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp;
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp_new_rt__stg LIKE db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp_new_rt;
++TRUNCATE TABLE db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp_new_rt__stg;
+@@ -3 +5,2 @@
+-INSERT INTO db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp_new_rt__stg
+@@ -58 +61 @@
+-FROM datamart_hanoi.qlnv_tonghop_chitiet
++FROM datamart_hanoi.qlnv_tonghop_chitiet_new_rt
+@@ -60,0 +64,4 @@
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp_new_rt TO db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp_new_rt__old, db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp_new_rt__stg TO db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp_new_rt, db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp_new_rt__old TO db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- qlnv_tonghop_chitiet_khoi_hdndtp::SQL select query
++++ qlnv_tonghop_chitiet_khoi_hdndtp::SQL select query (mới)
+@@ -1 +1,3 @@
+-TRUNCATE TABLE db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp;
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt__stg LIKE db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt;
++TRUNCATE TABLE db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt__stg;
+@@ -3 +5,2 @@
+-INSERT INTO db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt__stg
+@@ -58 +61 @@
+-FROM datamart_hanoi.qlnv_tonghop_chitiet_khoi
++FROM datamart_hanoi.qlnv_tonghop_chitiet_khoi_new_rt
+@@ -60,0 +64,4 @@
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt TO db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt__old, db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt__stg TO db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt, db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt__old TO db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- 02_stage02::SQL select query
++++ 02_stage02::SQL select query (mới)
+@@ -34 +34 @@
+-FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01 t
++FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt t
+@@ -44 +44 @@
+-    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan
++    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt
+--- PUT stage02::put-db-record-table-name
++++ PUT stage02::put-db-record-table-name (mới)
+@@ -1 +1 @@
+-qlnv_kl_ctpct_chitiet_stage02
++qlnv_kl_ctpct_chitiet_stage02_new_rt
+--- qlnv_kl_ctpct_chitiet_stage01::SQL select query
++++ qlnv_kl_ctpct_chitiet_stage01::SQL select query (mới)
+@@ -1 +1,3 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01;
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt__stg LIKE datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt__stg;
+@@ -3 +5,2 @@
+-INSERT INTO datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt__stg
+@@ -68,0 +72,4 @@
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt TO datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt__old, datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt__stg TO datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt, datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt__old TO datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- PUT stage01::put-db-record-table-name
++++ PUT stage01::put-db-record-table-name (mới)
+@@ -1 +1 @@
+-qlnv_kl_ctpct_chitiet_stage01
++qlnv_kl_ctpct_chitiet_stage01_new_rt
+--- DỌN stage01::putsql-sql-statement
++++ DỌN stage01::putsql-sql-statement (mới)
+@@ -1 +1 @@
+-DELETE FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01
++DELETE FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt
+@@ -5 +5 @@
+-        FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01
++        FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt
+--- PutDatabaseRecord::put-db-record-table-name
++++ PutDatabaseRecord::put-db-record-table-name (mới)
+@@ -1 +1 @@
+-qlnv_kl_ctpct_chitiet_stage02
++qlnv_kl_ctpct_chitiet_stage02_new_rt
+--- qlnv_kl_ctpct_chitiet::SQL select query
++++ qlnv_kl_ctpct_chitiet::SQL select query (mới)
+@@ -1,2 +1,5 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_kl_ctpct_chitiet;
+-INSERT INTO datamart_hanoi.qlnv_kl_ctpct_chitiet
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_kl_ctpct_chitiet_new_rt__stg LIKE datamart_hanoi.qlnv_kl_ctpct_chitiet_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_kl_ctpct_chitiet_new_rt__stg;
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_kl_ctpct_chitiet_new_rt__stg
+@@ -31 +34 @@
+-FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02 t
++FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02_new_rt t
+@@ -34,0 +38,4 @@
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_kl_ctpct_chitiet_new_rt TO datamart_hanoi.qlnv_kl_ctpct_chitiet_new_rt__old, datamart_hanoi.qlnv_kl_ctpct_chitiet_new_rt__stg TO datamart_hanoi.qlnv_kl_ctpct_chitiet_new_rt, datamart_hanoi.qlnv_kl_ctpct_chitiet_new_rt__old TO datamart_hanoi.qlnv_kl_ctpct_chitiet_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- PutDatabaseRecord::put-db-record-table-name
++++ PutDatabaseRecord::put-db-record-table-name (mới)
+@@ -1 +1 @@
+-qlnv_kl_ctpct_chitiet_stage01
++qlnv_kl_ctpct_chitiet_stage01_new_rt
+--- PUT chitiet::put-db-record-table-name
++++ PUT chitiet::put-db-record-table-name (mới)
+@@ -1 +1 @@
+-qlnv_kl_ctpct_chitiet
++qlnv_kl_ctpct_chitiet_new_rt
+--- DỌN stage02::putsql-sql-statement
++++ DỌN stage02::putsql-sql-statement (mới)
+@@ -2,2 +2,2 @@
+-FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02 s
+-LEFT JOIN datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01 t
++FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02_new_rt s
++LEFT JOIN datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt t
+--- qlnv_kl_ctpct_chitiet_stage02::SQL select query
++++ qlnv_kl_ctpct_chitiet_stage02::SQL select query (mới)
+@@ -1,2 +1,5 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02;
+-INSERT INTO datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02_new_rt__stg LIKE datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02_new_rt__stg;
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02_new_rt__stg
+@@ -55,2 +58,2 @@
+-FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01 t
+-LEFT JOIN datamart_hanoi.qlnv_tonghop_chitiet_giaonv ct ON t.tt = ct.Ma
++FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt t
++LEFT JOIN datamart_hanoi.qlnv_tonghop_chitiet_giaonv_new_rt ct ON t.tt = ct.Ma
+@@ -58,0 +62,4 @@
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02_new_rt TO datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02_new_rt__old, datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02_new_rt__stg TO datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02_new_rt, datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02_new_rt__old TO datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- DỌN chitiet::putsql-sql-statement
++++ DỌN chitiet::putsql-sql-statement (mới)
+@@ -2,2 +2,2 @@
+-FROM datamart_hanoi.qlnv_kl_ctpct_chitiet d
+-LEFT JOIN datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02 s
++FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_new_rt d
++LEFT JOIN datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02_new_rt s
+--- 03_chitiet::SQL select query
++++ 03_chitiet::SQL select query (mới)
+@@ -34 +34 @@
+-FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01 t
++FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt t
+@@ -44 +44 @@
+-    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan
++    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt
+--- qlnv_th_tongquan_donvi_tiepnhan::SQL select query
++++ qlnv_th_tongquan_donvi_tiepnhan::SQL select query (mới)
+@@ -1,2 +1,5 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan;
+-INSERT INTO datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan 
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan_new_rt__stg LIKE datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan_new_rt__stg;
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan_new_rt__stg 
+@@ -119,0 +123,4 @@
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan_new_rt TO datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan_new_rt__old, datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan_new_rt__stg TO datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan_new_rt, datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan_new_rt__old TO datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;
+--- qlnv_th_tongquan_donvi_giaonv::SQL select query
++++ qlnv_th_tongquan_donvi_giaonv::SQL select query (mới)
+@@ -1,2 +1,5 @@
+-TRUNCATE TABLE datamart_hanoi.qlnv_th_tongquan_donvi_giaonv;
+-INSERT INTO datamart_hanoi.qlnv_th_tongquan_donvi_giaonv 
++/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
++CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_th_tongquan_donvi_giaonv_new_rt__stg LIKE datamart_hanoi.qlnv_th_tongquan_donvi_giaonv_new_rt;
++TRUNCATE TABLE datamart_hanoi.qlnv_th_tongquan_donvi_giaonv_new_rt__stg;
++SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
++INSERT INTO datamart_hanoi.qlnv_th_tongquan_donvi_giaonv_new_rt__stg 
+@@ -120,0 +124,4 @@
++/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
++SET SESSION lock_wait_timeout = 10;
++RENAME TABLE datamart_hanoi.qlnv_th_tongquan_donvi_giaonv_new_rt TO datamart_hanoi.qlnv_th_tongquan_donvi_giaonv_new_rt__old, datamart_hanoi.qlnv_th_tongquan_donvi_giaonv_new_rt__stg TO datamart_hanoi.qlnv_th_tongquan_donvi_giaonv_new_rt, datamart_hanoi.qlnv_th_tongquan_donvi_giaonv_new_rt__old TO datamart_hanoi.qlnv_th_tongquan_donvi_giaonv_new_rt__stg;
++SET SESSION lock_wait_timeout = 31536000;

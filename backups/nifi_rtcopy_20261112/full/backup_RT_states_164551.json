@@ -1,0 +1,937 @@
+{
+"142f3f31-6ef6-1fc2-d014-24d0ed595a44": [
+"processors",
+"STOPPED",
+"Merge failure"
+],
+"142f3f00-6ef6-1fc2-88e9-5f49f8a9cc5a": [
+"processors",
+"RUNNING",
+"1 PHÚT / 1 LẦN (CRON :17)"
+],
+"142f3f04-6ef6-1fc2-b5fe-3e0f107b22a3": [
+"processors",
+"RUNNING",
+"Cổng 15 phút (sau Giao)"
+],
+"142f3f25-6ef6-1fc2-2b93-8f65947374c8": [
+"processors",
+"STOPPED",
+"0. DDL tạo bảng _new_rt (lõi + hạ nguồn)"
+],
+"142f3f26-6ef6-1fc2-af45-94c7ff969fbc": [
+"processors",
+"RUN_ONCE",
+"0. ROLLBACK DDL — Run once TRƯỚC KHI bật lại chuỗi cũ"
+],
+"142f3f2c-6ef6-1fc2-83fe-82cdb5ca6c22": [
+"processors",
+"RUNNING",
+"Chờ đủ Tiếp nhận + Giao (theo sync_ts)"
+],
+"142f3f07-6ef6-1fc2-31a6-eac5fc8029b8": [
+"processors",
+"RUNNING",
+"Cổng 15 phút (sau Giao+Nhận)"
+],
+"142f3f01-6ef6-1fc2-9bf0-e99c04015efa": [
+"processors",
+"RUNNING",
+"Cổng 15 phút (sau Tiếp nhận)"
+],
+"142f3f08-6ef6-1fc2-9969-20a9c4f37019": [
+"outputPorts",
+"STOPPED",
+"ra downstream sau Giao+Nhận (15 phút)"
+],
+"142f3f05-6ef6-1fc2-c889-461525346dbd": [
+"outputPorts",
+"STOPPED",
+"ra downstream sau Giao (15 phút)"
+],
+"142f3f02-6ef6-1fc2-1246-e3ab60778d0b": [
+"outputPorts",
+"STOPPED",
+"ra downstream sau Tiếp nhận (15 phút)"
+],
+"142f4019-6ef6-1fc2-2d04-f9f670c03ad2": [
+"processors",
+"DISABLED",
+"LogAttribute"
+],
+"142f401a-6ef6-1fc2-9948-609e527adcbc": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f401d-6ef6-1fc2-b24a-2a09a6b27d85": [
+"processors",
+"DISABLED",
+"qlnv_tongquan_vanban_chitiet"
+],
+"142f401e-6ef6-1fc2-086d-a19eeae5f271": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f401b-6ef6-1fc2-5a9b-718d4874a90c": [
+"processors",
+"RUNNING",
+"qlnv_tongquan_vanban"
+],
+"142f401c-6ef6-1fc2-9a97-182655dc9956": [
+"processors",
+"RUNNING",
+"qlnv_tongquan_vanban_chitiet"
+],
+"142f4018-6ef6-1fc2-b5ef-40e6b215cad7": [
+"processors",
+"DISABLED",
+"qlnv_tongquan_donvi_quahan"
+],
+"142f4016-6ef6-1fc2-a27b-f28ce474c20a": [
+"inputPorts",
+"RUNNING",
+"input"
+],
+"142f4017-6ef6-1fc2-22ca-bf80a2f7c508": [
+"outputPorts",
+"DISABLED",
+"output"
+],
+"142f3edd-6ef6-1fc2-e57f-b384528593c8": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3ee9-6ef6-1fc2-19de-1670e5fa76e2": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3ede-6ef6-1fc2-8522-bc409822869d": [
+"processors",
+"DISABLED",
+"LogAttribute"
+],
+"142f3edf-6ef6-1fc2-a5d2-e5db13304cb1": [
+"processors",
+"DISABLED",
+"qlnv_tonghop_chitiet_khoi_btctw"
+],
+"142f3ee6-6ef6-1fc2-c3cd-a7281997cca5": [
+"processors",
+"DISABLED",
+"qlnv_tonghop_chitiet_donvi"
+],
+"142f3ee7-6ef6-1fc2-8ecf-70ddfebc58b3": [
+"processors",
+"RUNNING",
+"qlnv_tonghop_chitiet_khoi [upsert]"
+],
+"142f3eeb-6ef6-1fc2-4f05-ab99d544da1f": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3ee1-6ef6-1fc2-97ec-86899dc5d26a": [
+"processors",
+"RUNNING",
+"qlnv_tonghop_chitiet_nhom [upsert]"
+],
+"142f3ee3-6ef6-1fc2-aac1-b8857f9c1a08": [
+"processors",
+"DISABLED",
+"qlnv_tongquan"
+],
+"142f3ee2-6ef6-1fc2-45f0-9e37677ddf88": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3edc-6ef6-1fc2-4fe9-6767ae4c2a87": [
+"processors",
+"DISABLED",
+"LogAttribute"
+],
+"142f3eea-6ef6-1fc2-9207-64c22282bc3b": [
+"processors",
+"RUNNING",
+"qlnv_tonghop_chitiet [upsert]"
+],
+"142f3ee0-6ef6-1fc2-5c95-1916e70e7110": [
+"processors",
+"DISABLED",
+"qlnv_tongquan_btctw"
+],
+"142f3edb-6ef6-1fc2-3ade-988c6776f301": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3ee4-6ef6-1fc2-00dd-b75fa5b73b01": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3ee5-6ef6-1fc2-7cda-9f6a3d69881f": [
+"processors",
+"RUNNING",
+"qlnv_tongquan [stg]"
+],
+"142f3ee8-6ef6-1fc2-4880-87ed2f47ca13": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3ed9-6ef6-1fc2-0522-f6b444cbf107": [
+"inputPorts",
+"RUNNING",
+"input"
+],
+"142f3eda-6ef6-1fc2-dfc8-6cf973f974fb": [
+"outputPorts",
+"RUNNING",
+"output"
+],
+"142f3f87-6ef6-1fc2-601b-b8063d3424cc": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3f83-6ef6-1fc2-e26c-5b1e67d96742": [
+"processors",
+"DISABLED",
+"180 PHÚT / 1 LẦN"
+],
+"142f3f84-6ef6-1fc2-0697-433f9de2bf29": [
+"processors",
+"RUNNING",
+"PutDatabaseRecord"
+],
+"142f3f85-6ef6-1fc2-3992-6eed0ef20368": [
+"processors",
+"DISABLED",
+"PutDatabaseRecord"
+],
+"142f3f86-6ef6-1fc2-b3de-05ce3a20934f": [
+"processors",
+"RUNNING",
+"qlnv_tongquan_kpi_theo_don_vi"
+],
+"142f3f81-6ef6-1fc2-f2ea-31afcb36050a": [
+"processors",
+"RUNNING",
+"qlnv_tongquan_kpi_theo_nguoi_xu_ly"
+],
+"142f3f82-6ef6-1fc2-70e2-9c03ddc97d4e": [
+"processors",
+"DISABLED",
+"qlnv_cbcc_danhgia"
+],
+"142f3f7e-6ef6-1fc2-5ea0-877ddd0c76ce": [
+"processors",
+"RUNNING",
+"60 PHÚT / 1 LẦN"
+],
+"142f3f7f-6ef6-1fc2-e06a-f9e8eddbd590": [
+"processors",
+"DISABLED",
+"LogAttribute"
+],
+"142f3f80-6ef6-1fc2-7683-50f903ae2974": [
+"processors",
+"RUNNING",
+"qlnv_cbcc_danhgia"
+],
+"142f3f7c-6ef6-1fc2-5908-642c79275b7d": [
+"inputPorts",
+"RUNNING",
+"input"
+],
+"142f3f7d-6ef6-1fc2-26c8-d4914afffef2": [
+"outputPorts",
+"DISABLED",
+"output"
+],
+"142f3f61-6ef6-1fc2-0e1f-c15158207ebb": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3f62-6ef6-1fc2-bc2f-c554bf2a8429": [
+"processors",
+"RUNNING",
+"qlnv_tongquan_nhom_moc_thoi_gian"
+],
+"142f3f60-6ef6-1fc2-238c-bac00f6d2214": [
+"processors",
+"RUNNING",
+"qlnv_tongquan_cham_muon_theo_don_vi"
+],
+"142f3f65-6ef6-1fc2-0744-f42089b61b52": [
+"processors",
+"RUNNING",
+"qlnv_tonghop_chitiet_nhom_moc_thoi_gian"
+],
+"142f3f63-6ef6-1fc2-8547-bbe8b2f77a19": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3f64-6ef6-1fc2-2d3c-834b8fc114b7": [
+"processors",
+"DISABLED",
+"LogAttribute"
+],
+"142f3f5f-6ef6-1fc2-b584-837cbbdcff94": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3f5e-6ef6-1fc2-beef-43921851c2f0": [
+"inputPorts",
+"RUNNING",
+"input"
+],
+"142f3f99-6ef6-1fc2-3321-8ca8b54f106a": [
+"processors",
+"RUNNING",
+"qlnv_tongquan_donvi_kiemdem"
+],
+"142f3f98-6ef6-1fc2-58e6-be457c74e4d4": [
+"processors",
+"DISABLED",
+"LogAttribute"
+],
+"142f3f9c-6ef6-1fc2-d449-5db24ba8be62": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3f9d-6ef6-1fc2-2042-b086ee32e134": [
+"processors",
+"RUNNING",
+"qlnv_tongquan_vanban_kiemdem"
+],
+"142f3f96-6ef6-1fc2-d3cb-5abee89c7b73": [
+"processors",
+"DISABLED",
+"qlnv_tongquan_donvi_kiemdem_btctw"
+],
+"142f3f9b-6ef6-1fc2-c284-7166936588ce": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3f9e-6ef6-1fc2-47d6-1e19c2bd79f9": [
+"processors",
+"DISABLED",
+"15 PHÚT / 1 LẦN"
+],
+"142f3f9a-6ef6-1fc2-663f-536e72c8303e": [
+"processors",
+"DISABLED",
+"15 PHÚT / 1 LẦN"
+],
+"142f3f97-6ef6-1fc2-3c84-f4f6740cd156": [
+"processors",
+"DISABLED",
+"qlnv_tongquan_vanban_kiemdem_btctw"
+],
+"142f3f94-6ef6-1fc2-8da5-188277dac68d": [
+"inputPorts",
+"RUNNING",
+"input"
+],
+"142f3f95-6ef6-1fc2-9257-0df902446de6": [
+"outputPorts",
+"DISABLED",
+"output"
+],
+"142f402e-6ef6-1fc2-3fea-47fbe842516d": [
+"processors",
+"RUNNING",
+"qlnv_tongquan_khoi"
+],
+"142f402a-6ef6-1fc2-7872-53fbc4dc81d6": [
+"processors",
+"DISABLED",
+"LogAttribute"
+],
+"142f402f-6ef6-1fc2-4527-d432882c3270": [
+"processors",
+"DISABLED",
+"qlnv_tongquan_loaicapcha"
+],
+"142f402b-6ef6-1fc2-b5b1-feac3d21098a": [
+"processors",
+"DISABLED",
+"qlnv_tonghop_loaicapcha_chitiet"
+],
+"142f402c-6ef6-1fc2-e2c7-fd873f020e4e": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f402d-6ef6-1fc2-06c9-b697b86a69e1": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f4030-6ef6-1fc2-982e-fd66d77b90ca": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f4028-6ef6-1fc2-b516-6ee5599f4681": [
+"inputPorts",
+"RUNNING",
+"input"
+],
+"142f4029-6ef6-1fc2-4359-e169fa377fbc": [
+"outputPorts",
+"DISABLED",
+"output"
+],
+"142f3fcd-6ef6-1fc2-517f-960bd0087f0d": [
+"processors",
+"RUNNING",
+"qlnv_tongquan_donvi_hdndtp"
+],
+"142f3fd2-6ef6-1fc2-988c-ba92d9a53a92": [
+"processors",
+"RUNNING",
+"qlnv_tonghop_chitiet_hdndtp"
+],
+"142f3fcc-6ef6-1fc2-5495-c36792f1e3aa": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3fcb-6ef6-1fc2-c278-1673d6751755": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3fcf-6ef6-1fc2-1e35-554577c799a5": [
+"processors",
+"RUNNING",
+"qlnv_cbcc_danhgia_hdndtp"
+],
+"142f3fd0-6ef6-1fc2-16b8-18927c447707": [
+"processors",
+"DISABLED",
+"LogAttribute"
+],
+"142f3fd3-6ef6-1fc2-d099-a28b16041e3d": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3fce-6ef6-1fc2-75d2-4dfb4d0d3cd7": [
+"processors",
+"RUNNING",
+"qlnv_tongquan_hdndtp"
+],
+"142f3fd4-6ef6-1fc2-9396-f7da8094ddf8": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3fd1-6ef6-1fc2-a274-5d04f184851b": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3fd5-6ef6-1fc2-29e7-63151b536c7e": [
+"processors",
+"RUNNING",
+"qlnv_tonghop_chitiet_khoi_hdndtp"
+],
+"142f3fc9-6ef6-1fc2-2a13-11af7ba978d0": [
+"inputPorts",
+"RUNNING",
+"input"
+],
+"142f3fca-6ef6-1fc2-6833-da290ff9b2a4": [
+"outputPorts",
+"DISABLED",
+"output"
+],
+"142f3faf-6ef6-1fc2-1368-d92e20d22972": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3fb3-6ef6-1fc2-1a1b-dbe08fd85280": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3fb5-6ef6-1fc2-9a8e-9a16c191c0a4": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3fb2-6ef6-1fc2-2ff3-f4ef60ab0242": [
+"processors",
+"DISABLED",
+"qlnv_cbcc_danhgia"
+],
+"142f3fae-6ef6-1fc2-f7ea-23440f3de54c": [
+"processors",
+"RUNNING",
+"qlnv_tongquan_donvi_hdndtp"
+],
+"142f3fb7-6ef6-1fc2-cbc1-76535821eee4": [
+"processors",
+"RUNNING",
+"qlnv_tonghop_chitiet_khoi_hdndtp"
+],
+"142f3fad-6ef6-1fc2-7f6c-11d7b94dd4da": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3fb1-6ef6-1fc2-91b9-d751241c54bc": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3fb6-6ef6-1fc2-07b1-8c913cb8aabd": [
+"processors",
+"DISABLED",
+"LogAttribute"
+],
+"142f3fb4-6ef6-1fc2-5a29-04de2846e155": [
+"processors",
+"RUNNING",
+"qlnv_tongquan_hdndtp"
+],
+"142f3fb0-6ef6-1fc2-c27f-731c283b4269": [
+"processors",
+"RUNNING",
+"qlnv_tonghop_chitiet_hdndtp"
+],
+"142f3fab-6ef6-1fc2-f363-bc2083616b5b": [
+"inputPorts",
+"RUNNING",
+"input"
+],
+"142f3fac-6ef6-1fc2-9cd1-bbd90c4b1f83": [
+"outputPorts",
+"STOPPED",
+"output"
+],
+"142f3ffd-6ef6-1fc2-f493-27b8537245c9": [
+"processors",
+"RUNNING",
+"01_stage01"
+],
+"142f3ff2-6ef6-1fc2-fe7e-b36cfbfff545": [
+"processors",
+"RUNNING",
+"PutDatabaseRecord"
+],
+"142f3ffb-6ef6-1fc2-cca7-0979f17b64f9": [
+"processors",
+"DISABLED",
+"PutDatabaseRecord"
+],
+"142f3ffc-6ef6-1fc2-6070-586e8ab6e25f": [
+"processors",
+"RUNNING",
+"qlnv_kl_ctpct_chitiet_stage02"
+],
+"142f3fea-6ef6-1fc2-ad0b-a8268680105f": [
+"processors",
+"RUNNING",
+"PUT stage02"
+],
+"142f3ff9-6ef6-1fc2-e090-88fe35379651": [
+"processors",
+"RUNNING",
+"DỌN stage02"
+],
+"142f3ff0-6ef6-1fc2-328c-aa75ebf20cfe": [
+"processors",
+"DISABLED",
+"60 PHÚT / 1 LẦN"
+],
+"142f3fff-6ef6-1fc2-7ed4-9557379f2726": [
+"processors",
+"RUNNING",
+"03_chitiet"
+],
+"142f3ff4-6ef6-1fc2-2d13-1ec4ef6c30a2": [
+"processors",
+"RUNNING",
+"qlnv_kl_ctpct_chitiet"
+],
+"142f3ffa-6ef6-1fc2-376f-55e017e6787a": [
+"processors",
+"DISABLED",
+"30p/lần"
+],
+"142f3ff7-6ef6-1fc2-bb44-d6142bdd3fc9": [
+"processors",
+"RUNNING",
+"PUT chitiet"
+],
+"142f3ffe-6ef6-1fc2-3c8f-b96e52570e55": [
+"processors",
+"RUNNING",
+"DỌN chitiet"
+],
+"142f4000-6ef6-1fc2-472a-8324ba7e37ee": [
+"processors",
+"DISABLED",
+"LogAttribute"
+],
+"142f3ff6-6ef6-1fc2-7838-6858d849169f": [
+"processors",
+"DISABLED",
+"qlnv_kl_ctpct_chitiet"
+],
+"142f3feb-6ef6-1fc2-56df-d70f39cc99fa": [
+"processors",
+"DISABLED",
+"LogAttribute"
+],
+"142f3fed-6ef6-1fc2-3fe9-6b059c992505": [
+"processors",
+"RUNNING",
+"PUT stage01"
+],
+"142f3fee-6ef6-1fc2-2a11-084da1d9087f": [
+"processors",
+"DISABLED",
+"60 PHÚT / 1 LẦN"
+],
+"142f3ff8-6ef6-1fc2-0fdf-19651ea2320c": [
+"processors",
+"DISABLED",
+"LogAttribute"
+],
+"142f3fe9-6ef6-1fc2-cb3f-5570f9f9be8f": [
+"processors",
+"RUNNING",
+"02_stage02"
+],
+"142f3ff1-6ef6-1fc2-e9b4-47d479ff11ce": [
+"processors",
+"RUNNING",
+"DỌN stage01"
+],
+"142f3fec-6ef6-1fc2-d341-5c9f18b6e013": [
+"processors",
+"RUNNING",
+"qlnv_kl_ctpct_chitiet_stage01"
+],
+"142f3ff3-6ef6-1fc2-3e5c-66c8592eb275": [
+"processors",
+"DISABLED",
+"LogAttribute"
+],
+"142f3ff5-6ef6-1fc2-1799-6463614f1848": [
+"processors",
+"RUNNING",
+"PutDatabaseRecord"
+],
+"142f3fef-6ef6-1fc2-a930-3bc1efe589cb": [
+"processors",
+"RUNNING",
+"30 PHÚT / 1 LẦN"
+],
+"142f3fe7-6ef6-1fc2-38c3-b79cd5ff753f": [
+"inputPorts",
+"DISABLED",
+"input"
+],
+"142f3fe8-6ef6-1fc2-a8b1-715fd6283b75": [
+"outputPorts",
+"DISABLED",
+"output"
+],
+"142f3f51-6ef6-1fc2-e6ad-61d25ac047da": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3f52-6ef6-1fc2-3726-08db96bf7b4e": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3f54-6ef6-1fc2-709e-809b9ed6a2f4": [
+"processors",
+"RUNNING",
+"qlnv_tonghop_chitiet_dieuhanh_lanhdao"
+],
+"142f3f56-6ef6-1fc2-e267-1e0ebe6736ba": [
+"processors",
+"DISABLED",
+"LogAttribute"
+],
+"142f3f53-6ef6-1fc2-21e0-68e1fa49550b": [
+"processors",
+"DISABLED",
+"LogAttribute"
+],
+"142f3f55-6ef6-1fc2-8e21-b92ef056bbe0": [
+"processors",
+"RUNNING",
+"qlnv_tongquan_dieuhanh_lanhdao"
+],
+"142f3f4f-6ef6-1fc2-0fb0-0fb0c287d894": [
+"inputPorts",
+"RUNNING",
+"input"
+],
+"142f3f50-6ef6-1fc2-2ddf-53e7513724c9": [
+"outputPorts",
+"DISABLED",
+"output"
+],
+"142f3f46-6ef6-1fc2-c4f1-b056108b9c4a": [
+"processors",
+"RUNNING",
+"qlnv_tongquan_donvi"
+],
+"142f3f45-6ef6-1fc2-a87b-2cf6d4aedde1": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3f42-6ef6-1fc2-d0cd-1e8fac02e00e": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3f44-6ef6-1fc2-74a4-b7a2b349b634": [
+"processors",
+"RUNNING",
+"qlnv_tonghop_chitiet_donvi"
+],
+"142f3f43-6ef6-1fc2-2e93-127bc15e4391": [
+"processors",
+"DISABLED",
+"LogAttribute"
+],
+"142f3f40-6ef6-1fc2-9538-eac09f7e7024": [
+"inputPorts",
+"RUNNING",
+"input"
+],
+"142f3f41-6ef6-1fc2-c9a9-acc8890f3730": [
+"outputPorts",
+"STOPPED",
+"output"
+],
+"142f3f73-6ef6-1fc2-ef5f-85bda9056812": [
+"processors",
+"DISABLED",
+"LogAttribute"
+],
+"142f3f71-6ef6-1fc2-a22b-7f42ee4c6f22": [
+"processors",
+"RUNNING",
+"qlnv_tonghop_chitiet_nq57"
+],
+"142f3f72-6ef6-1fc2-e48c-1b415fbadc38": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3f74-6ef6-1fc2-b1fb-effa286dcbbb": [
+"processors",
+"RUNNING",
+"qlnv_tongquan_nq57"
+],
+"142f3f70-6ef6-1fc2-5840-08cf53f5dcc9": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3f6e-6ef6-1fc2-879c-9e24edbe4cd2": [
+"inputPorts",
+"RUNNING",
+"input"
+],
+"142f3f6f-6ef6-1fc2-ea4f-8d6a5a3c1931": [
+"outputPorts",
+"DISABLED",
+"output"
+],
+"142f3e91-6ef6-1fc2-ad40-a22f80b6989e": [
+"processors",
+"RUNNING",
+"Update DonViChuTri [upsert]"
+],
+"142f3e98-6ef6-1fc2-6cf4-8c1d08d134c0": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3e94-6ef6-1fc2-7d81-05b6f25a065d": [
+"processors",
+"DISABLED",
+"LogAttribute"
+],
+"142f3e9b-6ef6-1fc2-f184-37587425b199": [
+"processors",
+"RUNNING",
+"qlnv_th_tongquan_donvi_tiepnhan"
+],
+"142f3e9a-6ef6-1fc2-d213-e5404b43d711": [
+"processors",
+"RUNNING",
+"15 PHÚT / 1 LẦN"
+],
+"142f3e95-6ef6-1fc2-5b4c-b08f5bee47c3": [
+"processors",
+"RUNNING",
+"qlnv_tonghop_chitiet_tiepnhan [upsert]"
+],
+"142f3e90-6ef6-1fc2-a3a0-5a3986480a70": [
+"processors",
+"RUNNING",
+"qlnv_tonghop_chitiet_tiepnhan_don_le [upsert]"
+],
+"142f3e99-6ef6-1fc2-a5dd-96d9f29c5da1": [
+"processors",
+"DISABLED",
+"Update NhomCauTrucNhiemVu"
+],
+"142f3e92-6ef6-1fc2-b381-a40e2d9ece08": [
+"processors",
+"DISABLED",
+"LogAttribute"
+],
+"142f3e8f-6ef6-1fc2-6614-3581e23f4da3": [
+"processors",
+"RUNNING",
+"qlnv_tonghop_chitiet_tiepnhan_theo_chuoi [upsert]"
+],
+"142f3e96-6ef6-1fc2-73ef-f2bdd4d0fa3e": [
+"processors",
+"RUNNING",
+"qlnv_tonghop_chitiet_nhom_tiepnhan [upsert]"
+],
+"142f3e97-6ef6-1fc2-48c7-f4cb6ca4c1f2": [
+"processors",
+"RUNNING",
+"Update NhomCauTrucNhiemVu Nhan [upsert]"
+],
+"142f3e93-6ef6-1fc2-be86-104ae0bb4e4c": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3e8d-6ef6-1fc2-7021-b6ff78eb3e2e": [
+"inputPorts",
+"RUNNING",
+"input"
+],
+"142f3e8e-6ef6-1fc2-f96c-d94c012c6fb0": [
+"outputPorts",
+"RUNNING",
+"output"
+],
+"142f3ebe-6ef6-1fc2-f76b-257d4ce6ea50": [
+"processors",
+"RUNNING",
+"15 PHÚT / 1 LẦN"
+],
+"142f3ec1-6ef6-1fc2-ed59-4499c35f5dad": [
+"processors",
+"DISABLED",
+"Update NhomCauTrucNhiemVu"
+],
+"142f3eb4-6ef6-1fc2-ccc7-c7758d8aebfc": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3ec0-6ef6-1fc2-01cc-326acdf89fa3": [
+"processors",
+"DISABLED",
+"ExecuteSQL"
+],
+"142f3eb3-6ef6-1fc2-9053-7e212692fa68": [
+"processors",
+"DISABLED",
+"LogAttribute"
+],
+"142f3ebc-6ef6-1fc2-7af4-c2b60ee01842": [
+"processors",
+"RUNNING",
+"qlnv_th_tongquan_donvi_giaonv"
+],
+"142f3eb5-6ef6-1fc2-7578-0f74d7189542": [
+"processors",
+"RUNNING",
+"qlnv_tonghop_chitiet_giaonv [upsert]"
+],
+"142f3eb8-6ef6-1fc2-dfb5-61e2a8382062": [
+"processors",
+"RUNNING",
+"qlnv_tonghop_chitiet_giaonv_don_le [upsert]"
+],
+"142f3eba-6ef6-1fc2-2785-99c369802767": [
+"processors",
+"RUNNING",
+"Update NhomCauTrucNhiemVu Giao [upsert]"
+],
+"142f3eb9-6ef6-1fc2-204a-f1d86121d7c9": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3ec2-6ef6-1fc2-9d74-22ef8b46255b": [
+"processors",
+"DISABLED",
+"LogAttribute"
+],
+"142f3eb6-6ef6-1fc2-ed23-d739e7d88867": [
+"processors",
+"DISABLED",
+"3 PHÚT / 1 LẦN"
+],
+"142f3eb7-6ef6-1fc2-748e-b68f09699ee0": [
+"processors",
+"RUNNING",
+"qlnv_tonghop_chitiet_giaonv_theo_chuoi [upsert]"
+],
+"142f3ebf-6ef6-1fc2-9e79-40ce1fffe7ac": [
+"processors",
+"RUNNING",
+"qlnv_tonghop_chitiet_nhom_giaonv [upsert]"
+],
+"142f3eb2-6ef6-1fc2-490c-81012488d7e7": [
+"processors",
+"DISABLED",
+"qlnv_tonghop_chitiet_nhom_giaonv có distint donvi"
+],
+"142f3ebd-6ef6-1fc2-8845-213daa109af3": [
+"processors",
+"RUNNING",
+"Update DonViChuTri [upsert]"
+],
+"142f3ebb-6ef6-1fc2-83bf-061f7bf29874": [
+"processors",
+"DISABLED",
+"LogAttribute"
+],
+"142f3eb0-6ef6-1fc2-9427-790210bc7885": [
+"inputPorts",
+"RUNNING",
+"input"
+],
+"142f3eb1-6ef6-1fc2-6ac9-997572067b0f": [
+"outputPorts",
+"RUNNING",
+"output"
+]
+}

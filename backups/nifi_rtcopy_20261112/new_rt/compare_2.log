@@ -1,0 +1,11 @@
+14:46:38 mốc luồng cũ: 2026-11-12T14:29:09 | mới: 2026-11-12T14:46:17
+qlnv_tonghop_chitiet_giaonv                   cũ=  94380 mới=  94380 chỉ_cũ=0 chỉ_mới=0 lệch_nội_dung=18007
+qlnv_tonghop_chitiet_giaonv_don_le            cũ=  94346 mới=  94346 chỉ_cũ=0 chỉ_mới=0 lệch_nội_dung=17983
+qlnv_tonghop_chitiet_giaonv_theo_chuoi        cũ=     34 mới=     34 chỉ_cũ=0 chỉ_mới=0 lệch_nội_dung=24
+qlnv_tonghop_chitiet_nhom_giaonv              cũ=  22589 mới=  22589 chỉ_cũ=0 chỉ_mới=0 lệch_nội_dung=17972
+Traceback (most recent call last):
+  File "/home/truongnbn/Documents/Superset,/QLNV/backups/nifi_rtcopy_20261112/new_rt_compare.py", line 26, in <module>
+    r2 = Q(f"SELECT COUNT(*) chi_moi FROM {DB}.{n} b LEFT JOIN {DB}.{t} a ON {on} WHERE a.`{k[0]}` IS NULL")[0]
+  File "/home/truongnbn/Documents/Superset,/QLNV/backups/nifi_rtcopy_20261112/rtlib.py", line 47, in Q
+    if r.status_code >= 300: raise RuntimeError(str(j)[:500])
+RuntimeError: {}

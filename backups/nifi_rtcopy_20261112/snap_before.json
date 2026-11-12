@@ -1,0 +1,646 @@
+{
+ "t": "11:19:10",
+ "old": [
+  {
+   "id": "bee43672-c2d0-1c10-0350-40846ccaf664",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "f8207212"
+  },
+  {
+   "id": "bee43592-c2d0-1c10-f125-4abd0acb46fa",
+   "name": "15 PHÚT / 1 LẦN",
+   "state": "RUNNING",
+   "sched": "15 min",
+   "g": "f8207212"
+  },
+  {
+   "id": "bee45c0d-c2d0-1c10-c6f1-3c90ca484a00",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee45bfc"
+  },
+  {
+   "id": "bee45d52-c2d0-1c10-f9e0-5e27a5e8d0bd",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee45bfc"
+  },
+  {
+   "id": "bee45c12-c2d0-1c10-795b-52638d1375c6",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee45bfc"
+  },
+  {
+   "id": "bee45c02-c2d0-1c10-e580-1418db8777f9",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee45bfc"
+  },
+  {
+   "id": "bee45bff-c2d0-1c10-0163-7e29ba49abf4",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee45bfc"
+  },
+  {
+   "id": "f80bb6d7-019b-1000-6fc5-df67c9aa92f0",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "f80d911d"
+  },
+  {
+   "id": "f80bb6db-019b-1000-b1fb-a7dc85d64e65",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "f80d911d"
+  },
+  {
+   "id": "bee4560a-c2d0-1c10-0330-2bd2f784bcd1",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "f80d911d"
+  },
+  {
+   "id": "acf5120b-116a-119e-b896-c5a4915987fb",
+   "name": "60 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "60 min",
+   "g": "f230cfc3"
+  },
+  {
+   "id": "acf5158b-116f-119e-a325-e2686fd27b78",
+   "name": "30 PHÚT / 1 LẦN",
+   "state": "RUNNING",
+   "sched": "30 min",
+   "g": "f230cfc3"
+  },
+  {
+   "id": "acf515d9-116f-119e-a201-7071768799a4",
+   "name": "60 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "60 min",
+   "g": "f230cfc3"
+  },
+  {
+   "id": "acf519bc-116f-119e-756a-3eed8d9cb38e",
+   "name": "30p/lần",
+   "state": "DISABLED",
+   "sched": "30 min",
+   "g": "f230cfc3"
+  },
+  {
+   "id": "8a212267-342c-1bfb-ca6d-f95d3d9ddb1d",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "8a2122af"
+  },
+  {
+   "id": "bee45b68-c2d0-1c10-cbef-67387745f3db",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "8a2122af"
+  },
+  {
+   "id": "bee435c4-c2d0-1c10-e78c-55763761cf33",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "8a2122af"
+  },
+  {
+   "id": "8a21224c-342c-1bfb-6bdc-91667665597f",
+   "name": "15 PHÚT / 1 LẦN",
+   "state": "RUNNING",
+   "sched": "15 min",
+   "g": "8a2122af"
+  },
+  {
+   "id": "acf51531-116f-119e-4cf4-5237a0a64f27",
+   "name": "15 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "15 min",
+   "g": "acf5152e"
+  },
+  {
+   "id": "acf5155b-116f-119e-9e7c-dba2ea1192a5",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "STOPPED",
+   "sched": "3 min",
+   "g": "acf5152e"
+  },
+  {
+   "id": "acf5181a-116f-119e-ad3a-a77fadb3468c",
+   "name": "GenerateFlowFile",
+   "state": "DISABLED",
+   "sched": "600 sec",
+   "g": "acf51819"
+  },
+  {
+   "id": "acf5166b-116f-119e-5468-40bb4e2971f5",
+   "name": "15 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "15 min",
+   "g": "bee45b79"
+  },
+  {
+   "id": "bee45b7c-c2d0-1c10-79d0-416dff03c6e4",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee45b79"
+  },
+  {
+   "id": "acf5166a-116f-119e-97a9-bc5e7454b897",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee45b79"
+  },
+  {
+   "id": "bee45b7e-c2d0-1c10-bdb0-8d8410355a50",
+   "name": "15 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "15 min",
+   "g": "bee45b79"
+  },
+  {
+   "id": "bee43564-c2d0-1c10-a872-67093d911366",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "916211d8"
+  },
+  {
+   "id": "916211db-1007-119c-c1fe-5a70741e5040",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "916211d8"
+  },
+  {
+   "id": "acf51210-116f-119e-fa73-f4f57573395d",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "acf5120d"
+  },
+  {
+   "id": "acf51218-116f-119e-78f7-118202a5d256",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "acf5120d"
+  },
+  {
+   "id": "8a21226d-342c-1bfb-406c-5d2672ef8dbd",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "8a2122ac"
+  },
+  {
+   "id": "bee45e9f-c2d0-1c10-1d0a-61e826b03406",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "8a2122ac"
+  },
+  {
+   "id": "8a212244-342c-1bfb-d841-007911358222",
+   "name": "15 PHÚT / 1 LẦN",
+   "state": "RUNNING",
+   "sched": "15 min",
+   "g": "8a2122ac"
+  },
+  {
+   "id": "bee45b59-c2d0-1c10-b88a-46b87eb453cc",
+   "name": "60 PHÚT / 1 LẦN",
+   "state": "RUNNING",
+   "sched": "60 min",
+   "g": "bee45b54"
+  },
+  {
+   "id": "019e1103-acf5-1208-9494-8758ed2e1520",
+   "name": "180 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "180 min",
+   "g": "bee45b54"
+  },
+  {
+   "id": "bee45b57-c2d0-1c10-78af-4498c834912e",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee45b54"
+  },
+  {
+   "id": "f80bb6d4-019b-1000-ece3-f9148246e721",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "f80bb6cb"
+  },
+  {
+   "id": "f80bb6cd-019b-1000-ed04-6c084c7e509c",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "f80bb6cb"
+  },
+  {
+   "id": "bee456bb-c2d0-1c10-3c82-6565911bdf27",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee43621"
+  },
+  {
+   "id": "acf51657-116f-119e-a3e4-5aadf8f44a92",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee43621"
+  },
+  {
+   "id": "bee455e7-c2d0-1c10-ffa4-c8510a2e967c",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee43621"
+  },
+  {
+   "id": "acf5165c-116f-119e-5116-47851fbe632d",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee43621"
+  },
+  {
+   "id": "bee434da-c2d0-1c10-93c5-b994a0be51ce",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee43621"
+  },
+  {
+   "id": "bee434ac-c2d0-1c10-9337-6189e0da9aa3",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee43621"
+  },
+  {
+   "id": "bee43745-c2d0-1c10-fbc2-5abfd7c1263a",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee43621"
+  },
+  {
+   "id": "142f3f00-6ef6-1fc2-88e9-5f49f8a9cc5a",
+   "name": "1 PHÚT / 1 LẦN (CRON :17)",
+   "state": "STOPPED",
+   "sched": "17 * * * * ?",
+   "g": "142f3e8a"
+  },
+  {
+   "id": "142f3edd-6ef6-1fc2-e57f-b384528593c8",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "142f3ed8"
+  },
+  {
+   "id": "142f3ee9-6ef6-1fc2-19de-1670e5fa76e2",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "142f3ed8"
+  },
+  {
+   "id": "142f3eeb-6ef6-1fc2-4f05-ab99d544da1f",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "142f3ed8"
+  },
+  {
+   "id": "142f3ee2-6ef6-1fc2-45f0-9e37677ddf88",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "142f3ed8"
+  },
+  {
+   "id": "142f3edb-6ef6-1fc2-3ade-988c6776f301",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "142f3ed8"
+  },
+  {
+   "id": "142f3ee4-6ef6-1fc2-00dd-b75fa5b73b01",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "142f3ed8"
+  },
+  {
+   "id": "142f3ee8-6ef6-1fc2-4880-87ed2f47ca13",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "142f3ed8"
+  },
+  {
+   "id": "142f3e98-6ef6-1fc2-6cf4-8c1d08d134c0",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "142f3e8c"
+  },
+  {
+   "id": "142f3e9a-6ef6-1fc2-d213-e5404b43d711",
+   "name": "15 PHÚT / 1 LẦN",
+   "state": "STOPPED",
+   "sched": "15 min",
+   "g": "142f3e8c"
+  },
+  {
+   "id": "142f3e93-6ef6-1fc2-be86-104ae0bb4e4c",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "142f3e8c"
+  },
+  {
+   "id": "142f3ebe-6ef6-1fc2-f76b-257d4ce6ea50",
+   "name": "15 PHÚT / 1 LẦN",
+   "state": "STOPPED",
+   "sched": "15 min",
+   "g": "142f3eae"
+  },
+  {
+   "id": "142f3eb4-6ef6-1fc2-ccc7-c7758d8aebfc",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "142f3eae"
+  },
+  {
+   "id": "142f3eb9-6ef6-1fc2-204a-f1d86121d7c9",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "142f3eae"
+  },
+  {
+   "id": "142f3eb6-6ef6-1fc2-ed23-d739e7d88867",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "142f3eae"
+  },
+  {
+   "id": "bee45e2e-c2d0-1c10-5448-51d12755f176",
+   "name": "10 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "10 min",
+   "g": "bee45e2b"
+  },
+  {
+   "id": "bee45e32-c2d0-1c10-b8a0-b5c3e0ccd7a5",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee45e2b"
+  },
+  {
+   "id": "916211c8-1007-119c-eada-2e8a57569fa1",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "916211c3"
+  },
+  {
+   "id": "bee45558-c2d0-1c10-e9f4-a9b045716aa7",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "916211c3"
+  },
+  {
+   "id": "bee45c22-c2d0-1c10-d868-749bda5b8385",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee45c1b"
+  },
+  {
+   "id": "bee45c21-c2d0-1c10-2e7b-0fca3ca0e9b5",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee45c1b"
+  },
+  {
+   "id": "bee45c24-c2d0-1c10-aba6-04f50a7dea50",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee45c1b"
+  },
+  {
+   "id": "bee45c1e-c2d0-1c10-0d26-1189f0d9a960",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee45c1b"
+  },
+  {
+   "id": "bee45d6f-c2d0-1c10-ee69-6d2ffc44d284",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee45c1b"
+  },
+  {
+   "id": "bee4568f-c2d0-1c10-df29-3bbcc1d6afbe",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee45689"
+  },
+  {
+   "id": "bee4568c-c2d0-1c10-946f-d4c3432d2427",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee45689"
+  },
+  {
+   "id": "019e1090-acf5-1208-60a4-96d9880d0fcd",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee43e21"
+  },
+  {
+   "id": "019e107d-acf5-1208-358e-5d2806c18e97",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee43e21"
+  },
+  {
+   "id": "019e1077-acf5-1208-ee24-46d9ecb8936f",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "bee43e21"
+  }
+ ],
+ "old_agg": {
+  "activeThreadCount": 0,
+  "queued": "0 (0 bytes)",
+  "flowFilesIn": 0,
+  "flowFilesOut": 0
+ },
+ "new": [
+  {
+   "id": "142f3f00-6ef6-1fc2-88e9-5f49f8a9cc5a",
+   "name": "1 PHÚT / 1 LẦN (CRON :17)",
+   "state": "STOPPED",
+   "sched": "17 * * * * ?",
+   "g": "142f3e8a"
+  },
+  {
+   "id": "142f3edd-6ef6-1fc2-e57f-b384528593c8",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "142f3ed8"
+  },
+  {
+   "id": "142f3ee9-6ef6-1fc2-19de-1670e5fa76e2",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "142f3ed8"
+  },
+  {
+   "id": "142f3eeb-6ef6-1fc2-4f05-ab99d544da1f",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "142f3ed8"
+  },
+  {
+   "id": "142f3ee2-6ef6-1fc2-45f0-9e37677ddf88",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "142f3ed8"
+  },
+  {
+   "id": "142f3edb-6ef6-1fc2-3ade-988c6776f301",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "142f3ed8"
+  },
+  {
+   "id": "142f3ee4-6ef6-1fc2-00dd-b75fa5b73b01",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "142f3ed8"
+  },
+  {
+   "id": "142f3ee8-6ef6-1fc2-4880-87ed2f47ca13",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "142f3ed8"
+  },
+  {
+   "id": "142f3e98-6ef6-1fc2-6cf4-8c1d08d134c0",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "142f3e8c"
+  },
+  {
+   "id": "142f3e9a-6ef6-1fc2-d213-e5404b43d711",
+   "name": "15 PHÚT / 1 LẦN",
+   "state": "STOPPED",
+   "sched": "15 min",
+   "g": "142f3e8c"
+  },
+  {
+   "id": "142f3e93-6ef6-1fc2-be86-104ae0bb4e4c",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "142f3e8c"
+  },
+  {
+   "id": "142f3ebe-6ef6-1fc2-f76b-257d4ce6ea50",
+   "name": "15 PHÚT / 1 LẦN",
+   "state": "STOPPED",
+   "sched": "15 min",
+   "g": "142f3eae"
+  },
+  {
+   "id": "142f3eb4-6ef6-1fc2-ccc7-c7758d8aebfc",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "142f3eae"
+  },
+  {
+   "id": "142f3eb9-6ef6-1fc2-204a-f1d86121d7c9",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "142f3eae"
+  },
+  {
+   "id": "142f3eb6-6ef6-1fc2-ed23-d739e7d88867",
+   "name": "3 PHÚT / 1 LẦN",
+   "state": "DISABLED",
+   "sched": "3 min",
+   "g": "142f3eae"
+  }
+ ],
+ "new_agg": {
+  "activeThreadCount": 0,
+  "queued": "0 (0 bytes)",
+  "flowFilesIn": 0,
+  "flowFilesOut": 0
+ },
+ "nifi": {
+  "activeThreadCount": 1,
+  "queued": "20,687 / 429 MB"
+ },
+ "mysql_running": [],
+ "uptime": [
+  {
+   "Variable_name": "Uptime",
+   "Value": "2555"
+  }
+ ]
+}

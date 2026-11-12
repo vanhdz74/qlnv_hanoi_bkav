@@ -1,453 +1,542 @@
 [
  {
   "ma": "NV01",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": null,
   "mau_so": null,
   "gia_tri": 865,
-  "trich_dan": "toàn Thành phố theo dõi 865 nhiệm vụ",
-  "vi_tri": "Mục I.1, Trang 1; Phụ lục 01 (Tổng số), Trang 6",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026.",
-  "khac_dashboard": false
+  "trich_dan": "toàn Thành phố đang theo dõi tổng số 865 nhiệm vụ (giảm 02 nhiệm vụ so với tháng 9/2026)",
+  "vi_tri": "Mục I.2, Trang 2; Phụ lục 01 (Tổng số)",
+  "ghi_chu": ""
  },
  {
   "ma": "NV02",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": null,
   "mau_so": null,
   "gia_tri": 478,
-  "trich_dan": "478 nhiệm vụ đã hoàn thành",
-  "vi_tri": "Mục I.1, Trang 1; Phụ lục 01, Trang 6",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026.",
-  "khac_dashboard": false
+  "trich_dan": "Hoàn thành 478 nhiệm vụ (tăng 17 nhiệm vụ so với tháng trước)",
+  "vi_tri": "Mục I.2(1); Phụ lục 01",
+  "ghi_chu": ""
  },
  {
   "ma": "NV03",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": 478,
   "mau_so": 865,
   "gia_tri": 0.552601,
-  "trich_dan": "865 nhiệm vụ, gồm 478 nhiệm vụ đã hoàn thành",
-  "vi_tri": "Mục I.1, Trang 1",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026. Tự tính NV02/NV01.",
-  "khac_dashboard": false
+  "trich_dan": "865 nhiệm vụ ... Hoàn thành 478 nhiệm vụ",
+  "vi_tri": "Mục I.2(1)",
+  "ghi_chu": "Tự tính NV02/NV01."
  },
  {
   "ma": "NV04",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": null,
   "mau_so": null,
   "gia_tri": 387,
-  "trich_dan": "387 nhiệm vụ đang thực hiện",
-  "vi_tri": "Mục I.1, Trang 1; Phụ lục 01, Trang 6",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026.",
-  "khac_dashboard": false
+  "trich_dan": "Tiếp tục thực hiện 387 nhiệm vụ (giảm 17 nhiệm vụ so với tháng trước)",
+  "vi_tri": "Mục I.2(1); Phụ lục 01",
+  "ghi_chu": "Mục I.2 ghi 'giảm 17', dòng Tổng Phụ lục 01 ghi 'giảm 19' (406 -> 387 = giảm 19)."
  },
  {
   "ma": "NV05",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": null,
   "mau_so": null,
   "gia_tri": 10,
-  "trich_dan": "Số nhiệm vụ quá thời hạn giao là 10 nhiệm vụ",
-  "vi_tri": "Mục I.1(2), Trang 1; Phụ lục 01, Trang 6",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026.",
-  "khac_dashboard": false
+  "trich_dan": "trong đó có 10 nhiệm vụ quá hạn, giảm 5 nhiệm vụ so với tháng trước",
+  "vi_tri": "Mục I.2(1); Phụ lục 01",
+  "ghi_chu": ""
  },
  {
   "ma": "NV06",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": null,
   "mau_so": null,
   "gia_tri": 9,
-  "trich_dan": "còn 09 nhiệm vụ cần tiếp tục tập trung xử lý",
-  "vi_tri": "Mục I.1(2), Trang 1; Phụ lục 01, Trang 6",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026. Mục IV.1 (Trang 5) lại ghi '08/10 nhiệm vụ đã quá thời hạn giao cần tiếp tục xử lý' - mâu thuẫn, lấy 09 theo bảng Phụ lục 01 và mục I, II, III.",
-  "khac_dashboard": false
+  "trich_dan": "09 nhiệm vụ cấp Thành phố đang tiếp tục xử lý",
+  "vi_tri": "Mục I.2(1); Phụ lục 01 (cột 'cần tiếp tục xử lý' = 09)",
+  "ghi_chu": "01 nhiệm vụ TW chờ Sổ tay hướng dẫn không tính."
  },
  {
   "ma": "NV07",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": null,
   "mau_so": null,
   "gia_tri": 294,
   "trich_dan": "Nhiệm vụ Trung ương giao | 294 | 189 | 105 | 1 | 0 | 0",
-  "vi_tri": "Phụ lục 01, dòng 1, Trang 6",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026. Giảm so với T9 (296); báo cáo không giải thích.",
-  "khac_dashboard": false
+  "vi_tri": "Phụ lục 01, dòng 1",
+  "ghi_chu": ""
  },
  {
   "ma": "NV08",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": null,
   "mau_so": null,
   "gia_tri": 189,
-  "trich_dan": "Nhiệm vụ Trung ương giao | 294 | 189 | 105",
-  "vi_tri": "Phụ lục 01, dòng 1, Trang 6",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026. T9 dashboard = 190 (tổng 296); số T41 thấp hơn, báo cáo không giải thích (ghi 'Hoàn thành tăng 01' so với tuần 40).",
-  "khac_dashboard": false
+  "trich_dan": "Nhiệm vụ Trung ương giao | 294 | 189 | 105 | 1 | 0 | 0",
+  "vi_tri": "Phụ lục 01, dòng 1",
+  "ghi_chu": ""
  },
  {
   "ma": "NV09",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": null,
   "mau_so": null,
   "gia_tri": 126,
   "trich_dan": "Nhiệm vụ theo Kế hoạch số 20-KH/BCĐ57 | 126 | 64 | 62 | 2 | 2 | 0",
-  "vi_tri": "Phụ lục 01, dòng 2, Trang 6",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026.",
-  "khac_dashboard": false
+  "vi_tri": "Phụ lục 01, dòng 2",
+  "ghi_chu": ""
  },
  {
   "ma": "NV10",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": null,
   "mau_so": null,
   "gia_tri": 64,
-  "trich_dan": "Kế hoạch số 20-KH/BCĐ57 | 126 | 64 | 62",
-  "vi_tri": "Phụ lục 01, dòng 2, Trang 6",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026.",
-  "khac_dashboard": false
+  "trich_dan": "Nhiệm vụ theo Kế hoạch số 20-KH/BCĐ57 | 126 | 64 | 62 | 2 | 2 | 0",
+  "vi_tri": "Phụ lục 01, dòng 2",
+  "ghi_chu": ""
  },
  {
   "ma": "NV11",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": null,
   "mau_so": null,
   "gia_tri": 2,
-  "trich_dan": "Kế hoạch số 20-KH/BCĐ57 ... Đã quá thời hạn giao: 2",
-  "vi_tri": "Phụ lục 01, dòng 2, Trang 6",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026.",
-  "khac_dashboard": false
+  "trich_dan": "Nhiệm vụ theo Kế hoạch số 20-KH/BCĐ57 | 126 | 64 | 62 | 2 | 2 | 0",
+  "vi_tri": "Phụ lục 01, dòng 2 (cột Đã quá thời hạn giao)",
+  "ghi_chu": ""
  },
  {
   "ma": "NV12",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": null,
   "mau_so": null,
   "gia_tri": 26,
-  "trich_dan": "Nhiệm vụ theo Kế hoạch số 35-KH/BCĐ57 | 26 | 10 | 16 | 1 | 1 | 0",
-  "vi_tri": "Phụ lục 01, dòng 3, Trang 6",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026.",
-  "khac_dashboard": false
+  "trich_dan": "Nhiệm vụ theo Kế hoạch số 35-KH/BCĐ57 | 26 | 10 | 16 | 1 | 1 | 1",
+  "vi_tri": "Phụ lục 01, dòng 3",
+  "ghi_chu": ""
  },
  {
   "ma": "NV13",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": null,
   "mau_so": null,
   "gia_tri": 10,
-  "trich_dan": "Kế hoạch số 35-KH/BCĐ57 | 26 | 10 | 16",
-  "vi_tri": "Phụ lục 01, dòng 3, Trang 6",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026.",
-  "khac_dashboard": false
+  "trich_dan": "Nhiệm vụ theo Kế hoạch số 35-KH/BCĐ57 | 26 | 10 | 16 | 1 | 1 | 1",
+  "vi_tri": "Phụ lục 01, dòng 3",
+  "ghi_chu": ""
  },
  {
   "ma": "NV14",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": null,
   "mau_so": null,
   "gia_tri": 1,
-  "trich_dan": "Kế hoạch số 35-KH/BCĐ57 ... Đã quá thời hạn giao: 1",
-  "vi_tri": "Phụ lục 01, dòng 3, Trang 6",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026.",
-  "khac_dashboard": false
+  "trich_dan": "Nhiệm vụ theo Kế hoạch số 35-KH/BCĐ57 | 26 | 10 | 16 | 1 | 1 | 1",
+  "vi_tri": "Phụ lục 01, dòng 3 (cột Đã quá thời hạn giao)",
+  "ghi_chu": ""
  },
  {
   "ma": "NV15",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": null,
   "mau_so": null,
   "gia_tri": 366,
-  "trich_dan": "Nhiệm vụ theo Thông báo kết luận | 366 | 176 | 190 | 06 | 06 | 0",
-  "vi_tri": "Phụ lục 01, dòng 4, Trang 6",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026.",
-  "khac_dashboard": false
+  "trich_dan": "Nhiệm vụ theo Thông báo kết luận | 366 | 176 | 190 | 06 | 06 | 2",
+  "vi_tri": "Phụ lục 01, dòng 4",
+  "ghi_chu": ""
  },
  {
   "ma": "NV16",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": null,
   "mau_so": null,
   "gia_tri": 176,
-  "trich_dan": "Thông báo kết luận | 366 | 176 | 190",
-  "vi_tri": "Phụ lục 01, dòng 4, Trang 6",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026.",
-  "khac_dashboard": false
+  "trich_dan": "Nhiệm vụ theo Thông báo kết luận | 366 | 176 | 190 | 06 | 06 | 2",
+  "vi_tri": "Phụ lục 01, dòng 4",
+  "ghi_chu": ""
  },
  {
   "ma": "TC01",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": null,
   "mau_so": null,
   "gia_tri": 9090.399,
-  "trich_dan": "tổng kinh phí Thành phố bố trí ... năm 2026 là 9.090,399 tỷ đồng",
-  "vi_tri": "Phụ lục 03, nhiệm vụ 7 (Sở Tài chính), Trang 31",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026. Số liệu tính đến 30/9/2026.",
-  "khac_dashboard": false
+  "trich_dan": "tổng kinh phí Thành phố bố trí năm 2026 ... là 9.090,399 tỷ đồng",
+  "vi_tri": "Mục I.2.6 (Nguồn lực tài chính), cập nhật 14/10/2026",
+  "ghi_chu": ""
  },
  {
   "ma": "TC02",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": null,
   "mau_so": null,
-  "gia_tri": 8848.058,
-  "trich_dan": "đã phân bổ lũy kế 8.848,058 tỷ đồng, đạt 97,3%",
-  "vi_tri": "Phụ lục 03, nhiệm vụ 7, Trang 31",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026. Số liệu tính đến 30/9/2026 (dashboard T9 = 8832.626 chốt 23-25/9, mốc khác).",
-  "khac_dashboard": false
+  "gia_tri": 8881.969,
+  "trich_dan": "đã phân bổ 8.881,969 tỷ đồng, đạt 97,71%",
+  "vi_tri": "Mục I.2.6",
+  "ghi_chu": "Phụ lục 02 (nhiệm vụ 7, số 30/9/2026) còn ghi 8.848,058 tỷ / chưa phân bổ 242,341 tỷ (và 267,443 tỷ) - lấy số 14/10 ở Mục I.2.6."
  },
  {
   "ma": "TC03",
-  "ky": "Tuần 41",
-  "tu_so": 8848.058,
+  "ky": "T10/2026",
+  "tu_so": 8881.969,
   "mau_so": 9090.399,
-  "gia_tri": 0.973341,
-  "trich_dan": "đã phân bổ lũy kế 8.848,058 tỷ đồng, đạt 97,3%",
-  "vi_tri": "Phụ lục 03, nhiệm vụ 7, Trang 31",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026. Tự tính; báo cáo ghi 97,3%. Số đến 30/9/2026.",
-  "khac_dashboard": false
+  "gia_tri": 0.977071,
+  "trich_dan": "đã phân bổ 8.881,969 tỷ đồng, đạt 97,71%",
+  "vi_tri": "Mục I.2.6",
+  "ghi_chu": ""
  },
  {
-  "ma": "TC12",
-  "ky": "Tuần 41",
-  "tu_so": null,
-  "mau_so": null,
-  "gia_tri": 242.341,
-  "trich_dan": "kinh phí chưa phân bổ còn 242,341 tỷ đồng",
-  "vi_tri": "Phụ lục 03, nhiệm vụ 7, Trang 31",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026. KHÔNG CHẮC: cùng dòng, cột 'Đánh giá' lại ghi 'còn 267,443 tỷ đồng chưa được phân bổ'. 9.090,399 - 8.848,058 = 242,341 nên lấy 242,341. Số đến 30/9/2026.",
-  "khac_dashboard": false
+  "ma": "TC04",
+  "ky": "T10/2026",
+  "tu_so": 5452.042,
+  "mau_so": 5560,
+  "gia_tri": 0.980583,
+  "trich_dan": "chi đầu tư đã phân bổ 5.452,042/5.560 tỷ đồng, đạt khoảng 98,1%",
+  "vi_tri": "Mục I.2.6",
+  "ghi_chu": ""
+ },
+ {
+  "ma": "TC05",
+  "ky": "T10/2026",
+  "tu_so": 3429.927,
+  "mau_so": 3530.4,
+  "gia_tri": 0.971541,
+  "trich_dan": "chi thường xuyên đã phân bổ 3.429,927/3.530,4 tỷ đồng, đạt 97,15%",
+  "vi_tri": "Mục I.2.6",
+  "ghi_chu": "Mẫu số báo cáo ghi 3.530,4 (các kỳ trước 3.530,399)."
  },
  {
   "ma": "TC06",
-  "ky": "Tuần 41",
-  "tu_so": 726.458,
+  "ky": "T10/2026",
+  "tu_so": 937.467,
   "mau_so": 4147.157,
-  "gia_tri": 0.17517,
-  "trich_dan": "khối các cơ quan thuộc Thành phố giải ngân được 726.458/4.147.157 triệu đồng, đạt 17,52%",
-  "vi_tri": "Mục I.2(7), Trang 3; Mục II.4, Trang 4",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026. Tử/mẫu ghi theo tỷ đồng như dashboard. Mốc ngày mâu thuẫn: mục I ghi 'cập nhật đến ngày 06/10/2026', mục II ghi 'Đến ngày 30/9/2026'.",
-  "khac_dashboard": false
+  "gia_tri": 0.226051,
+  "trich_dan": "chi thường xuyên khối cơ quan Thành phố đã giải ngân 937,467/4.147,157 tỷ đồng, đạt 22,61%",
+  "vi_tri": "Mục I.2.6",
+  "ghi_chu": ""
  },
  {
   "ma": "TC07",
-  "ky": "Tuần 41",
-  "tu_so": 179.962,
-  "mau_so": 323.964,
-  "gia_tri": 0.5555,
-  "trich_dan": "khối xã, phường giải ngân được 179.962/323.964 triệu đồng, đạt 55,55%",
-  "vi_tri": "Mục I.2(7), Trang 3; Mục II.4, Trang 4",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026. Tử/mẫu theo tỷ đồng. Mốc ngày 06/10 hoặc 30/9 (báo cáo ghi hai mốc).",
-  "khac_dashboard": false
+  "ky": "T10/2026",
+  "tu_so": 200.553,
+  "mau_so": 333.565,
+  "gia_tri": 0.601241,
+  "trich_dan": "khối xã, phường giải ngân 200,553/333,565 tỷ đồng, đạt khoảng 60,12%",
+  "vi_tri": "Mục I.2.6",
+  "ghi_chu": ""
  },
  {
   "ma": "TC08",
-  "ky": "Tuần 41",
-  "tu_so": 3076.037,
+  "ky": "T10/2026",
+  "tu_so": 3078.641,
   "mau_so": 5452.042,
-  "gia_tri": 0.564199,
-  "trich_dan": "chi đầu tư, đã giải ngân 3.076,037/5.452,042 tỷ đồng, đạt 56,42%",
-  "vi_tri": "Mục I.2(7), Trang 3; Mục II.4, Trang 4",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026. Mốc ngày 06/10 hoặc 30/9 (báo cáo ghi hai mốc).",
-  "khac_dashboard": false
+  "gia_tri": 0.564677,
+  "trich_dan": "chi đầu tư giải ngân 3.078,641/5.452,042 tỷ đồng, đạt 56,47%",
+  "vi_tri": "Mục I.2.6",
+  "ghi_chu": ""
+ },
+ {
+  "ma": "TC12",
+  "ky": "T10/2026",
+  "tu_so": null,
+  "mau_so": null,
+  "gia_tri": 208.43,
+  "trich_dan": "còn 208,430 tỷ đồng chưa phân bổ",
+  "vi_tri": "Mục I.2.6",
+  "ghi_chu": ""
  },
  {
   "ma": "DD01",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": null,
   "mau_so": null,
   "gia_tri": 4827135,
-  "trich_dan": "tổng số thửa đất trên bản đồ ... là 4.827.135 thửa (giảm 37.403 thửa ...)",
-  "vi_tri": "Mục I.2(2), Trang 2; Phụ lục 03 nhiệm vụ 6, Trang 30",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026.",
-  "khac_dashboard": false
+  "trich_dan": "tổng số thửa đất trên bản đồ ... là 4.827.135 thửa (so với báo cáo tháng 9/2026 giảm 72.504 thửa)",
+  "vi_tri": "Mục I.3.2(2)",
+  "ghi_chu": ""
  },
  {
   "ma": "DD02",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": null,
   "mau_so": null,
   "gia_tri": 4781746,
-  "trich_dan": "đã xây dựng cơ sở dữ liệu 4.781.746 thửa đất, đạt 99.1%",
-  "vi_tri": "Mục I.2(2), Trang 2; Phụ lục 03 nhiệm vụ 6, Trang 30",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026.",
-  "khac_dashboard": false
+  "trich_dan": "đã xây dựng cơ sở dữ liệu 4.781.746 thửa đất, đạt 99.1% (so với báo cáo tháng 9/2026 tăng 1.010.725 thửa)",
+  "vi_tri": "Mục I.3.2(2); Phụ lục 02 nhiệm vụ 6",
+  "ghi_chu": "Mức tăng báo cáo ghi 1.010.725, tính theo số T9 (3.770.751) là 1.010.995."
  },
  {
   "ma": "DD03",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": 4781746,
   "mau_so": 4827135,
   "gia_tri": 0.990597,
   "trich_dan": "đã xây dựng cơ sở dữ liệu 4.781.746 thửa đất, đạt 99.1%",
-  "vi_tri": "Mục I.2(2), Trang 2",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026. Tự tính; báo cáo ghi 99.1%.",
-  "khac_dashboard": false
+  "vi_tri": "Mục I.3.2(2)",
+  "ghi_chu": "Báo cáo ghi 99,1%; tự tính DD02/DD01 = 99,06%."
  },
  {
   "ma": "DD04",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": null,
   "mau_so": null,
   "gia_tri": 2782633,
   "trich_dan": "thửa đất đã đạt tiêu chí Nhóm 1 'Đúng - Đủ - Sạch - Sống' là 2.782.633 thửa",
-  "vi_tri": "Mục I.2(2), Trang 2; Phụ lục 03 nhiệm vụ 6, Trang 30",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026.",
-  "khac_dashboard": false
+  "vi_tri": "Mục I.3.2(2); Phụ lục 02 nhiệm vụ 6",
+  "ghi_chu": ""
  },
  {
   "ma": "DD05",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": 2782633,
   "mau_so": 4827135,
   "gia_tri": 0.576456,
-  "trich_dan": "Nhóm 1 ... 2.782.633 thửa; tổng số thửa ... 4.827.135 thửa",
-  "vi_tri": "Mục I.2(2), Trang 2",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026. Tự tính DD04/DD01.",
-  "khac_dashboard": false
+  "trich_dan": "Nhóm 1 ... 2.782.633 thửa / tổng 4.827.135 thửa",
+  "vi_tri": "Mục I.3.2(2)",
+  "ghi_chu": "Tự tính DD04/DD01."
  },
  {
   "ma": "DD08",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": null,
   "mau_so": null,
   "gia_tri": 2094324,
-  "trich_dan": "tổng số thửa đất cần phải xây dựng cơ sở dữ liệu, làm giàu, làm sạch: 2.094.324 thửa đất (gồm: 95.211 thửa ... cần thu thập; 1.999.113 thửa đã có trong CSDL nhưng cần tiếp tục làm giàu, làm sạch)",
-  "vi_tri": "Phụ lục 03, nhiệm vụ 6, Trang 30-31",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026. Cùng định nghĩa với số T9 (2.410.803 'cần tiếp tục xây dựng CSDL, làm giàu, làm sạch').",
-  "khac_dashboard": false
+  "trich_dan": "tổng số thửa đất cần phải xây dựng cơ sở dữ liệu, làm giàu, làm sạch: 2.094.324 thửa đất",
+  "vi_tri": "Phụ lục 02, mục I, nhiệm vụ 6 (452-TB/TU)",
+  "ghi_chu": ""
  },
  {
   "ma": "DD09",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": 22,
   "mau_so": 126,
   "gia_tri": 0.174603,
   "trich_dan": "tiếp tục tổ chức 05 tổ công tác đôn đốc 22 địa phương có khối lượng dữ liệu còn lớn",
-  "vi_tri": "Mục I.2(2), Trang 2",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026. Mẫu 126 xã, phường theo quy ước dashboard.",
-  "khac_dashboard": false
+  "vi_tri": "Mục I.3.2(2)",
+  "ghi_chu": ""
  },
  {
   "ma": "DL01",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": 13,
   "mau_so": 13,
   "gia_tri": 1.0,
   "trich_dan": "duy trì kết nối, thu thập 13/13 nguồn dữ liệu ưu tiên",
-  "vi_tri": "Mục I.2(1), Trang 2; Phụ lục 05 mục A dòng 4, Trang 38",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026.",
-  "khac_dashboard": false
- },
- {
-  "ma": "DL03",
-  "ky": "Tuần 41",
-  "tu_so": null,
-  "mau_so": null,
-  "gia_tri": 4677228,
-  "trich_dan": "Dữ liệu năm 2026 đã thu thập 4.677.228 văn bản, đạt 40%",
-  "vi_tri": "Phụ lục 05 mục B dòng 8 (Quản lý văn bản và điều hành), Trang 39",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026. KHÁC PHẠM VI với số T8 (755.490/1.366.464 văn bản tháng 8): đây là lũy kế văn bản năm 2026. Tuần 40 (đến 02/10): 4.148.589 văn bản, đạt 35%.",
-  "khac_dashboard": false
+  "vi_tri": "Mục I.3.2(1)",
+  "ghi_chu": ""
  },
  {
   "ma": "DL05",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": 2,
   "mau_so": 4,
   "gia_tri": 0.5,
-  "trich_dan": "Nhóm 3 ... tăng từ 1/4 lên 2/4 nhiệm vụ hoàn thành",
-  "vi_tri": "Mục I.2(1), Trang 2; Phụ lục 05 mục A dòng 3, Trang 38",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026. Số đến 30/9/2026 (mục I) / 08/10/2026 (Phụ lục 05).",
-  "khac_dashboard": false
+  "trich_dan": "Nhóm 3 (triển khai hệ thống Kho dữ liệu dùng chung) tăng từ 1/4 lên 2/4 nhiệm vụ hoàn thành",
+  "vi_tri": "Mục I.3.2(1)",
+  "ghi_chu": ""
  },
  {
   "ma": "DL06",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": null,
   "mau_so": null,
   "gia_tri": 4,
   "trich_dan": "Nhóm 5 ... đã xây dựng và khai thác 04 kịch bản",
-  "vi_tri": "Mục I.2(1), Trang 2; Phụ lục 05 mục A dòng 5, Trang 38",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026.",
-  "khac_dashboard": false
+  "vi_tri": "Mục I.3.2(1)",
+  "ghi_chu": ""
  },
  {
-  "ma": "NT08",
-  "ky": "Tuần 41",
-  "tu_so": null,
-  "mau_so": null,
-  "gia_tri": 84,
-  "trich_dan": "Hệ thống đã cấu hình 84 chỉ số",
-  "vi_tri": "Mục I.2(3), Trang 2; Phụ lục 02 nhiệm vụ 11, Trang 15",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026.",
-  "khac_dashboard": false
- },
- {
-  "ma": "NT09",
-  "ky": "Tuần 41",
-  "tu_so": null,
-  "mau_so": null,
-  "gia_tri": 28000,
-  "trich_dan": "cấp 28.000 tài khoản tại 134 cơ quan, đơn vị",
-  "vi_tri": "Mục I.2(3), Trang 2",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026. KHÔNG CHẮC: Phụ lục 02 nhiệm vụ 11 (Trang 15) cùng báo cáo vẫn ghi 'cấp 9.269 tài khoản tại 134 cơ quan, đơn vị' (số cũ T8).",
-  "khac_dashboard": false
- },
- {
-  "ma": "NT10",
-  "ky": "Tuần 41",
-  "tu_so": 134,
-  "mau_so": 135,
-  "gia_tri": 0.992593,
-  "trich_dan": "134/135 đơn vị cơ bản thống nhất, đạt 99,3%",
-  "vi_tri": "Phụ lục 02 nhiệm vụ 11, Trang 16",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026. Nhắc lại kết quả lấy ý kiến cũ (trùng T8), không phải số mới phát sinh.",
-  "khac_dashboard": false
- },
- {
-  "ma": "KH05",
-  "ky": "Tuần 41",
-  "tu_so": null,
-  "mau_so": null,
-  "gia_tri": 8,
-  "trich_dan": "Thành phố đã tổng hợp được 10 sản phẩm của 08 cơ quan, đơn vị",
-  "vi_tri": "Phụ lục 02 nhiệm vụ 1 (701-TB/TU), Trang 7",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026. KHÔNG CHẮC về định nghĩa: đến 30/9/2026 SKHCN tiếp nhận phản hồi của 09 cơ quan (số T9 = 9 là số đơn vị phản hồi/đăng ký); trong đó 07 đăng ký 08 sản phẩm, 02 (Sở Nội vụ, BHXH) không đăng ký; cộng SKHCN tự đăng ký 02 -> 08 đơn vị có sản phẩm, 10 sản phẩm.",
-  "khac_dashboard": false
- },
- {
-  "ma": "AT01",
-  "ky": "Tuần 41",
-  "tu_so": null,
-  "mau_so": null,
-  "gia_tri": 259,
-  "trich_dan": "toàn Thành phố đã có 259 hệ thống thông tin được phê duyệt cấp độ",
-  "vi_tri": "Mục I.2(4), Trang 2; Mục II.3, Trang 4; Phụ lục 02 nhiệm vụ 13, Trang 17",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026.",
-  "khac_dashboard": false
- },
- {
-  "ma": "AT03",
-  "ky": "Tuần 41",
+  "ma": "DL07",
+  "ky": "T10/2026",
   "tu_so": null,
   "mau_so": null,
   "gia_tri": 3,
-  "trich_dan": "còn 03 hồ sơ đang thẩm định",
-  "vi_tri": "Mục II.3, Trang 4; Mục I.2(4), Trang 2-3",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026.",
-  "khac_dashboard": false
+  "trich_dan": "13/13 cơ sở dữ liệu đã kết nối kỹ thuật, hiện mới khai thác trực tiếp 03 cơ sở dữ liệu trong giải quyết thủ tục hành chính",
+  "vi_tri": "Mục I.3.2(3)",
+  "ghi_chu": "Báo cáo tính theo số CSDL (03 CSDL), không phải 'loại dữ liệu'."
+ },
+ {
+  "ma": "DL08",
+  "ky": "T10/2026",
+  "tu_so": 13,
+  "mau_so": 13,
+  "gia_tri": 1.0,
+  "trich_dan": "13/13 cơ sở dữ liệu đã kết nối kỹ thuật",
+  "vi_tri": "Mục I.3.2(3)",
+  "ghi_chu": ""
+ },
+ {
+  "ma": "TT05",
+  "ky": "T10/2026",
+  "tu_so": null,
+  "mau_so": null,
+  "gia_tri": 1557,
+  "trich_dan": "đã phê duyệt phương án tái cấu trúc đối với 1.557/1.721 thủ tục hành chính, đạt 90,47%",
+  "vi_tri": "Mục I.3.2(3)",
+  "ghi_chu": ""
+ },
+ {
+  "ma": "TT06",
+  "ky": "T10/2026",
+  "tu_so": 1557,
+  "mau_so": 1721,
+  "gia_tri": 0.904707,
+  "trich_dan": "1.557/1.721 thủ tục hành chính, đạt 90,47%",
+  "vi_tri": "Mục I.3.2(3)",
+  "ghi_chu": ""
+ },
+ {
+  "ma": "TT07",
+  "ky": "T10/2026",
+  "tu_so": null,
+  "mau_so": null,
+  "gia_tri": 1731.48,
+  "trich_dan": "Đối với 25 thủ tục trọng điểm, các phương án tái cấu trúc dự kiến tiết kiệm khoảng 1.731,48 tỷ đồng chi phí tuân thủ/năm, mức cắt giảm bình quân 72,4%",
+  "vi_tri": "Mục I.3.2(3)",
+  "ghi_chu": "Số dự kiến/năm cho 25 thủ tục trọng điểm."
+ },
+ {
+  "ma": "NT01",
+  "ky": "T10/2026",
+  "tu_so": null,
+  "mau_so": null,
+  "gia_tri": 85500,
+  "trich_dan": "khoảng 85.500 tài khoản cán bộ, công chức, viên chức",
+  "vi_tri": "Mục I.3.1(3) Trục UBND",
+  "ghi_chu": "Báo cáo ghi 'tài khoản', không nói rõ đã kích hoạt."
+ },
+ {
+  "ma": "NT03",
+  "ky": "T10/2026",
+  "tu_so": null,
+  "mau_so": null,
+  "gia_tri": 183,
+  "trich_dan": "HanoiWork đã hình thành 183 không gian làm việc số",
+  "vi_tri": "Mục I.3.1(3) Trục UBND",
+  "ghi_chu": "Báo cáo ghi 183 'không gian làm việc số' (T9: 183 cơ quan, đơn vị)."
+ },
+ {
+  "ma": "NT08",
+  "ky": "T10/2026",
+  "tu_so": null,
+  "mau_so": null,
+  "gia_tri": 84,
+  "trich_dan": "Hệ thống IOC Thành ủy đã cấu hình 84 chỉ số",
+  "vi_tri": "Mục I.3.1(1) Trục Đảng",
+  "ghi_chu": ""
+ },
+ {
+  "ma": "NT09",
+  "ky": "T10/2026",
+  "tu_so": null,
+  "mau_so": null,
+  "gia_tri": 28000,
+  "trich_dan": "cấp khoảng 28.000 tài khoản tại 134 cơ quan, đơn vị",
+  "vi_tri": "Mục I.3.1(1) Trục Đảng",
+  "ghi_chu": ""
+ },
+ {
+  "ma": "KH01",
+  "ky": "T10/2026",
+  "tu_so": null,
+  "mau_so": null,
+  "gia_tri": 0.167,
+  "trich_dan": "tỷ trọng giá trị tăng thêm của kinh tế số đạt 16,7% GRDP Thành phố",
+  "vi_tri": "Mục I.3.5",
+  "ghi_chu": "Số ước tính đến tháng 9/2026."
+ },
+ {
+  "ma": "KH02",
+  "ky": "T10/2026",
+  "tu_so": null,
+  "mau_so": null,
+  "gia_tri": 0.094,
+  "trich_dan": "kinh tế số lõi chiếm 9,4%",
+  "vi_tri": "Mục I.3.5",
+  "ghi_chu": "Số ước tính đến tháng 9/2026."
+ },
+ {
+  "ma": "KH03",
+  "ky": "T10/2026",
+  "tu_so": null,
+  "mau_so": null,
+  "gia_tri": 0.073,
+  "trich_dan": "kinh tế số ngành chiếm 7,3% GRDP",
+  "vi_tri": "Mục I.3.5",
+  "ghi_chu": "Số ước tính đến tháng 9/2026."
+ },
+ {
+  "ma": "KH06",
+  "ky": "T10/2026",
+  "tu_so": null,
+  "mau_so": null,
+  "gia_tri": 160,
+  "trich_dan": "Đến tháng 9/2026, Thành phố đã tiếp nhận khoảng 160 đề xuất đặt hàng, xét tài trợ nhiệm vụ",
+  "vi_tri": "Mục I.3.5; Mục III.4 ('khoảng 160 đề xuất đặt hàng gắn với 30 bài toán lớn')",
+  "ghi_chu": "Số 'khoảng'."
+ },
+ {
+  "ma": "KH07",
+  "ky": "T10/2026",
+  "tu_so": null,
+  "mau_so": null,
+  "gia_tri": 3,
+  "trich_dan": "UBND Thành phố phê duyệt danh mục 03 nhiệm vụ KHCN đặt hàng trong năm 2026 với tổng mức trần kinh phí dự kiến 116 tỷ đồng",
+  "vi_tri": "Mục I.3.5",
+  "ghi_chu": "Đợt phê duyệt đầu tháng 10/2026 (T8 ghi 11 nhiệm vụ - đợt trước)."
+ },
+ {
+  "ma": "AT01",
+  "ky": "T10/2026",
+  "tu_so": null,
+  "mau_so": null,
+  "gia_tri": 263,
+  "trich_dan": "toàn Thành phố đã có 263 hệ thống thông tin được phê duyệt cấp độ; trong kỳ báo cáo đã phê duyệt mới 18 hồ sơ",
+  "vi_tri": "Mục I.2.7",
+  "ghi_chu": ""
+ },
+ {
+  "ma": "AT03",
+  "ky": "T10/2026",
+  "tu_so": null,
+  "mau_so": null,
+  "gia_tri": 4,
+  "trich_dan": "còn 04 hồ sơ đang được Công an Thành phố tiếp tục thẩm định",
+  "vi_tri": "Mục I.2.7",
+  "ghi_chu": ""
+ },
+ {
+  "ma": "AT05",
+  "ky": "T10/2026",
+  "tu_so": null,
+  "mau_so": null,
+  "gia_tri": 19505,
+  "trich_dan": "hoàn thành triển khai cài đặt giám sát đối với 19.505 máy tính",
+  "vi_tri": "Mục I.2.7",
+  "ghi_chu": ""
+ },
+ {
+  "ma": "AT06",
+  "ky": "T10/2026",
+  "tu_so": null,
+  "mau_so": null,
+  "gia_tri": 182,
+  "trich_dan": "19.505 máy tính, 182 máy chủ Internet",
+  "vi_tri": "Mục I.2.7",
+  "ghi_chu": ""
  },
  {
   "ma": "AT08",
-  "ky": "Tuần 41",
+  "ky": "T10/2026",
   "tu_so": null,
   "mau_so": null,
-  "gia_tri": 320,
-  "trich_dan": "từ ngày 01/10/2026 đến 09/10/2026, vẫn còn phát hiện 320 cảnh báo về nguy cơ mất an ninh mạng",
-  "vi_tri": "Mục II.3, Trang 4; Phụ lục 02 nhiệm vụ 13, Trang 17",
-  "ghi_chu": "File t10.txt thực chất là Báo cáo tuần 41 (03-09/10/2026) của CATP, không phải báo cáo tháng 10; số chốt 17h 09/10/2026. Kỳ đếm 01/10-09/10/2026 (9 ngày đầu tháng 10), khác độ dài kỳ với T8 (111).",
-  "khac_dashboard": false
+  "gia_tri": 423,
+  "trich_dan": "Trong tháng đã phát hiện 423 cảnh báo về nguy cơ mất an ninh mạng",
+  "vi_tri": "Mục I.2.7",
+  "ghi_chu": ""
  }
 ]

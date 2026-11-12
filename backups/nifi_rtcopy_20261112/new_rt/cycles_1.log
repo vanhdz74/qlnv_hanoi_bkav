@@ -1,0 +1,9 @@
+LƯỢT 14:37:43 dài 58s | chậm: qlnv_tonghop_chitiet_tiepnha 25s, qlnv_tonghop_chitiet_giaonv  22s, qlnv_tonghop_chitiet_tiepnha 11s | NiFi threads 1
+LƯỢT 14:38:44 dài 40s | chậm: qlnv_tonghop_chitiet_giaonv  12s, qlnv_tonghop_chitiet_tiepnha 11s, qlnv_tonghop_chitiet [upsert 9s | NiFi threads 1
+LƯỢT 14:39:43 dài 41s | chậm: qlnv_tonghop_chitiet_giaonv  13s, qlnv_tonghop_chitiet_tiepnha 11s, qlnv_tonghop_chitiet [upsert 8s | NiFi threads 0
+LƯỢT 14:40:44 dài 41s | chậm: qlnv_tonghop_chitiet_tiepnha 12s, qlnv_tonghop_chitiet_giaonv  12s, qlnv_tonghop_chitiet [upsert 10s | NiFi threads 0
+LƯỢT 14:41:44 dài 42s | chậm: qlnv_tonghop_chitiet_giaonv  14s, qlnv_tonghop_chitiet_tiepnha 12s, qlnv_tonghop_chitiet [upsert 9s | NiFi threads 0
+LƯỢT 14:42:43 dài 39s | chậm: qlnv_tonghop_chitiet_giaonv  13s, qlnv_tonghop_chitiet_tiepnha 11s, qlnv_tonghop_chitiet [upsert 8s | NiFi threads 0
+LƯỢT 14:43:43 dài 40s | chậm: qlnv_tonghop_chitiet_tiepnha 12s, qlnv_tonghop_chitiet_giaonv  12s, qlnv_tonghop_chitiet [upsert 8s | NiFi threads 1
+LƯỢT 14:44:44 dài 42s | chậm: qlnv_tonghop_chitiet_tiepnha 12s, qlnv_tonghop_chitiet_giaonv  12s, qlnv_tonghop_chitiet [upsert 8s | NiFi threads 0
+XONG theo dõi 14:45:27 queued 3 (240 bytes)
