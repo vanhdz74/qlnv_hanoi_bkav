@@ -1,0 +1,556 @@
+### /Văn bản giao nhiệm vụ / qlnv_tongquan_vanban  [SQL select query]  id=142f401b-6ef6-1fc2-5a9b-718d4874a90c  (6 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_vanban_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_vanban_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_vanban_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_vanban__stg LIKE datamart_hanoi.qlnv_tongquan_vanban;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_vanban__stg;
+    -INSERT INTO datamart_hanoi.qlnv_tongquan_vanban_new_rt__stg 
+    +INSERT INTO datamart_hanoi.qlnv_tongquan_vanban__stg 
+    -FROM datamart_hanoi.qlnv_tongquan_vanban_chitiet_new_rt main
+    +FROM datamart_hanoi.qlnv_tongquan_vanban_chitiet main
+    -RENAME TABLE datamart_hanoi.qlnv_tongquan_vanban_new_rt TO datamart_hanoi.qlnv_tongquan_vanban_new_rt__old, datamart_hanoi.qlnv_tongquan_vanban_new_rt__stg TO datamart_hanoi.qlnv_tongquan_vanban_new_rt, datamart_hanoi.q
+    +RENAME TABLE datamart_hanoi.qlnv_tongquan_vanban TO datamart_hanoi.qlnv_tongquan_vanban__old, datamart_hanoi.qlnv_tongquan_vanban__stg TO datamart_hanoi.qlnv_tongquan_vanban, datamart_hanoi.qlnv_tongquan_vanban__old TO 
+### /Văn bản giao nhiệm vụ / qlnv_tongquan_vanban_chitiet  [SQL select query]  id=142f401c-6ef6-1fc2-9a97-182655dc9956  (5 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_vanban_chitiet_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_vanban_chitiet_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_vanban_chitiet_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_vanban_chitiet__stg LIKE datamart_hanoi.qlnv_tongquan_vanban_chitiet;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_vanban_chitiet__stg;
+    -INSERT INTO datamart_hanoi.qlnv_tongquan_vanban_chitiet_new_rt__stg
+    +INSERT INTO datamart_hanoi.qlnv_tongquan_vanban_chitiet__stg
+    -RENAME TABLE datamart_hanoi.qlnv_tongquan_vanban_chitiet_new_rt TO datamart_hanoi.qlnv_tongquan_vanban_chitiet_new_rt__old, datamart_hanoi.qlnv_tongquan_vanban_chitiet_new_rt__stg TO datamart_hanoi.qlnv_tongquan_vanban_
+    +RENAME TABLE datamart_hanoi.qlnv_tongquan_vanban_chitiet TO datamart_hanoi.qlnv_tongquan_vanban_chitiet__old, datamart_hanoi.qlnv_tongquan_vanban_chitiet__stg TO datamart_hanoi.qlnv_tongquan_vanban_chitiet, datamart_han
+### /Giao + Nhận NV / qlnv_tonghop_chitiet_khoi [upsert]  [SQL select query]  id=142f3ee7-6ef6-1fc2-8ecf-70ddfebc58b3  (3 dòng đổi)
+    -INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_khoi_new_rt (`monthkey`, `date`, `month`, `year`, `nhomvb_ma`, `nhomvb`, `ma_nv_cha`, `Code`, `idnv`, `tennv_viettat`, `Ma`, `TenNhiemVu`, `SanPhamChuYeu`, `ThoiHanHoanTha
+    +INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_khoi (`monthkey`, `date`, `month`, `year`, `nhomvb_ma`, `nhomvb`, `ma_nv_cha`, `Code`, `idnv`, `tennv_viettat`, `Ma`, `TenNhiemVu`, `SanPhamChuYeu`, `ThoiHanHoanThanh`, `N
+    -FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom_new_rt t
+    +FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom t
+    -DELETE FROM datamart_hanoi.qlnv_tonghop_chitiet_khoi_new_rt WHERE syncdate < '${sync_ts}' OR syncdate IS NULL;
+    +DELETE FROM datamart_hanoi.qlnv_tonghop_chitiet_khoi WHERE syncdate < '${sync_ts}' OR syncdate IS NULL;
+### /Giao + Nhận NV / qlnv_tonghop_chitiet_nhom [upsert]  [SQL select query]  id=142f3ee1-6ef6-1fc2-97ec-86899dc5d26a  (4 dòng đổi)
+    -INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_nhom_new_rt (
+    +INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_nhom (
+    -FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv_new_rt t
+    +FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv t
+    -FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom_tiepnhan_new_rt t
+    +FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom_tiepnhan t
+    -DELETE FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom_new_rt WHERE syncdate < '${sync_ts}' OR syncdate IS NULL;
+    +DELETE FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom WHERE syncdate < '${sync_ts}' OR syncdate IS NULL;
+### /Giao + Nhận NV / qlnv_tonghop_chitiet [upsert]  [SQL select query]  id=142f3eea-6ef6-1fc2-9207-64c22282bc3b  (4 dòng đổi)
+    -INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_new_rt (
+    +INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet (
+    -FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv_new_rt t
+    +FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv t
+    -FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt t
+    +FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan t
+    -DELETE FROM datamart_hanoi.qlnv_tonghop_chitiet_new_rt WHERE syncdate < '${sync_ts}' OR syncdate IS NULL;
+    +DELETE FROM datamart_hanoi.qlnv_tonghop_chitiet WHERE syncdate < '${sync_ts}' OR syncdate IS NULL;
+### /Giao + Nhận NV / qlnv_tongquan [stg]  [SQL select query]  id=142f3ee5-6ef6-1fc2-7cda-9f6a3d69881f  (5 dòng đổi)
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_new_rt__stg;
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan__stg LIKE datamart_hanoi.qlnv_tongquan;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_tongquan__stg;
+    -INSERT INTO datamart_hanoi.qlnv_tongquan_new_rt__stg
+    +INSERT INTO datamart_hanoi.qlnv_tongquan__stg
+    -FROM datamart_hanoi.qlnv_tonghop_chitiet_khoi_new_rt t
+    +FROM datamart_hanoi.qlnv_tonghop_chitiet_khoi t
+    -RENAME TABLE datamart_hanoi.qlnv_tongquan_new_rt TO datamart_hanoi.qlnv_tongquan_new_rt__old, datamart_hanoi.qlnv_tongquan_new_rt__stg TO datamart_hanoi.qlnv_tongquan_new_rt, datamart_hanoi.qlnv_tongquan_new_rt__old TO 
+    +RENAME TABLE datamart_hanoi.qlnv_tongquan TO datamart_hanoi.qlnv_tongquan__old, datamart_hanoi.qlnv_tongquan__stg TO datamart_hanoi.qlnv_tongquan, datamart_hanoi.qlnv_tongquan__old TO datamart_hanoi.qlnv_tongquan__stg;
+### /Đánh giá cán bộ / PutDatabaseRecord  [put-db-record-table-name]  id=142f3f84-6ef6-1fc2-0697-433f9de2bf29  (1 dòng đổi)
+    -qlnv_cbcc_danhgia_new_rt
+    +qlnv_cbcc_danhgia
+### /Đánh giá cán bộ / qlnv_tongquan_kpi_theo_don_vi  [SQL select query]  id=142f3f86-6ef6-1fc2-b3de-05ce3a20934f  (7 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi__stg LIKE datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi__stg;
+    -INSERT INTO datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi_new_rt__stg
+    +INSERT INTO datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi__stg
+    -    FROM datamart_hanoi.qlnv_cbcc_danhgia_new_rt t
+    +    FROM datamart_hanoi.qlnv_cbcc_danhgia t
+    -    FROM datamart_hanoi.qlnv_cbcc_danhgia_new_rt t
+    +    FROM datamart_hanoi.qlnv_cbcc_danhgia t
+    -RENAME TABLE datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi_new_rt TO datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi_new_rt__old, datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi_new_rt__stg TO datamart_hanoi.qlnv_tongquan_kpi_
+    +RENAME TABLE datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi TO datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi__old, datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi__stg TO datamart_hanoi.qlnv_tongquan_kpi_theo_don_vi, datamart
+### /Đánh giá cán bộ / qlnv_tongquan_kpi_theo_nguoi_xu_ly  [SQL select query]  id=142f3f81-6ef6-1fc2-f2ea-31afcb36050a  (8 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly_new_rt__stg;
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly__stg LIKE datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly__stg;
+    -INSERT INTO datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly_new_rt__stg
+    +INSERT INTO datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly__stg
+    -    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt
+    +    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan
+    -    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt t
+    +    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan t
+    -    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt t
+    +    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan t
+    -RENAME TABLE datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly_new_rt TO datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly_new_rt__old, datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly_new_rt__stg TO datamart_hanoi.qln
+    +RENAME TABLE datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly TO datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly__old, datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly__stg TO datamart_hanoi.qlnv_tongquan_kpi_theo_n
+### /Đánh giá cán bộ / qlnv_cbcc_danhgia  [SQL select query]  id=142f3f80-6ef6-1fc2-7683-50f903ae2974  (2 dòng đổi)
+    -    FROM datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly_new_rt a
+    +    FROM datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly a
+    -    LEFT JOIN datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly_new_rt t_prev
+    +    LEFT JOIN datamart_hanoi.qlnv_tongquan_kpi_theo_nguoi_xu_ly t_prev
+### /Mốc thời gian / qlnv_tongquan_nhom_moc_thoi_gian  [SQL select query]  id=142f3f62-6ef6-1fc2-bc2f-c554bf2a8429  (6 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt__stg LIKE datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian__stg LIKE datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian__stg;
+    -INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt__stg 
+    +INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian__stg 
+    -FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv_new_rt g
+    +FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv g
+    -RENAME TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt TO datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt__old, datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt__stg TO dat
+    +RENAME TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian TO datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian__old, datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian__stg TO datamart_hanoi.qlnv_tong
+### /Mốc thời gian / qlnv_tongquan_cham_muon_theo_don_vi  [SQL select query]  id=142f3f60-6ef6-1fc2-238c-bac00f6d2214  (6 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi__stg LIKE datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi__stg;
+    -INSERT INTO datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi_new_rt__stg (
+    +INSERT INTO datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi__stg (
+    -FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv_new_rt g
+    +FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv g
+    -RENAME TABLE datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi_new_rt TO datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi_new_rt__old, datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi_new_rt__stg TO datamart_hanoi.
+    +RENAME TABLE datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi TO datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi__old, datamart_hanoi.qlnv_tongquan_cham_muon_theo_don_vi__stg TO datamart_hanoi.qlnv_tongquan_cham_mu
+### /Mốc thời gian / qlnv_tonghop_chitiet_nhom_moc_thoi_gian  [SQL select query]  id=142f3f65-6ef6-1fc2-0744-f42089b61b52  (6 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt__stg LIKE datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian__stg LIKE datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian__stg;
+    -INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt__stg 
+    +INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian__stg 
+    -FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv_new_rt g
+    +FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv g
+    -RENAME TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt TO datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt__old, datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian_new_rt__stg TO dat
+    +RENAME TABLE datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian TO datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian__old, datamart_hanoi.qlnv_tonghop_chitiet_nhom_moc_thoi_gian__stg TO datamart_hanoi.qlnv_tong
+### /Kiểm đếm / qlnv_tongquan_donvi_kiemdem  [SQL select query]  id=142f3f99-6ef6-1fc2-3321-8ca8b54f106a  (6 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_donvi_kiemdem_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_donvi_kiemdem_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_donvi_kiemdem_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_donvi_kiemdem__stg LIKE datamart_hanoi.qlnv_tongquan_donvi_kiemdem;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_donvi_kiemdem__stg;
+    -INSERT INTO datamart_hanoi.qlnv_tongquan_donvi_kiemdem_new_rt__stg
+    +INSERT INTO datamart_hanoi.qlnv_tongquan_donvi_kiemdem__stg
+    -FROM datamart_hanoi.qlnv_tonghop_chitiet_donvi_new_rt c
+    +FROM datamart_hanoi.qlnv_tonghop_chitiet_donvi c
+    -RENAME TABLE datamart_hanoi.qlnv_tongquan_donvi_kiemdem_new_rt TO datamart_hanoi.qlnv_tongquan_donvi_kiemdem_new_rt__old, datamart_hanoi.qlnv_tongquan_donvi_kiemdem_new_rt__stg TO datamart_hanoi.qlnv_tongquan_donvi_kiem
+    +RENAME TABLE datamart_hanoi.qlnv_tongquan_donvi_kiemdem TO datamart_hanoi.qlnv_tongquan_donvi_kiemdem__old, datamart_hanoi.qlnv_tongquan_donvi_kiemdem__stg TO datamart_hanoi.qlnv_tongquan_donvi_kiemdem, datamart_hanoi.q
+### /Kiểm đếm / qlnv_tongquan_vanban_kiemdem  [SQL select query]  id=142f3f9d-6ef6-1fc2-2042-b086ee32e134  (6 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_vanban_kiemdem_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_vanban_kiemdem_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_vanban_kiemdem_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_vanban_kiemdem__stg LIKE datamart_hanoi.qlnv_tongquan_vanban_kiemdem;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_vanban_kiemdem__stg;
+    -INSERT INTO datamart_hanoi.qlnv_tongquan_vanban_kiemdem_new_rt__stg
+    +INSERT INTO datamart_hanoi.qlnv_tongquan_vanban_kiemdem__stg
+    -FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv_new_rt c
+    +FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv c
+    -RENAME TABLE datamart_hanoi.qlnv_tongquan_vanban_kiemdem_new_rt TO datamart_hanoi.qlnv_tongquan_vanban_kiemdem_new_rt__old, datamart_hanoi.qlnv_tongquan_vanban_kiemdem_new_rt__stg TO datamart_hanoi.qlnv_tongquan_vanban_
+    +RENAME TABLE datamart_hanoi.qlnv_tongquan_vanban_kiemdem TO datamart_hanoi.qlnv_tongquan_vanban_kiemdem__old, datamart_hanoi.qlnv_tongquan_vanban_kiemdem__stg TO datamart_hanoi.qlnv_tongquan_vanban_kiemdem, datamart_han
+### /Khối / qlnv_tongquan_khoi  [SQL select query]  id=142f402e-6ef6-1fc2-3fea-47fbe842516d  (6 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_khoi_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_khoi_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_khoi_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_khoi__stg LIKE datamart_hanoi.qlnv_tongquan_khoi;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_khoi__stg;
+    -INSERT INTO datamart_hanoi.qlnv_tongquan_khoi_new_rt__stg
+    +INSERT INTO datamart_hanoi.qlnv_tongquan_khoi__stg
+    -FROM datamart_hanoi.qlnv_tonghop_chitiet_khoi_new_rt t
+    +FROM datamart_hanoi.qlnv_tonghop_chitiet_khoi t
+    -RENAME TABLE datamart_hanoi.qlnv_tongquan_khoi_new_rt TO datamart_hanoi.qlnv_tongquan_khoi_new_rt__old, datamart_hanoi.qlnv_tongquan_khoi_new_rt__stg TO datamart_hanoi.qlnv_tongquan_khoi_new_rt, datamart_hanoi.qlnv_tong
+    +RENAME TABLE datamart_hanoi.qlnv_tongquan_khoi TO datamart_hanoi.qlnv_tongquan_khoi__old, datamart_hanoi.qlnv_tongquan_khoi__stg TO datamart_hanoi.qlnv_tongquan_khoi, datamart_hanoi.qlnv_tongquan_khoi__old TO datamart_h
+### /Copy of Chi tiết HĐND / qlnv_tongquan_donvi_hdndtp  [SQL select query]  id=142f3fcd-6ef6-1fc2-517f-960bd0087f0d  (6 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp_new_rt__stg LIKE db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp_new_rt;
+    -TRUNCATE TABLE db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp__stg LIKE db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp;
+    +TRUNCATE TABLE db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp__stg;
+    -INSERT INTO db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp_new_rt__stg
+    +INSERT INTO db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp__stg
+    -FROM datamart_hanoi.qlnv_tongquan_donvi_new_rt
+    +FROM datamart_hanoi.qlnv_tongquan_donvi
+    -RENAME TABLE db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp_new_rt TO db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp_new_rt__old, db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp_new_rt__stg TO db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp_new_rt, 
+    +RENAME TABLE db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp TO db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp__old, db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp__stg TO db_hdnd_qttt.qlnv_tongquan_donvi_hdndtp, db_hdnd_qttt.qlnv_tongquan_d
+### /Copy of Chi tiết HĐND / qlnv_tonghop_chitiet_hdndtp  [SQL select query]  id=142f3fd2-6ef6-1fc2-988c-ba92d9a53a92  (6 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp_new_rt__stg LIKE db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp_new_rt;
+    -TRUNCATE TABLE db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp__stg LIKE db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp;
+    +TRUNCATE TABLE db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp__stg;
+    -INSERT INTO db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp_new_rt__stg
+    +INSERT INTO db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp__stg
+    -FROM datamart_hanoi.qlnv_tonghop_chitiet_new_rt
+    +FROM datamart_hanoi.qlnv_tonghop_chitiet
+    -RENAME TABLE db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp_new_rt TO db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp_new_rt__old, db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp_new_rt__stg TO db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp_new_
+    +RENAME TABLE db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp TO db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp__old, db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp__stg TO db_hdnd_qttt.qlnv_tonghop_chitiet_hdndtp, db_hdnd_qttt.qlnv_tongho
+### /Copy of Chi tiết HĐND / qlnv_cbcc_danhgia_hdndtp  [SQL select query]  id=142f3fcf-6ef6-1fc2-1e35-554577c799a5  (3 dòng đổi)
+    -INSERT INTO db_hdnd_qttt.qlnv_cbcc_danhgia_hdndtp_new_rt
+    +INSERT INTO db_hdnd_qttt.qlnv_cbcc_danhgia_hdndtp
+    -    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt
+    +    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan
+    -    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt t
+    +    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan t
+### /Copy of Chi tiết HĐND / qlnv_tongquan_hdndtp  [SQL select query]  id=142f3fce-6ef6-1fc2-75d2-4dfb4d0d3cd7  (6 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS db_hdnd_qttt.qlnv_tongquan_hdndtp_new_rt__stg LIKE db_hdnd_qttt.qlnv_tongquan_hdndtp_new_rt;
+    -TRUNCATE TABLE db_hdnd_qttt.qlnv_tongquan_hdndtp_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS db_hdnd_qttt.qlnv_tongquan_hdndtp__stg LIKE db_hdnd_qttt.qlnv_tongquan_hdndtp;
+    +TRUNCATE TABLE db_hdnd_qttt.qlnv_tongquan_hdndtp__stg;
+    -INSERT INTO db_hdnd_qttt.qlnv_tongquan_hdndtp_new_rt__stg
+    +INSERT INTO db_hdnd_qttt.qlnv_tongquan_hdndtp__stg
+    -FROM datamart_hanoi.qlnv_tongquan_new_rt
+    +FROM datamart_hanoi.qlnv_tongquan
+    -RENAME TABLE db_hdnd_qttt.qlnv_tongquan_hdndtp_new_rt TO db_hdnd_qttt.qlnv_tongquan_hdndtp_new_rt__old, db_hdnd_qttt.qlnv_tongquan_hdndtp_new_rt__stg TO db_hdnd_qttt.qlnv_tongquan_hdndtp_new_rt, db_hdnd_qttt.qlnv_tongqu
+    +RENAME TABLE db_hdnd_qttt.qlnv_tongquan_hdndtp TO db_hdnd_qttt.qlnv_tongquan_hdndtp__old, db_hdnd_qttt.qlnv_tongquan_hdndtp__stg TO db_hdnd_qttt.qlnv_tongquan_hdndtp, db_hdnd_qttt.qlnv_tongquan_hdndtp__old TO db_hdnd_qt
+### /Copy of Chi tiết HĐND / qlnv_tonghop_chitiet_khoi_hdndtp  [SQL select query]  id=142f3fd5-6ef6-1fc2-29e7-63151b536c7e  (6 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt__stg LIKE db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt;
+    -TRUNCATE TABLE db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp__stg LIKE db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp;
+    +TRUNCATE TABLE db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp__stg;
+    -INSERT INTO db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt__stg
+    +INSERT INTO db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp__stg
+    -FROM datamart_hanoi.qlnv_tonghop_chitiet_khoi_new_rt
+    +FROM datamart_hanoi.qlnv_tonghop_chitiet_khoi
+    -RENAME TABLE db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt TO db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt__old, db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt__stg TO db_hdnd_qttt.qlnv_tonghop_chit
+    +RENAME TABLE db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp TO db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp__old, db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp__stg TO db_hdnd_qttt.qlnv_tonghop_chitiet_khoi_hdndtp, db_h
+### /Chi tiết HĐND / qlnv_tongquan_donvi_hdndtp  [SQL select query]  id=142f3fae-6ef6-1fc2-f7ea-23440f3de54c  (6 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_donvi_hdndtp_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_donvi_hdndtp_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_donvi_hdndtp_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_donvi_hdndtp__stg LIKE datamart_hanoi.qlnv_tongquan_donvi_hdndtp;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_donvi_hdndtp__stg;
+    -INSERT INTO datamart_hanoi.qlnv_tongquan_donvi_hdndtp_new_rt__stg
+    +INSERT INTO datamart_hanoi.qlnv_tongquan_donvi_hdndtp__stg
+    -FROM datamart_hanoi.qlnv_tongquan_donvi_new_rt
+    +FROM datamart_hanoi.qlnv_tongquan_donvi
+    -RENAME TABLE datamart_hanoi.qlnv_tongquan_donvi_hdndtp_new_rt TO datamart_hanoi.qlnv_tongquan_donvi_hdndtp_new_rt__old, datamart_hanoi.qlnv_tongquan_donvi_hdndtp_new_rt__stg TO datamart_hanoi.qlnv_tongquan_donvi_hdndtp_
+    +RENAME TABLE datamart_hanoi.qlnv_tongquan_donvi_hdndtp TO datamart_hanoi.qlnv_tongquan_donvi_hdndtp__old, datamart_hanoi.qlnv_tongquan_donvi_hdndtp__stg TO datamart_hanoi.qlnv_tongquan_donvi_hdndtp, datamart_hanoi.qlnv_
+### /Chi tiết HĐND / qlnv_tonghop_chitiet_khoi_hdndtp  [SQL select query]  id=142f3fb7-6ef6-1fc2-cbc1-76535821eee4  (6 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt__stg LIKE datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp__stg LIKE datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp__stg;
+    -INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt__stg
+    +INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp__stg
+    -FROM datamart_hanoi.qlnv_tonghop_chitiet_khoi_new_rt
+    +FROM datamart_hanoi.qlnv_tonghop_chitiet_khoi
+    -RENAME TABLE datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt TO datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt__old, datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp_new_rt__stg TO datamart_hanoi.qlnv_tong
+    +RENAME TABLE datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp TO datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp__old, datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdndtp__stg TO datamart_hanoi.qlnv_tonghop_chitiet_khoi_hdnd
+### /Chi tiết HĐND / qlnv_tongquan_hdndtp  [SQL select query]  id=142f3fb4-6ef6-1fc2-5a29-04de2846e155  (6 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_hdndtp_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_hdndtp_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_hdndtp_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_hdndtp__stg LIKE datamart_hanoi.qlnv_tongquan_hdndtp;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_hdndtp__stg;
+    -INSERT INTO datamart_hanoi.qlnv_tongquan_hdndtp_new_rt__stg
+    +INSERT INTO datamart_hanoi.qlnv_tongquan_hdndtp__stg
+    -FROM datamart_hanoi.qlnv_tongquan_new_rt
+    +FROM datamart_hanoi.qlnv_tongquan
+    -RENAME TABLE datamart_hanoi.qlnv_tongquan_hdndtp_new_rt TO datamart_hanoi.qlnv_tongquan_hdndtp_new_rt__old, datamart_hanoi.qlnv_tongquan_hdndtp_new_rt__stg TO datamart_hanoi.qlnv_tongquan_hdndtp_new_rt, datamart_hanoi.q
+    +RENAME TABLE datamart_hanoi.qlnv_tongquan_hdndtp TO datamart_hanoi.qlnv_tongquan_hdndtp__old, datamart_hanoi.qlnv_tongquan_hdndtp__stg TO datamart_hanoi.qlnv_tongquan_hdndtp, datamart_hanoi.qlnv_tongquan_hdndtp__old TO 
+### /Chi tiết HĐND / qlnv_tonghop_chitiet_hdndtp  [SQL select query]  id=142f3fb0-6ef6-1fc2-c27f-731c283b4269  (6 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_hdndtp_new_rt__stg LIKE datamart_hanoi.qlnv_tonghop_chitiet_hdndtp_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_hdndtp_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_hdndtp__stg LIKE datamart_hanoi.qlnv_tonghop_chitiet_hdndtp;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_hdndtp__stg;
+    -INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_hdndtp_new_rt__stg
+    +INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_hdndtp__stg
+    -FROM datamart_hanoi.qlnv_tonghop_chitiet_new_rt
+    +FROM datamart_hanoi.qlnv_tonghop_chitiet
+    -RENAME TABLE datamart_hanoi.qlnv_tonghop_chitiet_hdndtp_new_rt TO datamart_hanoi.qlnv_tonghop_chitiet_hdndtp_new_rt__old, datamart_hanoi.qlnv_tonghop_chitiet_hdndtp_new_rt__stg TO datamart_hanoi.qlnv_tonghop_chitiet_hdn
+    +RENAME TABLE datamart_hanoi.qlnv_tonghop_chitiet_hdndtp TO datamart_hanoi.qlnv_tonghop_chitiet_hdndtp__old, datamart_hanoi.qlnv_tonghop_chitiet_hdndtp__stg TO datamart_hanoi.qlnv_tonghop_chitiet_hdndtp, datamart_hanoi.q
+### /qlnv_kl_ctpct_chitiet / PutDatabaseRecord  [put-db-record-table-name]  id=142f3ff2-6ef6-1fc2-fe7e-b36cfbfff545  (1 dòng đổi)
+    -qlnv_kl_ctpct_chitiet_stage02_new_rt
+    +qlnv_kl_ctpct_chitiet_stage02
+### /qlnv_kl_ctpct_chitiet / qlnv_kl_ctpct_chitiet_stage02  [SQL select query]  id=142f3ffc-6ef6-1fc2-6070-586e8ab6e25f  (7 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02_new_rt__stg LIKE datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02__stg LIKE datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02__stg;
+    -INSERT INTO datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02_new_rt__stg
+    +INSERT INTO datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02__stg
+    -FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt t
+    -LEFT JOIN datamart_hanoi.qlnv_tonghop_chitiet_giaonv_new_rt ct ON t.tt = ct.Ma
+    +FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01 t
+    +LEFT JOIN datamart_hanoi.qlnv_tonghop_chitiet_giaonv ct ON t.tt = ct.Ma
+    -RENAME TABLE datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02_new_rt TO datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02_new_rt__old, datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02_new_rt__stg TO datamart_hanoi.qlnv_kl_ctpct_chit
+    +RENAME TABLE datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02 TO datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02__old, datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02__stg TO datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02, datamart
+### /qlnv_kl_ctpct_chitiet / PUT stage02  [put-db-record-table-name]  id=142f3fea-6ef6-1fc2-ad0b-a8268680105f  (1 dòng đổi)
+    -qlnv_kl_ctpct_chitiet_stage02_new_rt
+    +qlnv_kl_ctpct_chitiet_stage02
+### /qlnv_kl_ctpct_chitiet / DỌN stage02  [putsql-sql-statement]  id=142f3ff9-6ef6-1fc2-e090-88fe35379651  (2 dòng đổi)
+    -FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02_new_rt s
+    -LEFT JOIN datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt t
+    +FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02 s
+    +LEFT JOIN datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01 t
+### /qlnv_kl_ctpct_chitiet / 03_chitiet  [SQL select query]  id=142f3fff-6ef6-1fc2-7ed4-9557379f2726  (2 dòng đổi)
+    -FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt t
+    +FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01 t
+    -    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt
+    +    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan
+### /qlnv_kl_ctpct_chitiet / qlnv_kl_ctpct_chitiet  [SQL select query]  id=142f3ff4-6ef6-1fc2-2d13-1ec4ef6c30a2  (6 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_kl_ctpct_chitiet_new_rt__stg LIKE datamart_hanoi.qlnv_kl_ctpct_chitiet_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_kl_ctpct_chitiet_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_kl_ctpct_chitiet__stg LIKE datamart_hanoi.qlnv_kl_ctpct_chitiet;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_kl_ctpct_chitiet__stg;
+    -INSERT INTO datamart_hanoi.qlnv_kl_ctpct_chitiet_new_rt__stg
+    +INSERT INTO datamart_hanoi.qlnv_kl_ctpct_chitiet__stg
+    -FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02_new_rt t
+    +FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02 t
+    -RENAME TABLE datamart_hanoi.qlnv_kl_ctpct_chitiet_new_rt TO datamart_hanoi.qlnv_kl_ctpct_chitiet_new_rt__old, datamart_hanoi.qlnv_kl_ctpct_chitiet_new_rt__stg TO datamart_hanoi.qlnv_kl_ctpct_chitiet_new_rt, datamart_han
+    +RENAME TABLE datamart_hanoi.qlnv_kl_ctpct_chitiet TO datamart_hanoi.qlnv_kl_ctpct_chitiet__old, datamart_hanoi.qlnv_kl_ctpct_chitiet__stg TO datamart_hanoi.qlnv_kl_ctpct_chitiet, datamart_hanoi.qlnv_kl_ctpct_chitiet__ol
+### /qlnv_kl_ctpct_chitiet / PUT chitiet  [put-db-record-table-name]  id=142f3ff7-6ef6-1fc2-bb44-d6142bdd3fc9  (1 dòng đổi)
+    -qlnv_kl_ctpct_chitiet_new_rt
+    +qlnv_kl_ctpct_chitiet
+### /qlnv_kl_ctpct_chitiet / DỌN chitiet  [putsql-sql-statement]  id=142f3ffe-6ef6-1fc2-3c8f-b96e52570e55  (2 dòng đổi)
+    -FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_new_rt d
+    -LEFT JOIN datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02_new_rt s
+    +FROM datamart_hanoi.qlnv_kl_ctpct_chitiet d
+    +LEFT JOIN datamart_hanoi.qlnv_kl_ctpct_chitiet_stage02 s
+### /qlnv_kl_ctpct_chitiet / PUT stage01  [put-db-record-table-name]  id=142f3fed-6ef6-1fc2-3fe9-6b059c992505  (1 dòng đổi)
+    -qlnv_kl_ctpct_chitiet_stage01_new_rt
+    +qlnv_kl_ctpct_chitiet_stage01
+### /qlnv_kl_ctpct_chitiet / 02_stage02  [SQL select query]  id=142f3fe9-6ef6-1fc2-cb3f-5570f9f9be8f  (2 dòng đổi)
+    -FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt t
+    +FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01 t
+    -    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt
+    +    FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan
+### /qlnv_kl_ctpct_chitiet / DỌN stage01  [putsql-sql-statement]  id=142f3ff1-6ef6-1fc2-e9b4-47d479ff11ce  (2 dòng đổi)
+    -DELETE FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt
+    +DELETE FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01
+    -        FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt
+    +        FROM datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01
+### /qlnv_kl_ctpct_chitiet / qlnv_kl_ctpct_chitiet_stage01  [SQL select query]  id=142f3fec-6ef6-1fc2-d341-5c9f18b6e013  (5 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt__stg LIKE datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01__stg LIKE datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01__stg;
+    -INSERT INTO datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt__stg
+    +INSERT INTO datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01__stg
+    -RENAME TABLE datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt TO datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt__old, datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01_new_rt__stg TO datamart_hanoi.qlnv_kl_ctpct_chit
+    +RENAME TABLE datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01 TO datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01__old, datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01__stg TO datamart_hanoi.qlnv_kl_ctpct_chitiet_stage01, datamart
+### /qlnv_kl_ctpct_chitiet / PutDatabaseRecord  [put-db-record-table-name]  id=142f3ff5-6ef6-1fc2-1799-6463614f1848  (1 dòng đổi)
+    -qlnv_kl_ctpct_chitiet_stage01_new_rt
+    +qlnv_kl_ctpct_chitiet_stage01
+### /Dashboard Lãnh đạo các phòng, sở ngành, xã phường / qlnv_tonghop_chitiet_dieuhanh_lanhdao  [SQL select query]  id=142f3f54-6ef6-1fc2-709e-809b9ed6a2f4  (6 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao_new_rt__stg LIKE datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao__stg LIKE datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao__stg;
+    -INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao_new_rt__stg
+    +INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao__stg
+    -( SELECT * FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt WHERE loaicapcha = "UBND Thành phố" ) t
+    +( SELECT * FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan WHERE loaicapcha = "UBND Thành phố" ) t
+    -RENAME TABLE datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao_new_rt TO datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao_new_rt__old, datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao_new_rt__stg TO datamart_
+    +RENAME TABLE datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao TO datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao__old, datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao__stg TO datamart_hanoi.qlnv_tonghop_ch
+### /Dashboard Lãnh đạo các phòng, sở ngành, xã phường / qlnv_tongquan_dieuhanh_lanhdao  [SQL select query]  id=142f3f55-6ef6-1fc2-8e21-b92ef056bbe0  (6 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao__stg LIKE datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao__stg;
+    -INSERT INTO datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao_new_rt__stg
+    +INSERT INTO datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao__stg
+    -FROM datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao_new_rt t
+    +FROM datamart_hanoi.qlnv_tonghop_chitiet_dieuhanh_lanhdao t
+    -RENAME TABLE datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao_new_rt TO datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao_new_rt__old, datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao_new_rt__stg TO datamart_hanoi.qlnv_tongquan_d
+    +RENAME TABLE datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao TO datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao__old, datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao__stg TO datamart_hanoi.qlnv_tongquan_dieuhanh_lanhdao, data
+### /Chi tiết đơn vị / qlnv_tongquan_donvi  [SQL select query]  id=142f3f46-6ef6-1fc2-c4f1-b056108b9c4a  (6 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_donvi_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_donvi_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_donvi_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_donvi__stg LIKE datamart_hanoi.qlnv_tongquan_donvi;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_donvi__stg;
+    -INSERT INTO datamart_hanoi.qlnv_tongquan_donvi_new_rt__stg
+    +INSERT INTO datamart_hanoi.qlnv_tongquan_donvi__stg
+    -FROM ( SELECT * FROM datamart_hanoi.qlnv_tonghop_chitiet_donvi_new_rt
+    +FROM ( SELECT * FROM datamart_hanoi.qlnv_tonghop_chitiet_donvi
+    -RENAME TABLE datamart_hanoi.qlnv_tongquan_donvi_new_rt TO datamart_hanoi.qlnv_tongquan_donvi_new_rt__old, datamart_hanoi.qlnv_tongquan_donvi_new_rt__stg TO datamart_hanoi.qlnv_tongquan_donvi_new_rt, datamart_hanoi.qlnv_
+    +RENAME TABLE datamart_hanoi.qlnv_tongquan_donvi TO datamart_hanoi.qlnv_tongquan_donvi__old, datamart_hanoi.qlnv_tongquan_donvi__stg TO datamart_hanoi.qlnv_tongquan_donvi, datamart_hanoi.qlnv_tongquan_donvi__old TO datam
+### /Chi tiết đơn vị / qlnv_tonghop_chitiet_donvi  [SQL select query]  id=142f3f44-6ef6-1fc2-74a4-b7a2b349b634  (7 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_donvi_new_rt__stg LIKE datamart_hanoi.qlnv_tonghop_chitiet_donvi_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_donvi_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_donvi__stg LIKE datamart_hanoi.qlnv_tonghop_chitiet_donvi;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_donvi__stg;
+    -INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_donvi_new_rt__stg (
+    +INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_donvi__stg (
+    -FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv_new_rt t
+    +FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv t
+    -FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt t;
+    +FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan t;
+    -RENAME TABLE datamart_hanoi.qlnv_tonghop_chitiet_donvi_new_rt TO datamart_hanoi.qlnv_tonghop_chitiet_donvi_new_rt__old, datamart_hanoi.qlnv_tonghop_chitiet_donvi_new_rt__stg TO datamart_hanoi.qlnv_tonghop_chitiet_donvi_
+    +RENAME TABLE datamart_hanoi.qlnv_tonghop_chitiet_donvi TO datamart_hanoi.qlnv_tonghop_chitiet_donvi__old, datamart_hanoi.qlnv_tonghop_chitiet_donvi__stg TO datamart_hanoi.qlnv_tonghop_chitiet_donvi, datamart_hanoi.qlnv_
+### /NV theo NQ57 / qlnv_tonghop_chitiet_nq57  [SQL select query]  id=142f3f71-6ef6-1fc2-a22b-7f42ee4c6f22  (6 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_nq57_new_rt__stg LIKE datamart_hanoi.qlnv_tonghop_chitiet_nq57_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_nq57_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_nq57__stg LIKE datamart_hanoi.qlnv_tonghop_chitiet_nq57;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_nq57__stg;
+    -INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_nq57_new_rt__stg
+    +INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_nq57__stg
+    -FROM datamart_hanoi.qlnv_tonghop_chitiet_new_rt t
+    +FROM datamart_hanoi.qlnv_tonghop_chitiet t
+    -RENAME TABLE datamart_hanoi.qlnv_tonghop_chitiet_nq57_new_rt TO datamart_hanoi.qlnv_tonghop_chitiet_nq57_new_rt__old, datamart_hanoi.qlnv_tonghop_chitiet_nq57_new_rt__stg TO datamart_hanoi.qlnv_tonghop_chitiet_nq57_new_
+    +RENAME TABLE datamart_hanoi.qlnv_tonghop_chitiet_nq57 TO datamart_hanoi.qlnv_tonghop_chitiet_nq57__old, datamart_hanoi.qlnv_tonghop_chitiet_nq57__stg TO datamart_hanoi.qlnv_tonghop_chitiet_nq57, datamart_hanoi.qlnv_tong
+### /NV theo NQ57 / qlnv_tongquan_nq57  [SQL select query]  id=142f3f74-6ef6-1fc2-b1fb-effa286dcbbb  (6 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_nq57_new_rt__stg LIKE datamart_hanoi.qlnv_tongquan_nq57_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_nq57_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_nq57__stg LIKE datamart_hanoi.qlnv_tongquan_nq57;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_tongquan_nq57__stg;
+    -INSERT INTO datamart_hanoi.qlnv_tongquan_nq57_new_rt__stg
+    +INSERT INTO datamart_hanoi.qlnv_tongquan_nq57__stg
+    -FROM datamart_hanoi.qlnv_tonghop_chitiet_nq57_new_rt t
+    +FROM datamart_hanoi.qlnv_tonghop_chitiet_nq57 t
+    -RENAME TABLE datamart_hanoi.qlnv_tongquan_nq57_new_rt TO datamart_hanoi.qlnv_tongquan_nq57_new_rt__old, datamart_hanoi.qlnv_tongquan_nq57_new_rt__stg TO datamart_hanoi.qlnv_tongquan_nq57_new_rt, datamart_hanoi.qlnv_tong
+    +RENAME TABLE datamart_hanoi.qlnv_tongquan_nq57 TO datamart_hanoi.qlnv_tongquan_nq57__old, datamart_hanoi.qlnv_tongquan_nq57__stg TO datamart_hanoi.qlnv_tongquan_nq57, datamart_hanoi.qlnv_tongquan_nq57__old TO datamart_h
+### /Tiếp nhận NV / Update DonViChuTri [upsert]  [putsql-sql-statement]  id=142f3e91-6ef6-1fc2-ad40-a22f80b6989e  (2 dòng đổi)
+    -UPDATE datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt g
+    -LEFT JOIN datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt g_cha ON g.ma_nv_cha = g_cha.Ma
+    +UPDATE datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan g
+    +LEFT JOIN datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan g_cha ON g.ma_nv_cha = g_cha.Ma
+### /Tiếp nhận NV / qlnv_th_tongquan_donvi_tiepnhan  [SQL select query]  id=142f3e9b-6ef6-1fc2-f184-37587425b199  (5 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan_new_rt__stg LIKE datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan__stg LIKE datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan__stg;
+    -INSERT INTO datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan_new_rt__stg 
+    +INSERT INTO datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan__stg 
+    -RENAME TABLE datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan_new_rt TO datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan_new_rt__old, datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan_new_rt__stg TO datamart_hanoi.qlnv_th_tong
+    +RENAME TABLE datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan TO datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan__old, datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan__stg TO datamart_hanoi.qlnv_th_tongquan_donvi_tiepnhan, 
+### /Tiếp nhận NV / qlnv_tonghop_chitiet_tiepnhan [upsert]  [putsql-sql-statement]  id=142f3e95-6ef6-1fc2-5b4c-b08f5bee47c3  (2 dòng đổi)
+    -INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt 
+    +INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan 
+    -DELETE FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt WHERE syncdate < '${sync_ts}' OR syncdate IS NULL;
+    +DELETE FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan WHERE syncdate < '${sync_ts}' OR syncdate IS NULL;
+### /Tiếp nhận NV / qlnv_tonghop_chitiet_tiepnhan_don_le [upsert]  [putsql-sql-statement]  id=142f3e90-6ef6-1fc2-a3a0-5a3986480a70  (4 dòng đổi)
+    -INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_don_le_new_rt (`monthkey`, `date`, `month`, `year`, `nhomvb_ma`, `nhomvb`, `NhomNhiemVu`, `ma_nv_cha`, `Code`, `idnv`, `tennv_viettat`, `Ma`, `TenNhiemVu`, `SanPh
+    +INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_don_le (`monthkey`, `date`, `month`, `year`, `nhomvb_ma`, `nhomvb`, `NhomNhiemVu`, `ma_nv_cha`, `Code`, `idnv`, `tennv_viettat`, `Ma`, `TenNhiemVu`, `SanPhamChuYe
+    -FROM qlnv_tonghop_chitiet_tiepnhan_new_rt t
+    +FROM qlnv_tonghop_chitiet_tiepnhan t
+    -    FROM qlnv_tonghop_chitiet_tiepnhan_new_rt c
+    +    FROM qlnv_tonghop_chitiet_tiepnhan c
+    -DELETE FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_don_le_new_rt WHERE syncdate < '${sync_ts}' OR syncdate IS NULL;
+    +DELETE FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_don_le WHERE syncdate < '${sync_ts}' OR syncdate IS NULL;
+### /Tiếp nhận NV / qlnv_tonghop_chitiet_tiepnhan_theo_chuoi [upsert]  [putsql-sql-statement]  id=142f3e8f-6ef6-1fc2-6614-3581e23f4da3  (4 dòng đổi)
+    -INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_theo_chuoi_new_rt (`monthkey`, `date`, `month`, `year`, `nhomvb_ma`, `nhomvb`, `NhomNhiemVu`, `ma_nv_cha`, `Code`, `idnv`, `tennv_viettat`, `Ma`, `TenNhiemVu`, `S
+    +INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_theo_chuoi (`monthkey`, `date`, `month`, `year`, `nhomvb_ma`, `nhomvb`, `NhomNhiemVu`, `ma_nv_cha`, `Code`, `idnv`, `tennv_viettat`, `Ma`, `TenNhiemVu`, `SanPhamC
+    -FROM qlnv_tonghop_chitiet_tiepnhan_new_rt t
+    +FROM qlnv_tonghop_chitiet_tiepnhan t
+    -        FROM qlnv_tonghop_chitiet_tiepnhan_new_rt c
+    +        FROM qlnv_tonghop_chitiet_tiepnhan c
+    -DELETE FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_theo_chuoi_new_rt WHERE syncdate < '${sync_ts}' OR syncdate IS NULL;
+    +DELETE FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_theo_chuoi WHERE syncdate < '${sync_ts}' OR syncdate IS NULL;
+### /Tiếp nhận NV / qlnv_tonghop_chitiet_nhom_tiepnhan [upsert]  [putsql-sql-statement]  id=142f3e96-6ef6-1fc2-73ef-f2bdd4d0fa3e  (3 dòng đổi)
+    -INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_nhom_tiepnhan_new_rt (`monthkey`, `date`, `month`, `year`, `nhomvb_ma`, `nhomvb`, `ma_nv_cha`, `Code`, `idnv`, `tennv_viettat`, `Ma`, `TenNhiemVu`, `SanPhamChuYeu`, `ThoiH
+    +INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_nhom_tiepnhan (`monthkey`, `date`, `month`, `year`, `nhomvb_ma`, `nhomvb`, `ma_nv_cha`, `Code`, `idnv`, `tennv_viettat`, `Ma`, `TenNhiemVu`, `SanPhamChuYeu`, `ThoiHanHoanT
+    -    FROM qlnv_tonghop_chitiet_tiepnhan_new_rt
+    +    FROM qlnv_tonghop_chitiet_tiepnhan
+    -DELETE FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom_tiepnhan_new_rt WHERE syncdate < '${sync_ts}' OR syncdate IS NULL;
+    +DELETE FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom_tiepnhan WHERE syncdate < '${sync_ts}' OR syncdate IS NULL;
+### /Tiếp nhận NV / Update NhomCauTrucNhiemVu Nhan [upsert]  [putsql-sql-statement]  id=142f3e97-6ef6-1fc2-48c7-f4cb6ca4c1f2  (3 dòng đổi)
+    -INSERT INTO rt_cha SELECT DISTINCT ma_nv_cha FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt WHERE ma_nv_cha IS NOT NULL;
+    +INSERT INTO rt_cha SELECT DISTINCT ma_nv_cha FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan WHERE ma_nv_cha IS NOT NULL;
+    -INSERT INTO rt_ten SELECT tennv_viettat, COUNT(DISTINCT Ma) FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt WHERE tennv_viettat IS NOT NULL GROUP BY tennv_viettat;
+    -UPDATE datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan_new_rt t
+    +INSERT INTO rt_ten SELECT tennv_viettat, COUNT(DISTINCT Ma) FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan WHERE tennv_viettat IS NOT NULL GROUP BY tennv_viettat;
+    +UPDATE datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan t
+### /Giao NV / qlnv_th_tongquan_donvi_giaonv  [SQL select query]  id=142f3ebc-6ef6-1fc2-7af4-c2b60ee01842  (5 dòng đổi)
+    -/* [RT 12/11 full] ghi *_new_rt; TRUNCATE+INSERT → staging + RENAME swap */
+    -CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_th_tongquan_donvi_giaonv_new_rt__stg LIKE datamart_hanoi.qlnv_th_tongquan_donvi_giaonv_new_rt;
+    -TRUNCATE TABLE datamart_hanoi.qlnv_th_tongquan_donvi_giaonv_new_rt__stg;
+    +/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+    +CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_th_tongquan_donvi_giaonv__stg LIKE datamart_hanoi.qlnv_th_tongquan_donvi_giaonv;
+    +TRUNCATE TABLE datamart_hanoi.qlnv_th_tongquan_donvi_giaonv__stg;
+    -INSERT INTO datamart_hanoi.qlnv_th_tongquan_donvi_giaonv_new_rt__stg 
+    +INSERT INTO datamart_hanoi.qlnv_th_tongquan_donvi_giaonv__stg 
+    -RENAME TABLE datamart_hanoi.qlnv_th_tongquan_donvi_giaonv_new_rt TO datamart_hanoi.qlnv_th_tongquan_donvi_giaonv_new_rt__old, datamart_hanoi.qlnv_th_tongquan_donvi_giaonv_new_rt__stg TO datamart_hanoi.qlnv_th_tongquan_d
+    +RENAME TABLE datamart_hanoi.qlnv_th_tongquan_donvi_giaonv TO datamart_hanoi.qlnv_th_tongquan_donvi_giaonv__old, datamart_hanoi.qlnv_th_tongquan_donvi_giaonv__stg TO datamart_hanoi.qlnv_th_tongquan_donvi_giaonv, datamart
+### /Giao NV / qlnv_tonghop_chitiet_giaonv [upsert]  [putsql-sql-statement]  id=142f3eb5-6ef6-1fc2-7578-0f74d7189542  (2 dòng đổi)
+    -INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_giaonv_new_rt 
+    +INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_giaonv 
+    -DELETE FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv_new_rt WHERE syncdate < '${sync_ts}' OR syncdate IS NULL;
+    +DELETE FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv WHERE syncdate < '${sync_ts}' OR syncdate IS NULL;
+### /Giao NV / qlnv_tonghop_chitiet_giaonv_don_le [upsert]  [SQL select query]  id=142f3eb8-6ef6-1fc2-dfb5-61e2a8382062  (4 dòng đổi)
+    -INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_giaonv_don_le_new_rt (`monthkey`, `date`, `month`, `year`, `nhomvb_ma`, `nhomvb`, `NhomNhiemVu`, `ma_nv_cha`, `Code`, `idnv`, `tennv_viettat`, `Ma`, `TenNhiemVu`, `SanPham
+    +INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_giaonv_don_le (`monthkey`, `date`, `month`, `year`, `nhomvb_ma`, `nhomvb`, `NhomNhiemVu`, `ma_nv_cha`, `Code`, `idnv`, `tennv_viettat`, `Ma`, `TenNhiemVu`, `SanPhamChuYeu`
+    -FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv_new_rt t
+    +FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv t
+    -    FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv_new_rt c
+    +    FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv c
+    -DELETE FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv_don_le_new_rt WHERE syncdate < '${sync_ts}' OR syncdate IS NULL;
+    +DELETE FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv_don_le WHERE syncdate < '${sync_ts}' OR syncdate IS NULL;
+### /Giao NV / Update NhomCauTrucNhiemVu Giao [upsert]  [putsql-sql-statement]  id=142f3eba-6ef6-1fc2-2785-99c369802767  (3 dòng đổi)
+    -INSERT INTO rt_cha SELECT DISTINCT ma_nv_cha FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv_new_rt WHERE ma_nv_cha IS NOT NULL;
+    +INSERT INTO rt_cha SELECT DISTINCT ma_nv_cha FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv WHERE ma_nv_cha IS NOT NULL;
+    -INSERT INTO rt_ten SELECT tennv_viettat, COUNT(DISTINCT Ma) FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv_new_rt WHERE tennv_viettat IS NOT NULL GROUP BY tennv_viettat;
+    -UPDATE datamart_hanoi.qlnv_tonghop_chitiet_giaonv_new_rt t
+    +INSERT INTO rt_ten SELECT tennv_viettat, COUNT(DISTINCT Ma) FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv WHERE tennv_viettat IS NOT NULL GROUP BY tennv_viettat;
+    +UPDATE datamart_hanoi.qlnv_tonghop_chitiet_giaonv t
+### /Giao NV / qlnv_tonghop_chitiet_giaonv_theo_chuoi [upsert]  [SQL select query]  id=142f3eb7-6ef6-1fc2-748e-b68f09699ee0  (4 dòng đổi)
+    -INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_giaonv_theo_chuoi_new_rt (`monthkey`, `date`, `month`, `year`, `nhomvb_ma`, `nhomvb`, `NhomNhiemVu`, `ma_nv_cha`, `Code`, `idnv`, `tennv_viettat`, `Ma`, `TenNhiemVu`, `San
+    +INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_giaonv_theo_chuoi (`monthkey`, `date`, `month`, `year`, `nhomvb_ma`, `nhomvb`, `NhomNhiemVu`, `ma_nv_cha`, `Code`, `idnv`, `tennv_viettat`, `Ma`, `TenNhiemVu`, `SanPhamChu
+    -FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv_new_rt t
+    +FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv t
+    -        FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv_new_rt c
+    +        FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv c
+    -DELETE FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv_theo_chuoi_new_rt WHERE syncdate < '${sync_ts}' OR syncdate IS NULL;
+    +DELETE FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv_theo_chuoi WHERE syncdate < '${sync_ts}' OR syncdate IS NULL;
+### /Giao NV / qlnv_tonghop_chitiet_nhom_giaonv [upsert]  [SQL select query]  id=142f3ebf-6ef6-1fc2-9e79-40ce1fffe7ac  (4 dòng đổi)
+    -INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv_new_rt (`monthkey`, `date`, `month`, `year`, `nhomvb_ma`, `nhomvb`, `ma_nv_cha`, `Code`, `idnv`, `tennv_viettat`, `Ma`, `TenNhiemVu`, `SanPhamChuYeu`, `ThoiHan
+    +INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv (`monthkey`, `date`, `month`, `year`, `nhomvb_ma`, `nhomvb`, `ma_nv_cha`, `Code`, `idnv`, `tennv_viettat`, `Ma`, `TenNhiemVu`, `SanPhamChuYeu`, `ThoiHanHoanTha
+    -    FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv_new_rt g
+    -		LEFT JOIN datamart_hanoi.qlnv_tonghop_chitiet_giaonv_new_rt g_cha ON g.ma_nv_cha = g_cha.Ma
+    +    FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv g
+    +		LEFT JOIN datamart_hanoi.qlnv_tonghop_chitiet_giaonv g_cha ON g.ma_nv_cha = g_cha.Ma
+    -DELETE FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv_new_rt WHERE syncdate < '${sync_ts}' OR syncdate IS NULL;
+    +DELETE FROM datamart_hanoi.qlnv_tonghop_chitiet_nhom_giaonv WHERE syncdate < '${sync_ts}' OR syncdate IS NULL;
+### /Giao NV / Update DonViChuTri [upsert]  [putsql-sql-statement]  id=142f3ebd-6ef6-1fc2-8845-213daa109af3  (2 dòng đổi)
+    -UPDATE datamart_hanoi.qlnv_tonghop_chitiet_giaonv_new_rt g
+    -LEFT JOIN datamart_hanoi.qlnv_tonghop_chitiet_giaonv_new_rt g_cha ON g.ma_nv_cha = g_cha.Ma
+    +UPDATE datamart_hanoi.qlnv_tonghop_chitiet_giaonv g
+    +LEFT JOIN datamart_hanoi.qlnv_tonghop_chitiet_giaonv g_cha ON g.ma_nv_cha = g_cha.Ma

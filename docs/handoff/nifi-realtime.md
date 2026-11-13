@@ -61,3 +61,20 @@
 - Hiệu năng (5'): lõi mỗi lượt nhanh hơn (tiepnhan 22,8→12,6s; giaonv 23,5→13,5s; DonViChuTri 3,5→0,4s), riêng qlnv_tonghop_chitiet 4,7→9,8s. Tải SQL RT 1,30 câu song song (cũ 0,82) vì chạy 1'/lần.
 - 16:27–16:28 12/11: người dùng lỡ copy cả "BTH - Đơn vị" rồi Start cả group. 16:33 người dùng đã xóa bản copy. 16:35 đã Stop lại 8 component vừa bị bật (undo_start_1628.py; trạng thái trước khi sửa: full/undo_1628_before.json) → trạng thái giống lúc 16:00. Phụ phẩm: "Nhiệm vụ chờ duyệt" đã chạy khoảng 2 lượt UPSERT vào bảng thật trong khoảng 16:28–16:35.
 - 16:53 so lần 2 (full/compare_2.log): 18 bảng khớp tuyệt đối (gồm Kiểm đếm, HĐND đã chạy trong lúc bật nhầm). Các bảng còn lại có số dòng bằng nhau; chỗ lệch là do hai bên chụp ở thời điểm khác nhau. cbcc_danhgia / kpi_theo_don_vi / cbcc_hdndtp ít dòng hơn vì bảng cũ tích lũy lịch sử theo monthkey (upsert không xóa), còn _new_rt mới bắt đầu từ hôm nay → khi cutover vẫn ghi vào bảng thật nên lịch sử giữ nguyên. So SQL (full_sql_diff.py, full_sql_class.py): đa số chỉ khác cách ghi (staging/RC/upsert); khác logic gồm 2 Update NhomCauTruc (TEMP có PK), 2 Update DonViChuTri (chỉ update dòng đổi + sửa v4), INSERT * → liệt kê cột.
+
+## 13/11 09:50: rà sẵn sàng cutover RT 142f3e8a (chỉ đọc)
+- Đạt: khoi_new_rt/tongquan_new_rt số dòng khớp cũ (23.990 / 12.881); chuỗi chạy mỗi phút, khoi 1,3s, tongquan 3,7s/lượt.
+- Lỗi đang tồn: 00:07–00:19 13/11 chuỗi lõi (tiepnhan, nhom_tiepnhan, giaonv, giaonv_don_le, tongquan stg) bị ngắt 60s liên tiếp, đã tự hồi phục, chưa rõ nguyên nhân (job đêm/backup?). Kiểm đếm tongquan_donvi_kiemdem 61s > timeout → lỗi mọi lượt (luồng cũ cũng vậy). tongquan_donvi 54s, sát ngưỡng. kpi_theo_nguoi_xu_ly bị lock wait 17 lần.
+- Tải SQL: RT 2,36 câu song song, cũ 0,61.
+- tla_bao_cao_tong_quan có MAX(syncdate) = 01/11, cần kiểm BTH_theodoinq.
+
+## 13/11 10:47–10:56: ĐÃ CUTOVER RT 142f3e8a → bảng thật
+- Luồng cũ f8207212: 64 processor STOPPED, không xóa. Danh sách ở backups/nifi_rtcopy_20261112/cutover/running_ids.json, backup processor ở cutover/backup_*_104704.json.
+- DDL v2 chạy trên bảng thật mất 16,9s. Đã thêm 5 khóa uk_rt_* và cột syncdate cho nhom_tiepnhan/nhom_giaonv. Sửa 58 processor bỏ hậu tố `_new_rt` (cutover/diff.txt). Xóa 3 output port cổng 15'. Hai cổng đặt auto-terminate qua_15phut và unmatched.
+- "0. ROLLBACK DDL" vẫn kẹt RUN_ONCE/VALIDATING. Đã đổi SQL thành `SELECT 1` để không chạy nhầm. Bản rollback thật ở upsert/0_DDL_ROLLBACK_v2.sql.
+- Theo dõi 6 phút (cutover/watch_1.log): 0 lỗi, thread ≤4. Chuỗi lõi cập nhật mỗi phút. tongquan ghi theo NOW() của MySQL (lệch -4,5 phút).
+- Rollback: STOP RT → chạy 0_DDL_ROLLBACK_v2 → START lại các id old_running.
+
+## Đang chờ (sau cutover)
+- Kiểm các group hạ nguồn 15' (Chi tiết đơn vị, Kiểm đếm, HĐND) ở mốc :00/:15. Kiểm đếm 61s vượt timeout là lỗi cũ.
+- 2–3 ngày ổn định → DROP các bảng *_new_rt, *_new_rt__stg (full/DROP_full.sql), xem lại trước khi chạy.

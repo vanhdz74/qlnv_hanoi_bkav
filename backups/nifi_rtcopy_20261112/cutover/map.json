@@ -1,0 +1,488 @@
+{
+ "qlnv_tongquan_vanban": {
+  "new": [
+   "RUN /Văn bản giao nhiệm vụ/qlnv_tongquan_vanban"
+  ],
+  "old": [
+   "RUN /Văn bản giao nhiệm vụ/qlnv_tongquan_vanban"
+  ],
+  "cnt": {
+   "o": 165,
+   "n": 165,
+   "mx": "2026-11-13T10:26:33"
+  }
+ },
+ "qlnv_tongquan_vanban_chitiet": {
+  "new": [
+   "RUN /Văn bản giao nhiệm vụ/qlnv_tongquan_vanban_chitiet"
+  ],
+  "old": [
+   "RUN /Văn bản giao nhiệm vụ/qlnv_tongquan_vanban_chitiet",
+   "DIS /Văn bản giao nhiệm vụ/qlnv_tongquan_vanban_chitiet"
+  ],
+  "cnt": {
+   "err": "{}"
+  }
+ },
+ "qlnv_tonghop_chitiet_khoi": {
+  "new": [
+   "RUN /Giao + Nhận NV/qlnv_tonghop_chitiet_khoi [upsert]"
+  ],
+  "old": [
+   "RUN /Giao + Nhận NV/qlnv_tonghop_chitiet_khoi"
+  ],
+  "cnt": {
+   "o": 23993,
+   "n": 23998,
+   "mx": "2026-11-13T10:38:17"
+  }
+ },
+ "qlnv_tonghop_chitiet_nhom": {
+  "new": [
+   "RUN /Giao + Nhận NV/qlnv_tonghop_chitiet_nhom [upsert]"
+  ],
+  "old": [
+   "RUN /Giao + Nhận NV/qlnv_tonghop_chitiet_nhom"
+  ],
+  "cnt": {
+   "o": 46559,
+   "n": 46572,
+   "mx": "2026-11-13T10:38:17"
+  }
+ },
+ "qlnv_tonghop_chitiet": {
+  "new": [
+   "RUN /Giao + Nhận NV/qlnv_tonghop_chitiet [upsert]"
+  ],
+  "old": [
+   "RUN /Giao + Nhận NV/qlnv_tonghop_chitiet"
+  ],
+  "cnt": {
+   "o": 117915,
+   "n": 118009,
+   "mx": "2026-11-13T10:38:17"
+  }
+ },
+ "qlnv_tongquan": {
+  "new": [
+   "RUN /Giao + Nhận NV/qlnv_tongquan [stg]"
+  ],
+  "old": [
+   "DIS /Giao + Nhận NV/qlnv_tongquan",
+   "RUN /Giao + Nhận NV/qlnv_tongquan"
+  ],
+  "cnt": {
+   "o": 12883,
+   "n": 12877,
+   "mx": "2026-11-13T10:34:11"
+  }
+ },
+ "qlnv_tongquan_kpi_theo_don_vi": {
+  "new": [
+   "RUN /Đánh giá cán bộ/qlnv_tongquan_kpi_theo_don_vi"
+  ],
+  "old": [
+   "RUN /Đánh giá cán bộ/qlnv_tongquan_kpi_theo_don_vi"
+  ],
+  "cnt": {
+   "err": "{}"
+  }
+ },
+ "qlnv_tongquan_kpi_theo_nguoi_xu_ly": {
+  "new": [
+   "RUN /Đánh giá cán bộ/qlnv_tongquan_kpi_theo_nguoi_xu_ly"
+  ],
+  "old": [
+   "DIS /qlnv_kl_ctpct_chitiet/qlnv_kl_ctpct_chitiet",
+   "RUN /Đánh giá cán bộ/qlnv_tongquan_kpi_theo_nguoi_xu_ly"
+  ],
+  "cnt": {
+   "err": "{}"
+  }
+ },
+ "qlnv_tonghop_chitiet_nhom_moc_thoi_gian": {
+  "new": [
+   "RUN /Mốc thời gian/qlnv_tongquan_nhom_moc_thoi_gian",
+   "RUN /Mốc thời gian/qlnv_tonghop_chitiet_nhom_moc_thoi_gian"
+  ],
+  "old": [
+   "RUN /Mốc thời gian/qlnv_tongquan_nhom_moc_thoi_gian",
+   "RUN /Mốc thời gian/qlnv_tonghop_chitiet_nhom_moc_thoi_gian"
+  ],
+  "cnt": {
+   "err": "{}"
+  }
+ },
+ "qlnv_tongquan_cham_muon_theo_don_vi": {
+  "new": [
+   "RUN /Mốc thời gian/qlnv_tongquan_cham_muon_theo_don_vi"
+  ],
+  "old": [
+   "RUN /Mốc thời gian/qlnv_tongquan_cham_muon_theo_don_vi"
+  ],
+  "cnt": {
+   "err": "{}"
+  }
+ },
+ "qlnv_tongquan_donvi_kiemdem": {
+  "new": [
+   "RUN /Kiểm đếm/qlnv_tongquan_donvi_kiemdem"
+  ],
+  "old": [
+   "RUN /Kiểm đếm/qlnv_tongquan_donvi_kiemdem"
+  ],
+  "cnt": {
+   "o": 121033,
+   "n": 121033,
+   "mx": "2026-11-13T10:27:25"
+  }
+ },
+ "qlnv_tongquan_vanban_kiemdem": {
+  "new": [
+   "RUN /Kiểm đếm/qlnv_tongquan_vanban_kiemdem"
+  ],
+  "old": [
+   "RUN /Kiểm đếm/qlnv_tongquan_vanban_kiemdem"
+  ],
+  "cnt": {
+   "o": 12561,
+   "n": 12561,
+   "mx": "2026-11-13T07:42:51"
+  }
+ },
+ "qlnv_tongquan_khoi": {
+  "new": [
+   "RUN /Khối/qlnv_tongquan_khoi"
+  ],
+  "old": [
+   "RUN /Khối/qlnv_tongquan_khoi"
+  ],
+  "cnt": {
+   "o": 12859,
+   "n": 12853,
+   "mx": "2026-11-13T10:34:13"
+  }
+ },
+ "qlnv_tongquan_donvi_hdndtp": {
+  "new": [
+   "RUN /Chi tiết HĐND/qlnv_tongquan_donvi_hdndtp"
+  ],
+  "old": [
+   "RUN /Chi tiết HĐND/qlnv_tongquan_donvi_hdndtp"
+  ],
+  "cnt": {
+   "o": 8819,
+   "n": 8819,
+   "mx": "2026-11-13T10:26:39"
+  }
+ },
+ "qlnv_tonghop_chitiet_khoi_hdndtp": {
+  "new": [
+   "RUN /Chi tiết HĐND/qlnv_tonghop_chitiet_khoi_hdndtp"
+  ],
+  "old": [
+   "RUN /Chi tiết HĐND/qlnv_tonghop_chitiet_khoi_hdndtp"
+  ],
+  "cnt": {
+   "o": 970,
+   "n": 970,
+   "mx": "2026-11-13T10:31:17"
+  }
+ },
+ "qlnv_tongquan_hdndtp": {
+  "new": [
+   "RUN /Chi tiết HĐND/qlnv_tongquan_hdndtp"
+  ],
+  "old": [
+   "RUN /Chi tiết HĐND/qlnv_tongquan_hdndtp"
+  ],
+  "cnt": {
+   "o": 288,
+   "n": 288,
+   "mx": "2026-11-13T10:27:16"
+  }
+ },
+ "qlnv_tonghop_chitiet_hdndtp": {
+  "new": [
+   "RUN /Chi tiết HĐND/qlnv_tonghop_chitiet_hdndtp"
+  ],
+  "old": [
+   "RUN /Chi tiết HĐND/qlnv_tonghop_chitiet_hdndtp"
+  ],
+  "cnt": {
+   "o": 4624,
+   "n": 4624,
+   "mx": "2026-11-13T10:31:17"
+  }
+ },
+ "qlnv_kl_ctpct_chitiet_stage02": {
+  "new": [
+   "RUN /qlnv_kl_ctpct_chitiet/qlnv_kl_ctpct_chitiet_stage02"
+  ],
+  "old": [
+   "RUN /qlnv_kl_ctpct_chitiet/PUT stage02",
+   "RUN /qlnv_kl_ctpct_chitiet/PutDatabaseRecord",
+   "RUN /qlnv_kl_ctpct_chitiet/qlnv_kl_ctpct_chitiet_stage02"
+  ],
+  "cnt": {
+   "o": 71018,
+   "n": 71018,
+   "mx": "2026-11-13T10:23:25"
+  }
+ },
+ "qlnv_kl_ctpct_chitiet": {
+  "new": [
+   "RUN /qlnv_kl_ctpct_chitiet/qlnv_kl_ctpct_chitiet"
+  ],
+  "old": [
+   "RUN /qlnv_kl_ctpct_chitiet/qlnv_kl_ctpct_chitiet",
+   "DIS /qlnv_kl_ctpct_chitiet/qlnv_kl_ctpct_chitiet",
+   "RUN /qlnv_kl_ctpct_chitiet/PUT chitiet",
+   "DIS /qlnv_kl_ctpct_chitiet/PutDatabaseRecord"
+  ],
+  "cnt": {
+   "o": 71018,
+   "n": 71018,
+   "mx": "2026-11-13T10:23:25"
+  }
+ },
+ "qlnv_kl_ctpct_chitiet_stage01": {
+  "new": [
+   "RUN /qlnv_kl_ctpct_chitiet/DỌN stage01",
+   "RUN /qlnv_kl_ctpct_chitiet/qlnv_kl_ctpct_chitiet_stage01"
+  ],
+  "old": [
+   "RUN /qlnv_kl_ctpct_chitiet/qlnv_kl_ctpct_chitiet_stage01",
+   "RUN /qlnv_kl_ctpct_chitiet/PUT stage01",
+   "RUN /qlnv_kl_ctpct_chitiet/DỌN stage01",
+   "RUN /qlnv_kl_ctpct_chitiet/PutDatabaseRecord"
+  ],
+  "cnt": {
+   "o": 71434,
+   "n": 71434,
+   "mx": "2026-11-13T10:23:20"
+  }
+ },
+ "qlnv_tonghop_chitiet_dieuhanh_lanhdao": {
+  "new": [
+   "RUN /Dashboard Lãnh đạo các phòng, sở ngành, xã phường/qlnv_tonghop_chitiet_dieuhanh_lanhdao"
+  ],
+  "old": [
+   "RUN /Dashboard Lãnh đạo các phòng, sở ngành, xã phường/qlnv_tonghop_chitiet_dieuhanh_lanhdao"
+  ],
+  "cnt": {
+   "o": 82090,
+   "n": 82176,
+   "mx": "2026-11-13T10:33:56"
+  }
+ },
+ "qlnv_tongquan_dieuhanh_lanhdao": {
+  "new": [
+   "RUN /Dashboard Lãnh đạo các phòng, sở ngành, xã phường/qlnv_tongquan_dieuhanh_lanhdao"
+  ],
+  "old": [
+   "RUN /Dashboard Lãnh đạo các phòng, sở ngành, xã phường/qlnv_tongquan_dieuhanh_lanhdao"
+  ],
+  "cnt": {
+   "o": 22419,
+   "n": 22406,
+   "mx": "2026-11-13T10:33:59"
+  }
+ },
+ "qlnv_tongquan_donvi": {
+  "new": [
+   "RUN /Chi tiết đơn vị/qlnv_tongquan_donvi"
+  ],
+  "old": [
+   "RUN /Chi tiết đơn vị/qlnv_tongquan_donvi"
+  ],
+  "cnt": {
+   "o": 190478,
+   "n": 190478,
+   "mx": "2026-11-13T10:26:39"
+  }
+ },
+ "qlnv_tonghop_chitiet_donvi": {
+  "new": [
+   "RUN /Chi tiết đơn vị/qlnv_tonghop_chitiet_donvi"
+  ],
+  "old": [
+   "DIS /qlnv_tonghop_chitiet_donvi",
+   "DIS /Giao + Nhận NV/qlnv_tonghop_chitiet_donvi",
+   "RUN /Chi tiết đơn vị/qlnv_tonghop_chitiet_donvi"
+  ],
+  "cnt": {
+   "o": 190522,
+   "n": 190522,
+   "mx": "2026-11-13T10:26:22"
+  }
+ },
+ "qlnv_tonghop_chitiet_nq57": {
+  "new": [
+   "RUN /NV theo NQ57/qlnv_tonghop_chitiet_nq57"
+  ],
+  "old": [
+   "RUN /NV theo NQ57/qlnv_tonghop_chitiet_nq57"
+  ],
+  "cnt": {
+   "o": 2469,
+   "n": 2469,
+   "mx": "2026-11-13T10:38:17"
+  }
+ },
+ "qlnv_tongquan_nq57": {
+  "new": [
+   "RUN /NV theo NQ57/qlnv_tongquan_nq57"
+  ],
+  "old": [
+   "DIS /Copy of Đánh giá cán bộ/qlnv_tongquan_nq57",
+   "RUN /NV theo NQ57/qlnv_tongquan_nq57"
+  ],
+  "cnt": {
+   "o": 150,
+   "n": 150,
+   "mx": "2026-11-01T00:10:22"
+  }
+ },
+ "qlnv_tonghop_chitiet_tiepnhan": {
+  "new": [
+   "RUN /Tiếp nhận NV/Update DonViChuTri [upsert]",
+   "RUN /Tiếp nhận NV/qlnv_tonghop_chitiet_tiepnhan [upsert]",
+   "RUN /Tiếp nhận NV/Update NhomCauTrucNhiemVu Nhan [upsert]"
+  ],
+  "old": [
+   "RUN /Tiếp nhận NV/Update DonViChuTri",
+   "RUN /Tiếp nhận NV/qlnv_tonghop_chitiet_tiepnhan",
+   "RUN /Tiếp nhận NV/Update NhomCauTrucNhiemVu Nhan",
+   "DIS /Tiếp nhận NV/Update NhomCauTrucNhiemVu"
+  ],
+  "cnt": {
+   "o": 95261,
+   "n": 95349,
+   "mx": "2026-11-13T10:39:17"
+  }
+ },
+ "qlnv_th_tongquan_donvi_tiepnhan": {
+  "new": [
+   "RUN /Tiếp nhận NV/qlnv_th_tongquan_donvi_tiepnhan"
+  ],
+  "old": [
+   "RUN /Tiếp nhận NV/qlnv_th_tongquan_donvi_tiepnhan"
+  ],
+  "cnt": {
+   "o": 62471,
+   "n": 62471,
+   "mx": "2026-11-13T10:23:21"
+  }
+ },
+ "qlnv_tonghop_chitiet_tiepnhan_don_le": {
+  "new": [
+   "RUN /Tiếp nhận NV/qlnv_tonghop_chitiet_tiepnhan_don_le [upsert]"
+  ],
+  "old": [
+   "RUN /Tiếp nhận NV/qlnv_tonghop_chitiet_tiepnhan_don_le"
+  ],
+  "cnt": {
+   "o": 95227,
+   "n": 95315,
+   "mx": "2026-11-13T10:39:17"
+  }
+ },
+ "qlnv_tonghop_chitiet_tiepnhan_theo_chuoi": {
+  "new": [
+   "RUN /Tiếp nhận NV/qlnv_tonghop_chitiet_tiepnhan_theo_chuoi [upsert]"
+  ],
+  "old": [
+   "RUN /Tiếp nhận NV/qlnv_tonghop_chitiet_tiepnhan_theo_chuoi"
+  ],
+  "cnt": {
+   "o": 34,
+   "n": 34,
+   "mx": "2026-11-13T10:39:17"
+  }
+ },
+ "qlnv_tonghop_chitiet_nhom_tiepnhan": {
+  "new": [
+   "RUN /Tiếp nhận NV/qlnv_tonghop_chitiet_nhom_tiepnhan [upsert]"
+  ],
+  "old": [
+   "RUN /Tiếp nhận NV/qlnv_tonghop_chitiet_nhom_tiepnhan"
+  ],
+  "cnt": {
+   "o": 23905,
+   "n": 23912,
+   "mx": "2026-11-13T10:38:17"
+  }
+ },
+ "qlnv_th_tongquan_donvi_giaonv": {
+  "new": [
+   "RUN /Giao NV/qlnv_th_tongquan_donvi_giaonv"
+  ],
+  "old": [
+   "RUN /Giao NV/qlnv_th_tongquan_donvi_giaonv"
+  ],
+  "cnt": {
+   "o": 62471,
+   "n": 62471,
+   "mx": "2026-11-13T10:23:21"
+  }
+ },
+ "qlnv_tonghop_chitiet_giaonv": {
+  "new": [
+   "RUN /Giao NV/qlnv_tonghop_chitiet_giaonv [upsert]",
+   "RUN /Giao NV/Update NhomCauTrucNhiemVu Giao [upsert]",
+   "RUN /Giao NV/Update DonViChuTri [upsert]"
+  ],
+  "old": [
+   "RUN /Giao NV/qlnv_tonghop_chitiet_giaonv",
+   "RUN /Giao NV/Update NhomCauTrucNhiemVu Giao",
+   "RUN /Giao NV/Update DonViChuTri",
+   "DIS /Giao NV/Update NhomCauTrucNhiemVu"
+  ],
+  "cnt": {
+   "o": 95261,
+   "n": 95349,
+   "mx": "2026-11-13T10:39:17"
+  }
+ },
+ "qlnv_tonghop_chitiet_giaonv_don_le": {
+  "new": [
+   "RUN /Giao NV/qlnv_tonghop_chitiet_giaonv_don_le [upsert]"
+  ],
+  "old": [
+   "RUN /Giao NV/qlnv_tonghop_chitiet_giaonv_don_le"
+  ],
+  "cnt": {
+   "o": 95227,
+   "n": 95315,
+   "mx": "2026-11-13T10:38:17"
+  }
+ },
+ "qlnv_tonghop_chitiet_giaonv_theo_chuoi": {
+  "new": [
+   "RUN /Giao NV/qlnv_tonghop_chitiet_giaonv_theo_chuoi [upsert]"
+  ],
+  "old": [
+   "RUN /Giao NV/qlnv_tonghop_chitiet_giaonv_theo_chuoi"
+  ],
+  "cnt": {
+   "o": 34,
+   "n": 34,
+   "mx": "2026-11-13T10:39:17"
+  }
+ },
+ "qlnv_tonghop_chitiet_nhom_giaonv": {
+  "new": [
+   "RUN /Giao NV/qlnv_tonghop_chitiet_nhom_giaonv [upsert]"
+  ],
+  "old": [
+   "DIS /Giao NV/qlnv_tonghop_chitiet_nhom_giaonv có distint donvi",
+   "RUN /Giao NV/qlnv_tonghop_chitiet_nhom_giaonv"
+  ],
+  "cnt": {
+   "o": 22654,
+   "n": 22660,
+   "mx": "2026-11-13T10:38:17"
+  }
+ }
+}

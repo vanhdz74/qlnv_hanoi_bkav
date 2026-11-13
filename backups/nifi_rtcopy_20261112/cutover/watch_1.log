@@ -1,0 +1,12 @@
+10:51:19 threads 4 queued 5 (360 bytes) | lỗi: 0
+    {'chitiet_tiepnhan': '95354@10:51:17', 'chitiet_giaonv': '95354@10:51:17', 'chitiet_nhom_tiepnhan': '23916@10:50:17', 'chitiet_nhom_giaonv': '22663@10:51:17', 'chitiet': '118017@10:50:17', 'chitiet_nhom': '46579@10:50:17', 'chitiet_khoi': '24001@10:50:17', '': '12880@10:46:10', '_khoi': '12856@10:46:17'}
+10:52:21 threads 1 queued 2 (120 bytes) | lỗi: 0
+    {'chitiet_tiepnhan': '95354@10:52:17', 'chitiet_giaonv': '95354@10:52:17', 'chitiet_nhom_tiepnhan': '23916@10:51:17', 'chitiet_nhom_giaonv': '22663@10:52:17', 'chitiet': '118017@10:51:17', 'chitiet_nhom': '46579@10:51:17', 'chitiet_khoi': '24001@10:51:17', '': '12880@10:47:14', '_khoi': '12856@10:47:17'}
+10:53:22 threads 1 queued 2 (120 bytes) | lỗi: 0
+    {'chitiet_tiepnhan': '95354@10:53:17', 'chitiet_giaonv': '95354@10:53:17', 'chitiet_nhom_tiepnhan': '23916@10:53:17', 'chitiet_nhom_giaonv': '22663@10:53:17', 'chitiet': '118017@10:52:17', 'chitiet_nhom': '46579@10:52:17', 'chitiet_khoi': '24001@10:52:17', '': '12880@10:48:13', '_khoi': '12856@10:48:16'}
+10:54:24 threads 2 queued 4 (120 bytes) | lỗi: 0
+    {'chitiet_tiepnhan': '95354@10:54:17', 'chitiet_giaonv': '95354@10:54:17', 'chitiet_nhom_tiepnhan': '23916@10:54:17', 'chitiet_nhom_giaonv': '22663@10:54:17', 'chitiet': '118017@10:53:17', 'chitiet_nhom': '46579@10:53:17', 'chitiet_khoi': '24001@10:53:17', '': '12880@10:49:11', '_khoi': '12856@10:49:14'}
+10:55:25 threads 3 queued 3 (120 bytes) | lỗi: 0
+    {'chitiet_tiepnhan': '95354@10:55:17', 'chitiet_giaonv': '95354@10:55:17', 'chitiet_nhom_tiepnhan': '23916@10:55:17', 'chitiet_nhom_giaonv': '22663@10:55:17', 'chitiet': '118017@10:54:17', 'chitiet_nhom': '46579@10:54:17', 'chitiet_khoi': '24001@10:54:17', '': '12880@10:50:13', '_khoi': '12856@10:50:18'}
+10:56:27 threads 2 queued 2 (240 bytes) | lỗi: 0
+    {'chitiet_tiepnhan': '95354@10:56:17', 'chitiet_giaonv': '95354@10:56:17', 'chitiet_nhom_tiepnhan': '23916@10:56:17', 'chitiet_nhom_giaonv': '22663@10:56:17', 'chitiet': '118017@10:55:17', 'chitiet_nhom': '46579@10:55:17', 'chitiet_khoi': '24001@10:55:17', '': '12880@10:51:12', '_khoi': '12856@10:51:15'}
