@@ -1,0 +1,50 @@
+09:47:24 đã đặt mật khẩu từ .env
+09:47:24 MASTER trước khi bật: {'File': 'mysql-bin.077556', 'Position': 71449360, 'Binlog_Do_DB': 'db_theodoinv_hn,db_theodoinv_hanoi_beta', 'Binlog_Ignore_DB': '', 'Executed_Gtid_Set': ''}
+09:47:24 rt_cdc_log id mốc = 0
+09:47:24 ĐÃ BẬT CDC — theo dõi 10 phút
+09:47:55 hàng đợi=0 | đã ghi 0 sự kiện (top bảng): 
+09:47:55 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Processing failed: org.apache.nifi.processor.exception.ProcessException: Could not connect binlog client to any of the specified hosts due to: Failed to determine binlog filename/position
+- Caused by: java.io.IOException: Could not connect 
+09:47:55 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Processing failed: org.apache.nifi.processor.exception.ProcessException: Could not connect binlog client to any of the specified hosts due to: Failed to determine binlog filename/position
+- Caused by: java.io.IOException: Could not connect 
+09:47:55 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Processing failed: org.apache.nifi.processor.exception.ProcessException: Could not connect binlog client to any of the specified hosts due to: Failed to determine binlog filename/position
+- Caused by: java.io.IOException: Could not connect 
+09:47:55 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Processing failed: org.apache.nifi.processor.exception.ProcessException: Could not connect binlog client to any of the specified hosts due to: Failed to determine binlog filename/position
+- Caused by: java.io.IOException: Could not connect 
+09:47:55 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Processing failed: org.apache.nifi.processor.exception.ProcessException: Could not connect binlog client to any of the specified hosts due to: Failed to determine binlog filename/position
+- Caused by: java.io.IOException: Could not connect 
+09:48:25 hàng đợi=0 | đã ghi 0 sự kiện (top bảng): 
+09:48:25 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Processing failed: org.apache.nifi.processor.exception.ProcessException: Could not connect binlog client to any of the specified hosts due to: Failed to determine binlog filename/position
+- Caused by: java.io.IOException: Could not connect 
+09:48:25 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Processing failed: org.apache.nifi.processor.exception.ProcessException: Could not connect binlog client to any of the specified hosts due to: Failed to determine binlog filename/position
+- Caused by: java.io.IOException: Could not connect 
+09:48:25 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Processing failed: org.apache.nifi.processor.exception.ProcessException: Could not connect binlog client to any of the specified hosts due to: Failed to determine binlog filename/position
+- Caused by: java.io.IOException: Could not connect 
+09:48:25 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Processing failed: org.apache.nifi.processor.exception.ProcessException: Could not connect binlog client to any of the specified hosts due to: Failed to determine binlog filename/position
+- Caused by: java.io.IOException: Could not connect 
+09:48:25 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Processing failed: org.apache.nifi.processor.exception.ProcessException: Could not connect binlog client to any of the specified hosts due to: Failed to determine binlog filename/position
+- Caused by: java.io.IOException: Could not connect 
+09:48:55 hàng đợi=0 | đã ghi 0 sự kiện (top bảng): 
+09:48:55 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Processing failed: org.apache.nifi.processor.exception.ProcessException: Could not connect binlog client to any of the specified hosts due to: Failed to determine binlog filename/position
+- Caused by: java.io.IOException: Could not connect 
+09:48:55 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Processing failed: org.apache.nifi.processor.exception.ProcessException: Could not connect binlog client to any of the specified hosts due to: Failed to determine binlog filename/position
+- Caused by: java.io.IOException: Could not connect 
+09:48:55 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Processing failed: org.apache.nifi.processor.exception.ProcessException: Could not connect binlog client to any of the specified hosts due to: Failed to determine binlog filename/position
+- Caused by: java.io.IOException: Could not connect 
+09:48:55 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Processing failed: org.apache.nifi.processor.exception.ProcessException: Could not connect binlog client to any of the specified hosts due to: Failed to determine binlog filename/position
+- Caused by: java.io.IOException: Could not connect 
+09:48:55 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Processing failed: org.apache.nifi.processor.exception.ProcessException: Could not connect binlog client to any of the specified hosts due to: Failed to determine binlog filename/position
+- Caused by: java.io.IOException: Could not connect 
+09:49:25 hàng đợi=0 | đã ghi 0 sự kiện (top bảng): 
+09:49:25 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Binlog connector communications failure: Binary log is not open: com.github.shyiko.mysql.binlog.network.ServerException: Binary log is not open
+09:49:25 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Binlog connector communications failure: Binary log is not open: com.github.shyiko.mysql.binlog.network.ServerException: Binary log is not open
+09:49:25 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Binlog connector communications failure: Binary log is not open: com.github.shyiko.mysql.binlog.network.ServerException: Binary log is not open
+09:49:25 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Binlog connector communications failure: Binary log is not open: com.github.shyiko.mysql.binlog.network.ServerException: Binary log is not open
+09:49:25 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Binlog connector communications failure: Binary log is not open: com.github.shyiko.mysql.binlog.network.ServerException: Binary log is not open
+09:49:55 hàng đợi=0 | đã ghi 0 sự kiện (top bảng): 
+09:49:55 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Binlog connector communications failure: Binary log is not open: com.github.shyiko.mysql.binlog.network.ServerException: Binary log is not open
+09:49:55 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Binlog connector communications failure: Binary log is not open: com.github.shyiko.mysql.binlog.network.ServerException: Binary log is not open
+09:49:55 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Binlog connector communications failure: Binary log is not open: com.github.shyiko.mysql.binlog.network.ServerException: Binary log is not open
+09:49:55 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Binlog connector communications failure: Binary log is not open: com.github.shyiko.mysql.binlog.network.ServerException: Binary log is not open
+09:49:55 BULLETIN ERROR CDC binlog (THỬ) CaptureChangeMySQL[id=142f4506-6ef6-1fc2-5e7f-f410afef5c53] Binlog connector communications failure: Binary log is not open: com.github.shyiko.mysql.binlog.network.ServerException: Binary log is not open
+09:50:25 hàng đợi=0 | đã ghi 0 sự kiện (top bảng): 

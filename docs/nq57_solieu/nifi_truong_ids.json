@@ -1,0 +1,49 @@
+{
+ "branches": {
+  "solieu_truong": {
+   "table": "nq57_solieu_truong",
+   "esr": "142f4466-6ef6-1fc2-7b1f-c75f552cac33",
+   "route": "142f4467-6ef6-1fc2-1ec6-32c77f4ed751",
+   "upsert": "142f4468-6ef6-1fc2-7e52-2b7da4ea98bd",
+   "replace": "142f4469-6ef6-1fc2-3b76-d15d437f649e",
+   "inner_conns": [
+    "142f446a-6ef6-1fc2-1251-e9a0505f7a61",
+    "142f446b-6ef6-1fc2-c7a0-f2e3da41a2bf",
+    "142f446c-6ef6-1fc2-fce3-781fafc7c2fa"
+   ],
+   "conns": [
+    "142f446d-6ef6-1fc2-bfe1-a1d71b737c2f",
+    "142f446e-6ef6-1fc2-05d6-7e238c5593e1",
+    "142f446f-6ef6-1fc2-00a1-fe99a3e3c792",
+    "142f4470-6ef6-1fc2-9a36-7209f8d9e63d",
+    "142f4471-6ef6-1fc2-943f-c1b3ba3841cc"
+   ]
+  },
+  "truong": {
+   "table": "nq57_truong",
+   "esr": "142f4473-6ef6-1fc2-629d-27d3e42e07ff",
+   "route": "142f4474-6ef6-1fc2-bb79-4c844d0d4941",
+   "upsert": "142f4475-6ef6-1fc2-3767-325aa991f6d6",
+   "replace": "142f4476-6ef6-1fc2-d787-9e4c52f4f81b",
+   "inner_conns": [
+    "142f4477-6ef6-1fc2-eaff-c38031eca2b6",
+    "142f4478-6ef6-1fc2-a831-f88a28cc9fc5",
+    "142f4479-6ef6-1fc2-1024-8419111e2126"
+   ],
+   "conns": [
+    "142f447a-6ef6-1fc2-9598-09738ff67c1e",
+    "142f447b-6ef6-1fc2-d48c-f358ee00238c",
+    "142f447c-6ef6-1fc2-fa38-59f5e8d04818",
+    "142f447d-6ef6-1fc2-f75d-b5b281dfefcd",
+    "142f447e-6ef6-1fc2-a88c-9cfa4656525b"
+   ]
+  }
+ },
+ "labels": [
+  "142f4482-6ef6-1fc2-7a5b-33adfa84c413",
+  "142f4483-6ef6-1fc2-1c49-745bada94ae8",
+  "142f4484-6ef6-1fc2-96f6-12a4c65e77b9",
+  "142f4485-6ef6-1fc2-785a-7f5c47f6db26",
+  "142f4486-6ef6-1fc2-ec7e-5df06659222d"
+ ]
+}

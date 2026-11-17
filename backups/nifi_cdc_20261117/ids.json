@@ -1,0 +1,14 @@
+{
+ "group": "142f4500-6ef6-1fc2-444c-eb4ef6e7ddf4",
+ "probe": "142f4501-6ef6-1fc2-20e4-2b79baf69245",
+ "cdc": "142f4506-6ef6-1fc2-5e7f-f410afef5c53",
+ "p_T\u00e1ch tr\u01b0\u1eddng s\u1ef1 ki\u1ec7n": "142f4507-6ef6-1fc2-40e2-30d10e118fbe",
+ "p_T\u1ea1o INSERT rt_cdc_log": "142f4508-6ef6-1fc2-5ce1-25704804a3dc",
+ "p_DDL rt_cdc_log (ch\u1ea1y 1 l\u1ea7n)": "142f4509-6ef6-1fc2-562d-e1b47c184760",
+ "p_Ghi rt_cdc_log": "142f450a-6ef6-1fc2-3dde-47400d2b19b9",
+ "c_142f4506_142f4507_success": "142f450b-6ef6-1fc2-e2c0-6e440bfefb22",
+ "c_142f4507_142f4508_matched": "142f450c-6ef6-1fc2-41be-8b382ad868ab",
+ "c_142f4508_142f450a_success": "142f450d-6ef6-1fc2-2a79-ea2b19224a67",
+ "c_142f4509_142f450a_success": "142f450e-6ef6-1fc2-4250-0a6d96612b9e",
+ "p_poll": "142f4510-6ef6-1fc2-f8ac-9a3fd4bcbbb1"
+}

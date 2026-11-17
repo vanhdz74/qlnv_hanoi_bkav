@@ -1,0 +1,1038 @@
+{
+ "description_columns": {},
+ "id": 145,
+ "label_columns": {
+  "always_filter_main_dttm": "Always Filter Main Dttm",
+  "cache_timeout": "Hết thời gian chờ bộ đệm",
+  "catalog": "Danh mục",
+  "changed_by.first_name": "Changed By First Name",
+  "changed_by.last_name": "Changed By Last Name",
+  "changed_on": "Changed On",
+  "changed_on_humanized": "Changed On Humanized",
+  "column_formats": "Column Formats",
+  "columns.advanced_data_type": "Columns Advanced Data Type",
+  "columns.changed_on": "Columns Changed On",
+  "columns.column_name": "Columns Column Name",
+  "columns.created_on": "Columns Created On",
+  "columns.description": "Columns Description",
+  "columns.expression": "Columns Expression",
+  "columns.extra": "Columns Extra",
+  "columns.filterable": "Columns Filterable",
+  "columns.groupby": "Columns Groupby",
+  "columns.id": "Columns Id",
+  "columns.is_active": "Columns Is Active",
+  "columns.is_dttm": "Columns Is Dttm",
+  "columns.python_date_format": "Columns Python Date Format",
+  "columns.type": "Columns Type",
+  "columns.type_generic": "Columns Type Generic",
+  "columns.uuid": "Columns Uuid",
+  "columns.verbose_name": "Columns Verbose Name",
+  "created_by.first_name": "Created By First Name",
+  "created_by.last_name": "Created By Last Name",
+  "created_on": "Created On",
+  "created_on_humanized": "Created On Humanized",
+  "currency_formats": "Currency Formats",
+  "database.allow_multi_catalog": "Database Allow Multi Catalog",
+  "database.backend": "Database Backend",
+  "database.database_name": "Database Database Name",
+  "database.id": "Database Id",
+  "datasource_name": "Datasource Name",
+  "datasource_type": "Datasource Type",
+  "default_endpoint": "Điểm cuối mặc định",
+  "description": "Mô tả",
+  "extra": "Thêm",
+  "fetch_values_predicate": "Vị ngữ giá trị tìm nạp",
+  "filter_select_enabled": "Filter Select Enabled",
+  "granularity_sqla": "Granularity Sqla",
+  "id": "Id",
+  "is_managed_externally": "Is Managed Externally",
+  "is_sqllab_view": "Is Sqllab View",
+  "kind": "Kind",
+  "main_dttm_col": "Main Dttm Col",
+  "metrics.changed_on": "Metrics Changed On",
+  "metrics.created_on": "Metrics Created On",
+  "metrics.currency": "Metrics Currency",
+  "metrics.d3format": "Metrics D3Format",
+  "metrics.description": "Metrics Description",
+  "metrics.expression": "Metrics Expression",
+  "metrics.extra": "Metrics Extra",
+  "metrics.id": "Metrics Id",
+  "metrics.metric_name": "Metrics Metric Name",
+  "metrics.metric_type": "Metrics Metric Type",
+  "metrics.verbose_name": "Metrics Verbose Name",
+  "metrics.warning_text": "Metrics Warning Text",
+  "name": "Tên",
+  "normalize_columns": "Normalize Columns",
+  "offset": "Bù đắp",
+  "order_by_choices": "Order By Choices",
+  "owners.first_name": "Owners First Name",
+  "owners.id": "Owners Id",
+  "owners.last_name": "Owners Last Name",
+  "schema": "Lược đồ",
+  "select_star": "Select Star",
+  "sql": "Sql",
+  "table_name": "Tên bảng",
+  "template_params": "Template Params",
+  "time_grain_sqla": "Time Grain Sqla",
+  "uid": "Uid",
+  "url": "Url",
+  "verbose_map": "Verbose Map"
+ },
+ "result": {
+  "always_filter_main_dttm": false,
+  "cache_timeout": null,
+  "catalog": null,
+  "changed_by": {
+   "first_name": "Superset",
+   "last_name": "Admin"
+  },
+  "changed_on": "2026-11-13T10:47:30.981673",
+  "changed_on_humanized": "2 ngày trước",
+  "column_formats": {},
+  "columns": [
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311063",
+    "column_name": "nhom_du_lieu",
+    "created_on": "2026-11-08T05:28:03.143535",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3776,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "dfba093d-5dd4-430a-b170-017c4d31e304",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311118",
+    "column_name": "ma_chi_so",
+    "created_on": "2026-11-08T05:28:03.143562",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3777,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "62f97713-601a-47f7-87f5-ce6367185bce",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311125",
+    "column_name": "ky",
+    "created_on": "2026-11-08T05:28:03.143574",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3778,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "b5dee0af-f61b-4491-8241-6b43f2549ee9",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311131",
+    "column_name": "phan_to",
+    "created_on": "2026-11-08T05:28:03.143584",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3779,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "a6f61e14-9a74-43b7-a7c3-901f266aa493",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311137",
+    "column_name": "thu_tu_ky",
+    "created_on": "2026-11-08T05:28:03.143595",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3780,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "LONG",
+    "type_generic": 0,
+    "uuid": "788f0cae-d5d6-4c3d-bbd2-a0b3743cca82",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311143",
+    "column_name": "thu_tu_chi_so",
+    "created_on": "2026-11-08T05:28:03.143606",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3781,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "LONG",
+    "type_generic": 0,
+    "uuid": "a3e1e103-28d5-4436-b375-5bc23c7a3b6e",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311149",
+    "column_name": "stt_chuyen_de",
+    "created_on": "2026-11-08T05:28:03.143616",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3782,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "LONG",
+    "type_generic": 0,
+    "uuid": "5fc570ed-5025-4577-8826-469be5c776f8",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311155",
+    "column_name": "chuyen_de",
+    "created_on": "2026-11-08T05:28:03.143626",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3783,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "efb67e05-999a-409c-946e-5e344448c560",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311161",
+    "column_name": "ten_chi_so",
+    "created_on": "2026-11-08T05:28:03.143637",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3784,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "2c0fc3f7-8df8-4448-871f-890e89b99f32",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311167",
+    "column_name": "ten_ngan",
+    "created_on": "2026-11-08T05:28:03.143647",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3785,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "d7ba27f4-d882-479a-9d5a-94eb4cea4243",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311173",
+    "column_name": "don_vi_tinh",
+    "created_on": "2026-11-08T05:28:03.143658",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3786,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "6ec78211-c14b-459f-96d0-5c11e1d163c5",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311178",
+    "column_name": "loai_chi_so",
+    "created_on": "2026-11-08T05:28:03.143669",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3787,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "bb9c86f7-3437-4c6b-97dd-ff9be627d4a4",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311184",
+    "column_name": "giam_la_tot",
+    "created_on": "2026-11-08T05:28:03.143680",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3788,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "TINY",
+    "type_generic": null,
+    "uuid": "81589b3e-616c-4709-9b5a-5468e65f134f",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311190",
+    "column_name": "nguong",
+    "created_on": "2026-11-08T05:28:03.143690",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3789,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "NEWDECIMAL",
+    "type_generic": null,
+    "uuid": "70c15dc0-75b4-4287-9f23-1f1b03762979",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311196",
+    "column_name": "ten_nguong",
+    "created_on": "2026-11-08T05:28:03.143701",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3790,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "46b3736c-b725-4b8e-a02c-6e71937b4a9d",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311202",
+    "column_name": "tu_so",
+    "created_on": "2026-11-08T05:28:03.143711",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3791,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "NEWDECIMAL",
+    "type_generic": null,
+    "uuid": "b650f036-85df-4400-a928-ab32f32fb5ee",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311208",
+    "column_name": "mau_so",
+    "created_on": "2026-11-08T05:28:03.143722",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3792,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "NEWDECIMAL",
+    "type_generic": null,
+    "uuid": "3b0865d5-db3b-429b-853e-0e1393ea40e8",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311214",
+    "column_name": "gia_tri",
+    "created_on": "2026-11-08T05:28:03.143733",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3793,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "NEWDECIMAL",
+    "type_generic": null,
+    "uuid": "d628af6b-729e-4192-8cab-0c1ce5fdb769",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311220",
+    "column_name": "co_so_lieu",
+    "created_on": "2026-11-08T05:28:03.143744",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3794,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "LONGLONG",
+    "type_generic": 0,
+    "uuid": "af999998-04a8-4c56-9778-a8b29c0ea258",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311226",
+    "column_name": "nguon_so_lieu",
+    "created_on": "2026-11-08T05:28:03.143754",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3795,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "c84a1a1b-8cef-4052-9a82-5d7cba1081f9",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311232",
+    "column_name": "vi_tri",
+    "created_on": "2026-11-08T05:28:03.143764",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3796,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "NULL",
+    "type_generic": null,
+    "uuid": "5a13bb6c-2dc2-4ba1-9f5f-29bddd8a8636",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311238",
+    "column_name": "trich_dan",
+    "created_on": "2026-11-08T05:28:03.143775",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3797,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "NULL",
+    "type_generic": null,
+    "uuid": "92bddadd-87e8-46c8-a0d4-435f679560e9",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311243",
+    "column_name": "dau_moi",
+    "created_on": "2026-11-08T05:28:03.143785",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3798,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "c301b1d4-8600-4488-afcb-cbc56f97078e",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311249",
+    "column_name": "luu_y",
+    "created_on": "2026-11-08T05:28:03.143795",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3799,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "BLOB",
+    "type_generic": null,
+    "uuid": "cf7f9dcc-4a8b-44b5-ae7c-62c0d9171365",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311255",
+    "column_name": "ghi_chu",
+    "created_on": "2026-11-08T05:28:03.143806",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3800,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "fba6ffd9-fbb0-428a-8021-15130fde30e8",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.311261",
+    "column_name": "thong_tin_them",
+    "created_on": "2026-11-08T05:28:03.143817",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3801,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "NULL",
+    "type_generic": null,
+    "uuid": "3f7d7a5c-243b-4a37-8a4d-c6337f3ec01d",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-13T10:46:57.315437",
+    "column_name": "sync_date",
+    "created_on": "2026-11-08T05:28:03.143827",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 3802,
+    "is_active": true,
+    "is_dttm": true,
+    "python_date_format": null,
+    "type": "DATETIME",
+    "type_generic": 2,
+    "uuid": "f764bdb2-036c-4b83-b70b-422456750294",
+    "verbose_name": null
+   }
+  ],
+  "created_by": {
+   "first_name": "Superset",
+   "last_name": "Admin"
+  },
+  "created_on": "2026-11-08T05:28:03.067325",
+  "created_on_humanized": "7 ngày trước",
+  "currency_formats": {},
+  "database": {
+   "allow_multi_catalog": false,
+   "backend": "mysql",
+   "database_name": "TDNV",
+   "id": 8
+  },
+  "datasource_name": "chuyen_de_chi_tiet_nq57",
+  "datasource_type": "table",
+  "default_endpoint": null,
+  "description": null,
+  "extra": null,
+  "fetch_values_predicate": null,
+  "filter_select_enabled": true,
+  "granularity_sqla": [
+   [
+    "sync_date",
+    "sync_date"
+   ]
+  ],
+  "id": 145,
+  "is_managed_externally": false,
+  "is_sqllab_view": false,
+  "kind": "virtual",
+  "main_dttm_col": "sync_date",
+  "metrics": [
+   {
+    "changed_on": "2026-11-08T05:28:03.164186",
+    "created_on": "2026-11-08T05:28:03.164182",
+    "currency": null,
+    "d3format": null,
+    "description": null,
+    "expression": "COUNT(*)",
+    "extra": null,
+    "id": 145,
+    "metric_name": "count",
+    "metric_type": "count",
+    "verbose_name": "COUNT(*)",
+    "warning_text": null
+   }
+  ],
+  "name": "datamart_hanoi.chuyen_de_chi_tiet_nq57",
+  "normalize_columns": false,
+  "offset": 0,
+  "order_by_choices": [
+   [
+    "[\"chuyen_de\", true]",
+    "chuyen_de [tăng]"
+   ],
+   [
+    "[\"chuyen_de\", false]",
+    "chuyen_de [mô tả]"
+   ],
+   [
+    "[\"co_so_lieu\", true]",
+    "co_so_lieu [tăng]"
+   ],
+   [
+    "[\"co_so_lieu\", false]",
+    "co_so_lieu [mô tả]"
+   ],
+   [
+    "[\"dau_moi\", true]",
+    "dau_moi [tăng]"
+   ],
+   [
+    "[\"dau_moi\", false]",
+    "dau_moi [mô tả]"
+   ],
+   [
+    "[\"don_vi_tinh\", true]",
+    "don_vi_tinh [tăng]"
+   ],
+   [
+    "[\"don_vi_tinh\", false]",
+    "don_vi_tinh [mô tả]"
+   ],
+   [
+    "[\"ghi_chu\", true]",
+    "ghi_chu [tăng]"
+   ],
+   [
+    "[\"ghi_chu\", false]",
+    "ghi_chu [mô tả]"
+   ],
+   [
+    "[\"gia_tri\", true]",
+    "gia_tri [tăng]"
+   ],
+   [
+    "[\"gia_tri\", false]",
+    "gia_tri [mô tả]"
+   ],
+   [
+    "[\"giam_la_tot\", true]",
+    "giam_la_tot [tăng]"
+   ],
+   [
+    "[\"giam_la_tot\", false]",
+    "giam_la_tot [mô tả]"
+   ],
+   [
+    "[\"ky\", true]",
+    "ky [tăng]"
+   ],
+   [
+    "[\"ky\", false]",
+    "ky [mô tả]"
+   ],
+   [
+    "[\"loai_chi_so\", true]",
+    "loai_chi_so [tăng]"
+   ],
+   [
+    "[\"loai_chi_so\", false]",
+    "loai_chi_so [mô tả]"
+   ],
+   [
+    "[\"luu_y\", true]",
+    "luu_y [tăng]"
+   ],
+   [
+    "[\"luu_y\", false]",
+    "luu_y [mô tả]"
+   ],
+   [
+    "[\"ma_chi_so\", true]",
+    "ma_chi_so [tăng]"
+   ],
+   [
+    "[\"ma_chi_so\", false]",
+    "ma_chi_so [mô tả]"
+   ],
+   [
+    "[\"mau_so\", true]",
+    "mau_so [tăng]"
+   ],
+   [
+    "[\"mau_so\", false]",
+    "mau_so [mô tả]"
+   ],
+   [
+    "[\"nguon_so_lieu\", true]",
+    "nguon_so_lieu [tăng]"
+   ],
+   [
+    "[\"nguon_so_lieu\", false]",
+    "nguon_so_lieu [mô tả]"
+   ],
+   [
+    "[\"nguong\", true]",
+    "nguong [tăng]"
+   ],
+   [
+    "[\"nguong\", false]",
+    "nguong [mô tả]"
+   ],
+   [
+    "[\"nhom_du_lieu\", true]",
+    "nhom_du_lieu [tăng]"
+   ],
+   [
+    "[\"nhom_du_lieu\", false]",
+    "nhom_du_lieu [mô tả]"
+   ],
+   [
+    "[\"phan_to\", true]",
+    "phan_to [tăng]"
+   ],
+   [
+    "[\"phan_to\", false]",
+    "phan_to [mô tả]"
+   ],
+   [
+    "[\"stt_chuyen_de\", true]",
+    "stt_chuyen_de [tăng]"
+   ],
+   [
+    "[\"stt_chuyen_de\", false]",
+    "stt_chuyen_de [mô tả]"
+   ],
+   [
+    "[\"sync_date\", true]",
+    "sync_date [tăng]"
+   ],
+   [
+    "[\"sync_date\", false]",
+    "sync_date [mô tả]"
+   ],
+   [
+    "[\"ten_chi_so\", true]",
+    "ten_chi_so [tăng]"
+   ],
+   [
+    "[\"ten_chi_so\", false]",
+    "ten_chi_so [mô tả]"
+   ],
+   [
+    "[\"ten_ngan\", true]",
+    "ten_ngan [tăng]"
+   ],
+   [
+    "[\"ten_ngan\", false]",
+    "ten_ngan [mô tả]"
+   ],
+   [
+    "[\"ten_nguong\", true]",
+    "ten_nguong [tăng]"
+   ],
+   [
+    "[\"ten_nguong\", false]",
+    "ten_nguong [mô tả]"
+   ],
+   [
+    "[\"thong_tin_them\", true]",
+    "thong_tin_them [tăng]"
+   ],
+   [
+    "[\"thong_tin_them\", false]",
+    "thong_tin_them [mô tả]"
+   ],
+   [
+    "[\"thu_tu_chi_so\", true]",
+    "thu_tu_chi_so [tăng]"
+   ],
+   [
+    "[\"thu_tu_chi_so\", false]",
+    "thu_tu_chi_so [mô tả]"
+   ],
+   [
+    "[\"thu_tu_ky\", true]",
+    "thu_tu_ky [tăng]"
+   ],
+   [
+    "[\"thu_tu_ky\", false]",
+    "thu_tu_ky [mô tả]"
+   ],
+   [
+    "[\"trich_dan\", true]",
+    "trich_dan [tăng]"
+   ],
+   [
+    "[\"trich_dan\", false]",
+    "trich_dan [mô tả]"
+   ],
+   [
+    "[\"tu_so\", true]",
+    "tu_so [tăng]"
+   ],
+   [
+    "[\"tu_so\", false]",
+    "tu_so [mô tả]"
+   ],
+   [
+    "[\"vi_tri\", true]",
+    "vi_tri [tăng]"
+   ],
+   [
+    "[\"vi_tri\", false]",
+    "vi_tri [mô tả]"
+   ]
+  ],
+  "owners": [
+   {
+    "first_name": "Superset",
+    "id": 3,
+    "last_name": "Admin"
+   }
+  ],
+  "schema": "datamart_hanoi",
+  "select_star": "SELECT\n  *\nFROM datamart_hanoi.chuyen_de_chi_tiet_nq57\nLIMIT 100",
+  "sql": "/* SINH TỰ ĐỘNG bởi build_sql.py — không sửa tay.\n   Dataset dashboard nq57-chuyen-de-chi-tiet: số liệu lấy từ datamart_hanoi.v_nq57_solieu (NQ57), cột giống datamart_hanoi.chuyen_de_chi_tiet_nq57.\n   Danh mục chỉ số (tên/chuyên đề/ngưỡng/đầu mối) lấy từ các dòng CHI_SO của bảng cũ; số liệu bảng cũ KHÔNG dùng. */\nSELECT\n    'CHI_SO'                       AS nhom_du_lieu,\n    dm.ma_chi_so,\n    k.ky,\n    ''                             AS phan_to,\n    k.thu_tu_ky,\n    dm.thu_tu_chi_so, dm.stt_chuyen_de, dm.chuyen_de, dm.ten_chi_so, dm.ten_ngan, dm.don_vi_tinh,\n    dm.loai_chi_so, dm.giam_la_tot, dm.nguong, dm.ten_nguong,\n    x.tu_so, x.mau_so, x.gia_tri,\n    IF(x.gia_tri IS NULL, 0, 1)    AS co_so_lieu,\n    IF(x.gia_tri IS NULL, NULL, CONCAT('NQ57 – cập nhật ', DATE_FORMAT(k.cap_nhat_luc, '%d/%m/%Y %H:%i'))) AS nguon_so_lieu,\n    NULL AS vi_tri, NULL AS trich_dan,\n    dm.dau_moi, dm.luu_y,\n    IF(x.gia_tri IS NULL AND x.ma IS NOT NULL, 'NQ57 chưa có số kỳ này', IF(x.ma IS NULL, 'Chưa có chỉ tiêu tương ứng trong NQ57', NULL)) AS ghi_chu,\n    NULL AS thong_tin_them,\n    k.sync_date\nFROM (\n    SELECT ma_chi_so,\n           MAX(thu_tu_chi_so) thu_tu_chi_so, MAX(stt_chuyen_de) stt_chuyen_de, MAX(chuyen_de) chuyen_de,\n           MAX(ten_chi_so) ten_chi_so, MAX(ten_ngan) ten_ngan, MAX(don_vi_tinh) don_vi_tinh, MAX(loai_chi_so) loai_chi_so,\n           MAX(giam_la_tot) giam_la_tot, MAX(nguong) nguong, MAX(ten_nguong) ten_nguong, MAX(dau_moi) dau_moi, MAX(luu_y) luu_y\n    FROM datamart_hanoi.chuyen_de_chi_tiet_nq57\n    WHERE nhom_du_lieu = 'CHI_SO'\n    GROUP BY ma_chi_so\n) dm\nCROSS JOIN (\n    SELECT ky AS ky_nq57,\n           CONCAT('T', CAST(RIGHT(ky, 2) AS UNSIGNED), '/', LEFT(ky, 4)) AS ky,\n           CAST(RIGHT(ky, 2) AS UNSIGNED) - 1 + (CAST(LEFT(ky, 4) AS UNSIGNED) - 2026) * 12 AS thu_tu_ky,\n           MAX(cap_nhat_luc) cap_nhat_luc, MAX(sync_date) sync_date\n    FROM datamart_hanoi.v_nq57_solieu\n    WHERE loai_so = 'ACTUAL' AND ky LIKE '____M__'  -- không dùng REGEXP: Superset đổi thành REGEXP_LIKE, MySQL 5.7 không có\n    GROUP BY ky\n) k\nLEFT JOIN (\n    SELECT mp.ma, p.ky,\n           CASE mp.ma\n                WHEN 'AT02' THEN p.`B08_A02`\n                WHEN 'AT09' THEN p.`B08_A14`\n                WHEN 'CS07' THEN IF(p.`TH05_XA_SO` > 0, p.`TH05_XA_MOHINH`, NULL)\n                WHEN 'CS08' THEN IF(p.`TH05_XA_SO` > 0, p.`TH05_XA_DULIEU`, NULL)\n                WHEN 'CS09' THEN IF(p.`TH05_XA_SO` > 0, p.`TH05_XA_DVC`, NULL)\n                WHEN 'CS17' THEN p.`B10_A03`\n                WHEN 'DD05' THEN p.`B07_A03`\n                WHEN 'DL01' THEN p.`B04_A02`\n                WHEN 'DL05' THEN p.`B04_A07`\n                WHEN 'DL08' THEN p.`B04_A05`\n                WHEN 'KH04' THEN p.`B05_D02`\n                WHEN 'NT02' THEN p.`B04_C03`\n                WHEN 'NT10' THEN p.`B09_A10`\n                WHEN 'NT12' THEN p.`B09_B03`\n                WHEN 'NT13' THEN p.`B09_B04`\n                WHEN 'TC03' THEN (CASE WHEN COALESCE(p.`B03_A_DT_PHANBO`, p.`B03_A_TX_TINH_PHANBO`, p.`B03_A_TX_XA_PHANBO`) IS NULL THEN NULL ELSE IFNULL(p.`B03_A_DT_PHANBO`,0) + IFNULL(p.`B03_A_TX_TINH_PHANBO`,0) + IFNULL(p.`B03_A_TX_XA_PHANBO`,0) END)\n                WHEN 'TC04' THEN p.`B03_A_DT_PHANBO`\n                WHEN 'TC05' THEN (CASE WHEN COALESCE(p.`B03_A_TX_TINH_PHANBO`, p.`B03_A_TX_XA_PHANBO`) IS NULL THEN NULL ELSE IFNULL(p.`B03_A_TX_TINH_PHANBO`,0) + IFNULL(p.`B03_A_TX_XA_PHANBO`,0) END)\n                WHEN 'TC06' THEN p.`B03_A_TX_TINH_GN_LK`\n                WHEN 'TC07' THEN p.`B03_A_TX_XA_GN_LK`\n                WHEN 'TC08' THEN p.`B03_A_DT_GN_LK`\n                WHEN 'TC09' THEN p.`TH00_28`\n                WHEN 'TC13' THEN (CASE WHEN COALESCE(p.`B03_A_DT_GN_LK`, p.`B03_A_TX_TINH_GN_LK`, p.`B03_A_TX_XA_GN_LK`, p.`B03_A_CN_GN_LK`) IS NULL THEN NULL ELSE IFNULL(p.`B03_A_DT_GN_LK`,0) + IFNULL(p.`B03_A_TX_TINH_GN_LK`,0) + IFNULL(p.`B03_A_TX_XA_GN_LK`,0) + IFNULL(p.`B03_A_CN_GN_LK`,0) END)\n                WHEN 'TT06' THEN p.`B06_B02`\n                WHEN 'TT08' THEN p.`B06_B08`\n                WHEN 'TT14' THEN p.`B06_B09`\n                WHEN 'TT16' THEN p.`B06_D02`\n           END AS tu_so,\n           CASE mp.ma\n                WHEN 'AT02' THEN p.`B08_A01`\n                WHEN 'AT09' THEN p.`B08_A13`\n                WHEN 'CS07' THEN p.`TH05_XA_SO`\n                WHEN 'CS08' THEN p.`TH05_XA_SO`\n                WHEN 'CS09' THEN p.`TH05_XA_SO`\n                WHEN 'CS17' THEN 126\n                WHEN 'DD05' THEN p.`B07_A01`\n                WHEN 'DL01' THEN p.`B04_A01`\n                WHEN 'DL08' THEN p.`B04_A01`\n                WHEN 'KH04' THEN p.`B05_D01`\n                WHEN 'NT02' THEN p.`B04_C02`\n                WHEN 'NT10' THEN p.`B09_A09`\n                WHEN 'NT12' THEN p.`B09_B02`\n                WHEN 'NT13' THEN p.`B09_B02`\n                WHEN 'TC03' THEN p.`TH00_27`\n                WHEN 'TC04' THEN p.`B03_A_DT_DUTOAN`\n                WHEN 'TC05' THEN (CASE WHEN COALESCE(p.`B03_A_TX_TINH_DUTOAN`, p.`B03_A_TX_XA_DUTOAN`) IS NULL THEN NULL ELSE IFNULL(p.`B03_A_TX_TINH_DUTOAN`,0) + IFNULL(p.`B03_A_TX_XA_DUTOAN`,0) END)\n                WHEN 'TC06' THEN p.`B03_A_TX_TINH_DUTOAN`\n                WHEN 'TC07' THEN p.`B03_A_TX_XA_DUTOAN`\n                WHEN 'TC08' THEN p.`B03_A_DT_DUTOAN`\n                WHEN 'TC09' THEN p.`TH00_27`\n                WHEN 'TC13' THEN (CASE WHEN COALESCE(p.`B03_A_DT_DUTOAN`, p.`B03_A_TX_TINH_DUTOAN`, p.`B03_A_TX_XA_DUTOAN`, p.`B03_A_CN_DUTOAN`) IS NULL THEN NULL ELSE IFNULL(p.`B03_A_DT_DUTOAN`,0) + IFNULL(p.`B03_A_TX_TINH_DUTOAN`,0) + IFNULL(p.`B03_A_TX_XA_DUTOAN`,0) + IFNULL(p.`B03_A_CN_DUTOAN`,0) END)\n                WHEN 'TT06' THEN p.`B06_B01`\n                WHEN 'TT08' THEN p.`B06_B07`\n                WHEN 'TT14' THEN p.`B06_B07`\n                WHEN 'TT16' THEN p.`B06_D01`\n           END AS mau_so,\n           CASE mp.ma\n                WHEN 'AT01' THEN p.`B08_A02`\n                WHEN 'AT02' THEN p.`B08_A02` / NULLIF(p.`B08_A01`, 0)\n                WHEN 'AT03' THEN p.`B08_A03`\n                WHEN 'AT04' THEN p.`B08_A04`\n                WHEN 'AT05' THEN p.`B08_A11`\n                WHEN 'AT06' THEN p.`B08_A12`\n                WHEN 'AT07' THEN p.`B08_A08`\n                WHEN 'AT08' THEN p.`B08_A07`\n                WHEN 'AT09' THEN p.`B08_A14` / NULLIF(p.`B08_A13`, 0)\n                WHEN 'CS07' THEN IF(p.`TH05_XA_SO` > 0, p.`TH05_XA_MOHINH`, NULL) / NULLIF(p.`TH05_XA_SO`, 0)\n                WHEN 'CS08' THEN IF(p.`TH05_XA_SO` > 0, p.`TH05_XA_DULIEU`, NULL) / NULLIF(p.`TH05_XA_SO`, 0)\n                WHEN 'CS09' THEN IF(p.`TH05_XA_SO` > 0, p.`TH05_XA_DVC`, NULL) / NULLIF(p.`TH05_XA_SO`, 0)\n                WHEN 'CS15' THEN p.`B01_C01`\n                WHEN 'CS16' THEN p.`B01_C02`\n                WHEN 'CS17' THEN p.`B10_A03` / NULLIF(126, 0)\n                WHEN 'CS18' THEN p.`B10_A04`\n                WHEN 'DD01' THEN p.`B07_A01`\n                WHEN 'DD04' THEN p.`B07_A03`\n                WHEN 'DD05' THEN p.`B07_A03` / NULLIF(p.`B07_A01`, 0)\n                WHEN 'DL01' THEN p.`B04_A02` / NULLIF(p.`B04_A01`, 0)\n                WHEN 'DL05' THEN NULL\n                WHEN 'DL06' THEN p.`B04_A06`\n                WHEN 'DL08' THEN p.`B04_A05` / NULLIF(p.`B04_A01`, 0)\n                WHEN 'DL09' THEN p.`B04_A10`\n                WHEN 'KH01' THEN p.`B11_A01` * 0.01\n                WHEN 'KH02' THEN p.`B11_A02` * 0.01\n                WHEN 'KH03' THEN p.`B11_A03` * 0.01\n                WHEN 'KH04' THEN p.`B05_D02` / NULLIF(p.`B05_D01`, 0)\n                WHEN 'KH06' THEN p.`B05_B_DEXUAT_LK`\n                WHEN 'KH07' THEN p.`B05_B_DATHANG_LK`\n                WHEN 'KH08' THEN p.`B05_B_BTUT_LK`\n                WHEN 'KH09' THEN p.`B05_E_CHUYENGIA_LK`\n                WHEN 'KH10' THEN p.`B05_E_TEX_TK_LK`\n                WHEN 'KH11' THEN p.`B05_E_TEX_DN_LK`\n                WHEN 'KH12' THEN p.`B05_E_TEX_GP_LK`\n                WHEN 'KH14' THEN p.`B05_E_DNKHCN_LK`\n                WHEN 'KH15' THEN p.`B05_E_SB_DX_LK`\n                WHEN 'NT01' THEN p.`B04_C03`\n                WHEN 'NT02' THEN p.`B04_C03` / NULLIF(p.`B04_C02`, 0)\n                WHEN 'NT03' THEN p.`B04_C01`\n                WHEN 'NT04' THEN p.`B04_C05`\n                WHEN 'NT05' THEN p.`B04_C10`\n                WHEN 'NT07' THEN p.`B04_C12`\n                WHEN 'NT08' THEN p.`B09_A01`\n                WHEN 'NT09' THEN p.`B09_A03`\n                WHEN 'NT10' THEN p.`B09_A10` / NULLIF(p.`B09_A09`, 0)\n                WHEN 'NT11' THEN p.`B09_B01`\n                WHEN 'NT12' THEN p.`B09_B03` / NULLIF(p.`B09_B02`, 0)\n                WHEN 'NT13' THEN p.`B09_B04` / NULLIF(p.`B09_B02`, 0)\n                WHEN 'NT14' THEN p.`B09_B05`\n                WHEN 'NT15' THEN p.`B09_B07`\n                WHEN 'TC01' THEN p.`TH00_27`\n                WHEN 'TC02' THEN (CASE WHEN COALESCE(p.`B03_A_DT_PHANBO`, p.`B03_A_TX_TINH_PHANBO`, p.`B03_A_TX_XA_PHANBO`) IS NULL THEN NULL ELSE IFNULL(p.`B03_A_DT_PHANBO`,0) + IFNULL(p.`B03_A_TX_TINH_PHANBO`,0) + IFNULL(p.`B03_A_TX_XA_PHANBO`,0) END)\n                WHEN 'TC03' THEN (CASE WHEN COALESCE(p.`B03_A_DT_PHANBO`, p.`B03_A_TX_TINH_PHANBO`, p.`B03_A_TX_XA_PHANBO`) IS NULL THEN NULL ELSE IFNULL(p.`B03_A_DT_PHANBO`,0) + IFNULL(p.`B03_A_TX_TINH_PHANBO`,0) + IFNULL(p.`B03_A_TX_XA_PHANBO`,0) END) / NULLIF(p.`TH00_27`, 0)\n                WHEN 'TC04' THEN p.`B03_A_DT_PHANBO` / NULLIF(p.`B03_A_DT_DUTOAN`, 0)\n                WHEN 'TC05' THEN (CASE WHEN COALESCE(p.`B03_A_TX_TINH_PHANBO`, p.`B03_A_TX_XA_PHANBO`) IS NULL THEN NULL ELSE IFNULL(p.`B03_A_TX_TINH_PHANBO`,0) + IFNULL(p.`B03_A_TX_XA_PHANBO`,0) END) / NULLIF((CASE WHEN COALESCE(p.`B03_A_TX_TINH_DUTOAN`, p.`B03_A_TX_XA_DUTOAN`) IS NULL THEN NULL ELSE IFNULL(p.`B03_A_TX_TINH_DUTOAN`,0) + IFNULL(p.`B03_A_TX_XA_DUTOAN`,0) END), 0)\n                WHEN 'TC06' THEN p.`B03_A_TX_TINH_GN_LK` / NULLIF(p.`B03_A_TX_TINH_DUTOAN`, 0)\n                WHEN 'TC07' THEN p.`B03_A_TX_XA_GN_LK` / NULLIF(p.`B03_A_TX_XA_DUTOAN`, 0)\n                WHEN 'TC08' THEN p.`B03_A_DT_GN_LK` / NULLIF(p.`B03_A_DT_DUTOAN`, 0)\n                WHEN 'TC09' THEN p.`TH00_28` / NULLIF(p.`TH00_27`, 0)\n                WHEN 'TC10' THEN p.`B03_B01`\n                WHEN 'TC11' THEN p.`B03_B02`\n                WHEN 'TC12' THEN (p.`TH00_27` - (CASE WHEN COALESCE(p.`B03_A_DT_PHANBO`, p.`B03_A_TX_TINH_PHANBO`, p.`B03_A_TX_XA_PHANBO`) IS NULL THEN NULL ELSE IFNULL(p.`B03_A_DT_PHANBO`,0) + IFNULL(p.`B03_A_TX_TINH_PHANBO`,0) + IFNULL(p.`B03_A_TX_XA_PHANBO`,0) END))\n                WHEN 'TC13' THEN (CASE WHEN COALESCE(p.`B03_A_DT_GN_LK`, p.`B03_A_TX_TINH_GN_LK`, p.`B03_A_TX_XA_GN_LK`, p.`B03_A_CN_GN_LK`) IS NULL THEN NULL ELSE IFNULL(p.`B03_A_DT_GN_LK`,0) + IFNULL(p.`B03_A_TX_TINH_GN_LK`,0) + IFNULL(p.`B03_A_TX_XA_GN_LK`,0) + IFNULL(p.`B03_A_CN_GN_LK`,0) END) / NULLIF((CASE WHEN COALESCE(p.`B03_A_DT_DUTOAN`, p.`B03_A_TX_TINH_DUTOAN`, p.`B03_A_TX_XA_DUTOAN`, p.`B03_A_CN_DUTOAN`) IS NULL THEN NULL ELSE IFNULL(p.`B03_A_DT_DUTOAN`,0) + IFNULL(p.`B03_A_TX_TINH_DUTOAN`,0) + IFNULL(p.`B03_A_TX_XA_DUTOAN`,0) + IFNULL(p.`B03_A_CN_DUTOAN`,0) END), 0)\n                WHEN 'TT05' THEN p.`B06_B02`\n                WHEN 'TT06' THEN p.`B06_B02` / NULLIF(p.`B06_B01`, 0)\n                WHEN 'TT07' THEN p.`B06_B05`\n                WHEN 'TT08' THEN p.`B06_B08` / NULLIF(p.`B06_B07`, 0)\n                WHEN 'TT10' THEN p.`B06_A_766`\n                WHEN 'TT12' THEN p.`B06_A_DATLICH`\n                WHEN 'TT13' THEN p.`B06_A_TGPV`\n                WHEN 'TT14' THEN p.`B06_B09` / NULLIF(p.`B06_B07`, 0)\n                WHEN 'TT15' THEN p.`B06_D01`\n                WHEN 'TT16' THEN p.`B06_D02` / NULLIF(p.`B06_D01`, 0)\n                WHEN 'TT17' THEN p.`B04_F01`\n           END AS gia_tri\n    FROM (\n        SELECT b.ky,\n            MAX(IF(b.m = 'B01_C01', b.v, NULL)) AS `B01_C01`,\n            MAX(IF(b.m = 'B01_C02', b.v, NULL)) AS `B01_C02`,\n            MAX(IF(b.m = 'B03_A_CN_DUTOAN', b.v, NULL)) AS `B03_A_CN_DUTOAN`,\n            MAX(IF(b.m = 'B03_A_CN_GN_LK', b.v, NULL)) AS `B03_A_CN_GN_LK`,\n            MAX(IF(b.m = 'B03_A_DT_DUTOAN', b.v, NULL)) AS `B03_A_DT_DUTOAN`,\n            MAX(IF(b.m = 'B03_A_DT_GN_LK', b.v, NULL)) AS `B03_A_DT_GN_LK`,\n            MAX(IF(b.m = 'B03_A_DT_PHANBO', b.v, NULL)) AS `B03_A_DT_PHANBO`,\n            MAX(IF(b.m = 'B03_A_TX_TINH_DUTOAN', b.v, NULL)) AS `B03_A_TX_TINH_DUTOAN`,\n            MAX(IF(b.m = 'B03_A_TX_TINH_GN_LK', b.v, NULL)) AS `B03_A_TX_TINH_GN_LK`,\n            MAX(IF(b.m = 'B03_A_TX_TINH_PHANBO', b.v, NULL)) AS `B03_A_TX_TINH_PHANBO`,\n            MAX(IF(b.m = 'B03_A_TX_XA_DUTOAN', b.v, NULL)) AS `B03_A_TX_XA_DUTOAN`,\n            MAX(IF(b.m = 'B03_A_TX_XA_GN_LK', b.v, NULL)) AS `B03_A_TX_XA_GN_LK`,\n            MAX(IF(b.m = 'B03_A_TX_XA_PHANBO', b.v, NULL)) AS `B03_A_TX_XA_PHANBO`,\n            MAX(IF(b.m = 'B03_B01', b.v, NULL)) AS `B03_B01`,\n            MAX(IF(b.m = 'B03_B02', b.v, NULL)) AS `B03_B02`,\n            MAX(IF(b.m = 'B04_A01', b.v, NULL)) AS `B04_A01`,\n            MAX(IF(b.m = 'B04_A02', b.v, NULL)) AS `B04_A02`,\n            MAX(IF(b.m = 'B04_A05', b.v, NULL)) AS `B04_A05`,\n            MAX(IF(b.m = 'B04_A06', b.v, NULL)) AS `B04_A06`,\n            MAX(IF(b.m = 'B04_A07', b.v, NULL)) AS `B04_A07`,\n            MAX(IF(b.m = 'B04_A10', b.v, NULL)) AS `B04_A10`,\n            MAX(IF(b.m = 'B04_C01', b.v, NULL)) AS `B04_C01`,\n            MAX(IF(b.m = 'B04_C02', b.v, NULL)) AS `B04_C02`,\n            MAX(IF(b.m = 'B04_C03', b.v, NULL)) AS `B04_C03`,\n            MAX(IF(b.m = 'B04_C05', b.v, NULL)) AS `B04_C05`,\n            MAX(IF(b.m = 'B04_C10', b.v, NULL)) AS `B04_C10`,\n            MAX(IF(b.m = 'B04_C12', b.v, NULL)) AS `B04_C12`,\n            MAX(IF(b.m = 'B04_F01', b.v, NULL)) AS `B04_F01`,\n            MAX(IF(b.m = 'B05_B_BTUT_LK', b.v, NULL)) AS `B05_B_BTUT_LK`,\n            MAX(IF(b.m = 'B05_B_DATHANG_LK', b.v, NULL)) AS `B05_B_DATHANG_LK`,\n            MAX(IF(b.m = 'B05_B_DEXUAT_LK', b.v, NULL)) AS `B05_B_DEXUAT_LK`,\n            MAX(IF(b.m = 'B05_D01', b.v, NULL)) AS `B05_D01`,\n            MAX(IF(b.m = 'B05_D02', b.v, NULL)) AS `B05_D02`,\n            MAX(IF(b.m = 'B05_E_CHUYENGIA_LK', b.v, NULL)) AS `B05_E_CHUYENGIA_LK`,\n            MAX(IF(b.m = 'B05_E_DNKHCN_LK', b.v, NULL)) AS `B05_E_DNKHCN_LK`,\n            MAX(IF(b.m = 'B05_E_SB_DX_LK', b.v, NULL)) AS `B05_E_SB_DX_LK`,\n            MAX(IF(b.m = 'B05_E_TEX_DN_LK', b.v, NULL)) AS `B05_E_TEX_DN_LK`,\n            MAX(IF(b.m = 'B05_E_TEX_GP_LK', b.v, NULL)) AS `B05_E_TEX_GP_LK`,\n            MAX(IF(b.m = 'B05_E_TEX_TK_LK', b.v, NULL)) AS `B05_E_TEX_TK_LK`,\n            MAX(IF(b.m = 'B06_A_766', b.v, NULL)) AS `B06_A_766`,\n            MAX(IF(b.m = 'B06_A_DATLICH', b.v, NULL)) AS `B06_A_DATLICH`,\n            MAX(IF(b.m = 'B06_A_TGPV', b.v, NULL)) AS `B06_A_TGPV`,\n            MAX(IF(b.m = 'B06_B01', b.v, NULL)) AS `B06_B01`,\n            MAX(IF(b.m = 'B06_B02', b.v, NULL)) AS `B06_B02`,\n            MAX(IF(b.m = 'B06_B05', b.v, NULL)) AS `B06_B05`,\n            MAX(IF(b.m = 'B06_B07', b.v, NULL)) AS `B06_B07`,\n            MAX(IF(b.m = 'B06_B08', b.v, NULL)) AS `B06_B08`,\n            MAX(IF(b.m = 'B06_B09', b.v, NULL)) AS `B06_B09`,\n            MAX(IF(b.m = 'B06_D01', b.v, NULL)) AS `B06_D01`,\n            MAX(IF(b.m = 'B06_D02', b.v, NULL)) AS `B06_D02`,\n            MAX(IF(b.m = 'B07_A01', b.v, NULL)) AS `B07_A01`,\n            MAX(IF(b.m = 'B07_A03', b.v, NULL)) AS `B07_A03`,\n            MAX(IF(b.m = 'B08_A01', b.v, NULL)) AS `B08_A01`,\n            MAX(IF(b.m = 'B08_A02', b.v, NULL)) AS `B08_A02`,\n            MAX(IF(b.m = 'B08_A03', b.v, NULL)) AS `B08_A03`,\n            MAX(IF(b.m = 'B08_A04', b.v, NULL)) AS `B08_A04`,\n            MAX(IF(b.m = 'B08_A07', b.v, NULL)) AS `B08_A07`,\n            MAX(IF(b.m = 'B08_A08', b.v, NULL)) AS `B08_A08`,\n            MAX(IF(b.m = 'B08_A11', b.v, NULL)) AS `B08_A11`,\n            MAX(IF(b.m = 'B08_A12', b.v, NULL)) AS `B08_A12`,\n            MAX(IF(b.m = 'B08_A13', b.v, NULL)) AS `B08_A13`,\n            MAX(IF(b.m = 'B08_A14', b.v, NULL)) AS `B08_A14`,\n            MAX(IF(b.m = 'B09_A01', b.v, NULL)) AS `B09_A01`,\n            MAX(IF(b.m = 'B09_A03', b.v, NULL)) AS `B09_A03`,\n            MAX(IF(b.m = 'B09_A09', b.v, NULL)) AS `B09_A09`,\n            MAX(IF(b.m = 'B09_A10', b.v, NULL)) AS `B09_A10`,\n            MAX(IF(b.m = 'B09_B01', b.v, NULL)) AS `B09_B01`,\n            MAX(IF(b.m = 'B09_B02', b.v, NULL)) AS `B09_B02`,\n            MAX(IF(b.m = 'B09_B03', b.v, NULL)) AS `B09_B03`,\n            MAX(IF(b.m = 'B09_B04', b.v, NULL)) AS `B09_B04`,\n            MAX(IF(b.m = 'B09_B05', b.v, NULL)) AS `B09_B05`,\n            MAX(IF(b.m = 'B09_B07', b.v, NULL)) AS `B09_B07`,\n            MAX(IF(b.m = 'B10_A03', b.v, NULL)) AS `B10_A03`,\n            MAX(IF(b.m = 'B10_A04', b.v, NULL)) AS `B10_A04`,\n            MAX(IF(b.m = 'B11_A01', b.v, NULL)) AS `B11_A01`,\n            MAX(IF(b.m = 'B11_A02', b.v, NULL)) AS `B11_A02`,\n            MAX(IF(b.m = 'B11_A03', b.v, NULL)) AS `B11_A03`,\n            MAX(IF(b.m = 'TH00_27', b.v, NULL)) AS `TH00_27`,\n            MAX(IF(b.m = 'TH00_28', b.v, NULL)) AS `TH00_28`,\n            MAX(IF(b.m = 'TH05_XA_DULIEU', b.v, NULL)) AS `TH05_XA_DULIEU`,\n            MAX(IF(b.m = 'TH05_XA_DVC', b.v, NULL)) AS `TH05_XA_DVC`,\n            MAX(IF(b.m = 'TH05_XA_MOHINH', b.v, NULL)) AS `TH05_XA_MOHINH`,\n            MAX(IF(b.m = 'TH05_XA_SO', b.v, NULL)) AS `TH05_XA_SO`\n        FROM (\n            SELECT ma_chi_tieu AS m, ky,\n                   COALESCE(MAX(IF(ma_bieu LIKE 'NQ57HN-TH%', gia_tri, NULL)),\n                            SUM(IF(ma_bieu LIKE 'NQ57HN-TH%', NULL, gia_tri))) AS v\n            FROM datamart_hanoi.v_nq57_solieu\n            WHERE loai_so = 'ACTUAL' AND ma_phan_to = 'TONG' AND gia_tri IS NOT NULL\n            GROUP BY ma_chi_tieu, ky\n        ) b\n        GROUP BY b.ky\n    ) p\n    CROSS JOIN (SELECT 'AT01' AS ma UNION ALL SELECT 'AT02' AS ma UNION ALL SELECT 'AT03' AS ma UNION ALL SELECT 'AT04' AS ma UNION ALL SELECT 'AT05' AS ma UNION ALL SELECT 'AT06' AS ma UNION ALL SELECT 'AT07' AS ma UNION ALL SELECT 'AT08' AS ma UNION ALL SELECT 'AT09' AS ma UNION ALL SELECT 'CS07' AS ma UNION ALL SELECT 'CS08' AS ma UNION ALL SELECT 'CS09' AS ma UNION ALL SELECT 'CS15' AS ma UNION ALL SELECT 'CS16' AS ma UNION ALL SELECT 'CS17' AS ma UNION ALL SELECT 'CS18' AS ma UNION ALL SELECT 'DD01' AS ma UNION ALL SELECT 'DD04' AS ma UNION ALL SELECT 'DD05' AS ma UNION ALL SELECT 'DL01' AS ma UNION ALL SELECT 'DL05' AS ma UNION ALL SELECT 'DL06' AS ma UNION ALL SELECT 'DL08' AS ma UNION ALL SELECT 'DL09' AS ma UNION ALL SELECT 'KH01' AS ma UNION ALL SELECT 'KH02' AS ma UNION ALL SELECT 'KH03' AS ma UNION ALL SELECT 'KH04' AS ma UNION ALL SELECT 'KH06' AS ma UNION ALL SELECT 'KH07' AS ma UNION ALL SELECT 'KH08' AS ma UNION ALL SELECT 'KH09' AS ma UNION ALL SELECT 'KH10' AS ma UNION ALL SELECT 'KH11' AS ma UNION ALL SELECT 'KH12' AS ma UNION ALL SELECT 'KH14' AS ma UNION ALL SELECT 'KH15' AS ma UNION ALL SELECT 'NT01' AS ma UNION ALL SELECT 'NT02' AS ma UNION ALL SELECT 'NT03' AS ma UNION ALL SELECT 'NT04' AS ma UNION ALL SELECT 'NT05' AS ma UNION ALL SELECT 'NT07' AS ma UNION ALL SELECT 'NT08' AS ma UNION ALL SELECT 'NT09' AS ma UNION ALL SELECT 'NT10' AS ma UNION ALL SELECT 'NT11' AS ma UNION ALL SELECT 'NT12' AS ma UNION ALL SELECT 'NT13' AS ma UNION ALL SELECT 'NT14' AS ma UNION ALL SELECT 'NT15' AS ma UNION ALL SELECT 'TC01' AS ma UNION ALL SELECT 'TC02' AS ma UNION ALL SELECT 'TC03' AS ma UNION ALL SELECT 'TC04' AS ma UNION ALL SELECT 'TC05' AS ma UNION ALL SELECT 'TC06' AS ma UNION ALL SELECT 'TC07' AS ma UNION ALL SELECT 'TC08' AS ma UNION ALL SELECT 'TC09' AS ma UNION ALL SELECT 'TC10' AS ma UNION ALL SELECT 'TC11' AS ma UNION ALL SELECT 'TC12' AS ma UNION ALL SELECT 'TC13' AS ma UNION ALL SELECT 'TT05' AS ma UNION ALL SELECT 'TT06' AS ma UNION ALL SELECT 'TT07' AS ma UNION ALL SELECT 'TT08' AS ma UNION ALL SELECT 'TT10' AS ma UNION ALL SELECT 'TT12' AS ma UNION ALL SELECT 'TT13' AS ma UNION ALL SELECT 'TT14' AS ma UNION ALL SELECT 'TT15' AS ma UNION ALL SELECT 'TT16' AS ma UNION ALL SELECT 'TT17' AS ma) mp\n) x ON x.ma = dm.ma_chi_so AND x.ky = k.ky_nq57\n",
+  "table_name": "chuyen_de_chi_tiet_nq57",
+  "template_params": null,
+  "time_grain_sqla": [
+   [
+    "PT1S",
+    "Thứ hai"
+   ],
+   [
+    "PT1M",
+    "Phút"
+   ],
+   [
+    "PT1H",
+    "Giờ"
+   ],
+   [
+    "P1D",
+    "Ngày"
+   ],
+   [
+    "P1W",
+    "Tuần"
+   ],
+   [
+    "P1M",
+    "Tháng"
+   ],
+   [
+    "P3M",
+    "Phần tư"
+   ],
+   [
+    "P1Y",
+    "Năm"
+   ],
+   [
+    "1969-12-29T00:00:00Z/P1W",
+    "Tuần bắt đầu từ thứ Hai"
+   ]
+  ],
+  "uid": "145__table",
+  "url": "/tablemodelview/edit/145",
+  "verbose_map": {
+   "__timestamp": "Time",
+   "chuyen_de": "chuyen_de",
+   "co_so_lieu": "co_so_lieu",
+   "count": "COUNT(*)",
+   "dau_moi": "dau_moi",
+   "don_vi_tinh": "don_vi_tinh",
+   "ghi_chu": "ghi_chu",
+   "gia_tri": "gia_tri",
+   "giam_la_tot": "giam_la_tot",
+   "ky": "ky",
+   "loai_chi_so": "loai_chi_so",
+   "luu_y": "luu_y",
+   "ma_chi_so": "ma_chi_so",
+   "mau_so": "mau_so",
+   "nguon_so_lieu": "nguon_so_lieu",
+   "nguong": "nguong",
+   "nhom_du_lieu": "nhom_du_lieu",
+   "phan_to": "phan_to",
+   "stt_chuyen_de": "stt_chuyen_de",
+   "sync_date": "sync_date",
+   "ten_chi_so": "ten_chi_so",
+   "ten_ngan": "ten_ngan",
+   "ten_nguong": "ten_nguong",
+   "thong_tin_them": "thong_tin_them",
+   "thu_tu_chi_so": "thu_tu_chi_so",
+   "thu_tu_ky": "thu_tu_ky",
+   "trich_dan": "trich_dan",
+   "tu_so": "tu_so",
+   "vi_tri": "vi_tri"
+  }
+ },
+ "show_columns": [
+  "id",
+  "database.database_name",
+  "database.id",
+  "table_name",
+  "sql",
+  "filter_select_enabled",
+  "fetch_values_predicate",
+  "catalog",
+  "schema",
+  "description",
+  "main_dttm_col",
+  "normalize_columns",
+  "always_filter_main_dttm",
+  "offset",
+  "default_endpoint",
+  "cache_timeout",
+  "is_sqllab_view",
+  "template_params",
+  "select_star",
+  "owners.id",
+  "owners.first_name",
+  "owners.last_name",
+  "columns.advanced_data_type",
+  "columns.changed_on",
+  "columns.column_name",
+  "columns.created_on",
+  "columns.description",
+  "columns.expression",
+  "columns.filterable",
+  "columns.groupby",
+  "columns.id",
+  "columns.is_active",
+  "columns.extra",
+  "columns.is_dttm",
+  "columns.python_date_format",
+  "columns.type",
+  "columns.uuid",
+  "columns.verbose_name",
+  "metrics.changed_on",
+  "metrics.created_on",
+  "metrics.d3format",
+  "metrics.currency",
+  "metrics.description",
+  "metrics.expression",
+  "metrics.extra",
+  "metrics.id",
+  "metrics.metric_name",
+  "metrics.metric_type",
+  "metrics.verbose_name",
+  "metrics.warning_text",
+  "datasource_type",
+  "url",
+  "extra",
+  "kind",
+  "created_on",
+  "created_on_humanized",
+  "created_by.first_name",
+  "created_by.last_name",
+  "changed_on",
+  "changed_on_humanized",
+  "changed_by.first_name",
+  "changed_by.last_name",
+  "columns.type_generic",
+  "database.backend",
+  "database.allow_multi_catalog",
+  "columns.advanced_data_type",
+  "is_managed_externally",
+  "uid",
+  "datasource_name",
+  "name",
+  "column_formats",
+  "currency_formats",
+  "granularity_sqla",
+  "time_grain_sqla",
+  "order_by_choices",
+  "verbose_map"
+ ],
+ "show_title": "Show Sqla Table"
+}
