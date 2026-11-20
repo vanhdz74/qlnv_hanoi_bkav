@@ -1,0 +1,6 @@
+-- Tình hình triển khai thí điểm — đọc bảng datamart do NiFi đổ (group "Chuyên đề lớn", cron 30 2/5, upsert + xóa theo sync_date)
+-- Cách tính: ../nifi/upsert.sql (sinh từ dataset_eform_thang.sql). Cột nguồn chưa có = NULL → chart hiện "!".
+SELECT ma_don_vi, ten_don_vi, tt_don_vi, khoi, ma_ky, loai_ky, nhan_ky, ten_ky, stt_ky, han_nop, den_han,
+       ts_nhap_dau, ts_gui_duyet, ts_phat_hanh, trang_thai, o_kiem_dem, so_bieu, so_bieu_hoan_tat,
+       so_lan_tra_lai, lech_han_phut, moc_chup, thieu_du_lieu
+FROM datamart_hanoi.bcd57_thidiem_trienkhai_thang

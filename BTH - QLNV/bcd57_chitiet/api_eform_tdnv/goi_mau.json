@@ -1,0 +1,4089 @@
+{
+ "period": {
+  "date": "2026-11-30",
+  "type": "MONTH"
+ },
+ "values": [
+  {
+   "value": 48,
+   "department_id": 490,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 18,
+   "department_id": 490,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 37.5,
+   "department_id": 490,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 30,
+   "department_id": 490,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 12,
+   "department_id": 490,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 9,
+   "department_id": 490,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 490,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 490,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 14,
+   "department_id": 490,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 4,
+   "department_id": 490,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 490,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 5,
+   "department_id": 490,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 2,
+   "department_id": 490,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 1,
+   "department_id": 490,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 15,
+   "department_id": 490,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 7,
+   "department_id": 490,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 107,
+   "department_id": 695,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 62,
+   "department_id": 695,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 57.94,
+   "department_id": 695,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 45,
+   "department_id": 695,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 695,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 695,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 106,
+   "department_id": 695,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 62,
+   "department_id": 695,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 0,
+   "department_id": 695,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 695,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 695,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 695,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 695,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 695,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 0,
+   "department_id": 695,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 0,
+   "department_id": 695,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 84,
+   "department_id": 698,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 35,
+   "department_id": 698,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 41.67,
+   "department_id": 698,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 49,
+   "department_id": 698,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 3,
+   "department_id": 698,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 3,
+   "department_id": 698,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 698,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 698,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 2,
+   "department_id": 698,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 698,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 698,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 698,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 698,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 698,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 79,
+   "department_id": 698,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 33,
+   "department_id": 698,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 48,
+   "department_id": 701,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 25,
+   "department_id": 701,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 52.08,
+   "department_id": 701,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 23,
+   "department_id": 701,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 701,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 701,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 701,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 701,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 6,
+   "department_id": 701,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 701,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 701,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 701,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 701,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 701,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 34,
+   "department_id": 701,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 18,
+   "department_id": 701,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 9,
+   "department_id": 704,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 9,
+   "department_id": 704,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 100,
+   "department_id": 704,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 0,
+   "department_id": 704,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 704,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 704,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 8,
+   "department_id": 704,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 8,
+   "department_id": 704,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 0,
+   "department_id": 704,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 704,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 704,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 704,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 704,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 704,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 0,
+   "department_id": 704,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 0,
+   "department_id": 704,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 202,
+   "department_id": 710,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 129,
+   "department_id": 710,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 63.86,
+   "department_id": 710,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 73,
+   "department_id": 710,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 5,
+   "department_id": 710,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 2,
+   "department_id": 710,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 180,
+   "department_id": 710,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 121,
+   "department_id": 710,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 1,
+   "department_id": 710,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 1,
+   "department_id": 710,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 710,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 1,
+   "department_id": 710,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 710,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 710,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 20,
+   "department_id": 710,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 7,
+   "department_id": 710,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 9,
+   "department_id": 752,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 8,
+   "department_id": 752,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 88.89,
+   "department_id": 752,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 1,
+   "department_id": 752,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 752,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 752,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 752,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 752,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 0,
+   "department_id": 752,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 752,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 752,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 752,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 752,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 752,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 9,
+   "department_id": 752,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 8,
+   "department_id": 752,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 1,
+   "department_id": 809,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 1,
+   "department_id": 809,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 100,
+   "department_id": 809,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 0,
+   "department_id": 809,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 809,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 809,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 809,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 809,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 0,
+   "department_id": 809,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 809,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 809,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 809,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 809,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 809,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 1,
+   "department_id": 809,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 1,
+   "department_id": 809,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 1,
+   "department_id": 1310,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 1,
+   "department_id": 1310,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 100,
+   "department_id": 1310,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 0,
+   "department_id": 1310,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 1310,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 1310,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1310,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1310,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 0,
+   "department_id": 1310,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 1310,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1310,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 1310,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1310,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1310,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 1,
+   "department_id": 1310,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 1,
+   "department_id": 1310,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 7,
+   "department_id": 1313,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 3,
+   "department_id": 1313,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 42.86,
+   "department_id": 1313,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 4,
+   "department_id": 1313,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 1,
+   "department_id": 1313,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 1,
+   "department_id": 1313,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1313,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1313,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 1,
+   "department_id": 1313,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 1313,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1313,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 1313,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1313,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1313,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 6,
+   "department_id": 1313,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 3,
+   "department_id": 1313,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 6,
+   "department_id": 1334,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 2,
+   "department_id": 1334,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 33.33,
+   "department_id": 1334,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 4,
+   "department_id": 1334,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 1,
+   "department_id": 1334,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 1,
+   "department_id": 1334,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1334,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1334,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 2,
+   "department_id": 1334,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 2,
+   "department_id": 1334,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1334,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 1334,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1334,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1334,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 4,
+   "department_id": 1334,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 0,
+   "department_id": 1334,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 18,
+   "department_id": 1339,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 5,
+   "department_id": 1339,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 27.78,
+   "department_id": 1339,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 13,
+   "department_id": 1339,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 1,
+   "department_id": 1339,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 1,
+   "department_id": 1339,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1339,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1339,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 3,
+   "department_id": 1339,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 2,
+   "department_id": 1339,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 1,
+   "department_id": 1339,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 1339,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1339,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1339,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 14,
+   "department_id": 1339,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 3,
+   "department_id": 1339,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 105,
+   "department_id": 1340,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 55,
+   "department_id": 1340,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 52.38,
+   "department_id": 1340,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 50,
+   "department_id": 1340,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 4,
+   "department_id": 1340,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 4,
+   "department_id": 1340,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1340,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1340,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 52,
+   "department_id": 1340,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 31,
+   "department_id": 1340,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 3,
+   "department_id": 1340,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 3,
+   "department_id": 1340,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 1,
+   "department_id": 1340,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 1,
+   "department_id": 1340,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 47,
+   "department_id": 1340,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 22,
+   "department_id": 1340,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 12,
+   "department_id": 1342,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 10,
+   "department_id": 1342,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 83.33,
+   "department_id": 1342,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 2,
+   "department_id": 1342,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 1342,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 1342,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1342,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1342,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 0,
+   "department_id": 1342,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 1342,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1342,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 2,
+   "department_id": 1342,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 1,
+   "department_id": 1342,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1342,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 10,
+   "department_id": 1342,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 9,
+   "department_id": 1342,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 5,
+   "department_id": 1343,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 3,
+   "department_id": 1343,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 60,
+   "department_id": 1343,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 2,
+   "department_id": 1343,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 1343,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 1343,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1343,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1343,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 0,
+   "department_id": 1343,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 1343,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1343,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 1343,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1343,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1343,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 4,
+   "department_id": 1343,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 2,
+   "department_id": 1343,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 22,
+   "department_id": 1346,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 13,
+   "department_id": 1346,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 59.09,
+   "department_id": 1346,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 9,
+   "department_id": 1346,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 1,
+   "department_id": 1346,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 1,
+   "department_id": 1346,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1346,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1346,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 3,
+   "department_id": 1346,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 2,
+   "department_id": 1346,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1346,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 2,
+   "department_id": 1346,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 1,
+   "department_id": 1346,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 1,
+   "department_id": 1346,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 14,
+   "department_id": 1346,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 7,
+   "department_id": 1346,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 2,
+   "department_id": 1348,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 0,
+   "department_id": 1348,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 0,
+   "department_id": 1348,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 2,
+   "department_id": 1348,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 1348,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 1348,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1348,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1348,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 0,
+   "department_id": 1348,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 1348,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1348,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 1348,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1348,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1348,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 2,
+   "department_id": 1348,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 0,
+   "department_id": 1348,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 13,
+   "department_id": 1349,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 8,
+   "department_id": 1349,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 61.54,
+   "department_id": 1349,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 5,
+   "department_id": 1349,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 1349,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 1349,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1349,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1349,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 3,
+   "department_id": 1349,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 1,
+   "department_id": 1349,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1349,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 1349,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1349,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1349,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 10,
+   "department_id": 1349,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 7,
+   "department_id": 1349,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 4,
+   "department_id": 1351,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 1,
+   "department_id": 1351,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 25,
+   "department_id": 1351,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 3,
+   "department_id": 1351,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 2,
+   "department_id": 1351,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 2,
+   "department_id": 1351,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1351,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1351,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 1,
+   "department_id": 1351,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 1351,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 1,
+   "department_id": 1351,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 1351,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1351,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1351,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 2,
+   "department_id": 1351,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 1,
+   "department_id": 1351,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 22,
+   "department_id": 1352,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 9,
+   "department_id": 1352,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 40.91,
+   "department_id": 1352,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 13,
+   "department_id": 1352,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 5,
+   "department_id": 1352,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 4,
+   "department_id": 1352,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1352,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1352,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 6,
+   "department_id": 1352,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 2,
+   "department_id": 1352,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 3,
+   "department_id": 1352,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 1,
+   "department_id": 1352,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1352,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1352,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 14,
+   "department_id": 1352,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 7,
+   "department_id": 1352,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 2,
+   "department_id": 1354,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 0,
+   "department_id": 1354,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 0,
+   "department_id": 1354,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 2,
+   "department_id": 1354,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 1354,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 1354,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1354,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1354,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 0,
+   "department_id": 1354,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 1354,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1354,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 1354,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1354,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1354,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 2,
+   "department_id": 1354,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 0,
+   "department_id": 1354,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 13,
+   "department_id": 1561,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 4,
+   "department_id": 1561,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 30.77,
+   "department_id": 1561,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 9,
+   "department_id": 1561,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 1561,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 1561,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1561,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1561,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 1,
+   "department_id": 1561,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 1561,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1561,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 1,
+   "department_id": 1561,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1561,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1561,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 7,
+   "department_id": 1561,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 2,
+   "department_id": 1561,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 4,
+   "department_id": 1564,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 0,
+   "department_id": 1564,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 0,
+   "department_id": 1564,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 4,
+   "department_id": 1564,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 1564,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 1564,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1564,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1564,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 1,
+   "department_id": 1564,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 1564,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1564,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 1564,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1564,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1564,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 3,
+   "department_id": 1564,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 0,
+   "department_id": 1564,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 1,
+   "department_id": 1567,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 0,
+   "department_id": 1567,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 0,
+   "department_id": 1567,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 1,
+   "department_id": 1567,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 1567,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 1567,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1567,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1567,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 1,
+   "department_id": 1567,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 1567,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1567,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 1567,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1567,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1567,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 0,
+   "department_id": 1567,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 0,
+   "department_id": 1567,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 7,
+   "department_id": 1570,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 3,
+   "department_id": 1570,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 42.86,
+   "department_id": 1570,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 4,
+   "department_id": 1570,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 1570,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 1570,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1570,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1570,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 1,
+   "department_id": 1570,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 1570,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1570,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 1570,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1570,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1570,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 6,
+   "department_id": 1570,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 3,
+   "department_id": 1570,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 5,
+   "department_id": 1573,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 0,
+   "department_id": 1573,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 0,
+   "department_id": 1573,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 5,
+   "department_id": 1573,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 1573,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 1573,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1573,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1573,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 0,
+   "department_id": 1573,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 1573,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1573,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 1573,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1573,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1573,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 5,
+   "department_id": 1573,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 0,
+   "department_id": 1573,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 3,
+   "department_id": 1577,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 3,
+   "department_id": 1577,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 100,
+   "department_id": 1577,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 0,
+   "department_id": 1577,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 1577,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 1577,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1577,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1577,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 2,
+   "department_id": 1577,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 2,
+   "department_id": 1577,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1577,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 1577,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1577,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1577,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 1,
+   "department_id": 1577,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 1,
+   "department_id": 1577,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 1,
+   "department_id": 1770,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 0,
+   "department_id": 1770,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 0,
+   "department_id": 1770,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 1,
+   "department_id": 1770,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 1770,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 1770,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1770,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1770,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 1,
+   "department_id": 1770,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 1770,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1770,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 1770,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1770,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1770,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 0,
+   "department_id": 1770,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 0,
+   "department_id": 1770,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 5,
+   "department_id": 1773,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 0,
+   "department_id": 1773,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 0,
+   "department_id": 1773,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 5,
+   "department_id": 1773,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 1773,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 1773,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1773,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1773,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 4,
+   "department_id": 1773,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 1773,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1773,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 1,
+   "department_id": 1773,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1773,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1773,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 0,
+   "department_id": 1773,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 0,
+   "department_id": 1773,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 1,
+   "department_id": 1775,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 1,
+   "department_id": 1775,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 100,
+   "department_id": 1775,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 0,
+   "department_id": 1775,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 1775,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 1775,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1775,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1775,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 0,
+   "department_id": 1775,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 1775,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1775,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 1775,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1775,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1775,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 1,
+   "department_id": 1775,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 1,
+   "department_id": 1775,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 1,
+   "department_id": 1790,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 0,
+   "department_id": 1790,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 0,
+   "department_id": 1790,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 1,
+   "department_id": 1790,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 1790,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 1790,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1790,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1790,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 0,
+   "department_id": 1790,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 1790,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1790,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 1790,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1790,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1790,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 1,
+   "department_id": 1790,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 0,
+   "department_id": 1790,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 6,
+   "department_id": 1814,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 1,
+   "department_id": 1814,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 16.67,
+   "department_id": 1814,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 5,
+   "department_id": 1814,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 1,
+   "department_id": 1814,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 1,
+   "department_id": 1814,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1814,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1814,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 3,
+   "department_id": 1814,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 1,
+   "department_id": 1814,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1814,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 1,
+   "department_id": 1814,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1814,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 1,
+   "department_id": 1814,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 2,
+   "department_id": 1814,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 0,
+   "department_id": 1814,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 14,
+   "department_id": 1815,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 8,
+   "department_id": 1815,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 57.14,
+   "department_id": 1815,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 6,
+   "department_id": 1815,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 1815,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 1815,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1815,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1815,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 1,
+   "department_id": 1815,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 1815,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1815,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 1815,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1815,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1815,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 12,
+   "department_id": 1815,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 7,
+   "department_id": 1815,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 9,
+   "department_id": 1818,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 7,
+   "department_id": 1818,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 77.78,
+   "department_id": 1818,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 2,
+   "department_id": 1818,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 1818,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 1818,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1818,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1818,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 0,
+   "department_id": 1818,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 1818,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1818,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 1818,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1818,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1818,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 9,
+   "department_id": 1818,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 7,
+   "department_id": 1818,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 1,
+   "department_id": 1866,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 0,
+   "department_id": 1866,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 0,
+   "department_id": 1866,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 1,
+   "department_id": 1866,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 1866,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 1866,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1866,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1866,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 0,
+   "department_id": 1866,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 1866,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1866,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 1866,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1866,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1866,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 1,
+   "department_id": 1866,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 0,
+   "department_id": 1866,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 2,
+   "department_id": 1869,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 0,
+   "department_id": 1869,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 0,
+   "department_id": 1869,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 2,
+   "department_id": 1869,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 2,
+   "department_id": 1869,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 2,
+   "department_id": 1869,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1869,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1869,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 0,
+   "department_id": 1869,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 1869,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1869,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 1869,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1869,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1869,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 2,
+   "department_id": 1869,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 0,
+   "department_id": 1869,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 1,
+   "department_id": 1881,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 0,
+   "department_id": 1881,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 0,
+   "department_id": 1881,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 1,
+   "department_id": 1881,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 1881,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 1881,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1881,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1881,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 0,
+   "department_id": 1881,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 1881,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1881,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 1881,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1881,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1881,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 1,
+   "department_id": 1881,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 0,
+   "department_id": 1881,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 2,
+   "department_id": 1914,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 1,
+   "department_id": 1914,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 50,
+   "department_id": 1914,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 1,
+   "department_id": 1914,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 1914,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 1914,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1914,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1914,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 1,
+   "department_id": 1914,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 1914,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1914,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 1914,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1914,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1914,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 1,
+   "department_id": 1914,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 1,
+   "department_id": 1914,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 17,
+   "department_id": 1917,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 7,
+   "department_id": 1917,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 41.18,
+   "department_id": 1917,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 10,
+   "department_id": 1917,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 1917,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 1917,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1917,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1917,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 4,
+   "department_id": 1917,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 2,
+   "department_id": 1917,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1917,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 1917,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 1917,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1917,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 10,
+   "department_id": 1917,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 5,
+   "department_id": 1917,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 32,
+   "department_id": 1938,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 19,
+   "department_id": 1938,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 59.38,
+   "department_id": 1938,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 13,
+   "department_id": 1938,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 1,
+   "department_id": 1938,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 1,
+   "department_id": 1938,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 1938,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 1938,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 2,
+   "department_id": 1938,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 1,
+   "department_id": 1938,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 1938,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 3,
+   "department_id": 1938,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 3,
+   "department_id": 1938,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 1938,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 24,
+   "department_id": 1938,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 14,
+   "department_id": 1938,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 1,
+   "department_id": 3187,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 1,
+   "department_id": 3187,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 100,
+   "department_id": 3187,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 0,
+   "department_id": 3187,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 3187,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 3187,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 3187,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 3187,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 1,
+   "department_id": 3187,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 1,
+   "department_id": 3187,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 3187,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 3187,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 3187,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 3187,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 0,
+   "department_id": 3187,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 0,
+   "department_id": 3187,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 6,
+   "department_id": 3188,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 5,
+   "department_id": 3188,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 83.33,
+   "department_id": 3188,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 1,
+   "department_id": 3188,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 1,
+   "department_id": 3188,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 1,
+   "department_id": 3188,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 3188,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 3188,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 0,
+   "department_id": 3188,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 3188,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 3188,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 3188,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 3188,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 3188,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 6,
+   "department_id": 3188,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 5,
+   "department_id": 3188,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 1,
+   "department_id": 3191,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 1,
+   "department_id": 3191,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 100,
+   "department_id": 3191,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 0,
+   "department_id": 3191,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 3191,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 3191,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 3191,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 3191,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 1,
+   "department_id": 3191,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 1,
+   "department_id": 3191,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 3191,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 3191,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 3191,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 3191,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 0,
+   "department_id": 3191,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 0,
+   "department_id": 3191,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 3,
+   "department_id": 3194,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 3,
+   "department_id": 3194,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 100,
+   "department_id": 3194,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 0,
+   "department_id": 3194,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 3194,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 3194,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 3194,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 3194,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 3,
+   "department_id": 3194,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 3,
+   "department_id": 3194,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 3194,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 3194,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 3194,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 3194,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 0,
+   "department_id": 3194,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 0,
+   "department_id": 3194,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 1,
+   "department_id": 3206,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 1,
+   "department_id": 3206,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 100,
+   "department_id": 3206,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 0,
+   "department_id": 3206,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 3206,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 3206,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 3206,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 3206,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 0,
+   "department_id": 3206,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 3206,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 3206,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 3206,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 3206,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 3206,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 0,
+   "department_id": 3206,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 0,
+   "department_id": 3206,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 3,
+   "department_id": 3212,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 2,
+   "department_id": 3212,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 66.67,
+   "department_id": 3212,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 1,
+   "department_id": 3212,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 3212,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 3212,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 3212,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 3212,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 2,
+   "department_id": 3212,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 1,
+   "department_id": 3212,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 3212,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 3212,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 3212,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 3212,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 1,
+   "department_id": 3212,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 1,
+   "department_id": 3212,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 1,
+   "department_id": 3215,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 1,
+   "department_id": 3215,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 100,
+   "department_id": 3215,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 0,
+   "department_id": 3215,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 3215,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 3215,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 3215,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 3215,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 0,
+   "department_id": 3215,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 3215,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 3215,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 3215,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 3215,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 3215,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 1,
+   "department_id": 3215,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 1,
+   "department_id": 3215,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 3,
+   "department_id": 4669,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 0,
+   "department_id": 4669,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 0,
+   "department_id": 4669,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 3,
+   "department_id": 4669,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 2,
+   "department_id": 4669,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 2,
+   "department_id": 4669,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 4669,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 4669,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 1,
+   "department_id": 4669,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 4669,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 1,
+   "department_id": 4669,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 1,
+   "department_id": 4669,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 4669,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 1,
+   "department_id": 4669,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 0,
+   "department_id": 4669,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 0,
+   "department_id": 4669,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 1,
+   "department_id": 4855,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 0,
+   "department_id": 4855,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 0,
+   "department_id": 4855,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 1,
+   "department_id": 4855,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 1,
+   "department_id": 4855,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 1,
+   "department_id": 4855,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 4855,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 4855,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 0,
+   "department_id": 4855,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 4855,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 4855,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 4855,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 4855,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 4855,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 1,
+   "department_id": 4855,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 0,
+   "department_id": 4855,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 5,
+   "department_id": 4981,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 2,
+   "department_id": 4981,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 40,
+   "department_id": 4981,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 3,
+   "department_id": 4981,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 4981,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 4981,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 4981,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 4981,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 0,
+   "department_id": 4981,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 4981,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 4981,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 4981,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 4981,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 4981,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 5,
+   "department_id": 4981,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 2,
+   "department_id": 4981,
+   "indicator_code": "NV16"
+  },
+  {
+   "value": 1,
+   "department_id": 4996,
+   "indicator_code": "NV01"
+  },
+  {
+   "value": 0,
+   "department_id": 4996,
+   "indicator_code": "NV02"
+  },
+  {
+   "value": 0,
+   "department_id": 4996,
+   "indicator_code": "NV03"
+  },
+  {
+   "value": 1,
+   "department_id": 4996,
+   "indicator_code": "NV04"
+  },
+  {
+   "value": 0,
+   "department_id": 4996,
+   "indicator_code": "NV05"
+  },
+  {
+   "value": 0,
+   "department_id": 4996,
+   "indicator_code": "NV06"
+  },
+  {
+   "value": 0,
+   "department_id": 4996,
+   "indicator_code": "NV07"
+  },
+  {
+   "value": 0,
+   "department_id": 4996,
+   "indicator_code": "NV08"
+  },
+  {
+   "value": 0,
+   "department_id": 4996,
+   "indicator_code": "NV09"
+  },
+  {
+   "value": 0,
+   "department_id": 4996,
+   "indicator_code": "NV10"
+  },
+  {
+   "value": 0,
+   "department_id": 4996,
+   "indicator_code": "NV11"
+  },
+  {
+   "value": 0,
+   "department_id": 4996,
+   "indicator_code": "NV12"
+  },
+  {
+   "value": 0,
+   "department_id": 4996,
+   "indicator_code": "NV13"
+  },
+  {
+   "value": 0,
+   "department_id": 4996,
+   "indicator_code": "NV14"
+  },
+  {
+   "value": 1,
+   "department_id": 4996,
+   "indicator_code": "NV15"
+  },
+  {
+   "value": 0,
+   "department_id": 4996,
+   "indicator_code": "NV16"
+  }
+ ],
+ "taken_at": "2026-11-19T17:40:35+07:00"
+}

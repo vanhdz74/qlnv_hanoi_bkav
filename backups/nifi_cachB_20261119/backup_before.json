@@ -1,0 +1,4607 @@
+{
+ "GFF": {
+  "revision": {
+   "version": 14
+  },
+  "id": "142f3f00-6ef6-1fc2-88e9-5f49f8a9cc5a",
+  "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/processors/142f3f00-6ef6-1fc2-88e9-5f49f8a9cc5a",
+  "position": {
+   "x": 0.0,
+   "y": -300.0
+  },
+  "permissions": {
+   "canRead": true,
+   "canWrite": true
+  },
+  "bulletins": [],
+  "component": {
+   "id": "142f3f00-6ef6-1fc2-88e9-5f49f8a9cc5a",
+   "parentGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "position": {
+    "x": 0.0,
+    "y": -300.0
+   },
+   "name": "1 PHÚT / 1 LẦN (CRON :17)",
+   "type": "org.apache.nifi.processors.standard.GenerateFlowFile",
+   "bundle": {
+    "group": "org.apache.nifi",
+    "artifact": "nifi-standard-nar",
+    "version": "1.27.0"
+   },
+   "state": "RUNNING",
+   "style": {},
+   "relationships": [
+    {
+     "name": "success",
+     "description": "",
+     "autoTerminate": false,
+     "retry": false
+    }
+   ],
+   "supportsParallelProcessing": true,
+   "supportsEventDriven": false,
+   "supportsBatching": true,
+   "supportsSensitiveDynamicProperties": false,
+   "persistsState": false,
+   "restricted": false,
+   "deprecated": false,
+   "executionNodeRestricted": false,
+   "multipleVersionsAvailable": false,
+   "inputRequirement": "INPUT_FORBIDDEN",
+   "config": {
+    "properties": {
+     "File Size": "0B",
+     "Batch Size": "1",
+     "Data Format": "Text",
+     "Unique FlowFiles": "false",
+     "generate-ff-custom-text": null,
+     "character-set": "UTF-8",
+     "mime-type": null,
+     "gate15": "${now():format('m'):toNumber():mod(15):equals(0)}",
+     "sync_ts": "${now():format('yyyy-MM-dd HH:mm:ss')}"
+    },
+    "descriptors": {
+     "File Size": {
+      "name": "File Size",
+      "displayName": "File Size",
+      "description": "The size of the file that will be used",
+      "defaultValue": "0B",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "Batch Size": {
+      "name": "Batch Size",
+      "displayName": "Batch Size",
+      "description": "The number of FlowFiles to be transferred in each invocation",
+      "defaultValue": "1",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "Data Format": {
+      "name": "Data Format",
+      "displayName": "Data Format",
+      "description": "Specifies whether the data should be Text or Binary",
+      "defaultValue": "Text",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "Binary",
+         "value": "Binary"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "Text",
+         "value": "Text"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "Unique FlowFiles": {
+      "name": "Unique FlowFiles",
+      "displayName": "Unique FlowFiles",
+      "description": "If true, each FlowFile that is generated will be unique. If false, a random value will be generated and all FlowFiles will get the same content but this offers much higher throughput",
+      "defaultValue": "false",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "true",
+         "value": "true"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "false",
+         "value": "false"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "generate-ff-custom-text": {
+      "name": "generate-ff-custom-text",
+      "displayName": "Custom Text",
+      "description": "If Data Format is text and if Unique FlowFiles is false, then this custom text will be used as content of the generated FlowFiles and the File Size will be ignored. Finally, if Expression Language is used, evaluation will be performed only once per batch of generated FlowFiles",
+      "required": false,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry Only",
+      "dependencies": []
+     },
+     "character-set": {
+      "name": "character-set",
+      "displayName": "Character Set",
+      "description": "Specifies the character set to use when writing the bytes of Custom Text to a flow file.",
+      "defaultValue": "UTF-8",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "mime-type": {
+      "name": "mime-type",
+      "displayName": "Mime Type",
+      "description": "Specifies the value to set for the \"mime.type\" attribute.",
+      "required": false,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "gate15": {
+      "name": "gate15",
+      "displayName": "gate15",
+      "description": "",
+      "required": false,
+      "sensitive": false,
+      "dynamic": true,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry Only",
+      "dependencies": []
+     },
+     "sync_ts": {
+      "name": "sync_ts",
+      "displayName": "sync_ts",
+      "description": "",
+      "required": false,
+      "sensitive": false,
+      "dynamic": true,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry Only",
+      "dependencies": []
+     }
+    },
+    "schedulingPeriod": "17 * * * * ?",
+    "schedulingStrategy": "CRON_DRIVEN",
+    "executionNode": "ALL",
+    "penaltyDuration": "30 sec",
+    "yieldDuration": "1 sec",
+    "bulletinLevel": "WARN",
+    "runDurationMillis": 0,
+    "concurrentlySchedulableTaskCount": 1,
+    "comments": "",
+    "lossTolerant": false,
+    "defaultConcurrentTasks": {
+     "TIMER_DRIVEN": "1",
+     "EVENT_DRIVEN": "0",
+     "CRON_DRIVEN": "1"
+    },
+    "defaultSchedulingPeriod": {
+     "TIMER_DRIVEN": "0 sec",
+     "CRON_DRIVEN": "* * * * * ?"
+    },
+    "retryCount": 10,
+    "retriedRelationships": [],
+    "backoffMechanism": "PENALIZE_FLOWFILE",
+    "maxBackoffPeriod": "10 mins"
+   },
+   "validationStatus": "VALID",
+   "extensionMissing": false
+  },
+  "inputRequirement": "INPUT_FORBIDDEN",
+  "status": {
+   "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "id": "142f3f00-6ef6-1fc2-88e9-5f49f8a9cc5a",
+   "name": "1 PHÚT / 1 LẦN (CRON :17)",
+   "runStatus": "Running",
+   "statsLastRefreshed": "09:34:26 ICT",
+   "aggregateSnapshot": {
+    "id": "142f3f00-6ef6-1fc2-88e9-5f49f8a9cc5a",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "1 PHÚT / 1 LẦN (CRON :17)",
+    "type": "GenerateFlowFile",
+    "runStatus": "Running",
+    "executionNode": "ALL",
+    "bytesRead": 0,
+    "bytesWritten": 0,
+    "read": "0 bytes",
+    "written": "0 bytes",
+    "flowFilesIn": 0,
+    "bytesIn": 0,
+    "input": "0 (0 bytes)",
+    "flowFilesOut": 10,
+    "bytesOut": 0,
+    "output": "10 (0 bytes)",
+    "taskCount": 5,
+    "tasksDurationNanos": 2194300,
+    "tasks": "5",
+    "tasksDuration": "00:00:00.002",
+    "activeThreadCount": 0,
+    "terminatedThreadCount": 0
+   }
+  },
+  "operatePermissions": {
+   "canRead": true,
+   "canWrite": true
+  }
+ },
+ "top_connections": [
+  {
+   "revision": {
+    "version": 0
+   },
+   "id": "142f4039-6ef6-1fc2-00a9-a89ef6dc473f",
+   "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/142f4039-6ef6-1fc2-00a9-a89ef6dc473f",
+   "permissions": {
+    "canRead": true,
+    "canWrite": true
+   },
+   "component": {
+    "id": "142f4039-6ef6-1fc2-00a9-a89ef6dc473f",
+    "parentGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "source": {
+     "id": "142f3f41-6ef6-1fc2-c9a9-acc8890f3730",
+     "versionedComponentId": "855988be-a600-3113-90a5-cb9103682d4f",
+     "type": "OUTPUT_PORT",
+     "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+     "name": "output",
+     "running": true
+    },
+    "destination": {
+     "id": "142f3f94-6ef6-1fc2-8da5-188277dac68d",
+     "versionedComponentId": "20da30c6-78aa-3e61-98dc-c0e8f33ec3d2",
+     "type": "INPUT_PORT",
+     "groupId": "142f3f93-6ef6-1fc2-4cb1-d43ba681aa0f",
+     "name": "input",
+     "running": true
+    },
+    "name": "",
+    "labelIndex": 1,
+    "zIndex": 0,
+    "backPressureObjectThreshold": 10000,
+    "backPressureDataSizeThreshold": "1 GB",
+    "flowFileExpiration": "0 sec",
+    "prioritizers": [],
+    "bends": [],
+    "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+    "loadBalancePartitionAttribute": "",
+    "loadBalanceCompression": "DO_NOT_COMPRESS",
+    "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+   },
+   "status": {
+    "id": "142f4039-6ef6-1fc2-00a9-a89ef6dc473f",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "",
+    "statsLastRefreshed": "09:34:26 ICT",
+    "sourceId": "142f3f41-6ef6-1fc2-c9a9-acc8890f3730",
+    "sourceName": "output",
+    "destinationId": "142f3f94-6ef6-1fc2-8da5-188277dac68d",
+    "destinationName": "input",
+    "aggregateSnapshot": {
+     "id": "142f4039-6ef6-1fc2-00a9-a89ef6dc473f",
+     "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+     "name": "",
+     "sourceName": "output",
+     "destinationName": "input",
+     "flowFilesIn": 1,
+     "bytesIn": 120,
+     "input": "1 (120 bytes)",
+     "flowFilesOut": 1,
+     "bytesOut": 120,
+     "output": "1 (120 bytes)",
+     "flowFilesQueued": 0,
+     "bytesQueued": 0,
+     "queued": "0 (0 bytes)",
+     "queuedSize": "0 bytes",
+     "queuedCount": "0",
+     "percentUseCount": 0,
+     "percentUseBytes": 0,
+     "flowFileAvailability": "ACTIVE_QUEUE_EMPTY"
+    }
+   },
+   "bends": [],
+   "labelIndex": 1,
+   "zIndex": 0,
+   "sourceId": "142f3f41-6ef6-1fc2-c9a9-acc8890f3730",
+   "sourceGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+   "sourceType": "OUTPUT_PORT",
+   "destinationId": "142f3f94-6ef6-1fc2-8da5-188277dac68d",
+   "destinationGroupId": "142f3f93-6ef6-1fc2-4cb1-d43ba681aa0f",
+   "destinationType": "INPUT_PORT"
+  },
+  {
+   "revision": {
+    "version": 1
+   },
+   "id": "142f4040-6ef6-1fc2-13e7-a0b8b72204a0",
+   "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/142f4040-6ef6-1fc2-13e7-a0b8b72204a0",
+   "permissions": {
+    "canRead": true,
+    "canWrite": true
+   },
+   "component": {
+    "id": "142f4040-6ef6-1fc2-13e7-a0b8b72204a0",
+    "parentGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "source": {
+     "id": "142f3f07-6ef6-1fc2-31a6-eac5fc8029b8",
+     "type": "PROCESSOR",
+     "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+     "name": "Cổng 15 phút (sau Giao+Nhận)",
+     "running": true,
+     "comments": ""
+    },
+    "destination": {
+     "id": "142f3f40-6ef6-1fc2-9538-eac09f7e7024",
+     "versionedComponentId": "e55ebcd3-06a7-3703-b31e-d03f4a1ca227",
+     "type": "INPUT_PORT",
+     "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+     "name": "input",
+     "running": true
+    },
+    "labelIndex": 1,
+    "zIndex": 0,
+    "selectedRelationships": [
+     "qua_15phut"
+    ],
+    "availableRelationships": [
+     "moi_phut",
+     "qua_15phut",
+     "unmatched"
+    ],
+    "backPressureObjectThreshold": 5,
+    "backPressureDataSizeThreshold": "1 GB",
+    "flowFileExpiration": "10 min",
+    "prioritizers": [],
+    "bends": [],
+    "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+    "loadBalanceCompression": "DO_NOT_COMPRESS",
+    "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+   },
+   "status": {
+    "id": "142f4040-6ef6-1fc2-13e7-a0b8b72204a0",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "qua_15phut",
+    "statsLastRefreshed": "09:34:26 ICT",
+    "sourceId": "142f3f07-6ef6-1fc2-31a6-eac5fc8029b8",
+    "sourceName": "Cổng 15 phút (sau Giao+Nhận)",
+    "destinationId": "142f3f40-6ef6-1fc2-9538-eac09f7e7024",
+    "destinationName": "input",
+    "aggregateSnapshot": {
+     "id": "142f4040-6ef6-1fc2-13e7-a0b8b72204a0",
+     "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+     "name": "qua_15phut",
+     "sourceName": "Cổng 15 phút (sau Giao+Nhận)",
+     "destinationName": "input",
+     "flowFilesIn": 1,
+     "bytesIn": 120,
+     "input": "1 (120 bytes)",
+     "flowFilesOut": 1,
+     "bytesOut": 120,
+     "output": "1 (120 bytes)",
+     "flowFilesQueued": 0,
+     "bytesQueued": 0,
+     "queued": "0 (0 bytes)",
+     "queuedSize": "0 bytes",
+     "queuedCount": "0",
+     "percentUseCount": 0,
+     "percentUseBytes": 0,
+     "flowFileAvailability": "ACTIVE_QUEUE_EMPTY"
+    }
+   },
+   "bends": [],
+   "labelIndex": 1,
+   "zIndex": 0,
+   "sourceId": "142f3f07-6ef6-1fc2-31a6-eac5fc8029b8",
+   "sourceGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "sourceType": "PROCESSOR",
+   "destinationId": "142f3f40-6ef6-1fc2-9538-eac09f7e7024",
+   "destinationGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+   "destinationType": "INPUT_PORT"
+  },
+  {
+   "revision": {
+    "version": 1
+   },
+   "id": "142f403d-6ef6-1fc2-b7cc-133ed7aa77f1",
+   "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/142f403d-6ef6-1fc2-b7cc-133ed7aa77f1",
+   "permissions": {
+    "canRead": true,
+    "canWrite": true
+   },
+   "component": {
+    "id": "142f403d-6ef6-1fc2-b7cc-133ed7aa77f1",
+    "parentGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "source": {
+     "id": "142f3f07-6ef6-1fc2-31a6-eac5fc8029b8",
+     "type": "PROCESSOR",
+     "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+     "name": "Cổng 15 phút (sau Giao+Nhận)",
+     "running": true,
+     "comments": ""
+    },
+    "destination": {
+     "id": "142f3f6e-6ef6-1fc2-879c-9e24edbe4cd2",
+     "versionedComponentId": "71abe240-02fd-311a-9d1a-657422123f75",
+     "type": "INPUT_PORT",
+     "groupId": "142f3f6d-6ef6-1fc2-5487-a47ae49d831c",
+     "name": "input",
+     "running": true
+    },
+    "labelIndex": 1,
+    "zIndex": 0,
+    "selectedRelationships": [
+     "moi_phut"
+    ],
+    "availableRelationships": [
+     "moi_phut",
+     "qua_15phut",
+     "unmatched"
+    ],
+    "backPressureObjectThreshold": 5,
+    "backPressureDataSizeThreshold": "1 GB",
+    "flowFileExpiration": "10 min",
+    "prioritizers": [],
+    "bends": [],
+    "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+    "loadBalanceCompression": "DO_NOT_COMPRESS",
+    "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+   },
+   "status": {
+    "id": "142f403d-6ef6-1fc2-b7cc-133ed7aa77f1",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "moi_phut",
+    "statsLastRefreshed": "09:34:26 ICT",
+    "sourceId": "142f3f07-6ef6-1fc2-31a6-eac5fc8029b8",
+    "sourceName": "Cổng 15 phút (sau Giao+Nhận)",
+    "destinationId": "142f3f6e-6ef6-1fc2-879c-9e24edbe4cd2",
+    "destinationName": "input",
+    "aggregateSnapshot": {
+     "id": "142f403d-6ef6-1fc2-b7cc-133ed7aa77f1",
+     "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+     "name": "moi_phut",
+     "sourceName": "Cổng 15 phút (sau Giao+Nhận)",
+     "destinationName": "input",
+     "flowFilesIn": 5,
+     "bytesIn": 600,
+     "input": "5 (600 bytes)",
+     "flowFilesOut": 5,
+     "bytesOut": 600,
+     "output": "5 (600 bytes)",
+     "flowFilesQueued": 0,
+     "bytesQueued": 0,
+     "queued": "0 (0 bytes)",
+     "queuedSize": "0 bytes",
+     "queuedCount": "0",
+     "percentUseCount": 0,
+     "percentUseBytes": 0,
+     "flowFileAvailability": "ACTIVE_QUEUE_EMPTY"
+    }
+   },
+   "bends": [],
+   "labelIndex": 1,
+   "zIndex": 0,
+   "sourceId": "142f3f07-6ef6-1fc2-31a6-eac5fc8029b8",
+   "sourceGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "sourceType": "PROCESSOR",
+   "destinationId": "142f3f6e-6ef6-1fc2-879c-9e24edbe4cd2",
+   "destinationGroupId": "142f3f6d-6ef6-1fc2-5487-a47ae49d831c",
+   "destinationType": "INPUT_PORT"
+  },
+  {
+   "revision": {
+    "version": 1
+   },
+   "id": "142f403f-6ef6-1fc2-9db8-837759e8ea10",
+   "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/142f403f-6ef6-1fc2-9db8-837759e8ea10",
+   "permissions": {
+    "canRead": true,
+    "canWrite": true
+   },
+   "component": {
+    "id": "142f403f-6ef6-1fc2-9db8-837759e8ea10",
+    "parentGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "source": {
+     "id": "142f3f07-6ef6-1fc2-31a6-eac5fc8029b8",
+     "type": "PROCESSOR",
+     "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+     "name": "Cổng 15 phút (sau Giao+Nhận)",
+     "running": true,
+     "comments": ""
+    },
+    "destination": {
+     "id": "142f4016-6ef6-1fc2-a27b-f28ce474c20a",
+     "versionedComponentId": "49b78944-74aa-35cc-9538-06f4ac7ce1d8",
+     "type": "INPUT_PORT",
+     "groupId": "142f4015-6ef6-1fc2-bcd6-8fc55888adf4",
+     "name": "input",
+     "running": true
+    },
+    "labelIndex": 1,
+    "zIndex": 0,
+    "selectedRelationships": [
+     "qua_15phut"
+    ],
+    "availableRelationships": [
+     "moi_phut",
+     "qua_15phut",
+     "unmatched"
+    ],
+    "backPressureObjectThreshold": 5,
+    "backPressureDataSizeThreshold": "1 GB",
+    "flowFileExpiration": "10 min",
+    "prioritizers": [],
+    "bends": [],
+    "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+    "loadBalanceCompression": "DO_NOT_COMPRESS",
+    "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+   },
+   "status": {
+    "id": "142f403f-6ef6-1fc2-9db8-837759e8ea10",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "qua_15phut",
+    "statsLastRefreshed": "09:34:26 ICT",
+    "sourceId": "142f3f07-6ef6-1fc2-31a6-eac5fc8029b8",
+    "sourceName": "Cổng 15 phút (sau Giao+Nhận)",
+    "destinationId": "142f4016-6ef6-1fc2-a27b-f28ce474c20a",
+    "destinationName": "input",
+    "aggregateSnapshot": {
+     "id": "142f403f-6ef6-1fc2-9db8-837759e8ea10",
+     "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+     "name": "qua_15phut",
+     "sourceName": "Cổng 15 phút (sau Giao+Nhận)",
+     "destinationName": "input",
+     "flowFilesIn": 1,
+     "bytesIn": 120,
+     "input": "1 (120 bytes)",
+     "flowFilesOut": 1,
+     "bytesOut": 120,
+     "output": "1 (120 bytes)",
+     "flowFilesQueued": 0,
+     "bytesQueued": 0,
+     "queued": "0 (0 bytes)",
+     "queuedSize": "0 bytes",
+     "queuedCount": "0",
+     "percentUseCount": 0,
+     "percentUseBytes": 0,
+     "flowFileAvailability": "ACTIVE_QUEUE_EMPTY"
+    }
+   },
+   "bends": [],
+   "labelIndex": 1,
+   "zIndex": 0,
+   "sourceId": "142f3f07-6ef6-1fc2-31a6-eac5fc8029b8",
+   "sourceGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "sourceType": "PROCESSOR",
+   "destinationId": "142f4016-6ef6-1fc2-a27b-f28ce474c20a",
+   "destinationGroupId": "142f4015-6ef6-1fc2-bcd6-8fc55888adf4",
+   "destinationType": "INPUT_PORT"
+  },
+  {
+   "revision": {
+    "version": 0
+   },
+   "id": "142f403a-6ef6-1fc2-112e-9aa20e6918a0",
+   "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/142f403a-6ef6-1fc2-112e-9aa20e6918a0",
+   "permissions": {
+    "canRead": true,
+    "canWrite": true
+   },
+   "component": {
+    "id": "142f403a-6ef6-1fc2-112e-9aa20e6918a0",
+    "parentGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "source": {
+     "id": "142f3f41-6ef6-1fc2-c9a9-acc8890f3730",
+     "versionedComponentId": "855988be-a600-3113-90a5-cb9103682d4f",
+     "type": "OUTPUT_PORT",
+     "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+     "name": "output",
+     "running": true
+    },
+    "destination": {
+     "id": "142f3fab-6ef6-1fc2-f363-bc2083616b5b",
+     "versionedComponentId": "6e9b9cd4-f07a-3ab2-af95-a2ad3b242b30",
+     "type": "INPUT_PORT",
+     "groupId": "142f3faa-6ef6-1fc2-6805-d3971fd21a42",
+     "name": "input",
+     "running": true
+    },
+    "name": "",
+    "labelIndex": 1,
+    "zIndex": 0,
+    "backPressureObjectThreshold": 10000,
+    "backPressureDataSizeThreshold": "1 GB",
+    "flowFileExpiration": "0 sec",
+    "prioritizers": [],
+    "bends": [],
+    "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+    "loadBalancePartitionAttribute": "",
+    "loadBalanceCompression": "DO_NOT_COMPRESS",
+    "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+   },
+   "status": {
+    "id": "142f403a-6ef6-1fc2-112e-9aa20e6918a0",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "",
+    "statsLastRefreshed": "09:34:26 ICT",
+    "sourceId": "142f3f41-6ef6-1fc2-c9a9-acc8890f3730",
+    "sourceName": "output",
+    "destinationId": "142f3fab-6ef6-1fc2-f363-bc2083616b5b",
+    "destinationName": "input",
+    "aggregateSnapshot": {
+     "id": "142f403a-6ef6-1fc2-112e-9aa20e6918a0",
+     "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+     "name": "",
+     "sourceName": "output",
+     "destinationName": "input",
+     "flowFilesIn": 1,
+     "bytesIn": 120,
+     "input": "1 (120 bytes)",
+     "flowFilesOut": 1,
+     "bytesOut": 120,
+     "output": "1 (120 bytes)",
+     "flowFilesQueued": 0,
+     "bytesQueued": 0,
+     "queued": "0 (0 bytes)",
+     "queuedSize": "0 bytes",
+     "queuedCount": "0",
+     "percentUseCount": 0,
+     "percentUseBytes": 0,
+     "flowFileAvailability": "ACTIVE_QUEUE_EMPTY"
+    }
+   },
+   "bends": [],
+   "labelIndex": 1,
+   "zIndex": 0,
+   "sourceId": "142f3f41-6ef6-1fc2-c9a9-acc8890f3730",
+   "sourceGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+   "sourceType": "OUTPUT_PORT",
+   "destinationId": "142f3fab-6ef6-1fc2-f363-bc2083616b5b",
+   "destinationGroupId": "142f3faa-6ef6-1fc2-6805-d3971fd21a42",
+   "destinationType": "INPUT_PORT"
+  },
+  {
+   "revision": {
+    "version": 1
+   },
+   "id": "142f403e-6ef6-1fc2-f50c-b59c336ced93",
+   "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/142f403e-6ef6-1fc2-f50c-b59c336ced93",
+   "permissions": {
+    "canRead": true,
+    "canWrite": true
+   },
+   "component": {
+    "id": "142f403e-6ef6-1fc2-f50c-b59c336ced93",
+    "parentGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "source": {
+     "id": "142f3f07-6ef6-1fc2-31a6-eac5fc8029b8",
+     "type": "PROCESSOR",
+     "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+     "name": "Cổng 15 phút (sau Giao+Nhận)",
+     "running": true,
+     "comments": ""
+    },
+    "destination": {
+     "id": "142f4028-6ef6-1fc2-b516-6ee5599f4681",
+     "versionedComponentId": "4195b845-18ba-30b0-9d0b-df7d2a4da07d",
+     "type": "INPUT_PORT",
+     "groupId": "142f4027-6ef6-1fc2-5950-aadbfcd70208",
+     "name": "input",
+     "running": true
+    },
+    "labelIndex": 1,
+    "zIndex": 0,
+    "selectedRelationships": [
+     "moi_phut"
+    ],
+    "availableRelationships": [
+     "moi_phut",
+     "qua_15phut",
+     "unmatched"
+    ],
+    "backPressureObjectThreshold": 5,
+    "backPressureDataSizeThreshold": "1 GB",
+    "flowFileExpiration": "10 min",
+    "prioritizers": [],
+    "bends": [],
+    "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+    "loadBalanceCompression": "DO_NOT_COMPRESS",
+    "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+   },
+   "status": {
+    "id": "142f403e-6ef6-1fc2-f50c-b59c336ced93",
+    "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+    "name": "moi_phut",
+    "statsLastRefreshed": "09:34:26 ICT",
+    "sourceId": "142f3f07-6ef6-1fc2-31a6-eac5fc8029b8",
+    "sourceName": "Cổng 15 phút (sau Giao+Nhận)",
+    "destinationId": "142f4028-6ef6-1fc2-b516-6ee5599f4681",
+    "destinationName": "input",
+    "aggregateSnapshot": {
+     "id": "142f403e-6ef6-1fc2-f50c-b59c336ced93",
+     "groupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+     "name": "moi_phut",
+     "sourceName": "Cổng 15 phút (sau Giao+Nhận)",
+     "destinationName": "input",
+     "flowFilesIn": 5,
+     "bytesIn": 600,
+     "input": "5 (600 bytes)",
+     "flowFilesOut": 5,
+     "bytesOut": 600,
+     "output": "5 (600 bytes)",
+     "flowFilesQueued": 0,
+     "bytesQueued": 0,
+     "queued": "0 (0 bytes)",
+     "queuedSize": "0 bytes",
+     "queuedCount": "0",
+     "percentUseCount": 0,
+     "percentUseBytes": 0,
+     "flowFileAvailability": "ACTIVE_QUEUE_EMPTY"
+    }
+   },
+   "bends": [],
+   "labelIndex": 1,
+   "zIndex": 0,
+   "sourceId": "142f3f07-6ef6-1fc2-31a6-eac5fc8029b8",
+   "sourceGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "sourceType": "PROCESSOR",
+   "destinationId": "142f4028-6ef6-1fc2-b516-6ee5599f4681",
+   "destinationGroupId": "142f4027-6ef6-1fc2-5950-aadbfcd70208",
+   "destinationType": "INPUT_PORT"
+  }
+ ],
+ "chitiet_donvi_group": {
+  "permissions": {
+   "canRead": true,
+   "canWrite": true
+  },
+  "processGroupFlow": {
+   "id": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+   "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/flow/process-groups/142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+   "parentGroupId": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+   "parameterContext": {
+    "id": "585a02a4-019a-1000-e393-67bc144d2abe",
+    "permissions": {
+     "canRead": true,
+     "canWrite": true
+    },
+    "component": {
+     "id": "585a02a4-019a-1000-e393-67bc144d2abe",
+     "name": "Server0"
+    }
+   },
+   "breadcrumb": {
+    "id": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+    "permissions": {
+     "canRead": true,
+     "canWrite": true
+    },
+    "breadcrumb": {
+     "id": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+     "name": "Chi tiết đơn vị"
+    },
+    "parentBreadcrumb": {
+     "id": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+     "permissions": {
+      "canRead": true,
+      "canWrite": true
+     },
+     "breadcrumb": {
+      "id": "142f3e8a-6ef6-1fc2-54e3-a7ee0a9d3028",
+      "name": "[RT] Chuỗi Tiếp nhận → Giao → Giao+Nhận (3 phút, staging swap)"
+     },
+     "parentBreadcrumb": {
+      "id": "142f43a6-6ef6-1fc2-f91f-c96e6dc0d2fb",
+      "permissions": {
+       "canRead": true,
+       "canWrite": true
+      },
+      "breadcrumb": {
+       "id": "142f43a6-6ef6-1fc2-f91f-c96e6dc0d2fb",
+       "name": "BTH _ Đơn vị _ Realtime (1p)"
+      },
+      "parentBreadcrumb": {
+       "id": "0bfb3422-8a21-1e6a-8a1d-f4ecee881205",
+       "permissions": {
+        "canRead": true,
+        "canWrite": true
+       },
+       "breadcrumb": {
+        "id": "0bfb3422-8a21-1e6a-8a1d-f4ecee881205",
+        "name": "QLNV"
+       },
+       "parentBreadcrumb": {
+        "id": "0bfb3279-8a21-1e6a-7dd2-4ccd96409ade",
+        "permissions": {
+         "canRead": true,
+         "canWrite": true
+        },
+        "breadcrumb": {
+         "id": "0bfb3279-8a21-1e6a-7dd2-4ccd96409ade",
+         "name": "Thành Ủy Hà Nội"
+        },
+        "parentBreadcrumb": {
+         "id": "29adbf0b-019a-1000-5ca9-1dde977d8593",
+         "permissions": {
+          "canRead": true,
+          "canWrite": true
+         },
+         "breadcrumb": {
+          "id": "29adbf0b-019a-1000-5ca9-1dde977d8593",
+          "name": "NiFi Flow"
+         }
+        }
+       }
+      }
+     }
+    }
+   },
+   "flow": {
+    "processGroups": [],
+    "remoteProcessGroups": [],
+    "processors": [
+     {
+      "revision": {
+       "version": 7
+      },
+      "id": "142f3f46-6ef6-1fc2-c4f1-b056108b9c4a",
+      "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/processors/142f3f46-6ef6-1fc2-c4f1-b056108b9c4a",
+      "position": {
+       "x": 3976.0,
+       "y": 1288.0
+      },
+      "permissions": {
+       "canRead": true,
+       "canWrite": true
+      },
+      "bulletins": [],
+      "component": {
+       "id": "142f3f46-6ef6-1fc2-c4f1-b056108b9c4a",
+       "versionedComponentId": "35f4255f-d584-3525-82d9-9d6799ef6a9c",
+       "parentGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "position": {
+        "x": 3976.0,
+        "y": 1288.0
+       },
+       "name": "qlnv_tongquan_donvi",
+       "type": "org.apache.nifi.processors.standard.ExecuteSQL",
+       "bundle": {
+        "group": "org.apache.nifi",
+        "artifact": "nifi-standard-nar",
+        "version": "1.27.0"
+       },
+       "state": "RUNNING",
+       "style": {},
+       "relationships": [
+        {
+         "name": "failure",
+         "description": "SQL query execution failed. Incoming FlowFile will be penalized and routed to this relationship",
+         "autoTerminate": false,
+         "retry": false
+        },
+        {
+         "name": "success",
+         "description": "Successfully created FlowFile from SQL query result set.",
+         "autoTerminate": false,
+         "retry": false
+        }
+       ],
+       "supportsParallelProcessing": true,
+       "supportsEventDriven": true,
+       "supportsBatching": false,
+       "supportsSensitiveDynamicProperties": true,
+       "persistsState": false,
+       "restricted": false,
+       "deprecated": false,
+       "executionNodeRestricted": false,
+       "multipleVersionsAvailable": false,
+       "inputRequirement": "INPUT_ALLOWED",
+       "config": {
+        "properties": {
+         "Database Connection Pooling Service": "a06e038b-019a-1000-f4f2-fdf9e5995ada",
+         "sql-pre-query": null,
+         "SQL select query": "/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */\nCREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_donvi__stg LIKE datamart_hanoi.qlnv_tongquan_donvi;\nTRUNCATE TABLE datamart_hanoi.qlnv_tongquan_donvi__stg;\nSET TRANSACTION ISOLATION LEVEL READ COMMITTED;\nINSERT INTO datamart_hanoi.qlnv_tongquan_donvi__stg\nSELECT\n    c.monthkey,\n\t\tc.don_vi_cap_01,\n    c.loaicapcha,\n\n    /* ÉP loaicap = DepartmentName có Level = 3 */\n    CASE\n        WHEN c.iddv IS NULL\n            THEN 'Chưa xác định'\n        WHEN d1.Level = 3 THEN d1.DepartmentName\n        WHEN d2.Level = 3 THEN d2.DepartmentName\n        WHEN d3.Level = 3 THEN d3.DepartmentName\n        WHEN d4.Level = 3 THEN d4.DepartmentName\n        ELSE NULL\n    END AS loaicap,\n\n    c.iddv,\n    c.donvi,\n    c.tenviettat,\n\t\td1.ParentId AS iddv_captren,\n    c.VanBanGiaoNhiemVu,\n\t\tc.NgayVanBan,\n    c.LinhVuc,\n    c.Kieu,\n\t\tc.UuTien,\n\n    COUNT(*) AS tongso,\n\n    COUNT(CASE WHEN c.TrangThai LIKE 'Đã hoàn thành%' THEN 1 END) AS daht,\n    COUNT(CASE WHEN c.TrangThai = 'Đã hoàn thành đúng hạn' THEN 1 END) AS daht_dh,\n    COUNT(CASE WHEN c.TrangThai = 'Đã hoàn thành quá hạn' THEN 1 END) AS daht_qh,\n    COUNT(CASE WHEN c.TrangThai = 'Đã hoàn thành' THEN 1 END) AS daht_kh,\n\n    COUNT(CASE WHEN c.TrangThai LIKE 'Chưa hoàn thành%' THEN 1 END) AS dangth,\n    COUNT(CASE WHEN c.TrangThai = 'Chưa hoàn thành trong hạn' THEN 1 END) AS dangth_th,\n    COUNT(CASE WHEN c.TrangThai = 'Chưa hoàn thành quá hạn' THEN 1 END) AS dangth_qh,\n    COUNT(CASE WHEN c.TrangThai = 'Chưa hoàn thành sắp quá hạn' THEN 1 END) AS dangth_sqh,\n    COUNT(CASE WHEN c.TrangThai = 'Chưa hoàn thành' THEN 1 END) AS dangth_kh,\n\t\tSUM(c.tongtg_canxuly) AS tongtg_canxuly,\n\t\tSUM(c.tongtg_daxuly) AS tongtg_daxuly,\n\n    c.nhomvb_ma,\n    c.nhomvb,\n\t\tc.NhomPhamViNhiemVu,\n    c.NhomGiaoNhan,\n    NOW() AS syncdate\nFROM ( SELECT * FROM datamart_hanoi.qlnv_tonghop_chitiet_donvi\n\t\t\tWHERE donvi_dvthuchien NOT IN ('Sở ngành', 'Xã, Phường') ) c\n\n/* Level hiện tại */\nLEFT JOIN datamart_hanoi.department d1\n    ON c.iddv = d1.DepartmentId\n\n/* Cha */\nLEFT JOIN datamart_hanoi.department d2\n    ON d2.DepartmentId = d1.ParentId\n\n/* Ông */\nLEFT JOIN datamart_hanoi.department d3\n    ON d3.DepartmentId = d2.ParentId\n\n/* Cụ */\nLEFT JOIN datamart_hanoi.department d4\n    ON d4.DepartmentId = d3.ParentId\n\nGROUP BY\n    c.monthkey,\n\t\tc.Ma,\n\t\tc.don_vi_cap_01,\n    c.loaicapcha,\n    c.iddv,\n    c.donvi,\n    c.tenviettat,\n\t\td1.ParentId,\n    c.VanBanGiaoNhiemVu,\n\t\tc.NgayVanBan,\n    c.LinhVuc,\n    c.Kieu,\n\t\tc.UuTien,\n    c.nhomvb_ma,\n    c.nhomvb,\n    c.NhomGiaoNhan,\n\t\tc.NhomPhamViNhiemVu,\n    loaicap\n\nORDER BY \n    c.monthkey,\n\t\tc.don_vi_cap_01,\n    c.loaicapcha,\n    c.VanBanGiaoNhiemVu,\n    c.nhomvb_ma,\n    c.NhomGiaoNhan,\n\t\tc.NhomPhamViNhiemVu\n;\n/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */\nSET SESSION lock_wait_timeout = 10;\nRENAME TABLE datamart_hanoi.qlnv_tongquan_donvi TO datamart_hanoi.qlnv_tongquan_donvi__old, datamart_hanoi.qlnv_tongquan_donvi__stg TO datamart_hanoi.qlnv_tongquan_donvi, datamart_hanoi.qlnv_tongquan_donvi__old TO datamart_hanoi.qlnv_tongquan_donvi__stg;\nSET SESSION lock_wait_timeout = 31536000;",
+         "sql-post-query": null,
+         "Max Wait Time": "0 seconds",
+         "dbf-normalize": "false",
+         "dbf-user-logical-types": "false",
+         "compression-format": "NONE",
+         "dbf-default-precision": "10",
+         "dbf-default-scale": "0",
+         "esql-max-rows": "0",
+         "esql-output-batch-size": "0",
+         "esql-fetch-size": "0",
+         "esql-auto-commit": "true"
+        },
+        "descriptors": {
+         "Database Connection Pooling Service": {
+          "name": "Database Connection Pooling Service",
+          "displayName": "Database Connection Pooling Service",
+          "description": "The Controller Service that is used to obtain connection to database",
+          "allowableValues": [
+           {
+            "allowableValue": {
+             "displayName": "HN-Datamart-NEW",
+             "value": "acf51838-116f-119e-c09b-1b31f6c8d1ae"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "HaNoi_DB_HNI_KNCT",
+             "value": "bee45711-c2d0-1c10-9b4b-33febf757b70"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "HaNoi_Datamart",
+             "value": "0bfb327e-8a21-1e6a-776c-e17610335bef"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "HaNoi_Datamart_5s",
+             "value": "73bb3774-cea7-1f5d-629d-4e34862120ab"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "HaNoi_ThanhUy_DB",
+             "value": "a06e038b-019a-1000-f4f2-fdf9e5995ada"
+            },
+            "canRead": true
+           }
+          ],
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "identifiesControllerService": "org.apache.nifi.dbcp.DBCPService",
+          "identifiesControllerServiceBundle": {
+           "group": "org.apache.nifi",
+           "artifact": "nifi-standard-services-api-nar",
+           "version": "1.27.0"
+          },
+          "dependencies": []
+         },
+         "sql-pre-query": {
+          "name": "sql-pre-query",
+          "displayName": "SQL Pre-Query",
+          "description": "A semicolon-delimited list of queries executed before the main SQL query is executed. For example, set session properties before main query. It's possible to include semicolons in the statements themselves by escaping them with a backslash ('\\;'). Results/outputs from these queries will be suppressed if there are no errors.",
+          "required": false,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": true,
+          "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+          "dependencies": []
+         },
+         "SQL select query": {
+          "name": "SQL select query",
+          "displayName": "SQL select query",
+          "description": "The SQL select query to execute. The query can be empty, a constant value, or built from attributes using Expression Language. If this property is specified, it will be used regardless of the content of incoming flowfiles. If this property is empty, the content of the incoming flow file is expected to contain a valid SQL select query, to be issued by the processor to the database. Note that Expression Language is not evaluated for flow file contents.",
+          "required": false,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": true,
+          "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+          "dependencies": []
+         },
+         "sql-post-query": {
+          "name": "sql-post-query",
+          "displayName": "SQL Post-Query",
+          "description": "A semicolon-delimited list of queries executed after the main SQL query is executed. Example like setting session properties after main query. It's possible to include semicolons in the statements themselves by escaping them with a backslash ('\\;'). Results/outputs from these queries will be suppressed if there are no errors.",
+          "required": false,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": true,
+          "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+          "dependencies": []
+         },
+         "Max Wait Time": {
+          "name": "Max Wait Time",
+          "displayName": "Max Wait Time",
+          "description": "The maximum amount of time allowed for a running SQL select query  , zero means there is no limit. Max time less than 1 second will be equal to zero.",
+          "defaultValue": "0 seconds",
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": true,
+          "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+          "dependencies": []
+         },
+         "dbf-normalize": {
+          "name": "dbf-normalize",
+          "displayName": "Normalize Table/Column Names",
+          "description": "Whether to change non-Avro-compatible characters in column names to Avro-compatible characters. For example, colons and periods will be changed to underscores in order to build a valid Avro record.",
+          "defaultValue": "false",
+          "allowableValues": [
+           {
+            "allowableValue": {
+             "displayName": "true",
+             "value": "true"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "false",
+             "value": "false"
+            },
+            "canRead": true
+           }
+          ],
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         },
+         "dbf-user-logical-types": {
+          "name": "dbf-user-logical-types",
+          "displayName": "Use Avro Logical Types",
+          "description": "Whether to use Avro Logical Types for DECIMAL/NUMBER, DATE, TIME and TIMESTAMP columns. If disabled, written as string. If enabled, Logical types are used and written as its underlying type, specifically, DECIMAL/NUMBER as logical 'decimal': written as bytes with additional precision and scale meta data, DATE as logical 'date-millis': written as int denoting days since Unix epoch (1970-01-01), TIME as logical 'time-millis': written as int denoting milliseconds since Unix epoch, and TIMESTAMP as logical 'timestamp-millis': written as long denoting milliseconds since Unix epoch. If a reader of written Avro records also knows these logical types, then these values can be deserialized with more context depending on reader implementation.",
+          "defaultValue": "false",
+          "allowableValues": [
+           {
+            "allowableValue": {
+             "displayName": "true",
+             "value": "true"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "false",
+             "value": "false"
+            },
+            "canRead": true
+           }
+          ],
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         },
+         "compression-format": {
+          "name": "compression-format",
+          "displayName": "Compression Format",
+          "description": "Compression type to use when writing Avro files. Default is None.",
+          "defaultValue": "NONE",
+          "allowableValues": [
+           {
+            "allowableValue": {
+             "displayName": "BZIP2",
+             "value": "BZIP2"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "DEFLATE",
+             "value": "DEFLATE"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "NONE",
+             "value": "NONE"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "SNAPPY",
+             "value": "SNAPPY"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "LZO",
+             "value": "LZO"
+            },
+            "canRead": true
+           }
+          ],
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         },
+         "dbf-default-precision": {
+          "name": "dbf-default-precision",
+          "displayName": "Default Decimal Precision",
+          "description": "When a DECIMAL/NUMBER value is written as a 'decimal' Avro logical type, a specific 'precision' denoting number of available digits is required. Generally, precision is defined by column data type definition or database engines default. However undefined precision (0) can be returned from some database engines. 'Default Decimal Precision' is used when writing those undefined precision numbers.",
+          "defaultValue": "10",
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": true,
+          "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+          "dependencies": []
+         },
+         "dbf-default-scale": {
+          "name": "dbf-default-scale",
+          "displayName": "Default Decimal Scale",
+          "description": "When a DECIMAL/NUMBER value is written as a 'decimal' Avro logical type, a specific 'scale' denoting number of available decimal digits is required. Generally, scale is defined by column data type definition or database engines default. However when undefined precision (0) is returned, scale can also be uncertain with some database engines. 'Default Decimal Scale' is used when writing those undefined numbers. If a value has more decimals than specified scale, then the value will be rounded-up, e.g. 1.53 becomes 2 with scale 0, and 1.5 with scale 1.",
+          "defaultValue": "0",
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": true,
+          "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+          "dependencies": []
+         },
+         "esql-max-rows": {
+          "name": "esql-max-rows",
+          "displayName": "Max Rows Per Flow File",
+          "description": "The maximum number of result rows that will be included in a single FlowFile. This will allow you to break up very large result sets into multiple FlowFiles. If the value specified is zero, then all rows are returned in a single FlowFile.",
+          "defaultValue": "0",
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": true,
+          "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+          "dependencies": []
+         },
+         "esql-output-batch-size": {
+          "name": "esql-output-batch-size",
+          "displayName": "Output Batch Size",
+          "description": "The number of output FlowFiles to queue before committing the process session. When set to zero, the session will be committed when all result set rows have been processed and the output FlowFiles are ready for transfer to the downstream relationship. For large result sets, this can cause a large burst of FlowFiles to be transferred at the end of processor execution. If this property is set, then when the specified number of FlowFiles are ready for transfer, then the session will be committed, thus releasing the FlowFiles to the downstream relationship. NOTE: The fragment.count attribute will not be set on FlowFiles when this property is set.",
+          "defaultValue": "0",
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": true,
+          "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+          "dependencies": []
+         },
+         "esql-fetch-size": {
+          "name": "esql-fetch-size",
+          "displayName": "Fetch Size",
+          "description": "The number of result rows to be fetched from the result set at a time. This is a hint to the database driver and may not be honored and/or exact. If the value specified is zero, then the hint is ignored.",
+          "defaultValue": "0",
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": true,
+          "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+          "dependencies": []
+         },
+         "esql-auto-commit": {
+          "name": "esql-auto-commit",
+          "displayName": "Set Auto Commit",
+          "description": "Enables or disables the auto commit functionality of the DB connection. Default value is 'true'. The default value can be used with most of the JDBC drivers and this functionality doesn't have any impact in most of the cases since this processor is used to read data. However, for some JDBC drivers such as PostgreSQL driver, it is required to disable the auto committing functionality to limit the number of result rows fetching at a time. When auto commit is enabled, postgreSQL driver loads whole result set to memory at once. This could lead for a large amount of memory usage when executing queries which fetch large data sets. More Details of this behaviour in PostgreSQL driver can be found in https://jdbc.postgresql.org//documentation/head/query.html. ",
+          "defaultValue": "true",
+          "allowableValues": [
+           {
+            "allowableValue": {
+             "displayName": "true",
+             "value": "true"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "false",
+             "value": "false"
+            },
+            "canRead": true
+           }
+          ],
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         }
+        },
+        "schedulingPeriod": "0 sec",
+        "schedulingStrategy": "TIMER_DRIVEN",
+        "executionNode": "ALL",
+        "penaltyDuration": "30 sec",
+        "yieldDuration": "1 sec",
+        "bulletinLevel": "WARN",
+        "runDurationMillis": 0,
+        "concurrentlySchedulableTaskCount": 1,
+        "comments": "",
+        "lossTolerant": false,
+        "defaultConcurrentTasks": {
+         "TIMER_DRIVEN": "1",
+         "EVENT_DRIVEN": "0",
+         "CRON_DRIVEN": "1"
+        },
+        "defaultSchedulingPeriod": {
+         "TIMER_DRIVEN": "0 sec",
+         "CRON_DRIVEN": "* * * * * ?"
+        },
+        "retryCount": 10,
+        "retriedRelationships": [],
+        "backoffMechanism": "PENALIZE_FLOWFILE",
+        "maxBackoffPeriod": "10 mins"
+       },
+       "validationStatus": "VALID",
+       "extensionMissing": false
+      },
+      "inputRequirement": "INPUT_ALLOWED",
+      "status": {
+       "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "id": "142f3f46-6ef6-1fc2-c4f1-b056108b9c4a",
+       "name": "qlnv_tongquan_donvi",
+       "runStatus": "Running",
+       "statsLastRefreshed": "09:34:26 ICT",
+       "aggregateSnapshot": {
+        "id": "142f3f46-6ef6-1fc2-c4f1-b056108b9c4a",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "qlnv_tongquan_donvi",
+        "type": "ExecuteSQL",
+        "runStatus": "Running",
+        "executionNode": "ALL",
+        "bytesRead": 0,
+        "bytesWritten": 120,
+        "read": "0 bytes",
+        "written": "120 bytes",
+        "flowFilesIn": 1,
+        "bytesIn": 120,
+        "input": "1 (120 bytes)",
+        "flowFilesOut": 1,
+        "bytesOut": 120,
+        "output": "1 (120 bytes)",
+        "taskCount": 1,
+        "tasksDurationNanos": 11535847135,
+        "tasks": "1",
+        "tasksDuration": "00:00:11.535",
+        "activeThreadCount": 0,
+        "terminatedThreadCount": 0
+       }
+      },
+      "operatePermissions": {
+       "canRead": true,
+       "canWrite": true
+      }
+     },
+     {
+      "revision": {
+       "version": 0
+      },
+      "id": "142f3f45-6ef6-1fc2-a87b-2cf6d4aedde1",
+      "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/processors/142f3f45-6ef6-1fc2-a87b-2cf6d4aedde1",
+      "position": {
+       "x": 3400.0,
+       "y": 1288.0
+      },
+      "permissions": {
+       "canRead": true,
+       "canWrite": true
+      },
+      "bulletins": [],
+      "component": {
+       "id": "142f3f45-6ef6-1fc2-a87b-2cf6d4aedde1",
+       "versionedComponentId": "6b9e40c2-15f4-3798-8ebc-3170b7dadc11",
+       "parentGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "position": {
+        "x": 3400.0,
+        "y": 1288.0
+       },
+       "name": "3 PHÚT / 1 LẦN",
+       "type": "org.apache.nifi.processors.standard.GenerateFlowFile",
+       "bundle": {
+        "group": "org.apache.nifi",
+        "artifact": "nifi-standard-nar",
+        "version": "1.27.0"
+       },
+       "state": "DISABLED",
+       "style": {},
+       "relationships": [
+        {
+         "name": "success",
+         "description": "",
+         "autoTerminate": false,
+         "retry": false
+        }
+       ],
+       "supportsParallelProcessing": true,
+       "supportsEventDriven": false,
+       "supportsBatching": true,
+       "supportsSensitiveDynamicProperties": false,
+       "persistsState": false,
+       "restricted": false,
+       "deprecated": false,
+       "executionNodeRestricted": false,
+       "multipleVersionsAvailable": false,
+       "inputRequirement": "INPUT_FORBIDDEN",
+       "config": {
+        "properties": {
+         "File Size": "0B",
+         "Batch Size": "1",
+         "Data Format": "Text",
+         "Unique FlowFiles": "false",
+         "generate-ff-custom-text": null,
+         "character-set": "UTF-8",
+         "mime-type": null
+        },
+        "descriptors": {
+         "File Size": {
+          "name": "File Size",
+          "displayName": "File Size",
+          "description": "The size of the file that will be used",
+          "defaultValue": "0B",
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         },
+         "Batch Size": {
+          "name": "Batch Size",
+          "displayName": "Batch Size",
+          "description": "The number of FlowFiles to be transferred in each invocation",
+          "defaultValue": "1",
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         },
+         "Data Format": {
+          "name": "Data Format",
+          "displayName": "Data Format",
+          "description": "Specifies whether the data should be Text or Binary",
+          "defaultValue": "Text",
+          "allowableValues": [
+           {
+            "allowableValue": {
+             "displayName": "Binary",
+             "value": "Binary"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "Text",
+             "value": "Text"
+            },
+            "canRead": true
+           }
+          ],
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         },
+         "Unique FlowFiles": {
+          "name": "Unique FlowFiles",
+          "displayName": "Unique FlowFiles",
+          "description": "If true, each FlowFile that is generated will be unique. If false, a random value will be generated and all FlowFiles will get the same content but this offers much higher throughput",
+          "defaultValue": "false",
+          "allowableValues": [
+           {
+            "allowableValue": {
+             "displayName": "true",
+             "value": "true"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "false",
+             "value": "false"
+            },
+            "canRead": true
+           }
+          ],
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         },
+         "generate-ff-custom-text": {
+          "name": "generate-ff-custom-text",
+          "displayName": "Custom Text",
+          "description": "If Data Format is text and if Unique FlowFiles is false, then this custom text will be used as content of the generated FlowFiles and the File Size will be ignored. Finally, if Expression Language is used, evaluation will be performed only once per batch of generated FlowFiles",
+          "required": false,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": true,
+          "expressionLanguageScope": "Variable Registry Only",
+          "dependencies": []
+         },
+         "character-set": {
+          "name": "character-set",
+          "displayName": "Character Set",
+          "description": "Specifies the character set to use when writing the bytes of Custom Text to a flow file.",
+          "defaultValue": "UTF-8",
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         },
+         "mime-type": {
+          "name": "mime-type",
+          "displayName": "Mime Type",
+          "description": "Specifies the value to set for the \"mime.type\" attribute.",
+          "required": false,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         }
+        },
+        "schedulingPeriod": "3 min",
+        "schedulingStrategy": "TIMER_DRIVEN",
+        "executionNode": "ALL",
+        "penaltyDuration": "30 sec",
+        "yieldDuration": "1 sec",
+        "bulletinLevel": "WARN",
+        "runDurationMillis": 0,
+        "concurrentlySchedulableTaskCount": 1,
+        "comments": "",
+        "lossTolerant": false,
+        "defaultConcurrentTasks": {
+         "TIMER_DRIVEN": "1",
+         "EVENT_DRIVEN": "0",
+         "CRON_DRIVEN": "1"
+        },
+        "defaultSchedulingPeriod": {
+         "TIMER_DRIVEN": "0 sec",
+         "CRON_DRIVEN": "* * * * * ?"
+        },
+        "retryCount": 10,
+        "retriedRelationships": [],
+        "backoffMechanism": "PENALIZE_FLOWFILE",
+        "maxBackoffPeriod": "10 mins"
+       },
+       "validationStatus": "VALIDATING",
+       "extensionMissing": false
+      },
+      "inputRequirement": "INPUT_FORBIDDEN",
+      "status": {
+       "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "id": "142f3f45-6ef6-1fc2-a87b-2cf6d4aedde1",
+       "name": "3 PHÚT / 1 LẦN",
+       "runStatus": "Disabled",
+       "statsLastRefreshed": "09:34:26 ICT",
+       "aggregateSnapshot": {
+        "id": "142f3f45-6ef6-1fc2-a87b-2cf6d4aedde1",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "3 PHÚT / 1 LẦN",
+        "type": "GenerateFlowFile",
+        "runStatus": "Disabled",
+        "executionNode": "ALL",
+        "bytesRead": 0,
+        "bytesWritten": 0,
+        "read": "0 bytes",
+        "written": "0 bytes",
+        "flowFilesIn": 0,
+        "bytesIn": 0,
+        "input": "0 (0 bytes)",
+        "flowFilesOut": 0,
+        "bytesOut": 0,
+        "output": "0 (0 bytes)",
+        "taskCount": 0,
+        "tasksDurationNanos": 0,
+        "tasks": "0",
+        "tasksDuration": "00:00:00.000",
+        "activeThreadCount": 0,
+        "terminatedThreadCount": 0
+       }
+      },
+      "operatePermissions": {
+       "canRead": true,
+       "canWrite": true
+      }
+     },
+     {
+      "revision": {
+       "version": 0
+      },
+      "id": "142f3f42-6ef6-1fc2-d0cd-1e8fac02e00e",
+      "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/processors/142f3f42-6ef6-1fc2-d0cd-1e8fac02e00e",
+      "position": {
+       "x": 3400.0,
+       "y": 1064.0
+      },
+      "permissions": {
+       "canRead": true,
+       "canWrite": true
+      },
+      "bulletins": [],
+      "component": {
+       "id": "142f3f42-6ef6-1fc2-d0cd-1e8fac02e00e",
+       "versionedComponentId": "b02e3e06-b9b6-3599-92a3-a274b18532b5",
+       "parentGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "position": {
+        "x": 3400.0,
+        "y": 1064.0
+       },
+       "name": "3 PHÚT / 1 LẦN",
+       "type": "org.apache.nifi.processors.standard.GenerateFlowFile",
+       "bundle": {
+        "group": "org.apache.nifi",
+        "artifact": "nifi-standard-nar",
+        "version": "1.27.0"
+       },
+       "state": "DISABLED",
+       "style": {},
+       "relationships": [
+        {
+         "name": "success",
+         "description": "",
+         "autoTerminate": false,
+         "retry": false
+        }
+       ],
+       "supportsParallelProcessing": true,
+       "supportsEventDriven": false,
+       "supportsBatching": true,
+       "supportsSensitiveDynamicProperties": false,
+       "persistsState": false,
+       "restricted": false,
+       "deprecated": false,
+       "executionNodeRestricted": false,
+       "multipleVersionsAvailable": false,
+       "inputRequirement": "INPUT_FORBIDDEN",
+       "config": {
+        "properties": {
+         "File Size": "0B",
+         "Batch Size": "1",
+         "Data Format": "Text",
+         "Unique FlowFiles": "false",
+         "generate-ff-custom-text": null,
+         "character-set": "UTF-8",
+         "mime-type": null
+        },
+        "descriptors": {
+         "File Size": {
+          "name": "File Size",
+          "displayName": "File Size",
+          "description": "The size of the file that will be used",
+          "defaultValue": "0B",
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         },
+         "Batch Size": {
+          "name": "Batch Size",
+          "displayName": "Batch Size",
+          "description": "The number of FlowFiles to be transferred in each invocation",
+          "defaultValue": "1",
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         },
+         "Data Format": {
+          "name": "Data Format",
+          "displayName": "Data Format",
+          "description": "Specifies whether the data should be Text or Binary",
+          "defaultValue": "Text",
+          "allowableValues": [
+           {
+            "allowableValue": {
+             "displayName": "Binary",
+             "value": "Binary"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "Text",
+             "value": "Text"
+            },
+            "canRead": true
+           }
+          ],
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         },
+         "Unique FlowFiles": {
+          "name": "Unique FlowFiles",
+          "displayName": "Unique FlowFiles",
+          "description": "If true, each FlowFile that is generated will be unique. If false, a random value will be generated and all FlowFiles will get the same content but this offers much higher throughput",
+          "defaultValue": "false",
+          "allowableValues": [
+           {
+            "allowableValue": {
+             "displayName": "true",
+             "value": "true"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "false",
+             "value": "false"
+            },
+            "canRead": true
+           }
+          ],
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         },
+         "generate-ff-custom-text": {
+          "name": "generate-ff-custom-text",
+          "displayName": "Custom Text",
+          "description": "If Data Format is text and if Unique FlowFiles is false, then this custom text will be used as content of the generated FlowFiles and the File Size will be ignored. Finally, if Expression Language is used, evaluation will be performed only once per batch of generated FlowFiles",
+          "required": false,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": true,
+          "expressionLanguageScope": "Variable Registry Only",
+          "dependencies": []
+         },
+         "character-set": {
+          "name": "character-set",
+          "displayName": "Character Set",
+          "description": "Specifies the character set to use when writing the bytes of Custom Text to a flow file.",
+          "defaultValue": "UTF-8",
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         },
+         "mime-type": {
+          "name": "mime-type",
+          "displayName": "Mime Type",
+          "description": "Specifies the value to set for the \"mime.type\" attribute.",
+          "required": false,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         }
+        },
+        "schedulingPeriod": "3 min",
+        "schedulingStrategy": "TIMER_DRIVEN",
+        "executionNode": "ALL",
+        "penaltyDuration": "30 sec",
+        "yieldDuration": "1 sec",
+        "bulletinLevel": "WARN",
+        "runDurationMillis": 0,
+        "concurrentlySchedulableTaskCount": 1,
+        "comments": "",
+        "lossTolerant": false,
+        "defaultConcurrentTasks": {
+         "TIMER_DRIVEN": "1",
+         "EVENT_DRIVEN": "0",
+         "CRON_DRIVEN": "1"
+        },
+        "defaultSchedulingPeriod": {
+         "TIMER_DRIVEN": "0 sec",
+         "CRON_DRIVEN": "* * * * * ?"
+        },
+        "retryCount": 10,
+        "retriedRelationships": [],
+        "backoffMechanism": "PENALIZE_FLOWFILE",
+        "maxBackoffPeriod": "10 mins"
+       },
+       "validationStatus": "VALIDATING",
+       "extensionMissing": false
+      },
+      "inputRequirement": "INPUT_FORBIDDEN",
+      "status": {
+       "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "id": "142f3f42-6ef6-1fc2-d0cd-1e8fac02e00e",
+       "name": "3 PHÚT / 1 LẦN",
+       "runStatus": "Disabled",
+       "statsLastRefreshed": "09:34:26 ICT",
+       "aggregateSnapshot": {
+        "id": "142f3f42-6ef6-1fc2-d0cd-1e8fac02e00e",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "3 PHÚT / 1 LẦN",
+        "type": "GenerateFlowFile",
+        "runStatus": "Disabled",
+        "executionNode": "ALL",
+        "bytesRead": 0,
+        "bytesWritten": 0,
+        "read": "0 bytes",
+        "written": "0 bytes",
+        "flowFilesIn": 0,
+        "bytesIn": 0,
+        "input": "0 (0 bytes)",
+        "flowFilesOut": 0,
+        "bytesOut": 0,
+        "output": "0 (0 bytes)",
+        "taskCount": 0,
+        "tasksDurationNanos": 0,
+        "tasks": "0",
+        "tasksDuration": "00:00:00.000",
+        "activeThreadCount": 0,
+        "terminatedThreadCount": 0
+       }
+      },
+      "operatePermissions": {
+       "canRead": true,
+       "canWrite": true
+      }
+     },
+     {
+      "revision": {
+       "version": 7
+      },
+      "id": "142f3f44-6ef6-1fc2-74a4-b7a2b349b634",
+      "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/processors/142f3f44-6ef6-1fc2-74a4-b7a2b349b634",
+      "position": {
+       "x": 3976.0,
+       "y": 1064.0
+      },
+      "permissions": {
+       "canRead": true,
+       "canWrite": true
+      },
+      "bulletins": [],
+      "component": {
+       "id": "142f3f44-6ef6-1fc2-74a4-b7a2b349b634",
+       "versionedComponentId": "1f1b5e40-3371-3266-9d6d-4225c43aaae4",
+       "parentGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "position": {
+        "x": 3976.0,
+        "y": 1064.0
+       },
+       "name": "qlnv_tonghop_chitiet_donvi",
+       "type": "org.apache.nifi.processors.standard.ExecuteSQL",
+       "bundle": {
+        "group": "org.apache.nifi",
+        "artifact": "nifi-standard-nar",
+        "version": "1.27.0"
+       },
+       "state": "RUNNING",
+       "style": {},
+       "relationships": [
+        {
+         "name": "failure",
+         "description": "SQL query execution failed. Incoming FlowFile will be penalized and routed to this relationship",
+         "autoTerminate": false,
+         "retry": false
+        },
+        {
+         "name": "success",
+         "description": "Successfully created FlowFile from SQL query result set.",
+         "autoTerminate": false,
+         "retry": false
+        }
+       ],
+       "supportsParallelProcessing": true,
+       "supportsEventDriven": true,
+       "supportsBatching": false,
+       "supportsSensitiveDynamicProperties": true,
+       "persistsState": false,
+       "restricted": false,
+       "deprecated": false,
+       "executionNodeRestricted": false,
+       "multipleVersionsAvailable": false,
+       "inputRequirement": "INPUT_ALLOWED",
+       "config": {
+        "properties": {
+         "Database Connection Pooling Service": "a06e038b-019a-1000-f4f2-fdf9e5995ada",
+         "sql-pre-query": null,
+         "SQL select query": "/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */\nCREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_donvi__stg LIKE datamart_hanoi.qlnv_tonghop_chitiet_donvi;\nTRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_donvi__stg;\nSET TRANSACTION ISOLATION LEVEL READ COMMITTED;\nINSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_donvi__stg (\n    monthkey,\n\t\t`year`,\n    `month`,\n    nhomvb_ma,\n    nhomvb,\n    ma_nv_cha,\n    Ma,\n    Code,\n    TenNhiemVu,\n    SanPhamChuYeu,\n    ThoiHanHoanThanh,\n    NgayHoanThanh,\n    TinhTrang,\n    TienDoHoanThanh,\n    SoNgayQuaHan,\n\n    don_vi_cap_01_dvgiao,\n\t\tloaicapcha_dvgiao,\n    loaicap_dvgiao,\n    iddv_dvgiao,\n    donvi_dvgiao,\n    tenviettat_dvgiao,\n\t\tiddv_captren_dvgiao,\n    NguoiGiaoNhiemVu,\n\n    don_vi_cap_01_dvthuchien,\n\t\tloaicapcha_dvthuchien,\n    loaicap_dvthuchien,\n    iddv_dvthuchien,\n    donvi_dvthuchien,\n    tenviettat_dvthuchien,\n\t\tiddv_captren_dvthuchien,\n    NguoiThucHien,\n\n    don_vi_cap_01,\n\t\tloaicapcha,\n    loaicap,\n    iddv,\n    donvi,\n    tenviettat,\n\t\tiddv_captren,\n\n    DonViPhoiHop,\n    iddv_dvchutri,\n    DonViChuTri,\n\t\t\n\t\tdon_vi_cap_01_dvtaonv,\n\t\tloaicapcha_dvtaonv,\n    loaicap_dvtaonv,\n    iddv_dvtaonv,\n    donvi_dvtaonv,\n    tenviettat_dvtaonv,\n    iddv_captren_dvtaonv,\n    NguoiTaoNhiemVuID,\n    NguoiTaoNhiemVu,\n\n\t\t\n    VanBanGiaoNhiemVu,\n\t\tNgayVanBan,\n    LinhVuc,\n    Kieu,\n\t\tUuTien,\n    KetQuaGhiChu,\n    NhomPhamViNhiemVu,\n    TrangThai,\n    TrangThaiVietTat,\n    TrangThaiVietTat2,\n    TenNhiemVu_Mobile,\n    NhomGiaoNhan,\n    syncdate\n)\n\n-- ================== PHẦN 1: ĐÃ GIAO ==================\nSELECT\n    t.monthkey,\n\t\tLEFT(t.monthkey,4) AS `year`,\n    t.`month`,\n    t.nhomvb_ma,\n    t.nhomvb,\n    t.ma_nv_cha,\n    t.Ma,\n\t\tt.Code,\n    t.TenNhiemVu,\n    t.SanPhamChuYeu,\n    t.ThoiHanHoanThanh,\n    t.NgayHoanThanh,\n    t.TinhTrang,\n    t.TienDoHoanThanh,\n    t.songayquahan AS SoNgayQuaHan,\n\n    -- đơn vị giao = đơn vị hiện tại\n    t.don_vi_cap_01     AS don_vi_cap_01_dvgiao,\n    t.loaicapcha        AS loaicapcha_dvgiao,\n    t.loaicap           AS loaicap_dvgiao,\n    t.iddv              AS iddv_dvgiao,\n    t.donvi             AS donvi_dvgiao,\n    t.tenviettat        AS tenviettat_dvgiao,\n\t\tt.iddv_captren,\n    t.NguoiGiaoNhiemVu,\n\n    -- đơn vị thực hiện chưa có\n    t.don_vi_cap_01_dvthuchien,\n    t.loaicapcha_dvthuchien,\n    t.loaicap_dvthuchien,\n    t.iddv_dvthuchien,\n\t\tt.donvi_dvthuchien,\n    t.tenviettat_dvthuchien,\n\t\tt.iddv_captren_dvthuchien,\n    t.NguoiThucHien,\n\n    t.don_vi_cap_01,\n\t\tt.loaicapcha,\n    t.loaicap,\n    t.iddv,\n    t.donvi,\n    t.tenviettat,\n\t\tt.iddv_captren,\n\n    t.DonViPhoiHop,\n    t.iddv_dvchutri,\n    t.DonViChuTri,\n\t\t\n\t\tt.don_vi_cap_01_dvtaonv,\n\t\tt.loaicapcha_dvtaonv,\n    t.loaicap_dvtaonv,\n    t.iddv_dvtaonv,\n    t.donvi_dvtaonv,\n    t.tenviettat_dvtaonv,\n    t.iddv_captren_dvtaonv,\n    t.NguoiTaoNhiemVuID,\n    t.NguoiTaoNhiemVu,\n\t\t\n    t.VanBanGiaoNhiemVu,\n\t\tt.NgayVanBan,\n    t.LinhVuc,\n    t.Kieu,\n\t\tt.UuTien,\n    t.KetQuaGhiChu,\n    t.NhomPhamViNhiemVu,\n    t.TrangThai,\n    REPLACE(t.TrangThaiVietTat,'Chưa HT ','CHT '),\n    t.TrangThaiVietTat2,\n    t.TenNhiemVu_Mobile,\n    'Đã giao' AS NhomGiaoNhan,\n    NOW()     AS syncdate\nFROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv t\n\nUNION ALL\n\n-- ================== PHẦN 2: ĐƯỢC GIAO ==================\nSELECT\n    t.monthkey,\n\t\tLEFT(t.monthkey,4) AS `year`,\n    t.`month` AS `Month`,\n    t.nhomvb_ma AS MaNhomVanBan,\n    t.nhomvb AS NhomVanBan,\n    t.ma_nv_cha AS MaNhiemVuCha,\n    t.Ma AS MaNhiemVu,\n\t\tt.Code,\n    t.TenNhiemVu,\n    t.SanPhamChuYeu,\n    t.ThoiHanHoanThanh,\n    t.NgayHoanThanh,\n    t.TinhTrang,\n    t.TienDoHoanThanh,\n    t.songayquahan AS SoNgayQuaHan,\n\n    t.don_vi_cap_01_dvgiao,\n\t\tt.loaicapcha_dvgiao,\n    t.loaicap_dvgiao,\n    t.iddv_dvgiao,\n    t.donvi_dvgiao,\n    t.tenviettat_dvgiao,\n\t\tt.iddv_captren_dvgiao,\n    t.NguoiGiaoNhiemVu,\n\n    -- đơn vị thực hiện = đơn vị hiện tại\n    t.don_vi_cap_01,\n\t\tt.loaicapcha,\n    t.loaicap,\n    t.iddv,\n    t.donvi,\n    t.tenviettat,\n\t\tt.iddv_captren,\n    t.NguoiThucHien,\n\n    t.don_vi_cap_01,\n\t\tt.loaicapcha,\n    t.loaicap,\n    t.iddv,\n    t.donvi,\n    t.tenviettat,\n\t\tt.iddv_captren,\n\n    t.DonViPhoiHop,\n    t.iddv_dvchutri,\n    t.DonViChuTri,\n\t\t\n\t\tt.don_vi_cap_01_dvtaonv,\n\t\tt.loaicapcha_dvtaonv,\n    t.loaicap_dvtaonv,\n    t.iddv_dvtaonv,\n    t.donvi_dvtaonv,\n    t.tenviettat_dvtaonv,\n    t.iddv_captren_dvtaonv,\n    t.NguoiTaoNhiemVuID,\n    t.NguoiTaoNhiemVu,\n\t\t\n    t.VanBanGiaoNhiemVu,\n\t\tt.NgayVanBan,\n    t.LinhVuc,\n    t.Kieu,\n\t\tt.UuTien,\n    t.KetQuaGhiChu,\n\t\tt.NhomPhamViNhiemVu,\n    t.TrangThai,\n    REPLACE(t.TrangThaiVietTat,'Chưa HT ','CHT '),\n    t.TrangThaiVietTat2,\n    t.TenNhiemVu_Mobile,\n    'Được giao' AS NhomGiaoNhan,\n    NOW()       AS syncdate\nFROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan t;\n/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */\nSET SESSION lock_wait_timeout = 10;\nRENAME TABLE datamart_hanoi.qlnv_tonghop_chitiet_donvi TO datamart_hanoi.qlnv_tonghop_chitiet_donvi__old, datamart_hanoi.qlnv_tonghop_chitiet_donvi__stg TO datamart_hanoi.qlnv_tonghop_chitiet_donvi, datamart_hanoi.qlnv_tonghop_chitiet_donvi__old TO datamart_hanoi.qlnv_tonghop_chitiet_donvi__stg;\nSET SESSION lock_wait_timeout = 31536000;",
+         "sql-post-query": null,
+         "Max Wait Time": "0 seconds",
+         "dbf-normalize": "false",
+         "dbf-user-logical-types": "false",
+         "compression-format": "NONE",
+         "dbf-default-precision": "10",
+         "dbf-default-scale": "0",
+         "esql-max-rows": "0",
+         "esql-output-batch-size": "0",
+         "esql-fetch-size": "0",
+         "esql-auto-commit": "true"
+        },
+        "descriptors": {
+         "Database Connection Pooling Service": {
+          "name": "Database Connection Pooling Service",
+          "displayName": "Database Connection Pooling Service",
+          "description": "The Controller Service that is used to obtain connection to database",
+          "allowableValues": [
+           {
+            "allowableValue": {
+             "displayName": "HN-Datamart-NEW",
+             "value": "acf51838-116f-119e-c09b-1b31f6c8d1ae"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "HaNoi_DB_HNI_KNCT",
+             "value": "bee45711-c2d0-1c10-9b4b-33febf757b70"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "HaNoi_Datamart",
+             "value": "0bfb327e-8a21-1e6a-776c-e17610335bef"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "HaNoi_Datamart_5s",
+             "value": "73bb3774-cea7-1f5d-629d-4e34862120ab"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "HaNoi_ThanhUy_DB",
+             "value": "a06e038b-019a-1000-f4f2-fdf9e5995ada"
+            },
+            "canRead": true
+           }
+          ],
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "identifiesControllerService": "org.apache.nifi.dbcp.DBCPService",
+          "identifiesControllerServiceBundle": {
+           "group": "org.apache.nifi",
+           "artifact": "nifi-standard-services-api-nar",
+           "version": "1.27.0"
+          },
+          "dependencies": []
+         },
+         "sql-pre-query": {
+          "name": "sql-pre-query",
+          "displayName": "SQL Pre-Query",
+          "description": "A semicolon-delimited list of queries executed before the main SQL query is executed. For example, set session properties before main query. It's possible to include semicolons in the statements themselves by escaping them with a backslash ('\\;'). Results/outputs from these queries will be suppressed if there are no errors.",
+          "required": false,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": true,
+          "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+          "dependencies": []
+         },
+         "SQL select query": {
+          "name": "SQL select query",
+          "displayName": "SQL select query",
+          "description": "The SQL select query to execute. The query can be empty, a constant value, or built from attributes using Expression Language. If this property is specified, it will be used regardless of the content of incoming flowfiles. If this property is empty, the content of the incoming flow file is expected to contain a valid SQL select query, to be issued by the processor to the database. Note that Expression Language is not evaluated for flow file contents.",
+          "required": false,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": true,
+          "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+          "dependencies": []
+         },
+         "sql-post-query": {
+          "name": "sql-post-query",
+          "displayName": "SQL Post-Query",
+          "description": "A semicolon-delimited list of queries executed after the main SQL query is executed. Example like setting session properties after main query. It's possible to include semicolons in the statements themselves by escaping them with a backslash ('\\;'). Results/outputs from these queries will be suppressed if there are no errors.",
+          "required": false,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": true,
+          "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+          "dependencies": []
+         },
+         "Max Wait Time": {
+          "name": "Max Wait Time",
+          "displayName": "Max Wait Time",
+          "description": "The maximum amount of time allowed for a running SQL select query  , zero means there is no limit. Max time less than 1 second will be equal to zero.",
+          "defaultValue": "0 seconds",
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": true,
+          "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+          "dependencies": []
+         },
+         "dbf-normalize": {
+          "name": "dbf-normalize",
+          "displayName": "Normalize Table/Column Names",
+          "description": "Whether to change non-Avro-compatible characters in column names to Avro-compatible characters. For example, colons and periods will be changed to underscores in order to build a valid Avro record.",
+          "defaultValue": "false",
+          "allowableValues": [
+           {
+            "allowableValue": {
+             "displayName": "true",
+             "value": "true"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "false",
+             "value": "false"
+            },
+            "canRead": true
+           }
+          ],
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         },
+         "dbf-user-logical-types": {
+          "name": "dbf-user-logical-types",
+          "displayName": "Use Avro Logical Types",
+          "description": "Whether to use Avro Logical Types for DECIMAL/NUMBER, DATE, TIME and TIMESTAMP columns. If disabled, written as string. If enabled, Logical types are used and written as its underlying type, specifically, DECIMAL/NUMBER as logical 'decimal': written as bytes with additional precision and scale meta data, DATE as logical 'date-millis': written as int denoting days since Unix epoch (1970-01-01), TIME as logical 'time-millis': written as int denoting milliseconds since Unix epoch, and TIMESTAMP as logical 'timestamp-millis': written as long denoting milliseconds since Unix epoch. If a reader of written Avro records also knows these logical types, then these values can be deserialized with more context depending on reader implementation.",
+          "defaultValue": "false",
+          "allowableValues": [
+           {
+            "allowableValue": {
+             "displayName": "true",
+             "value": "true"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "false",
+             "value": "false"
+            },
+            "canRead": true
+           }
+          ],
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         },
+         "compression-format": {
+          "name": "compression-format",
+          "displayName": "Compression Format",
+          "description": "Compression type to use when writing Avro files. Default is None.",
+          "defaultValue": "NONE",
+          "allowableValues": [
+           {
+            "allowableValue": {
+             "displayName": "BZIP2",
+             "value": "BZIP2"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "DEFLATE",
+             "value": "DEFLATE"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "NONE",
+             "value": "NONE"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "SNAPPY",
+             "value": "SNAPPY"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "LZO",
+             "value": "LZO"
+            },
+            "canRead": true
+           }
+          ],
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         },
+         "dbf-default-precision": {
+          "name": "dbf-default-precision",
+          "displayName": "Default Decimal Precision",
+          "description": "When a DECIMAL/NUMBER value is written as a 'decimal' Avro logical type, a specific 'precision' denoting number of available digits is required. Generally, precision is defined by column data type definition or database engines default. However undefined precision (0) can be returned from some database engines. 'Default Decimal Precision' is used when writing those undefined precision numbers.",
+          "defaultValue": "10",
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": true,
+          "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+          "dependencies": []
+         },
+         "dbf-default-scale": {
+          "name": "dbf-default-scale",
+          "displayName": "Default Decimal Scale",
+          "description": "When a DECIMAL/NUMBER value is written as a 'decimal' Avro logical type, a specific 'scale' denoting number of available decimal digits is required. Generally, scale is defined by column data type definition or database engines default. However when undefined precision (0) is returned, scale can also be uncertain with some database engines. 'Default Decimal Scale' is used when writing those undefined numbers. If a value has more decimals than specified scale, then the value will be rounded-up, e.g. 1.53 becomes 2 with scale 0, and 1.5 with scale 1.",
+          "defaultValue": "0",
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": true,
+          "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+          "dependencies": []
+         },
+         "esql-max-rows": {
+          "name": "esql-max-rows",
+          "displayName": "Max Rows Per Flow File",
+          "description": "The maximum number of result rows that will be included in a single FlowFile. This will allow you to break up very large result sets into multiple FlowFiles. If the value specified is zero, then all rows are returned in a single FlowFile.",
+          "defaultValue": "0",
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": true,
+          "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+          "dependencies": []
+         },
+         "esql-output-batch-size": {
+          "name": "esql-output-batch-size",
+          "displayName": "Output Batch Size",
+          "description": "The number of output FlowFiles to queue before committing the process session. When set to zero, the session will be committed when all result set rows have been processed and the output FlowFiles are ready for transfer to the downstream relationship. For large result sets, this can cause a large burst of FlowFiles to be transferred at the end of processor execution. If this property is set, then when the specified number of FlowFiles are ready for transfer, then the session will be committed, thus releasing the FlowFiles to the downstream relationship. NOTE: The fragment.count attribute will not be set on FlowFiles when this property is set.",
+          "defaultValue": "0",
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": true,
+          "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+          "dependencies": []
+         },
+         "esql-fetch-size": {
+          "name": "esql-fetch-size",
+          "displayName": "Fetch Size",
+          "description": "The number of result rows to be fetched from the result set at a time. This is a hint to the database driver and may not be honored and/or exact. If the value specified is zero, then the hint is ignored.",
+          "defaultValue": "0",
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": true,
+          "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+          "dependencies": []
+         },
+         "esql-auto-commit": {
+          "name": "esql-auto-commit",
+          "displayName": "Set Auto Commit",
+          "description": "Enables or disables the auto commit functionality of the DB connection. Default value is 'true'. The default value can be used with most of the JDBC drivers and this functionality doesn't have any impact in most of the cases since this processor is used to read data. However, for some JDBC drivers such as PostgreSQL driver, it is required to disable the auto committing functionality to limit the number of result rows fetching at a time. When auto commit is enabled, postgreSQL driver loads whole result set to memory at once. This could lead for a large amount of memory usage when executing queries which fetch large data sets. More Details of this behaviour in PostgreSQL driver can be found in https://jdbc.postgresql.org//documentation/head/query.html. ",
+          "defaultValue": "true",
+          "allowableValues": [
+           {
+            "allowableValue": {
+             "displayName": "true",
+             "value": "true"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "false",
+             "value": "false"
+            },
+            "canRead": true
+           }
+          ],
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         }
+        },
+        "schedulingPeriod": "0 sec",
+        "schedulingStrategy": "TIMER_DRIVEN",
+        "executionNode": "ALL",
+        "penaltyDuration": "30 sec",
+        "yieldDuration": "1 sec",
+        "bulletinLevel": "WARN",
+        "runDurationMillis": 0,
+        "concurrentlySchedulableTaskCount": 1,
+        "comments": "",
+        "lossTolerant": false,
+        "defaultConcurrentTasks": {
+         "TIMER_DRIVEN": "1",
+         "EVENT_DRIVEN": "0",
+         "CRON_DRIVEN": "1"
+        },
+        "defaultSchedulingPeriod": {
+         "TIMER_DRIVEN": "0 sec",
+         "CRON_DRIVEN": "* * * * * ?"
+        },
+        "retryCount": 10,
+        "retriedRelationships": [],
+        "backoffMechanism": "PENALIZE_FLOWFILE",
+        "maxBackoffPeriod": "10 mins"
+       },
+       "validationStatus": "VALID",
+       "extensionMissing": false
+      },
+      "inputRequirement": "INPUT_ALLOWED",
+      "status": {
+       "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "id": "142f3f44-6ef6-1fc2-74a4-b7a2b349b634",
+       "name": "qlnv_tonghop_chitiet_donvi",
+       "runStatus": "Running",
+       "statsLastRefreshed": "09:34:26 ICT",
+       "aggregateSnapshot": {
+        "id": "142f3f44-6ef6-1fc2-74a4-b7a2b349b634",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "qlnv_tonghop_chitiet_donvi",
+        "type": "ExecuteSQL",
+        "runStatus": "Running",
+        "executionNode": "ALL",
+        "bytesRead": 0,
+        "bytesWritten": 120,
+        "read": "0 bytes",
+        "written": "120 bytes",
+        "flowFilesIn": 1,
+        "bytesIn": 120,
+        "input": "1 (120 bytes)",
+        "flowFilesOut": 1,
+        "bytesOut": 120,
+        "output": "1 (120 bytes)",
+        "taskCount": 1,
+        "tasksDurationNanos": 13886733090,
+        "tasks": "1",
+        "tasksDuration": "00:00:13.886",
+        "activeThreadCount": 0,
+        "terminatedThreadCount": 0
+       }
+      },
+      "operatePermissions": {
+       "canRead": true,
+       "canWrite": true
+      }
+     },
+     {
+      "revision": {
+       "version": 0
+      },
+      "id": "142f3f43-6ef6-1fc2-2e93-127bc15e4391",
+      "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/processors/142f3f43-6ef6-1fc2-2e93-127bc15e4391",
+      "position": {
+       "x": 4592.0,
+       "y": 1048.0
+      },
+      "permissions": {
+       "canRead": true,
+       "canWrite": true
+      },
+      "bulletins": [],
+      "component": {
+       "id": "142f3f43-6ef6-1fc2-2e93-127bc15e4391",
+       "versionedComponentId": "f5d7db65-420d-35bc-b45a-ed887f14102c",
+       "parentGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "position": {
+        "x": 4592.0,
+        "y": 1048.0
+       },
+       "name": "LogAttribute",
+       "type": "org.apache.nifi.processors.standard.LogAttribute",
+       "bundle": {
+        "group": "org.apache.nifi",
+        "artifact": "nifi-standard-nar",
+        "version": "1.27.0"
+       },
+       "state": "DISABLED",
+       "style": {},
+       "relationships": [
+        {
+         "name": "success",
+         "description": "All FlowFiles are routed to this relationship",
+         "autoTerminate": false,
+         "retry": false
+        }
+       ],
+       "supportsParallelProcessing": true,
+       "supportsEventDriven": true,
+       "supportsBatching": true,
+       "supportsSensitiveDynamicProperties": false,
+       "persistsState": false,
+       "restricted": false,
+       "deprecated": false,
+       "executionNodeRestricted": false,
+       "multipleVersionsAvailable": false,
+       "inputRequirement": "INPUT_REQUIRED",
+       "config": {
+        "properties": {
+         "Log Level": "info",
+         "Log Payload": "false",
+         "Attributes to Log": null,
+         "attributes-to-log-regex": ".*",
+         "Attributes to Ignore": null,
+         "attributes-to-ignore-regex": null,
+         "Log FlowFile Properties": "true",
+         "Output Format": "Line per Attribute",
+         "Log prefix": null,
+         "character-set": "US-ASCII"
+        },
+        "descriptors": {
+         "Log Level": {
+          "name": "Log Level",
+          "displayName": "Log Level",
+          "description": "The Log Level to use when logging the Attributes",
+          "defaultValue": "info",
+          "allowableValues": [
+           {
+            "allowableValue": {
+             "displayName": "trace",
+             "value": "trace"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "debug",
+             "value": "debug"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "info",
+             "value": "info"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "warn",
+             "value": "warn"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "error",
+             "value": "error"
+            },
+            "canRead": true
+           }
+          ],
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         },
+         "Log Payload": {
+          "name": "Log Payload",
+          "displayName": "Log Payload",
+          "description": "If true, the FlowFile's payload will be logged, in addition to its attributes; otherwise, just the Attributes will be logged.",
+          "defaultValue": "false",
+          "allowableValues": [
+           {
+            "allowableValue": {
+             "displayName": "true",
+             "value": "true"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "false",
+             "value": "false"
+            },
+            "canRead": true
+           }
+          ],
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         },
+         "Attributes to Log": {
+          "name": "Attributes to Log",
+          "displayName": "Attributes to Log",
+          "description": "A comma-separated list of Attributes to Log. If not specified, all attributes will be logged unless `Attributes to Log by Regular Expression` is modified. There's an AND relationship between the two properties.",
+          "required": false,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         },
+         "attributes-to-log-regex": {
+          "name": "attributes-to-log-regex",
+          "displayName": "Attributes to Log by Regular Expression",
+          "description": "A regular expression indicating the Attributes to Log. If not specified, all attributes will be logged unless `Attributes to Log` is modified. There's an AND relationship between the two properties.",
+          "defaultValue": ".*",
+          "required": false,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         },
+         "Attributes to Ignore": {
+          "name": "Attributes to Ignore",
+          "displayName": "Attributes to Ignore",
+          "description": "A comma-separated list of Attributes to ignore. If not specified, no attributes will be ignored unless `Attributes to Ignore by Regular Expression` is modified. There's an OR relationship between the two properties.",
+          "required": false,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         },
+         "attributes-to-ignore-regex": {
+          "name": "attributes-to-ignore-regex",
+          "displayName": "Attributes to Ignore by Regular Expression",
+          "description": "A regular expression indicating the Attributes to Ignore. If not specified, no attributes will be ignored unless `Attributes to Ignore` is modified. There's an OR relationship between the two properties.",
+          "required": false,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         },
+         "Log FlowFile Properties": {
+          "name": "Log FlowFile Properties",
+          "displayName": "Log FlowFile Properties",
+          "description": "Specifies whether or not to log FlowFile \"properties\", such as Entry Date, Lineage Start Date, and content size",
+          "defaultValue": "true",
+          "allowableValues": [
+           {
+            "allowableValue": {
+             "displayName": "true",
+             "value": "true"
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "false",
+             "value": "false"
+            },
+            "canRead": true
+           }
+          ],
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         },
+         "Output Format": {
+          "name": "Output Format",
+          "displayName": "Output Format",
+          "description": "Specifies the format to use for logging FlowFile attributes",
+          "defaultValue": "Line per Attribute",
+          "allowableValues": [
+           {
+            "allowableValue": {
+             "displayName": "Line per Attribute",
+             "value": "Line per Attribute",
+             "description": "Each FlowFile attribute will be logged using a single line for the attribute name and another line for the attribute value. This format is often most advantageous when looking at the attributes of a single FlowFile."
+            },
+            "canRead": true
+           },
+           {
+            "allowableValue": {
+             "displayName": "Single Line",
+             "value": "Single Line",
+             "description": "All FlowFile attribute names and values will be logged on a single line. This format is often most advantageous when comparing logs from multiple FlowFiles."
+            },
+            "canRead": true
+           }
+          ],
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "expressionLanguageScope": "Not Supported",
+          "dependencies": []
+         },
+         "Log prefix": {
+          "name": "Log prefix",
+          "displayName": "Log prefix",
+          "description": "Log prefix appended to the log lines. It helps to distinguish the output of multiple LogAttribute processors.",
+          "required": false,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": true,
+          "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+          "dependencies": []
+         },
+         "character-set": {
+          "name": "character-set",
+          "displayName": "Character Set",
+          "description": "The name of the CharacterSet to use",
+          "defaultValue": "US-ASCII",
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": true,
+          "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+          "dependencies": []
+         }
+        },
+        "schedulingPeriod": "0 sec",
+        "schedulingStrategy": "TIMER_DRIVEN",
+        "executionNode": "ALL",
+        "penaltyDuration": "30 sec",
+        "yieldDuration": "1 sec",
+        "bulletinLevel": "WARN",
+        "runDurationMillis": 25,
+        "concurrentlySchedulableTaskCount": 1,
+        "comments": "",
+        "lossTolerant": false,
+        "defaultConcurrentTasks": {
+         "TIMER_DRIVEN": "1",
+         "EVENT_DRIVEN": "0",
+         "CRON_DRIVEN": "1"
+        },
+        "defaultSchedulingPeriod": {
+         "TIMER_DRIVEN": "0 sec",
+         "CRON_DRIVEN": "* * * * * ?"
+        },
+        "retryCount": 10,
+        "retriedRelationships": [],
+        "backoffMechanism": "PENALIZE_FLOWFILE",
+        "maxBackoffPeriod": "10 mins"
+       },
+       "validationStatus": "VALIDATING",
+       "extensionMissing": false
+      },
+      "inputRequirement": "INPUT_REQUIRED",
+      "status": {
+       "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "id": "142f3f43-6ef6-1fc2-2e93-127bc15e4391",
+       "name": "LogAttribute",
+       "runStatus": "Disabled",
+       "statsLastRefreshed": "09:34:26 ICT",
+       "aggregateSnapshot": {
+        "id": "142f3f43-6ef6-1fc2-2e93-127bc15e4391",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "LogAttribute",
+        "type": "LogAttribute",
+        "runStatus": "Disabled",
+        "executionNode": "ALL",
+        "bytesRead": 0,
+        "bytesWritten": 0,
+        "read": "0 bytes",
+        "written": "0 bytes",
+        "flowFilesIn": 0,
+        "bytesIn": 0,
+        "input": "0 (0 bytes)",
+        "flowFilesOut": 0,
+        "bytesOut": 0,
+        "output": "0 (0 bytes)",
+        "taskCount": 0,
+        "tasksDurationNanos": 0,
+        "tasks": "0",
+        "tasksDuration": "00:00:00.000",
+        "activeThreadCount": 0,
+        "terminatedThreadCount": 0
+       }
+      },
+      "operatePermissions": {
+       "canRead": true,
+       "canWrite": true
+      }
+     }
+    ],
+    "inputPorts": [
+     {
+      "revision": {
+       "version": 3
+      },
+      "id": "142f3f40-6ef6-1fc2-9538-eac09f7e7024",
+      "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/input-ports/142f3f40-6ef6-1fc2-9538-eac09f7e7024",
+      "position": {
+       "x": 4032.0,
+       "y": 952.0
+      },
+      "permissions": {
+       "canRead": true,
+       "canWrite": true
+      },
+      "bulletins": [],
+      "component": {
+       "id": "142f3f40-6ef6-1fc2-9538-eac09f7e7024",
+       "versionedComponentId": "e55ebcd3-06a7-3703-b31e-d03f4a1ca227",
+       "parentGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "position": {
+        "x": 4032.0,
+        "y": 952.0
+       },
+       "name": "input",
+       "state": "RUNNING",
+       "type": "INPUT_PORT",
+       "concurrentlySchedulableTaskCount": 1
+      },
+      "status": {
+       "id": "142f3f40-6ef6-1fc2-9538-eac09f7e7024",
+       "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "name": "input",
+       "runStatus": "Running",
+       "statsLastRefreshed": "09:34:26 ICT",
+       "aggregateSnapshot": {
+        "id": "142f3f40-6ef6-1fc2-9538-eac09f7e7024",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "input",
+        "activeThreadCount": 0,
+        "flowFilesIn": 1,
+        "bytesIn": 120,
+        "input": "1 (120 bytes)",
+        "flowFilesOut": 1,
+        "bytesOut": 120,
+        "output": "1 (120 bytes)",
+        "runStatus": "Running"
+       }
+      },
+      "portType": "INPUT_PORT",
+      "operatePermissions": {
+       "canRead": true,
+       "canWrite": true
+      }
+     }
+    ],
+    "outputPorts": [
+     {
+      "revision": {
+       "version": 3
+      },
+      "id": "142f3f41-6ef6-1fc2-c9a9-acc8890f3730",
+      "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/output-ports/142f3f41-6ef6-1fc2-c9a9-acc8890f3730",
+      "position": {
+       "x": 4032.0,
+       "y": 1496.0
+      },
+      "permissions": {
+       "canRead": true,
+       "canWrite": true
+      },
+      "bulletins": [],
+      "component": {
+       "id": "142f3f41-6ef6-1fc2-c9a9-acc8890f3730",
+       "versionedComponentId": "855988be-a600-3113-90a5-cb9103682d4f",
+       "parentGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "position": {
+        "x": 4032.0,
+        "y": 1496.0
+       },
+       "name": "output",
+       "state": "RUNNING",
+       "type": "OUTPUT_PORT",
+       "concurrentlySchedulableTaskCount": 1
+      },
+      "status": {
+       "id": "142f3f41-6ef6-1fc2-c9a9-acc8890f3730",
+       "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "name": "output",
+       "runStatus": "Running",
+       "statsLastRefreshed": "09:34:26 ICT",
+       "aggregateSnapshot": {
+        "id": "142f3f41-6ef6-1fc2-c9a9-acc8890f3730",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "output",
+        "activeThreadCount": 0,
+        "flowFilesIn": 1,
+        "bytesIn": 120,
+        "input": "1 (120 bytes)",
+        "flowFilesOut": 2,
+        "bytesOut": 240,
+        "output": "2 (240 bytes)",
+        "runStatus": "Running"
+       }
+      },
+      "portType": "OUTPUT_PORT",
+      "operatePermissions": {
+       "canRead": true,
+       "canWrite": true
+      }
+     }
+    ],
+    "connections": [
+     {
+      "revision": {
+       "version": 0
+      },
+      "id": "142f3f47-6ef6-1fc2-a03a-9a1e8074584d",
+      "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/142f3f47-6ef6-1fc2-a03a-9a1e8074584d",
+      "permissions": {
+       "canRead": true,
+       "canWrite": true
+      },
+      "component": {
+       "id": "142f3f47-6ef6-1fc2-a03a-9a1e8074584d",
+       "versionedComponentId": "95d5985c-5674-3ee3-b090-9d9f5322f994",
+       "parentGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "source": {
+        "id": "142f3f40-6ef6-1fc2-9538-eac09f7e7024",
+        "versionedComponentId": "e55ebcd3-06a7-3703-b31e-d03f4a1ca227",
+        "type": "INPUT_PORT",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "input",
+        "running": true
+       },
+       "destination": {
+        "id": "142f3f44-6ef6-1fc2-74a4-b7a2b349b634",
+        "versionedComponentId": "1f1b5e40-3371-3266-9d6d-4225c43aaae4",
+        "type": "PROCESSOR",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "qlnv_tonghop_chitiet_donvi",
+        "running": true,
+        "comments": ""
+       },
+       "name": "",
+       "labelIndex": 1,
+       "zIndex": 0,
+       "backPressureObjectThreshold": 10000,
+       "backPressureDataSizeThreshold": "1 GB",
+       "flowFileExpiration": "0 sec",
+       "prioritizers": [],
+       "bends": [],
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "loadBalancePartitionAttribute": "",
+       "loadBalanceCompression": "DO_NOT_COMPRESS",
+       "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+      },
+      "status": {
+       "id": "142f3f47-6ef6-1fc2-a03a-9a1e8074584d",
+       "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "name": "",
+       "statsLastRefreshed": "09:34:26 ICT",
+       "sourceId": "142f3f40-6ef6-1fc2-9538-eac09f7e7024",
+       "sourceName": "input",
+       "destinationId": "142f3f44-6ef6-1fc2-74a4-b7a2b349b634",
+       "destinationName": "qlnv_tonghop_chitiet_donvi",
+       "aggregateSnapshot": {
+        "id": "142f3f47-6ef6-1fc2-a03a-9a1e8074584d",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "",
+        "sourceName": "input",
+        "destinationName": "qlnv_tonghop_chitiet_donvi",
+        "flowFilesIn": 1,
+        "bytesIn": 120,
+        "input": "1 (120 bytes)",
+        "flowFilesOut": 1,
+        "bytesOut": 120,
+        "output": "1 (120 bytes)",
+        "flowFilesQueued": 0,
+        "bytesQueued": 0,
+        "queued": "0 (0 bytes)",
+        "queuedSize": "0 bytes",
+        "queuedCount": "0",
+        "percentUseCount": 0,
+        "percentUseBytes": 0,
+        "flowFileAvailability": "ACTIVE_QUEUE_EMPTY"
+       }
+      },
+      "bends": [],
+      "labelIndex": 1,
+      "zIndex": 0,
+      "sourceId": "142f3f40-6ef6-1fc2-9538-eac09f7e7024",
+      "sourceGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+      "sourceType": "INPUT_PORT",
+      "destinationId": "142f3f44-6ef6-1fc2-74a4-b7a2b349b634",
+      "destinationGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+      "destinationType": "PROCESSOR"
+     },
+     {
+      "revision": {
+       "version": 0
+      },
+      "id": "142f3f4c-6ef6-1fc2-bcf8-c9b70a275cdc",
+      "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/142f3f4c-6ef6-1fc2-bcf8-c9b70a275cdc",
+      "permissions": {
+       "canRead": true,
+       "canWrite": true
+      },
+      "component": {
+       "id": "142f3f4c-6ef6-1fc2-bcf8-c9b70a275cdc",
+       "versionedComponentId": "09eaab71-b3dd-3f51-ae5c-c38a07269c12",
+       "parentGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "source": {
+        "id": "142f3f45-6ef6-1fc2-a87b-2cf6d4aedde1",
+        "versionedComponentId": "6b9e40c2-15f4-3798-8ebc-3170b7dadc11",
+        "type": "PROCESSOR",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "3 PHÚT / 1 LẦN",
+        "running": false,
+        "comments": ""
+       },
+       "destination": {
+        "id": "142f3f46-6ef6-1fc2-c4f1-b056108b9c4a",
+        "versionedComponentId": "35f4255f-d584-3525-82d9-9d6799ef6a9c",
+        "type": "PROCESSOR",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "qlnv_tongquan_donvi",
+        "running": true,
+        "comments": ""
+       },
+       "name": "",
+       "labelIndex": 1,
+       "zIndex": 0,
+       "selectedRelationships": [
+        "success"
+       ],
+       "availableRelationships": [
+        "success"
+       ],
+       "backPressureObjectThreshold": 10000,
+       "backPressureDataSizeThreshold": "1 GB",
+       "flowFileExpiration": "0 sec",
+       "prioritizers": [],
+       "bends": [],
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "loadBalancePartitionAttribute": "",
+       "loadBalanceCompression": "DO_NOT_COMPRESS",
+       "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+      },
+      "status": {
+       "id": "142f3f4c-6ef6-1fc2-bcf8-c9b70a275cdc",
+       "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "name": "success",
+       "statsLastRefreshed": "09:34:26 ICT",
+       "sourceId": "142f3f45-6ef6-1fc2-a87b-2cf6d4aedde1",
+       "sourceName": "3 PHÚT / 1 LẦN",
+       "destinationId": "142f3f46-6ef6-1fc2-c4f1-b056108b9c4a",
+       "destinationName": "qlnv_tongquan_donvi",
+       "aggregateSnapshot": {
+        "id": "142f3f4c-6ef6-1fc2-bcf8-c9b70a275cdc",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "success",
+        "sourceName": "3 PHÚT / 1 LẦN",
+        "destinationName": "qlnv_tongquan_donvi",
+        "flowFilesIn": 0,
+        "bytesIn": 0,
+        "input": "0 (0 bytes)",
+        "flowFilesOut": 0,
+        "bytesOut": 0,
+        "output": "0 (0 bytes)",
+        "flowFilesQueued": 0,
+        "bytesQueued": 0,
+        "queued": "0 (0 bytes)",
+        "queuedSize": "0 bytes",
+        "queuedCount": "0",
+        "percentUseCount": 0,
+        "percentUseBytes": 0,
+        "flowFileAvailability": "ACTIVE_QUEUE_EMPTY"
+       }
+      },
+      "bends": [],
+      "labelIndex": 1,
+      "zIndex": 0,
+      "sourceId": "142f3f45-6ef6-1fc2-a87b-2cf6d4aedde1",
+      "sourceGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+      "sourceType": "PROCESSOR",
+      "destinationId": "142f3f46-6ef6-1fc2-c4f1-b056108b9c4a",
+      "destinationGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+      "destinationType": "PROCESSOR"
+     },
+     {
+      "revision": {
+       "version": 0
+      },
+      "id": "142f3f48-6ef6-1fc2-2b92-4813b6878c82",
+      "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/142f3f48-6ef6-1fc2-2b92-4813b6878c82",
+      "permissions": {
+       "canRead": true,
+       "canWrite": true
+      },
+      "component": {
+       "id": "142f3f48-6ef6-1fc2-2b92-4813b6878c82",
+       "versionedComponentId": "10466adf-3473-3af7-b604-fb6de0b58260",
+       "parentGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "source": {
+        "id": "142f3f44-6ef6-1fc2-74a4-b7a2b349b634",
+        "versionedComponentId": "1f1b5e40-3371-3266-9d6d-4225c43aaae4",
+        "type": "PROCESSOR",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "qlnv_tonghop_chitiet_donvi",
+        "running": true,
+        "comments": ""
+       },
+       "destination": {
+        "id": "142f3f46-6ef6-1fc2-c4f1-b056108b9c4a",
+        "versionedComponentId": "35f4255f-d584-3525-82d9-9d6799ef6a9c",
+        "type": "PROCESSOR",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "qlnv_tongquan_donvi",
+        "running": true,
+        "comments": ""
+       },
+       "name": "",
+       "labelIndex": 1,
+       "zIndex": 0,
+       "selectedRelationships": [
+        "success"
+       ],
+       "availableRelationships": [
+        "failure",
+        "success"
+       ],
+       "backPressureObjectThreshold": 10000,
+       "backPressureDataSizeThreshold": "1 GB",
+       "flowFileExpiration": "0 sec",
+       "prioritizers": [],
+       "bends": [],
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "loadBalancePartitionAttribute": "",
+       "loadBalanceCompression": "DO_NOT_COMPRESS",
+       "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+      },
+      "status": {
+       "id": "142f3f48-6ef6-1fc2-2b92-4813b6878c82",
+       "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "name": "success",
+       "statsLastRefreshed": "09:34:26 ICT",
+       "sourceId": "142f3f44-6ef6-1fc2-74a4-b7a2b349b634",
+       "sourceName": "qlnv_tonghop_chitiet_donvi",
+       "destinationId": "142f3f46-6ef6-1fc2-c4f1-b056108b9c4a",
+       "destinationName": "qlnv_tongquan_donvi",
+       "aggregateSnapshot": {
+        "id": "142f3f48-6ef6-1fc2-2b92-4813b6878c82",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "success",
+        "sourceName": "qlnv_tonghop_chitiet_donvi",
+        "destinationName": "qlnv_tongquan_donvi",
+        "flowFilesIn": 1,
+        "bytesIn": 120,
+        "input": "1 (120 bytes)",
+        "flowFilesOut": 1,
+        "bytesOut": 120,
+        "output": "1 (120 bytes)",
+        "flowFilesQueued": 0,
+        "bytesQueued": 0,
+        "queued": "0 (0 bytes)",
+        "queuedSize": "0 bytes",
+        "queuedCount": "0",
+        "percentUseCount": 0,
+        "percentUseBytes": 0,
+        "flowFileAvailability": "ACTIVE_QUEUE_EMPTY"
+       }
+      },
+      "bends": [],
+      "labelIndex": 1,
+      "zIndex": 0,
+      "sourceId": "142f3f44-6ef6-1fc2-74a4-b7a2b349b634",
+      "sourceGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+      "sourceType": "PROCESSOR",
+      "destinationId": "142f3f46-6ef6-1fc2-c4f1-b056108b9c4a",
+      "destinationGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+      "destinationType": "PROCESSOR"
+     },
+     {
+      "revision": {
+       "version": 0
+      },
+      "id": "142f3f49-6ef6-1fc2-bb6a-351b71f356b0",
+      "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/142f3f49-6ef6-1fc2-bb6a-351b71f356b0",
+      "permissions": {
+       "canRead": true,
+       "canWrite": true
+      },
+      "component": {
+       "id": "142f3f49-6ef6-1fc2-bb6a-351b71f356b0",
+       "versionedComponentId": "3eae8396-68a4-3023-a761-1cc326fb70d7",
+       "parentGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "source": {
+        "id": "142f3f42-6ef6-1fc2-d0cd-1e8fac02e00e",
+        "versionedComponentId": "b02e3e06-b9b6-3599-92a3-a274b18532b5",
+        "type": "PROCESSOR",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "3 PHÚT / 1 LẦN",
+        "running": false,
+        "comments": ""
+       },
+       "destination": {
+        "id": "142f3f44-6ef6-1fc2-74a4-b7a2b349b634",
+        "versionedComponentId": "1f1b5e40-3371-3266-9d6d-4225c43aaae4",
+        "type": "PROCESSOR",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "qlnv_tonghop_chitiet_donvi",
+        "running": true,
+        "comments": ""
+       },
+       "name": "",
+       "labelIndex": 1,
+       "zIndex": 0,
+       "selectedRelationships": [
+        "success"
+       ],
+       "availableRelationships": [
+        "success"
+       ],
+       "backPressureObjectThreshold": 10000,
+       "backPressureDataSizeThreshold": "1 GB",
+       "flowFileExpiration": "0 sec",
+       "prioritizers": [],
+       "bends": [],
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "loadBalancePartitionAttribute": "",
+       "loadBalanceCompression": "DO_NOT_COMPRESS",
+       "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+      },
+      "status": {
+       "id": "142f3f49-6ef6-1fc2-bb6a-351b71f356b0",
+       "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "name": "success",
+       "statsLastRefreshed": "09:34:26 ICT",
+       "sourceId": "142f3f42-6ef6-1fc2-d0cd-1e8fac02e00e",
+       "sourceName": "3 PHÚT / 1 LẦN",
+       "destinationId": "142f3f44-6ef6-1fc2-74a4-b7a2b349b634",
+       "destinationName": "qlnv_tonghop_chitiet_donvi",
+       "aggregateSnapshot": {
+        "id": "142f3f49-6ef6-1fc2-bb6a-351b71f356b0",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "success",
+        "sourceName": "3 PHÚT / 1 LẦN",
+        "destinationName": "qlnv_tonghop_chitiet_donvi",
+        "flowFilesIn": 0,
+        "bytesIn": 0,
+        "input": "0 (0 bytes)",
+        "flowFilesOut": 0,
+        "bytesOut": 0,
+        "output": "0 (0 bytes)",
+        "flowFilesQueued": 0,
+        "bytesQueued": 0,
+        "queued": "0 (0 bytes)",
+        "queuedSize": "0 bytes",
+        "queuedCount": "0",
+        "percentUseCount": 0,
+        "percentUseBytes": 0,
+        "flowFileAvailability": "ACTIVE_QUEUE_EMPTY"
+       }
+      },
+      "bends": [],
+      "labelIndex": 1,
+      "zIndex": 0,
+      "sourceId": "142f3f42-6ef6-1fc2-d0cd-1e8fac02e00e",
+      "sourceGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+      "sourceType": "PROCESSOR",
+      "destinationId": "142f3f44-6ef6-1fc2-74a4-b7a2b349b634",
+      "destinationGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+      "destinationType": "PROCESSOR"
+     },
+     {
+      "revision": {
+       "version": 0
+      },
+      "id": "142f3f4b-6ef6-1fc2-cf0f-789f60374183",
+      "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/142f3f4b-6ef6-1fc2-cf0f-789f60374183",
+      "permissions": {
+       "canRead": true,
+       "canWrite": true
+      },
+      "component": {
+       "id": "142f3f4b-6ef6-1fc2-cf0f-789f60374183",
+       "versionedComponentId": "b5b97757-f51b-3247-96b1-08c385f51e2b",
+       "parentGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "source": {
+        "id": "142f3f44-6ef6-1fc2-74a4-b7a2b349b634",
+        "versionedComponentId": "1f1b5e40-3371-3266-9d6d-4225c43aaae4",
+        "type": "PROCESSOR",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "qlnv_tonghop_chitiet_donvi",
+        "running": true,
+        "comments": ""
+       },
+       "destination": {
+        "id": "142f3f43-6ef6-1fc2-2e93-127bc15e4391",
+        "versionedComponentId": "f5d7db65-420d-35bc-b45a-ed887f14102c",
+        "type": "PROCESSOR",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "LogAttribute",
+        "running": false,
+        "comments": ""
+       },
+       "name": "",
+       "labelIndex": 1,
+       "zIndex": 0,
+       "selectedRelationships": [
+        "failure"
+       ],
+       "availableRelationships": [
+        "failure",
+        "success"
+       ],
+       "backPressureObjectThreshold": 10000,
+       "backPressureDataSizeThreshold": "1 GB",
+       "flowFileExpiration": "0 sec",
+       "prioritizers": [],
+       "bends": [],
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "loadBalancePartitionAttribute": "",
+       "loadBalanceCompression": "DO_NOT_COMPRESS",
+       "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+      },
+      "status": {
+       "id": "142f3f4b-6ef6-1fc2-cf0f-789f60374183",
+       "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "name": "failure",
+       "statsLastRefreshed": "09:34:26 ICT",
+       "sourceId": "142f3f44-6ef6-1fc2-74a4-b7a2b349b634",
+       "sourceName": "qlnv_tonghop_chitiet_donvi",
+       "destinationId": "142f3f43-6ef6-1fc2-2e93-127bc15e4391",
+       "destinationName": "LogAttribute",
+       "aggregateSnapshot": {
+        "id": "142f3f4b-6ef6-1fc2-cf0f-789f60374183",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "failure",
+        "sourceName": "qlnv_tonghop_chitiet_donvi",
+        "destinationName": "LogAttribute",
+        "flowFilesIn": 0,
+        "bytesIn": 0,
+        "input": "0 (0 bytes)",
+        "flowFilesOut": 0,
+        "bytesOut": 0,
+        "output": "0 (0 bytes)",
+        "flowFilesQueued": 0,
+        "bytesQueued": 0,
+        "queued": "0 (0 bytes)",
+        "queuedSize": "0 bytes",
+        "queuedCount": "0",
+        "percentUseCount": 0,
+        "percentUseBytes": 0,
+        "flowFileAvailability": "ACTIVE_QUEUE_EMPTY"
+       }
+      },
+      "bends": [],
+      "labelIndex": 1,
+      "zIndex": 0,
+      "sourceId": "142f3f44-6ef6-1fc2-74a4-b7a2b349b634",
+      "sourceGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+      "sourceType": "PROCESSOR",
+      "destinationId": "142f3f43-6ef6-1fc2-2e93-127bc15e4391",
+      "destinationGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+      "destinationType": "PROCESSOR"
+     },
+     {
+      "revision": {
+       "version": 0
+      },
+      "id": "142f3f4a-6ef6-1fc2-0f09-a579a6d0829d",
+      "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/142f3f4a-6ef6-1fc2-0f09-a579a6d0829d",
+      "permissions": {
+       "canRead": true,
+       "canWrite": true
+      },
+      "component": {
+       "id": "142f3f4a-6ef6-1fc2-0f09-a579a6d0829d",
+       "versionedComponentId": "cb95e7f6-5446-3b60-86e7-434c4a029da2",
+       "parentGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "source": {
+        "id": "142f3f46-6ef6-1fc2-c4f1-b056108b9c4a",
+        "versionedComponentId": "35f4255f-d584-3525-82d9-9d6799ef6a9c",
+        "type": "PROCESSOR",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "qlnv_tongquan_donvi",
+        "running": true,
+        "comments": ""
+       },
+       "destination": {
+        "id": "142f3f43-6ef6-1fc2-2e93-127bc15e4391",
+        "versionedComponentId": "f5d7db65-420d-35bc-b45a-ed887f14102c",
+        "type": "PROCESSOR",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "LogAttribute",
+        "running": false,
+        "comments": ""
+       },
+       "name": "",
+       "labelIndex": 1,
+       "zIndex": 0,
+       "selectedRelationships": [
+        "failure"
+       ],
+       "availableRelationships": [
+        "failure",
+        "success"
+       ],
+       "backPressureObjectThreshold": 10000,
+       "backPressureDataSizeThreshold": "1 GB",
+       "flowFileExpiration": "0 sec",
+       "prioritizers": [],
+       "bends": [],
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "loadBalancePartitionAttribute": "",
+       "loadBalanceCompression": "DO_NOT_COMPRESS",
+       "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+      },
+      "status": {
+       "id": "142f3f4a-6ef6-1fc2-0f09-a579a6d0829d",
+       "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "name": "failure",
+       "statsLastRefreshed": "09:34:26 ICT",
+       "sourceId": "142f3f46-6ef6-1fc2-c4f1-b056108b9c4a",
+       "sourceName": "qlnv_tongquan_donvi",
+       "destinationId": "142f3f43-6ef6-1fc2-2e93-127bc15e4391",
+       "destinationName": "LogAttribute",
+       "aggregateSnapshot": {
+        "id": "142f3f4a-6ef6-1fc2-0f09-a579a6d0829d",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "failure",
+        "sourceName": "qlnv_tongquan_donvi",
+        "destinationName": "LogAttribute",
+        "flowFilesIn": 0,
+        "bytesIn": 0,
+        "input": "0 (0 bytes)",
+        "flowFilesOut": 0,
+        "bytesOut": 0,
+        "output": "0 (0 bytes)",
+        "flowFilesQueued": 0,
+        "bytesQueued": 0,
+        "queued": "0 (0 bytes)",
+        "queuedSize": "0 bytes",
+        "queuedCount": "0",
+        "percentUseCount": 0,
+        "percentUseBytes": 0,
+        "flowFileAvailability": "ACTIVE_QUEUE_EMPTY"
+       }
+      },
+      "bends": [],
+      "labelIndex": 1,
+      "zIndex": 0,
+      "sourceId": "142f3f46-6ef6-1fc2-c4f1-b056108b9c4a",
+      "sourceGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+      "sourceType": "PROCESSOR",
+      "destinationId": "142f3f43-6ef6-1fc2-2e93-127bc15e4391",
+      "destinationGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+      "destinationType": "PROCESSOR"
+     },
+     {
+      "revision": {
+       "version": 0
+      },
+      "id": "142f3f4d-6ef6-1fc2-d75e-e589544c2a80",
+      "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/connections/142f3f4d-6ef6-1fc2-d75e-e589544c2a80",
+      "permissions": {
+       "canRead": true,
+       "canWrite": true
+      },
+      "component": {
+       "id": "142f3f4d-6ef6-1fc2-d75e-e589544c2a80",
+       "versionedComponentId": "18e1ca67-9b86-37af-b7a4-26d02c6c8453",
+       "parentGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "source": {
+        "id": "142f3f46-6ef6-1fc2-c4f1-b056108b9c4a",
+        "versionedComponentId": "35f4255f-d584-3525-82d9-9d6799ef6a9c",
+        "type": "PROCESSOR",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "qlnv_tongquan_donvi",
+        "running": true,
+        "comments": ""
+       },
+       "destination": {
+        "id": "142f3f41-6ef6-1fc2-c9a9-acc8890f3730",
+        "versionedComponentId": "855988be-a600-3113-90a5-cb9103682d4f",
+        "type": "OUTPUT_PORT",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "output",
+        "running": true
+       },
+       "name": "",
+       "labelIndex": 1,
+       "zIndex": 0,
+       "selectedRelationships": [
+        "success"
+       ],
+       "availableRelationships": [
+        "failure",
+        "success"
+       ],
+       "backPressureObjectThreshold": 10000,
+       "backPressureDataSizeThreshold": "1 GB",
+       "flowFileExpiration": "0 sec",
+       "prioritizers": [],
+       "bends": [],
+       "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+       "loadBalancePartitionAttribute": "",
+       "loadBalanceCompression": "DO_NOT_COMPRESS",
+       "loadBalanceStatus": "LOAD_BALANCE_NOT_CONFIGURED"
+      },
+      "status": {
+       "id": "142f3f4d-6ef6-1fc2-d75e-e589544c2a80",
+       "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+       "name": "success",
+       "statsLastRefreshed": "09:34:26 ICT",
+       "sourceId": "142f3f46-6ef6-1fc2-c4f1-b056108b9c4a",
+       "sourceName": "qlnv_tongquan_donvi",
+       "destinationId": "142f3f41-6ef6-1fc2-c9a9-acc8890f3730",
+       "destinationName": "output",
+       "aggregateSnapshot": {
+        "id": "142f3f4d-6ef6-1fc2-d75e-e589544c2a80",
+        "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+        "name": "success",
+        "sourceName": "qlnv_tongquan_donvi",
+        "destinationName": "output",
+        "flowFilesIn": 1,
+        "bytesIn": 120,
+        "input": "1 (120 bytes)",
+        "flowFilesOut": 1,
+        "bytesOut": 120,
+        "output": "1 (120 bytes)",
+        "flowFilesQueued": 0,
+        "bytesQueued": 0,
+        "queued": "0 (0 bytes)",
+        "queuedSize": "0 bytes",
+        "queuedCount": "0",
+        "percentUseCount": 0,
+        "percentUseBytes": 0,
+        "flowFileAvailability": "ACTIVE_QUEUE_EMPTY"
+       }
+      },
+      "bends": [],
+      "labelIndex": 1,
+      "zIndex": 0,
+      "sourceId": "142f3f46-6ef6-1fc2-c4f1-b056108b9c4a",
+      "sourceGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+      "sourceType": "PROCESSOR",
+      "destinationId": "142f3f41-6ef6-1fc2-c9a9-acc8890f3730",
+      "destinationGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+      "destinationType": "OUTPUT_PORT"
+     }
+    ],
+    "labels": [],
+    "funnels": []
+   },
+   "lastRefreshed": "09:34:26 ICT"
+  }
+ },
+ "proc_142f3f44": {
+  "revision": {
+   "version": 7
+  },
+  "id": "142f3f44-6ef6-1fc2-74a4-b7a2b349b634",
+  "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/processors/142f3f44-6ef6-1fc2-74a4-b7a2b349b634",
+  "position": {
+   "x": 3976.0,
+   "y": 1064.0
+  },
+  "permissions": {
+   "canRead": true,
+   "canWrite": true
+  },
+  "bulletins": [],
+  "component": {
+   "id": "142f3f44-6ef6-1fc2-74a4-b7a2b349b634",
+   "versionedComponentId": "1f1b5e40-3371-3266-9d6d-4225c43aaae4",
+   "parentGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+   "position": {
+    "x": 3976.0,
+    "y": 1064.0
+   },
+   "name": "qlnv_tonghop_chitiet_donvi",
+   "type": "org.apache.nifi.processors.standard.ExecuteSQL",
+   "bundle": {
+    "group": "org.apache.nifi",
+    "artifact": "nifi-standard-nar",
+    "version": "1.27.0"
+   },
+   "state": "RUNNING",
+   "style": {},
+   "relationships": [
+    {
+     "name": "failure",
+     "description": "SQL query execution failed. Incoming FlowFile will be penalized and routed to this relationship",
+     "autoTerminate": false,
+     "retry": false
+    },
+    {
+     "name": "success",
+     "description": "Successfully created FlowFile from SQL query result set.",
+     "autoTerminate": false,
+     "retry": false
+    }
+   ],
+   "supportsParallelProcessing": true,
+   "supportsEventDriven": true,
+   "supportsBatching": false,
+   "supportsSensitiveDynamicProperties": true,
+   "persistsState": false,
+   "restricted": false,
+   "deprecated": false,
+   "executionNodeRestricted": false,
+   "multipleVersionsAvailable": false,
+   "inputRequirement": "INPUT_ALLOWED",
+   "config": {
+    "properties": {
+     "Database Connection Pooling Service": "a06e038b-019a-1000-f4f2-fdf9e5995ada",
+     "sql-pre-query": null,
+     "SQL select query": "/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */\nCREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_donvi__stg LIKE datamart_hanoi.qlnv_tonghop_chitiet_donvi;\nTRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_donvi__stg;\nSET TRANSACTION ISOLATION LEVEL READ COMMITTED;\nINSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_donvi__stg (\n    monthkey,\n\t\t`year`,\n    `month`,\n    nhomvb_ma,\n    nhomvb,\n    ma_nv_cha,\n    Ma,\n    Code,\n    TenNhiemVu,\n    SanPhamChuYeu,\n    ThoiHanHoanThanh,\n    NgayHoanThanh,\n    TinhTrang,\n    TienDoHoanThanh,\n    SoNgayQuaHan,\n\n    don_vi_cap_01_dvgiao,\n\t\tloaicapcha_dvgiao,\n    loaicap_dvgiao,\n    iddv_dvgiao,\n    donvi_dvgiao,\n    tenviettat_dvgiao,\n\t\tiddv_captren_dvgiao,\n    NguoiGiaoNhiemVu,\n\n    don_vi_cap_01_dvthuchien,\n\t\tloaicapcha_dvthuchien,\n    loaicap_dvthuchien,\n    iddv_dvthuchien,\n    donvi_dvthuchien,\n    tenviettat_dvthuchien,\n\t\tiddv_captren_dvthuchien,\n    NguoiThucHien,\n\n    don_vi_cap_01,\n\t\tloaicapcha,\n    loaicap,\n    iddv,\n    donvi,\n    tenviettat,\n\t\tiddv_captren,\n\n    DonViPhoiHop,\n    iddv_dvchutri,\n    DonViChuTri,\n\t\t\n\t\tdon_vi_cap_01_dvtaonv,\n\t\tloaicapcha_dvtaonv,\n    loaicap_dvtaonv,\n    iddv_dvtaonv,\n    donvi_dvtaonv,\n    tenviettat_dvtaonv,\n    iddv_captren_dvtaonv,\n    NguoiTaoNhiemVuID,\n    NguoiTaoNhiemVu,\n\n\t\t\n    VanBanGiaoNhiemVu,\n\t\tNgayVanBan,\n    LinhVuc,\n    Kieu,\n\t\tUuTien,\n    KetQuaGhiChu,\n    NhomPhamViNhiemVu,\n    TrangThai,\n    TrangThaiVietTat,\n    TrangThaiVietTat2,\n    TenNhiemVu_Mobile,\n    NhomGiaoNhan,\n    syncdate\n)\n\n-- ================== PHẦN 1: ĐÃ GIAO ==================\nSELECT\n    t.monthkey,\n\t\tLEFT(t.monthkey,4) AS `year`,\n    t.`month`,\n    t.nhomvb_ma,\n    t.nhomvb,\n    t.ma_nv_cha,\n    t.Ma,\n\t\tt.Code,\n    t.TenNhiemVu,\n    t.SanPhamChuYeu,\n    t.ThoiHanHoanThanh,\n    t.NgayHoanThanh,\n    t.TinhTrang,\n    t.TienDoHoanThanh,\n    t.songayquahan AS SoNgayQuaHan,\n\n    -- đơn vị giao = đơn vị hiện tại\n    t.don_vi_cap_01     AS don_vi_cap_01_dvgiao,\n    t.loaicapcha        AS loaicapcha_dvgiao,\n    t.loaicap           AS loaicap_dvgiao,\n    t.iddv              AS iddv_dvgiao,\n    t.donvi             AS donvi_dvgiao,\n    t.tenviettat        AS tenviettat_dvgiao,\n\t\tt.iddv_captren,\n    t.NguoiGiaoNhiemVu,\n\n    -- đơn vị thực hiện chưa có\n    t.don_vi_cap_01_dvthuchien,\n    t.loaicapcha_dvthuchien,\n    t.loaicap_dvthuchien,\n    t.iddv_dvthuchien,\n\t\tt.donvi_dvthuchien,\n    t.tenviettat_dvthuchien,\n\t\tt.iddv_captren_dvthuchien,\n    t.NguoiThucHien,\n\n    t.don_vi_cap_01,\n\t\tt.loaicapcha,\n    t.loaicap,\n    t.iddv,\n    t.donvi,\n    t.tenviettat,\n\t\tt.iddv_captren,\n\n    t.DonViPhoiHop,\n    t.iddv_dvchutri,\n    t.DonViChuTri,\n\t\t\n\t\tt.don_vi_cap_01_dvtaonv,\n\t\tt.loaicapcha_dvtaonv,\n    t.loaicap_dvtaonv,\n    t.iddv_dvtaonv,\n    t.donvi_dvtaonv,\n    t.tenviettat_dvtaonv,\n    t.iddv_captren_dvtaonv,\n    t.NguoiTaoNhiemVuID,\n    t.NguoiTaoNhiemVu,\n\t\t\n    t.VanBanGiaoNhiemVu,\n\t\tt.NgayVanBan,\n    t.LinhVuc,\n    t.Kieu,\n\t\tt.UuTien,\n    t.KetQuaGhiChu,\n    t.NhomPhamViNhiemVu,\n    t.TrangThai,\n    REPLACE(t.TrangThaiVietTat,'Chưa HT ','CHT '),\n    t.TrangThaiVietTat2,\n    t.TenNhiemVu_Mobile,\n    'Đã giao' AS NhomGiaoNhan,\n    NOW()     AS syncdate\nFROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv t\n\nUNION ALL\n\n-- ================== PHẦN 2: ĐƯỢC GIAO ==================\nSELECT\n    t.monthkey,\n\t\tLEFT(t.monthkey,4) AS `year`,\n    t.`month` AS `Month`,\n    t.nhomvb_ma AS MaNhomVanBan,\n    t.nhomvb AS NhomVanBan,\n    t.ma_nv_cha AS MaNhiemVuCha,\n    t.Ma AS MaNhiemVu,\n\t\tt.Code,\n    t.TenNhiemVu,\n    t.SanPhamChuYeu,\n    t.ThoiHanHoanThanh,\n    t.NgayHoanThanh,\n    t.TinhTrang,\n    t.TienDoHoanThanh,\n    t.songayquahan AS SoNgayQuaHan,\n\n    t.don_vi_cap_01_dvgiao,\n\t\tt.loaicapcha_dvgiao,\n    t.loaicap_dvgiao,\n    t.iddv_dvgiao,\n    t.donvi_dvgiao,\n    t.tenviettat_dvgiao,\n\t\tt.iddv_captren_dvgiao,\n    t.NguoiGiaoNhiemVu,\n\n    -- đơn vị thực hiện = đơn vị hiện tại\n    t.don_vi_cap_01,\n\t\tt.loaicapcha,\n    t.loaicap,\n    t.iddv,\n    t.donvi,\n    t.tenviettat,\n\t\tt.iddv_captren,\n    t.NguoiThucHien,\n\n    t.don_vi_cap_01,\n\t\tt.loaicapcha,\n    t.loaicap,\n    t.iddv,\n    t.donvi,\n    t.tenviettat,\n\t\tt.iddv_captren,\n\n    t.DonViPhoiHop,\n    t.iddv_dvchutri,\n    t.DonViChuTri,\n\t\t\n\t\tt.don_vi_cap_01_dvtaonv,\n\t\tt.loaicapcha_dvtaonv,\n    t.loaicap_dvtaonv,\n    t.iddv_dvtaonv,\n    t.donvi_dvtaonv,\n    t.tenviettat_dvtaonv,\n    t.iddv_captren_dvtaonv,\n    t.NguoiTaoNhiemVuID,\n    t.NguoiTaoNhiemVu,\n\t\t\n    t.VanBanGiaoNhiemVu,\n\t\tt.NgayVanBan,\n    t.LinhVuc,\n    t.Kieu,\n\t\tt.UuTien,\n    t.KetQuaGhiChu,\n\t\tt.NhomPhamViNhiemVu,\n    t.TrangThai,\n    REPLACE(t.TrangThaiVietTat,'Chưa HT ','CHT '),\n    t.TrangThaiVietTat2,\n    t.TenNhiemVu_Mobile,\n    'Được giao' AS NhomGiaoNhan,\n    NOW()       AS syncdate\nFROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan t;\n/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */\nSET SESSION lock_wait_timeout = 10;\nRENAME TABLE datamart_hanoi.qlnv_tonghop_chitiet_donvi TO datamart_hanoi.qlnv_tonghop_chitiet_donvi__old, datamart_hanoi.qlnv_tonghop_chitiet_donvi__stg TO datamart_hanoi.qlnv_tonghop_chitiet_donvi, datamart_hanoi.qlnv_tonghop_chitiet_donvi__old TO datamart_hanoi.qlnv_tonghop_chitiet_donvi__stg;\nSET SESSION lock_wait_timeout = 31536000;",
+     "sql-post-query": null,
+     "Max Wait Time": "0 seconds",
+     "dbf-normalize": "false",
+     "dbf-user-logical-types": "false",
+     "compression-format": "NONE",
+     "dbf-default-precision": "10",
+     "dbf-default-scale": "0",
+     "esql-max-rows": "0",
+     "esql-output-batch-size": "0",
+     "esql-fetch-size": "0",
+     "esql-auto-commit": "true"
+    },
+    "descriptors": {
+     "Database Connection Pooling Service": {
+      "name": "Database Connection Pooling Service",
+      "displayName": "Database Connection Pooling Service",
+      "description": "The Controller Service that is used to obtain connection to database",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "HN-Datamart-NEW",
+         "value": "acf51838-116f-119e-c09b-1b31f6c8d1ae"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "HaNoi_DB_HNI_KNCT",
+         "value": "bee45711-c2d0-1c10-9b4b-33febf757b70"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "HaNoi_Datamart",
+         "value": "0bfb327e-8a21-1e6a-776c-e17610335bef"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "HaNoi_Datamart_5s",
+         "value": "73bb3774-cea7-1f5d-629d-4e34862120ab"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "HaNoi_ThanhUy_DB",
+         "value": "a06e038b-019a-1000-f4f2-fdf9e5995ada"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "identifiesControllerService": "org.apache.nifi.dbcp.DBCPService",
+      "identifiesControllerServiceBundle": {
+       "group": "org.apache.nifi",
+       "artifact": "nifi-standard-services-api-nar",
+       "version": "1.27.0"
+      },
+      "dependencies": []
+     },
+     "sql-pre-query": {
+      "name": "sql-pre-query",
+      "displayName": "SQL Pre-Query",
+      "description": "A semicolon-delimited list of queries executed before the main SQL query is executed. For example, set session properties before main query. It's possible to include semicolons in the statements themselves by escaping them with a backslash ('\\;'). Results/outputs from these queries will be suppressed if there are no errors.",
+      "required": false,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "SQL select query": {
+      "name": "SQL select query",
+      "displayName": "SQL select query",
+      "description": "The SQL select query to execute. The query can be empty, a constant value, or built from attributes using Expression Language. If this property is specified, it will be used regardless of the content of incoming flowfiles. If this property is empty, the content of the incoming flow file is expected to contain a valid SQL select query, to be issued by the processor to the database. Note that Expression Language is not evaluated for flow file contents.",
+      "required": false,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "sql-post-query": {
+      "name": "sql-post-query",
+      "displayName": "SQL Post-Query",
+      "description": "A semicolon-delimited list of queries executed after the main SQL query is executed. Example like setting session properties after main query. It's possible to include semicolons in the statements themselves by escaping them with a backslash ('\\;'). Results/outputs from these queries will be suppressed if there are no errors.",
+      "required": false,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "Max Wait Time": {
+      "name": "Max Wait Time",
+      "displayName": "Max Wait Time",
+      "description": "The maximum amount of time allowed for a running SQL select query  , zero means there is no limit. Max time less than 1 second will be equal to zero.",
+      "defaultValue": "0 seconds",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "dbf-normalize": {
+      "name": "dbf-normalize",
+      "displayName": "Normalize Table/Column Names",
+      "description": "Whether to change non-Avro-compatible characters in column names to Avro-compatible characters. For example, colons and periods will be changed to underscores in order to build a valid Avro record.",
+      "defaultValue": "false",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "true",
+         "value": "true"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "false",
+         "value": "false"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "dbf-user-logical-types": {
+      "name": "dbf-user-logical-types",
+      "displayName": "Use Avro Logical Types",
+      "description": "Whether to use Avro Logical Types for DECIMAL/NUMBER, DATE, TIME and TIMESTAMP columns. If disabled, written as string. If enabled, Logical types are used and written as its underlying type, specifically, DECIMAL/NUMBER as logical 'decimal': written as bytes with additional precision and scale meta data, DATE as logical 'date-millis': written as int denoting days since Unix epoch (1970-01-01), TIME as logical 'time-millis': written as int denoting milliseconds since Unix epoch, and TIMESTAMP as logical 'timestamp-millis': written as long denoting milliseconds since Unix epoch. If a reader of written Avro records also knows these logical types, then these values can be deserialized with more context depending on reader implementation.",
+      "defaultValue": "false",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "true",
+         "value": "true"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "false",
+         "value": "false"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "compression-format": {
+      "name": "compression-format",
+      "displayName": "Compression Format",
+      "description": "Compression type to use when writing Avro files. Default is None.",
+      "defaultValue": "NONE",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "BZIP2",
+         "value": "BZIP2"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "DEFLATE",
+         "value": "DEFLATE"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "NONE",
+         "value": "NONE"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "SNAPPY",
+         "value": "SNAPPY"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "LZO",
+         "value": "LZO"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "dbf-default-precision": {
+      "name": "dbf-default-precision",
+      "displayName": "Default Decimal Precision",
+      "description": "When a DECIMAL/NUMBER value is written as a 'decimal' Avro logical type, a specific 'precision' denoting number of available digits is required. Generally, precision is defined by column data type definition or database engines default. However undefined precision (0) can be returned from some database engines. 'Default Decimal Precision' is used when writing those undefined precision numbers.",
+      "defaultValue": "10",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "dbf-default-scale": {
+      "name": "dbf-default-scale",
+      "displayName": "Default Decimal Scale",
+      "description": "When a DECIMAL/NUMBER value is written as a 'decimal' Avro logical type, a specific 'scale' denoting number of available decimal digits is required. Generally, scale is defined by column data type definition or database engines default. However when undefined precision (0) is returned, scale can also be uncertain with some database engines. 'Default Decimal Scale' is used when writing those undefined numbers. If a value has more decimals than specified scale, then the value will be rounded-up, e.g. 1.53 becomes 2 with scale 0, and 1.5 with scale 1.",
+      "defaultValue": "0",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "esql-max-rows": {
+      "name": "esql-max-rows",
+      "displayName": "Max Rows Per Flow File",
+      "description": "The maximum number of result rows that will be included in a single FlowFile. This will allow you to break up very large result sets into multiple FlowFiles. If the value specified is zero, then all rows are returned in a single FlowFile.",
+      "defaultValue": "0",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "esql-output-batch-size": {
+      "name": "esql-output-batch-size",
+      "displayName": "Output Batch Size",
+      "description": "The number of output FlowFiles to queue before committing the process session. When set to zero, the session will be committed when all result set rows have been processed and the output FlowFiles are ready for transfer to the downstream relationship. For large result sets, this can cause a large burst of FlowFiles to be transferred at the end of processor execution. If this property is set, then when the specified number of FlowFiles are ready for transfer, then the session will be committed, thus releasing the FlowFiles to the downstream relationship. NOTE: The fragment.count attribute will not be set on FlowFiles when this property is set.",
+      "defaultValue": "0",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "esql-fetch-size": {
+      "name": "esql-fetch-size",
+      "displayName": "Fetch Size",
+      "description": "The number of result rows to be fetched from the result set at a time. This is a hint to the database driver and may not be honored and/or exact. If the value specified is zero, then the hint is ignored.",
+      "defaultValue": "0",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "esql-auto-commit": {
+      "name": "esql-auto-commit",
+      "displayName": "Set Auto Commit",
+      "description": "Enables or disables the auto commit functionality of the DB connection. Default value is 'true'. The default value can be used with most of the JDBC drivers and this functionality doesn't have any impact in most of the cases since this processor is used to read data. However, for some JDBC drivers such as PostgreSQL driver, it is required to disable the auto committing functionality to limit the number of result rows fetching at a time. When auto commit is enabled, postgreSQL driver loads whole result set to memory at once. This could lead for a large amount of memory usage when executing queries which fetch large data sets. More Details of this behaviour in PostgreSQL driver can be found in https://jdbc.postgresql.org//documentation/head/query.html. ",
+      "defaultValue": "true",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "true",
+         "value": "true"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "false",
+         "value": "false"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     }
+    },
+    "schedulingPeriod": "0 sec",
+    "schedulingStrategy": "TIMER_DRIVEN",
+    "executionNode": "ALL",
+    "penaltyDuration": "30 sec",
+    "yieldDuration": "1 sec",
+    "bulletinLevel": "WARN",
+    "runDurationMillis": 0,
+    "concurrentlySchedulableTaskCount": 1,
+    "comments": "",
+    "lossTolerant": false,
+    "defaultConcurrentTasks": {
+     "TIMER_DRIVEN": "1",
+     "EVENT_DRIVEN": "0",
+     "CRON_DRIVEN": "1"
+    },
+    "defaultSchedulingPeriod": {
+     "TIMER_DRIVEN": "0 sec",
+     "CRON_DRIVEN": "* * * * * ?"
+    },
+    "retryCount": 10,
+    "retriedRelationships": [],
+    "backoffMechanism": "PENALIZE_FLOWFILE",
+    "maxBackoffPeriod": "10 mins"
+   },
+   "validationStatus": "VALID",
+   "extensionMissing": false
+  },
+  "inputRequirement": "INPUT_ALLOWED",
+  "status": {
+   "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+   "id": "142f3f44-6ef6-1fc2-74a4-b7a2b349b634",
+   "name": "qlnv_tonghop_chitiet_donvi",
+   "runStatus": "Running",
+   "statsLastRefreshed": "09:34:26 ICT",
+   "aggregateSnapshot": {
+    "id": "142f3f44-6ef6-1fc2-74a4-b7a2b349b634",
+    "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+    "name": "qlnv_tonghop_chitiet_donvi",
+    "type": "ExecuteSQL",
+    "runStatus": "Running",
+    "executionNode": "ALL",
+    "bytesRead": 0,
+    "bytesWritten": 120,
+    "read": "0 bytes",
+    "written": "120 bytes",
+    "flowFilesIn": 1,
+    "bytesIn": 120,
+    "input": "1 (120 bytes)",
+    "flowFilesOut": 1,
+    "bytesOut": 120,
+    "output": "1 (120 bytes)",
+    "taskCount": 1,
+    "tasksDurationNanos": 13886733090,
+    "tasks": "1",
+    "tasksDuration": "00:00:13.886",
+    "activeThreadCount": 0,
+    "terminatedThreadCount": 0
+   }
+  },
+  "operatePermissions": {
+   "canRead": true,
+   "canWrite": true
+  }
+ },
+ "proc_142f3f46": {
+  "revision": {
+   "version": 7
+  },
+  "id": "142f3f46-6ef6-1fc2-c4f1-b056108b9c4a",
+  "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/processors/142f3f46-6ef6-1fc2-c4f1-b056108b9c4a",
+  "position": {
+   "x": 3976.0,
+   "y": 1288.0
+  },
+  "permissions": {
+   "canRead": true,
+   "canWrite": true
+  },
+  "bulletins": [],
+  "component": {
+   "id": "142f3f46-6ef6-1fc2-c4f1-b056108b9c4a",
+   "versionedComponentId": "35f4255f-d584-3525-82d9-9d6799ef6a9c",
+   "parentGroupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+   "position": {
+    "x": 3976.0,
+    "y": 1288.0
+   },
+   "name": "qlnv_tongquan_donvi",
+   "type": "org.apache.nifi.processors.standard.ExecuteSQL",
+   "bundle": {
+    "group": "org.apache.nifi",
+    "artifact": "nifi-standard-nar",
+    "version": "1.27.0"
+   },
+   "state": "RUNNING",
+   "style": {},
+   "relationships": [
+    {
+     "name": "failure",
+     "description": "SQL query execution failed. Incoming FlowFile will be penalized and routed to this relationship",
+     "autoTerminate": false,
+     "retry": false
+    },
+    {
+     "name": "success",
+     "description": "Successfully created FlowFile from SQL query result set.",
+     "autoTerminate": false,
+     "retry": false
+    }
+   ],
+   "supportsParallelProcessing": true,
+   "supportsEventDriven": true,
+   "supportsBatching": false,
+   "supportsSensitiveDynamicProperties": true,
+   "persistsState": false,
+   "restricted": false,
+   "deprecated": false,
+   "executionNodeRestricted": false,
+   "multipleVersionsAvailable": false,
+   "inputRequirement": "INPUT_ALLOWED",
+   "config": {
+    "properties": {
+     "Database Connection Pooling Service": "a06e038b-019a-1000-f4f2-fdf9e5995ada",
+     "sql-pre-query": null,
+     "SQL select query": "/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */\nCREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_donvi__stg LIKE datamart_hanoi.qlnv_tongquan_donvi;\nTRUNCATE TABLE datamart_hanoi.qlnv_tongquan_donvi__stg;\nSET TRANSACTION ISOLATION LEVEL READ COMMITTED;\nINSERT INTO datamart_hanoi.qlnv_tongquan_donvi__stg\nSELECT\n    c.monthkey,\n\t\tc.don_vi_cap_01,\n    c.loaicapcha,\n\n    /* ÉP loaicap = DepartmentName có Level = 3 */\n    CASE\n        WHEN c.iddv IS NULL\n            THEN 'Chưa xác định'\n        WHEN d1.Level = 3 THEN d1.DepartmentName\n        WHEN d2.Level = 3 THEN d2.DepartmentName\n        WHEN d3.Level = 3 THEN d3.DepartmentName\n        WHEN d4.Level = 3 THEN d4.DepartmentName\n        ELSE NULL\n    END AS loaicap,\n\n    c.iddv,\n    c.donvi,\n    c.tenviettat,\n\t\td1.ParentId AS iddv_captren,\n    c.VanBanGiaoNhiemVu,\n\t\tc.NgayVanBan,\n    c.LinhVuc,\n    c.Kieu,\n\t\tc.UuTien,\n\n    COUNT(*) AS tongso,\n\n    COUNT(CASE WHEN c.TrangThai LIKE 'Đã hoàn thành%' THEN 1 END) AS daht,\n    COUNT(CASE WHEN c.TrangThai = 'Đã hoàn thành đúng hạn' THEN 1 END) AS daht_dh,\n    COUNT(CASE WHEN c.TrangThai = 'Đã hoàn thành quá hạn' THEN 1 END) AS daht_qh,\n    COUNT(CASE WHEN c.TrangThai = 'Đã hoàn thành' THEN 1 END) AS daht_kh,\n\n    COUNT(CASE WHEN c.TrangThai LIKE 'Chưa hoàn thành%' THEN 1 END) AS dangth,\n    COUNT(CASE WHEN c.TrangThai = 'Chưa hoàn thành trong hạn' THEN 1 END) AS dangth_th,\n    COUNT(CASE WHEN c.TrangThai = 'Chưa hoàn thành quá hạn' THEN 1 END) AS dangth_qh,\n    COUNT(CASE WHEN c.TrangThai = 'Chưa hoàn thành sắp quá hạn' THEN 1 END) AS dangth_sqh,\n    COUNT(CASE WHEN c.TrangThai = 'Chưa hoàn thành' THEN 1 END) AS dangth_kh,\n\t\tSUM(c.tongtg_canxuly) AS tongtg_canxuly,\n\t\tSUM(c.tongtg_daxuly) AS tongtg_daxuly,\n\n    c.nhomvb_ma,\n    c.nhomvb,\n\t\tc.NhomPhamViNhiemVu,\n    c.NhomGiaoNhan,\n    NOW() AS syncdate\nFROM ( SELECT * FROM datamart_hanoi.qlnv_tonghop_chitiet_donvi\n\t\t\tWHERE donvi_dvthuchien NOT IN ('Sở ngành', 'Xã, Phường') ) c\n\n/* Level hiện tại */\nLEFT JOIN datamart_hanoi.department d1\n    ON c.iddv = d1.DepartmentId\n\n/* Cha */\nLEFT JOIN datamart_hanoi.department d2\n    ON d2.DepartmentId = d1.ParentId\n\n/* Ông */\nLEFT JOIN datamart_hanoi.department d3\n    ON d3.DepartmentId = d2.ParentId\n\n/* Cụ */\nLEFT JOIN datamart_hanoi.department d4\n    ON d4.DepartmentId = d3.ParentId\n\nGROUP BY\n    c.monthkey,\n\t\tc.Ma,\n\t\tc.don_vi_cap_01,\n    c.loaicapcha,\n    c.iddv,\n    c.donvi,\n    c.tenviettat,\n\t\td1.ParentId,\n    c.VanBanGiaoNhiemVu,\n\t\tc.NgayVanBan,\n    c.LinhVuc,\n    c.Kieu,\n\t\tc.UuTien,\n    c.nhomvb_ma,\n    c.nhomvb,\n    c.NhomGiaoNhan,\n\t\tc.NhomPhamViNhiemVu,\n    loaicap\n\nORDER BY \n    c.monthkey,\n\t\tc.don_vi_cap_01,\n    c.loaicapcha,\n    c.VanBanGiaoNhiemVu,\n    c.nhomvb_ma,\n    c.NhomGiaoNhan,\n\t\tc.NhomPhamViNhiemVu\n;\n/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */\nSET SESSION lock_wait_timeout = 10;\nRENAME TABLE datamart_hanoi.qlnv_tongquan_donvi TO datamart_hanoi.qlnv_tongquan_donvi__old, datamart_hanoi.qlnv_tongquan_donvi__stg TO datamart_hanoi.qlnv_tongquan_donvi, datamart_hanoi.qlnv_tongquan_donvi__old TO datamart_hanoi.qlnv_tongquan_donvi__stg;\nSET SESSION lock_wait_timeout = 31536000;",
+     "sql-post-query": null,
+     "Max Wait Time": "0 seconds",
+     "dbf-normalize": "false",
+     "dbf-user-logical-types": "false",
+     "compression-format": "NONE",
+     "dbf-default-precision": "10",
+     "dbf-default-scale": "0",
+     "esql-max-rows": "0",
+     "esql-output-batch-size": "0",
+     "esql-fetch-size": "0",
+     "esql-auto-commit": "true"
+    },
+    "descriptors": {
+     "Database Connection Pooling Service": {
+      "name": "Database Connection Pooling Service",
+      "displayName": "Database Connection Pooling Service",
+      "description": "The Controller Service that is used to obtain connection to database",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "HN-Datamart-NEW",
+         "value": "acf51838-116f-119e-c09b-1b31f6c8d1ae"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "HaNoi_DB_HNI_KNCT",
+         "value": "bee45711-c2d0-1c10-9b4b-33febf757b70"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "HaNoi_Datamart",
+         "value": "0bfb327e-8a21-1e6a-776c-e17610335bef"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "HaNoi_Datamart_5s",
+         "value": "73bb3774-cea7-1f5d-629d-4e34862120ab"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "HaNoi_ThanhUy_DB",
+         "value": "a06e038b-019a-1000-f4f2-fdf9e5995ada"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "identifiesControllerService": "org.apache.nifi.dbcp.DBCPService",
+      "identifiesControllerServiceBundle": {
+       "group": "org.apache.nifi",
+       "artifact": "nifi-standard-services-api-nar",
+       "version": "1.27.0"
+      },
+      "dependencies": []
+     },
+     "sql-pre-query": {
+      "name": "sql-pre-query",
+      "displayName": "SQL Pre-Query",
+      "description": "A semicolon-delimited list of queries executed before the main SQL query is executed. For example, set session properties before main query. It's possible to include semicolons in the statements themselves by escaping them with a backslash ('\\;'). Results/outputs from these queries will be suppressed if there are no errors.",
+      "required": false,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "SQL select query": {
+      "name": "SQL select query",
+      "displayName": "SQL select query",
+      "description": "The SQL select query to execute. The query can be empty, a constant value, or built from attributes using Expression Language. If this property is specified, it will be used regardless of the content of incoming flowfiles. If this property is empty, the content of the incoming flow file is expected to contain a valid SQL select query, to be issued by the processor to the database. Note that Expression Language is not evaluated for flow file contents.",
+      "required": false,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "sql-post-query": {
+      "name": "sql-post-query",
+      "displayName": "SQL Post-Query",
+      "description": "A semicolon-delimited list of queries executed after the main SQL query is executed. Example like setting session properties after main query. It's possible to include semicolons in the statements themselves by escaping them with a backslash ('\\;'). Results/outputs from these queries will be suppressed if there are no errors.",
+      "required": false,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "Max Wait Time": {
+      "name": "Max Wait Time",
+      "displayName": "Max Wait Time",
+      "description": "The maximum amount of time allowed for a running SQL select query  , zero means there is no limit. Max time less than 1 second will be equal to zero.",
+      "defaultValue": "0 seconds",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "dbf-normalize": {
+      "name": "dbf-normalize",
+      "displayName": "Normalize Table/Column Names",
+      "description": "Whether to change non-Avro-compatible characters in column names to Avro-compatible characters. For example, colons and periods will be changed to underscores in order to build a valid Avro record.",
+      "defaultValue": "false",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "true",
+         "value": "true"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "false",
+         "value": "false"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "dbf-user-logical-types": {
+      "name": "dbf-user-logical-types",
+      "displayName": "Use Avro Logical Types",
+      "description": "Whether to use Avro Logical Types for DECIMAL/NUMBER, DATE, TIME and TIMESTAMP columns. If disabled, written as string. If enabled, Logical types are used and written as its underlying type, specifically, DECIMAL/NUMBER as logical 'decimal': written as bytes with additional precision and scale meta data, DATE as logical 'date-millis': written as int denoting days since Unix epoch (1970-01-01), TIME as logical 'time-millis': written as int denoting milliseconds since Unix epoch, and TIMESTAMP as logical 'timestamp-millis': written as long denoting milliseconds since Unix epoch. If a reader of written Avro records also knows these logical types, then these values can be deserialized with more context depending on reader implementation.",
+      "defaultValue": "false",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "true",
+         "value": "true"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "false",
+         "value": "false"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "compression-format": {
+      "name": "compression-format",
+      "displayName": "Compression Format",
+      "description": "Compression type to use when writing Avro files. Default is None.",
+      "defaultValue": "NONE",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "BZIP2",
+         "value": "BZIP2"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "DEFLATE",
+         "value": "DEFLATE"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "NONE",
+         "value": "NONE"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "SNAPPY",
+         "value": "SNAPPY"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "LZO",
+         "value": "LZO"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "dbf-default-precision": {
+      "name": "dbf-default-precision",
+      "displayName": "Default Decimal Precision",
+      "description": "When a DECIMAL/NUMBER value is written as a 'decimal' Avro logical type, a specific 'precision' denoting number of available digits is required. Generally, precision is defined by column data type definition or database engines default. However undefined precision (0) can be returned from some database engines. 'Default Decimal Precision' is used when writing those undefined precision numbers.",
+      "defaultValue": "10",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "dbf-default-scale": {
+      "name": "dbf-default-scale",
+      "displayName": "Default Decimal Scale",
+      "description": "When a DECIMAL/NUMBER value is written as a 'decimal' Avro logical type, a specific 'scale' denoting number of available decimal digits is required. Generally, scale is defined by column data type definition or database engines default. However when undefined precision (0) is returned, scale can also be uncertain with some database engines. 'Default Decimal Scale' is used when writing those undefined numbers. If a value has more decimals than specified scale, then the value will be rounded-up, e.g. 1.53 becomes 2 with scale 0, and 1.5 with scale 1.",
+      "defaultValue": "0",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "esql-max-rows": {
+      "name": "esql-max-rows",
+      "displayName": "Max Rows Per Flow File",
+      "description": "The maximum number of result rows that will be included in a single FlowFile. This will allow you to break up very large result sets into multiple FlowFiles. If the value specified is zero, then all rows are returned in a single FlowFile.",
+      "defaultValue": "0",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "esql-output-batch-size": {
+      "name": "esql-output-batch-size",
+      "displayName": "Output Batch Size",
+      "description": "The number of output FlowFiles to queue before committing the process session. When set to zero, the session will be committed when all result set rows have been processed and the output FlowFiles are ready for transfer to the downstream relationship. For large result sets, this can cause a large burst of FlowFiles to be transferred at the end of processor execution. If this property is set, then when the specified number of FlowFiles are ready for transfer, then the session will be committed, thus releasing the FlowFiles to the downstream relationship. NOTE: The fragment.count attribute will not be set on FlowFiles when this property is set.",
+      "defaultValue": "0",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "esql-fetch-size": {
+      "name": "esql-fetch-size",
+      "displayName": "Fetch Size",
+      "description": "The number of result rows to be fetched from the result set at a time. This is a hint to the database driver and may not be honored and/or exact. If the value specified is zero, then the hint is ignored.",
+      "defaultValue": "0",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "esql-auto-commit": {
+      "name": "esql-auto-commit",
+      "displayName": "Set Auto Commit",
+      "description": "Enables or disables the auto commit functionality of the DB connection. Default value is 'true'. The default value can be used with most of the JDBC drivers and this functionality doesn't have any impact in most of the cases since this processor is used to read data. However, for some JDBC drivers such as PostgreSQL driver, it is required to disable the auto committing functionality to limit the number of result rows fetching at a time. When auto commit is enabled, postgreSQL driver loads whole result set to memory at once. This could lead for a large amount of memory usage when executing queries which fetch large data sets. More Details of this behaviour in PostgreSQL driver can be found in https://jdbc.postgresql.org//documentation/head/query.html. ",
+      "defaultValue": "true",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "true",
+         "value": "true"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "false",
+         "value": "false"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     }
+    },
+    "schedulingPeriod": "0 sec",
+    "schedulingStrategy": "TIMER_DRIVEN",
+    "executionNode": "ALL",
+    "penaltyDuration": "30 sec",
+    "yieldDuration": "1 sec",
+    "bulletinLevel": "WARN",
+    "runDurationMillis": 0,
+    "concurrentlySchedulableTaskCount": 1,
+    "comments": "",
+    "lossTolerant": false,
+    "defaultConcurrentTasks": {
+     "TIMER_DRIVEN": "1",
+     "EVENT_DRIVEN": "0",
+     "CRON_DRIVEN": "1"
+    },
+    "defaultSchedulingPeriod": {
+     "TIMER_DRIVEN": "0 sec",
+     "CRON_DRIVEN": "* * * * * ?"
+    },
+    "retryCount": 10,
+    "retriedRelationships": [],
+    "backoffMechanism": "PENALIZE_FLOWFILE",
+    "maxBackoffPeriod": "10 mins"
+   },
+   "validationStatus": "VALID",
+   "extensionMissing": false
+  },
+  "inputRequirement": "INPUT_ALLOWED",
+  "status": {
+   "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+   "id": "142f3f46-6ef6-1fc2-c4f1-b056108b9c4a",
+   "name": "qlnv_tongquan_donvi",
+   "runStatus": "Running",
+   "statsLastRefreshed": "09:34:27 ICT",
+   "aggregateSnapshot": {
+    "id": "142f3f46-6ef6-1fc2-c4f1-b056108b9c4a",
+    "groupId": "142f3f3f-6ef6-1fc2-473c-0776d4cf6dbb",
+    "name": "qlnv_tongquan_donvi",
+    "type": "ExecuteSQL",
+    "runStatus": "Running",
+    "executionNode": "ALL",
+    "bytesRead": 0,
+    "bytesWritten": 120,
+    "read": "0 bytes",
+    "written": "120 bytes",
+    "flowFilesIn": 1,
+    "bytesIn": 120,
+    "input": "1 (120 bytes)",
+    "flowFilesOut": 1,
+    "bytesOut": 120,
+    "output": "1 (120 bytes)",
+    "taskCount": 1,
+    "tasksDurationNanos": 11535847135,
+    "tasks": "1",
+    "tasksDuration": "00:00:11.535",
+    "activeThreadCount": 0,
+    "terminatedThreadCount": 0
+   }
+  },
+  "operatePermissions": {
+   "canRead": true,
+   "canWrite": true
+  }
+ },
+ "proc_142f3f99": {
+  "revision": {
+   "version": 10
+  },
+  "id": "142f3f99-6ef6-1fc2-3321-8ca8b54f106a",
+  "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/processors/142f3f99-6ef6-1fc2-3321-8ca8b54f106a",
+  "position": {
+   "x": 3976.0,
+   "y": 1072.0
+  },
+  "permissions": {
+   "canRead": true,
+   "canWrite": true
+  },
+  "bulletins": [],
+  "component": {
+   "id": "142f3f99-6ef6-1fc2-3321-8ca8b54f106a",
+   "versionedComponentId": "103f7903-ba26-3097-bc99-c244e009c42c",
+   "parentGroupId": "142f3f93-6ef6-1fc2-4cb1-d43ba681aa0f",
+   "position": {
+    "x": 3976.0,
+    "y": 1072.0
+   },
+   "name": "qlnv_tongquan_donvi_kiemdem",
+   "type": "org.apache.nifi.processors.standard.ExecuteSQL",
+   "bundle": {
+    "group": "org.apache.nifi",
+    "artifact": "nifi-standard-nar",
+    "version": "1.27.0"
+   },
+   "state": "RUNNING",
+   "style": {},
+   "relationships": [
+    {
+     "name": "failure",
+     "description": "SQL query execution failed. Incoming FlowFile will be penalized and routed to this relationship",
+     "autoTerminate": false,
+     "retry": false
+    },
+    {
+     "name": "success",
+     "description": "Successfully created FlowFile from SQL query result set.",
+     "autoTerminate": false,
+     "retry": false
+    }
+   ],
+   "supportsParallelProcessing": true,
+   "supportsEventDriven": true,
+   "supportsBatching": false,
+   "supportsSensitiveDynamicProperties": true,
+   "persistsState": false,
+   "restricted": false,
+   "deprecated": false,
+   "executionNodeRestricted": false,
+   "multipleVersionsAvailable": false,
+   "inputRequirement": "INPUT_ALLOWED",
+   "config": {
+    "properties": {
+     "Database Connection Pooling Service": "a06e038b-019a-1000-f4f2-fdf9e5995ada",
+     "sql-pre-query": null,
+     "SQL select query": "/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */\nCREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tongquan_donvi_kiemdem__stg LIKE datamart_hanoi.qlnv_tongquan_donvi_kiemdem;\nTRUNCATE TABLE datamart_hanoi.qlnv_tongquan_donvi_kiemdem__stg;\nSET TRANSACTION ISOLATION LEVEL READ COMMITTED;\nINSERT INTO datamart_hanoi.qlnv_tongquan_donvi_kiemdem__stg\nSELECT\n    c.monthkey,\n\t\tc.`date`,\n    c.`month`,\n\t\tc.`year`,\n\t\tc.don_vi_cap_01,\n    c.loaicapcha,\n\n    /* ÉP loaicap = DepartmentName có Level = 3 */\n    CASE\n        WHEN c.iddv IS NULL\n            THEN 'Chưa xác định'\n        WHEN d1.Level = 3 THEN d1.DepartmentName\n        WHEN d2.Level = 3 THEN d2.DepartmentName\n        WHEN d3.Level = 3 THEN d3.DepartmentName\n        WHEN d4.Level = 3 THEN d4.DepartmentName\n        ELSE NULL\n    END AS loaicap,\n\n    c.iddv,\n    c.donvi,\n    c.tenviettat,\n\t\tc.don_vi_cap_01_dvgiao,\n\t\tc.loaicapcha_dvgiao,\n\t\tc.loaicap_dvgiao,\n\t\tc.iddv_dvgiao,\n\t\tc.donvi_dvgiao,\n\t\tc.tenviettat_dvgiao,\n\t\tc.don_vi_cap_01_dvthuchien,\n\t\tc.loaicapcha_dvthuchien,\n\t\tc.loaicap_dvthuchien,\n\t\tc.iddv_dvthuchien,\n\t\tc.donvi_dvthuchien,\n\t\tc.tenviettat_dvthuchien,\n\t\t\n\t\tCASE \n\t\t\tWHEN c.loaicap_dvthuchien IN ( 'Đảng bộ trực thuộc', 'Xã, Phường', 'HĐND Xã, Phường', 'MTTQ Xã, Phường' ) \n\t\t\t\tAND ( c.donvi_dvthuchien LIKE '%xã%' OR c.donvi_dvthuchien LIKE '%phường%' )  THEN 'Xã, phường'\n\t\t\tWHEN donvi_dvthuchien IN ('HĐND Thành phố','Thành ủy Hà Nội', 'UBND Thành phố', 'Ủy ban MTTQ Việt Nam thành phố Hà Nội', 'Đảng bộ trực thuộc', 'Xã, Phường', 'HĐND Xã, Phường', 'MTTQ Xã, Phường' )\n\t\t\tOR loaicap_dvthuchien = 'Văn phòng UBND TP' THEN 'Chưa xác định'\n\t\t\tELSE\n\t\t\t\t'Sở, ban, ngành'\n\t\tEND AS donvi_filter,\n    c.VanBanGiaoNhiemVu,\n\t\tc.NgayVanBan,\n    c.LinhVuc,\n    c.Kieu,\n\t\tc.UuTien,\n\n    COUNT(*) AS tongso,\n\n    COUNT(CASE WHEN c.TrangThai LIKE 'Đã hoàn thành%' THEN 1 END) AS daht,\n    COUNT(CASE WHEN c.ThoiHanHoanThanh IS NOT NULL AND c.TrangThai = 'Đã hoàn thành đúng hạn' THEN 1 END) AS daht_dh,\n    COUNT(CASE WHEN c.ThoiHanHoanThanh IS NOT NULL AND c.TrangThai = 'Đã hoàn thành quá hạn' THEN 1 END) AS daht_qh,\n    COUNT(CASE WHEN c.ThoiHanHoanThanh IS NULL AND c.TrangThai LIKE 'Đã hoàn thành%' THEN 1 END) AS daht_kh,\n\n    COUNT(CASE WHEN c.TrangThai LIKE 'Chưa hoàn thành%' THEN 1 END) AS dangth,\n    COUNT(CASE WHEN c.ThoiHanHoanThanh IS NOT NULL AND c.TrangThai = 'Chưa hoàn thành trong hạn' THEN 1 END) AS dangth_th,\n    COUNT(CASE WHEN c.ThoiHanHoanThanh IS NOT NULL AND c.TrangThai = 'Chưa hoàn thành quá hạn' THEN 1 END) AS dangth_qh,\n    COUNT(CASE WHEN c.ThoiHanHoanThanh IS NOT NULL AND c.TrangThai = 'Chưa hoàn thành sắp quá hạn' THEN 1 END) AS dangth_sqh,\n    COUNT(CASE WHEN c.ThoiHanHoanThanh IS NULL AND c.TrangThai LIKE 'Chưa hoàn thành%' THEN 1 END) AS dangth_kh,\n\t\tSUM(c.tongtg_canxuly) AS tongtg_canxuly,\n\t\tSUM(c.tongtg_daxuly) AS tongtg_daxuly,\n\n    c.nhomvb_ma,\n    c.nhomvb,\n\t\tc.NhomPhamViNhiemVu,\n    c.NhomGiaoNhan,\n    NOW() AS syncdate\nFROM datamart_hanoi.qlnv_tonghop_chitiet_donvi c\n\n/* Level hiện tại */\nLEFT JOIN datamart_hanoi.department d1\n    ON c.iddv = d1.DepartmentId\n\n/* Cha */\nLEFT JOIN datamart_hanoi.department d2\n    ON d2.DepartmentId = d1.ParentId\n\n/* Ông */\nLEFT JOIN datamart_hanoi.department d3\n    ON d3.DepartmentId = d2.ParentId\n\n/* Cụ */\nLEFT JOIN datamart_hanoi.department d4\n    ON d4.DepartmentId = d3.ParentId\n\nWHERE c.iddv IS NOT NULL AND don_vi_cap_01 = 'THÀNH PHỐ HÀ NỘI'\nGROUP BY\n    /* [19/11] chỉ group theo khóa, cột tên phụ thuộc id (đã kiểm 0 vi phạm) — tránh sort 30 cột varchar vượt 60s */\n    c.monthkey,\n    c.iddv,\n    c.iddv_dvgiao,\n    c.iddv_dvthuchien,\n    c.VanBanGiaoNhiemVu,\n    c.NgayVanBan,\n    c.LinhVuc,\n    c.Kieu,\n    c.UuTien,\n    c.nhomvb_ma,\n    c.NhomGiaoNhan,\n    c.NhomPhamViNhiemVu\n;\n/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */\nSET SESSION lock_wait_timeout = 10;\nRENAME TABLE datamart_hanoi.qlnv_tongquan_donvi_kiemdem TO datamart_hanoi.qlnv_tongquan_donvi_kiemdem__old, datamart_hanoi.qlnv_tongquan_donvi_kiemdem__stg TO datamart_hanoi.qlnv_tongquan_donvi_kiemdem, datamart_hanoi.qlnv_tongquan_donvi_kiemdem__old TO datamart_hanoi.qlnv_tongquan_donvi_kiemdem__stg;\nSET SESSION lock_wait_timeout = 31536000;",
+     "sql-post-query": null,
+     "Max Wait Time": "0 seconds",
+     "dbf-normalize": "false",
+     "dbf-user-logical-types": "false",
+     "compression-format": "NONE",
+     "dbf-default-precision": "10",
+     "dbf-default-scale": "0",
+     "esql-max-rows": "0",
+     "esql-output-batch-size": "0",
+     "esql-fetch-size": "0",
+     "esql-auto-commit": "true"
+    },
+    "descriptors": {
+     "Database Connection Pooling Service": {
+      "name": "Database Connection Pooling Service",
+      "displayName": "Database Connection Pooling Service",
+      "description": "The Controller Service that is used to obtain connection to database",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "HN-Datamart-NEW",
+         "value": "acf51838-116f-119e-c09b-1b31f6c8d1ae"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "HaNoi_DB_HNI_KNCT",
+         "value": "bee45711-c2d0-1c10-9b4b-33febf757b70"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "HaNoi_Datamart",
+         "value": "0bfb327e-8a21-1e6a-776c-e17610335bef"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "HaNoi_Datamart_5s",
+         "value": "73bb3774-cea7-1f5d-629d-4e34862120ab"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "HaNoi_ThanhUy_DB",
+         "value": "a06e038b-019a-1000-f4f2-fdf9e5995ada"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "identifiesControllerService": "org.apache.nifi.dbcp.DBCPService",
+      "identifiesControllerServiceBundle": {
+       "group": "org.apache.nifi",
+       "artifact": "nifi-standard-services-api-nar",
+       "version": "1.27.0"
+      },
+      "dependencies": []
+     },
+     "sql-pre-query": {
+      "name": "sql-pre-query",
+      "displayName": "SQL Pre-Query",
+      "description": "A semicolon-delimited list of queries executed before the main SQL query is executed. For example, set session properties before main query. It's possible to include semicolons in the statements themselves by escaping them with a backslash ('\\;'). Results/outputs from these queries will be suppressed if there are no errors.",
+      "required": false,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "SQL select query": {
+      "name": "SQL select query",
+      "displayName": "SQL select query",
+      "description": "The SQL select query to execute. The query can be empty, a constant value, or built from attributes using Expression Language. If this property is specified, it will be used regardless of the content of incoming flowfiles. If this property is empty, the content of the incoming flow file is expected to contain a valid SQL select query, to be issued by the processor to the database. Note that Expression Language is not evaluated for flow file contents.",
+      "required": false,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "sql-post-query": {
+      "name": "sql-post-query",
+      "displayName": "SQL Post-Query",
+      "description": "A semicolon-delimited list of queries executed after the main SQL query is executed. Example like setting session properties after main query. It's possible to include semicolons in the statements themselves by escaping them with a backslash ('\\;'). Results/outputs from these queries will be suppressed if there are no errors.",
+      "required": false,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "Max Wait Time": {
+      "name": "Max Wait Time",
+      "displayName": "Max Wait Time",
+      "description": "The maximum amount of time allowed for a running SQL select query  , zero means there is no limit. Max time less than 1 second will be equal to zero.",
+      "defaultValue": "0 seconds",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "dbf-normalize": {
+      "name": "dbf-normalize",
+      "displayName": "Normalize Table/Column Names",
+      "description": "Whether to change non-Avro-compatible characters in column names to Avro-compatible characters. For example, colons and periods will be changed to underscores in order to build a valid Avro record.",
+      "defaultValue": "false",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "true",
+         "value": "true"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "false",
+         "value": "false"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "dbf-user-logical-types": {
+      "name": "dbf-user-logical-types",
+      "displayName": "Use Avro Logical Types",
+      "description": "Whether to use Avro Logical Types for DECIMAL/NUMBER, DATE, TIME and TIMESTAMP columns. If disabled, written as string. If enabled, Logical types are used and written as its underlying type, specifically, DECIMAL/NUMBER as logical 'decimal': written as bytes with additional precision and scale meta data, DATE as logical 'date-millis': written as int denoting days since Unix epoch (1970-01-01), TIME as logical 'time-millis': written as int denoting milliseconds since Unix epoch, and TIMESTAMP as logical 'timestamp-millis': written as long denoting milliseconds since Unix epoch. If a reader of written Avro records also knows these logical types, then these values can be deserialized with more context depending on reader implementation.",
+      "defaultValue": "false",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "true",
+         "value": "true"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "false",
+         "value": "false"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "compression-format": {
+      "name": "compression-format",
+      "displayName": "Compression Format",
+      "description": "Compression type to use when writing Avro files. Default is None.",
+      "defaultValue": "NONE",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "BZIP2",
+         "value": "BZIP2"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "DEFLATE",
+         "value": "DEFLATE"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "NONE",
+         "value": "NONE"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "SNAPPY",
+         "value": "SNAPPY"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "LZO",
+         "value": "LZO"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     },
+     "dbf-default-precision": {
+      "name": "dbf-default-precision",
+      "displayName": "Default Decimal Precision",
+      "description": "When a DECIMAL/NUMBER value is written as a 'decimal' Avro logical type, a specific 'precision' denoting number of available digits is required. Generally, precision is defined by column data type definition or database engines default. However undefined precision (0) can be returned from some database engines. 'Default Decimal Precision' is used when writing those undefined precision numbers.",
+      "defaultValue": "10",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "dbf-default-scale": {
+      "name": "dbf-default-scale",
+      "displayName": "Default Decimal Scale",
+      "description": "When a DECIMAL/NUMBER value is written as a 'decimal' Avro logical type, a specific 'scale' denoting number of available decimal digits is required. Generally, scale is defined by column data type definition or database engines default. However when undefined precision (0) is returned, scale can also be uncertain with some database engines. 'Default Decimal Scale' is used when writing those undefined numbers. If a value has more decimals than specified scale, then the value will be rounded-up, e.g. 1.53 becomes 2 with scale 0, and 1.5 with scale 1.",
+      "defaultValue": "0",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "esql-max-rows": {
+      "name": "esql-max-rows",
+      "displayName": "Max Rows Per Flow File",
+      "description": "The maximum number of result rows that will be included in a single FlowFile. This will allow you to break up very large result sets into multiple FlowFiles. If the value specified is zero, then all rows are returned in a single FlowFile.",
+      "defaultValue": "0",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "esql-output-batch-size": {
+      "name": "esql-output-batch-size",
+      "displayName": "Output Batch Size",
+      "description": "The number of output FlowFiles to queue before committing the process session. When set to zero, the session will be committed when all result set rows have been processed and the output FlowFiles are ready for transfer to the downstream relationship. For large result sets, this can cause a large burst of FlowFiles to be transferred at the end of processor execution. If this property is set, then when the specified number of FlowFiles are ready for transfer, then the session will be committed, thus releasing the FlowFiles to the downstream relationship. NOTE: The fragment.count attribute will not be set on FlowFiles when this property is set.",
+      "defaultValue": "0",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "esql-fetch-size": {
+      "name": "esql-fetch-size",
+      "displayName": "Fetch Size",
+      "description": "The number of result rows to be fetched from the result set at a time. This is a hint to the database driver and may not be honored and/or exact. If the value specified is zero, then the hint is ignored.",
+      "defaultValue": "0",
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": true,
+      "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+      "dependencies": []
+     },
+     "esql-auto-commit": {
+      "name": "esql-auto-commit",
+      "displayName": "Set Auto Commit",
+      "description": "Enables or disables the auto commit functionality of the DB connection. Default value is 'true'. The default value can be used with most of the JDBC drivers and this functionality doesn't have any impact in most of the cases since this processor is used to read data. However, for some JDBC drivers such as PostgreSQL driver, it is required to disable the auto committing functionality to limit the number of result rows fetching at a time. When auto commit is enabled, postgreSQL driver loads whole result set to memory at once. This could lead for a large amount of memory usage when executing queries which fetch large data sets. More Details of this behaviour in PostgreSQL driver can be found in https://jdbc.postgresql.org//documentation/head/query.html. ",
+      "defaultValue": "true",
+      "allowableValues": [
+       {
+        "allowableValue": {
+         "displayName": "true",
+         "value": "true"
+        },
+        "canRead": true
+       },
+       {
+        "allowableValue": {
+         "displayName": "false",
+         "value": "false"
+        },
+        "canRead": true
+       }
+      ],
+      "required": true,
+      "sensitive": false,
+      "dynamic": false,
+      "supportsEl": false,
+      "expressionLanguageScope": "Not Supported",
+      "dependencies": []
+     }
+    },
+    "schedulingPeriod": "0 sec",
+    "schedulingStrategy": "TIMER_DRIVEN",
+    "executionNode": "ALL",
+    "penaltyDuration": "30 sec",
+    "yieldDuration": "1 sec",
+    "bulletinLevel": "WARN",
+    "runDurationMillis": 0,
+    "concurrentlySchedulableTaskCount": 1,
+    "comments": "",
+    "lossTolerant": false,
+    "defaultConcurrentTasks": {
+     "TIMER_DRIVEN": "1",
+     "EVENT_DRIVEN": "0",
+     "CRON_DRIVEN": "1"
+    },
+    "defaultSchedulingPeriod": {
+     "TIMER_DRIVEN": "0 sec",
+     "CRON_DRIVEN": "* * * * * ?"
+    },
+    "retryCount": 10,
+    "retriedRelationships": [],
+    "backoffMechanism": "PENALIZE_FLOWFILE",
+    "maxBackoffPeriod": "10 mins"
+   },
+   "validationStatus": "VALID",
+   "extensionMissing": false
+  },
+  "inputRequirement": "INPUT_ALLOWED",
+  "status": {
+   "groupId": "142f3f93-6ef6-1fc2-4cb1-d43ba681aa0f",
+   "id": "142f3f99-6ef6-1fc2-3321-8ca8b54f106a",
+   "name": "qlnv_tongquan_donvi_kiemdem",
+   "runStatus": "Running",
+   "statsLastRefreshed": "09:34:27 ICT",
+   "aggregateSnapshot": {
+    "id": "142f3f99-6ef6-1fc2-3321-8ca8b54f106a",
+    "groupId": "142f3f93-6ef6-1fc2-4cb1-d43ba681aa0f",
+    "name": "qlnv_tongquan_donvi_kiemdem",
+    "type": "ExecuteSQL",
+    "runStatus": "Running",
+    "executionNode": "ALL",
+    "bytesRead": 0,
+    "bytesWritten": 120,
+    "read": "0 bytes",
+    "written": "120 bytes",
+    "flowFilesIn": 1,
+    "bytesIn": 120,
+    "input": "1 (120 bytes)",
+    "flowFilesOut": 1,
+    "bytesOut": 120,
+    "output": "1 (120 bytes)",
+    "taskCount": 1,
+    "tasksDurationNanos": 10476341489,
+    "tasks": "1",
+    "tasksDuration": "00:00:10.476",
+    "activeThreadCount": 0,
+    "terminatedThreadCount": 0
+   }
+  },
+  "operatePermissions": {
+   "canRead": true,
+   "canWrite": true
+  }
+ }
+}

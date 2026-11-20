@@ -1,0 +1,10 @@
+tiepnhan tasks5m 5 avg 12.5s in 5 out 5
+   queue ['failure', 'retry'] 17 (0 bytes)
+giaonv tasks5m 5 avg 14.8s in 5 out 5
+   queue ['failure', 'retry'] 19 (0 bytes)
+khoi tasks5m 5 avg 1.5s in 5 out 5
+   queue ['failure'] 0 (0 bytes)
+qlnv_tonghop_chitiet_tiepnhan [{'n': 102405, 'mx': '2026-11-19T13:58:17'}]
+qlnv_tonghop_chitiet_giaonv [{'n': 102405, 'mx': '2026-11-19T14:00:17'}]
+qlnv_tonghop_chitiet_khoi [{'n': 25547, 'mx': '2026-11-19T14:00:17'}]
+processlist []

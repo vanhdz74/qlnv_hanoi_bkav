@@ -1,0 +1,42 @@
+{
+ "branches": {
+  "eform_chuyen_de": {
+   "table": "nq57_eform_chuyen_de",
+   "esr": "142f46a0-6ef6-1fc2-e9c1-4568a66a65db",
+   "route": "142f46a1-6ef6-1fc2-c18e-c2b660ae86c8",
+   "upsert": "142f46a2-6ef6-1fc2-104d-6bac21c35e31",
+   "replace": "142f46a3-6ef6-1fc2-e940-ac73b63b60c2",
+   "inner_conns": [
+    "142f46a4-6ef6-1fc2-bff7-12a041eb3749",
+    "142f46a5-6ef6-1fc2-432f-5d0b575d5d70",
+    "142f46a6-6ef6-1fc2-51fb-10c4ba4ea29d"
+   ],
+   "conns": [
+    "142f46a7-6ef6-1fc2-81ec-655900979ccf",
+    "142f46a8-6ef6-1fc2-26ee-69083616a76c",
+    "142f46a9-6ef6-1fc2-ee6c-e47804e6bd1b",
+    "142f46aa-6ef6-1fc2-9382-e3cbcdadd7c2",
+    "142f46ab-6ef6-1fc2-263c-86bee849a55d"
+   ]
+  },
+  "eform_cach_tinh": {
+   "table": "nq57_eform_cach_tinh",
+   "esr": "142f46ad-6ef6-1fc2-a0a2-c8882aedd83d",
+   "route": "142f46ae-6ef6-1fc2-4ff9-435188f983f2",
+   "upsert": "142f46af-6ef6-1fc2-3e6d-6703bab0b039",
+   "replace": "142f46b0-6ef6-1fc2-40fc-ea4702fdaca9",
+   "inner_conns": [
+    "142f46b1-6ef6-1fc2-1cae-3b05475851fd",
+    "142f46b2-6ef6-1fc2-bd73-d1c649bd58ec",
+    "142f46b3-6ef6-1fc2-45c6-4b44f2984af1"
+   ],
+   "conns": [
+    "142f46b4-6ef6-1fc2-b9a6-3ed20e262e97",
+    "142f46b5-6ef6-1fc2-0c9c-6ad2b5bb6039",
+    "142f46b6-6ef6-1fc2-1d28-7f84713e1b19",
+    "142f46b7-6ef6-1fc2-ec93-73f2bca68377",
+    "142f46b8-6ef6-1fc2-9e6b-54d60ffe42c9"
+   ]
+  }
+ }
+}

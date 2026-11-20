@@ -1,0 +1,865 @@
+{
+ "description_columns": {},
+ "id": 160,
+ "label_columns": {
+  "always_filter_main_dttm": "Always Filter Main Dttm",
+  "cache_timeout": "Hết thời gian chờ bộ đệm",
+  "catalog": "Danh mục",
+  "changed_by.first_name": "Changed By First Name",
+  "changed_by.last_name": "Changed By Last Name",
+  "changed_on": "Changed On",
+  "changed_on_humanized": "Changed On Humanized",
+  "column_formats": "Column Formats",
+  "columns.advanced_data_type": "Columns Advanced Data Type",
+  "columns.changed_on": "Columns Changed On",
+  "columns.column_name": "Columns Column Name",
+  "columns.created_on": "Columns Created On",
+  "columns.description": "Columns Description",
+  "columns.expression": "Columns Expression",
+  "columns.extra": "Columns Extra",
+  "columns.filterable": "Columns Filterable",
+  "columns.groupby": "Columns Groupby",
+  "columns.id": "Columns Id",
+  "columns.is_active": "Columns Is Active",
+  "columns.is_dttm": "Columns Is Dttm",
+  "columns.python_date_format": "Columns Python Date Format",
+  "columns.type": "Columns Type",
+  "columns.type_generic": "Columns Type Generic",
+  "columns.uuid": "Columns Uuid",
+  "columns.verbose_name": "Columns Verbose Name",
+  "created_by.first_name": "Created By First Name",
+  "created_by.last_name": "Created By Last Name",
+  "created_on": "Created On",
+  "created_on_humanized": "Created On Humanized",
+  "currency_formats": "Currency Formats",
+  "database.allow_multi_catalog": "Database Allow Multi Catalog",
+  "database.backend": "Database Backend",
+  "database.database_name": "Database Database Name",
+  "database.id": "Database Id",
+  "datasource_name": "Datasource Name",
+  "datasource_type": "Datasource Type",
+  "default_endpoint": "Điểm cuối mặc định",
+  "description": "Mô tả",
+  "extra": "Thêm",
+  "fetch_values_predicate": "Vị ngữ giá trị tìm nạp",
+  "filter_select_enabled": "Filter Select Enabled",
+  "granularity_sqla": "Granularity Sqla",
+  "id": "Id",
+  "is_managed_externally": "Is Managed Externally",
+  "is_sqllab_view": "Is Sqllab View",
+  "kind": "Kind",
+  "main_dttm_col": "Main Dttm Col",
+  "metrics.changed_on": "Metrics Changed On",
+  "metrics.created_on": "Metrics Created On",
+  "metrics.currency": "Metrics Currency",
+  "metrics.d3format": "Metrics D3Format",
+  "metrics.description": "Metrics Description",
+  "metrics.expression": "Metrics Expression",
+  "metrics.extra": "Metrics Extra",
+  "metrics.id": "Metrics Id",
+  "metrics.metric_name": "Metrics Metric Name",
+  "metrics.metric_type": "Metrics Metric Type",
+  "metrics.verbose_name": "Metrics Verbose Name",
+  "metrics.warning_text": "Metrics Warning Text",
+  "name": "Tên",
+  "normalize_columns": "Normalize Columns",
+  "offset": "Bù đắp",
+  "order_by_choices": "Order By Choices",
+  "owners.first_name": "Owners First Name",
+  "owners.id": "Owners Id",
+  "owners.last_name": "Owners Last Name",
+  "schema": "Lược đồ",
+  "select_star": "Select Star",
+  "sql": "Sql",
+  "table_name": "Tên bảng",
+  "template_params": "Template Params",
+  "time_grain_sqla": "Time Grain Sqla",
+  "uid": "Uid",
+  "url": "Url",
+  "verbose_map": "Verbose Map"
+ },
+ "result": {
+  "always_filter_main_dttm": false,
+  "cache_timeout": null,
+  "catalog": null,
+  "changed_by": {
+   "first_name": "Superset",
+   "last_name": "Admin"
+  },
+  "changed_on": "2026-11-19T09:41:18.463666",
+  "changed_on_humanized": "22 phút trước",
+  "column_formats": {},
+  "columns": [
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-19T08:52:55.470835",
+    "column_name": "ma_don_vi",
+    "created_on": "2026-11-19T08:52:53.985453",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 4062,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "314eb3aa-b320-46f5-9252-36d9476624ce",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-19T08:52:55.470871",
+    "column_name": "ten_don_vi",
+    "created_on": "2026-11-19T08:52:53.985499",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 4063,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "dc14f5b9-adb2-4122-895f-e0e225b10294",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-19T08:52:55.470878",
+    "column_name": "tt_don_vi",
+    "created_on": "2026-11-19T08:52:53.985517",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 4064,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "LONGLONG",
+    "type_generic": 0,
+    "uuid": "eccbc682-3fd3-4ff1-8297-db516009d0ae",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-19T08:52:55.470883",
+    "column_name": "khoi",
+    "created_on": "2026-11-19T08:52:53.985534",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 4065,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "f172e943-8016-4a1a-8463-5e8b32862360",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-19T08:52:55.470889",
+    "column_name": "ma_ky",
+    "created_on": "2026-11-19T08:52:53.985550",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 4066,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "a48c1a0f-e06d-4bd0-9695-af22455ad67d",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-19T08:52:55.470895",
+    "column_name": "loai_ky",
+    "created_on": "2026-11-19T08:52:53.985567",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 4067,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "6e8d839d-3070-4463-8349-21389436d9c9",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-19T08:52:55.470900",
+    "column_name": "nhan_ky",
+    "created_on": "2026-11-19T08:52:53.985584",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 4068,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "76dbc6e9-4b80-40ab-81c5-bb02b47f0f4c",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-19T08:52:55.470906",
+    "column_name": "ten_ky",
+    "created_on": "2026-11-19T08:52:53.985600",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 4069,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "8c913fd7-1b6a-46c4-9991-8dbf5dee63ec",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-19T08:52:55.470912",
+    "column_name": "stt_ky",
+    "created_on": "2026-11-19T08:52:53.985617",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 4070,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "LONGLONG",
+    "type_generic": 0,
+    "uuid": "b9f3aa7a-62aa-4d91-a3df-6fe67bb8b8dc",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-19T08:52:55.470918",
+    "column_name": "han_nop",
+    "created_on": "2026-11-19T08:52:53.985633",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 4071,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "82da06e5-962c-4227-9f92-f4e881b5baac",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-19T08:52:55.470923",
+    "column_name": "den_han",
+    "created_on": "2026-11-19T08:52:53.985649",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 4072,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "LONGLONG",
+    "type_generic": 0,
+    "uuid": "18f5f05b-54d7-4702-9bb5-d84f63ee1c4d",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-19T08:52:55.470929",
+    "column_name": "ts_nhap_dau",
+    "created_on": "2026-11-19T08:52:53.985665",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 4073,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "dc545497-25ef-4777-a82d-8572b9ac356b",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-19T08:52:55.470934",
+    "column_name": "ts_gui_duyet",
+    "created_on": "2026-11-19T08:52:53.985681",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 4074,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "81928b88-ae13-4522-9795-c5a478c52016",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-19T08:52:55.470940",
+    "column_name": "ts_phat_hanh",
+    "created_on": "2026-11-19T08:52:53.985698",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 4075,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "c26c8b15-43f7-4e5a-a0b0-3ae829bfd3aa",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-19T08:52:55.470946",
+    "column_name": "trang_thai",
+    "created_on": "2026-11-19T08:52:53.985713",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 4076,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "e0d71fd2-db35-4018-8c69-489fdcafca4f",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-19T08:52:55.470951",
+    "column_name": "o_kiem_dem",
+    "created_on": "2026-11-19T08:52:53.985730",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 4077,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "39b70aaf-4628-42e4-809a-ea7ea863b673",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-19T08:52:55.470957",
+    "column_name": "so_bieu",
+    "created_on": "2026-11-19T08:52:53.985746",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 4078,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "LONGLONG",
+    "type_generic": 0,
+    "uuid": "899c5a86-2f4e-45d0-a4f0-02620b907e3e",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-19T08:52:55.470962",
+    "column_name": "so_bieu_hoan_tat",
+    "created_on": "2026-11-19T08:52:53.985763",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 4079,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "LONGLONG",
+    "type_generic": 0,
+    "uuid": "69b293b4-823a-4797-977c-5a5258888091",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-19T08:52:55.470968",
+    "column_name": "so_lan_tra_lai",
+    "created_on": "2026-11-19T08:52:53.985779",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 4080,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "LONGLONG",
+    "type_generic": 0,
+    "uuid": "e7994271-3f96-47f8-9a13-484e58d575fe",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-19T08:52:55.470973",
+    "column_name": "lech_han_phut",
+    "created_on": "2026-11-19T08:52:53.985795",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 4081,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "LONGLONG",
+    "type_generic": 0,
+    "uuid": "b3111909-34fb-4e30-8ef6-78d9631cefd4",
+    "verbose_name": null
+   },
+   {
+    "advanced_data_type": null,
+    "changed_on": "2026-11-19T08:52:55.470979",
+    "column_name": "moc_chup",
+    "created_on": "2026-11-19T08:52:53.985811",
+    "description": null,
+    "expression": "",
+    "extra": null,
+    "filterable": true,
+    "groupby": true,
+    "id": 4082,
+    "is_active": true,
+    "is_dttm": false,
+    "python_date_format": null,
+    "type": "VAR_STRING",
+    "type_generic": null,
+    "uuid": "78502512-a962-408c-8176-606dcda9b8ff",
+    "verbose_name": null
+   }
+  ],
+  "created_by": {
+   "first_name": "Superset",
+   "last_name": "Admin"
+  },
+  "created_on": "2026-11-19T08:52:53.410236",
+  "created_on_humanized": "một giờ trước",
+  "currency_formats": {},
+  "database": {
+   "allow_multi_catalog": false,
+   "backend": "mysql",
+   "database_name": "TDNV",
+   "id": 8
+  },
+  "datasource_name": "bcd57_thidiem_trienkhai_mau",
+  "datasource_type": "table",
+  "default_endpoint": null,
+  "description": null,
+  "extra": null,
+  "fetch_values_predicate": null,
+  "filter_select_enabled": true,
+  "granularity_sqla": [],
+  "id": 160,
+  "is_managed_externally": false,
+  "is_sqllab_view": false,
+  "kind": "virtual",
+  "main_dttm_col": null,
+  "metrics": [
+   {
+    "changed_on": "2026-11-19T08:52:53.994923",
+    "created_on": "2026-11-19T08:52:53.994919",
+    "currency": null,
+    "d3format": null,
+    "description": null,
+    "expression": "COUNT(*)",
+    "extra": null,
+    "id": 160,
+    "metric_name": "count",
+    "metric_type": "count",
+    "verbose_name": "COUNT(*)",
+    "warning_text": null
+   }
+  ],
+  "name": "datamart_hanoi.bcd57_thidiem_trienkhai_mau",
+  "normalize_columns": false,
+  "offset": 0,
+  "order_by_choices": [
+   [
+    "[\"den_han\", true]",
+    "den_han [tăng]"
+   ],
+   [
+    "[\"den_han\", false]",
+    "den_han [mô tả]"
+   ],
+   [
+    "[\"han_nop\", true]",
+    "han_nop [tăng]"
+   ],
+   [
+    "[\"han_nop\", false]",
+    "han_nop [mô tả]"
+   ],
+   [
+    "[\"khoi\", true]",
+    "khoi [tăng]"
+   ],
+   [
+    "[\"khoi\", false]",
+    "khoi [mô tả]"
+   ],
+   [
+    "[\"lech_han_phut\", true]",
+    "lech_han_phut [tăng]"
+   ],
+   [
+    "[\"lech_han_phut\", false]",
+    "lech_han_phut [mô tả]"
+   ],
+   [
+    "[\"loai_ky\", true]",
+    "loai_ky [tăng]"
+   ],
+   [
+    "[\"loai_ky\", false]",
+    "loai_ky [mô tả]"
+   ],
+   [
+    "[\"ma_don_vi\", true]",
+    "ma_don_vi [tăng]"
+   ],
+   [
+    "[\"ma_don_vi\", false]",
+    "ma_don_vi [mô tả]"
+   ],
+   [
+    "[\"ma_ky\", true]",
+    "ma_ky [tăng]"
+   ],
+   [
+    "[\"ma_ky\", false]",
+    "ma_ky [mô tả]"
+   ],
+   [
+    "[\"moc_chup\", true]",
+    "moc_chup [tăng]"
+   ],
+   [
+    "[\"moc_chup\", false]",
+    "moc_chup [mô tả]"
+   ],
+   [
+    "[\"nhan_ky\", true]",
+    "nhan_ky [tăng]"
+   ],
+   [
+    "[\"nhan_ky\", false]",
+    "nhan_ky [mô tả]"
+   ],
+   [
+    "[\"o_kiem_dem\", true]",
+    "o_kiem_dem [tăng]"
+   ],
+   [
+    "[\"o_kiem_dem\", false]",
+    "o_kiem_dem [mô tả]"
+   ],
+   [
+    "[\"so_bieu\", true]",
+    "so_bieu [tăng]"
+   ],
+   [
+    "[\"so_bieu\", false]",
+    "so_bieu [mô tả]"
+   ],
+   [
+    "[\"so_bieu_hoan_tat\", true]",
+    "so_bieu_hoan_tat [tăng]"
+   ],
+   [
+    "[\"so_bieu_hoan_tat\", false]",
+    "so_bieu_hoan_tat [mô tả]"
+   ],
+   [
+    "[\"so_lan_tra_lai\", true]",
+    "so_lan_tra_lai [tăng]"
+   ],
+   [
+    "[\"so_lan_tra_lai\", false]",
+    "so_lan_tra_lai [mô tả]"
+   ],
+   [
+    "[\"stt_ky\", true]",
+    "stt_ky [tăng]"
+   ],
+   [
+    "[\"stt_ky\", false]",
+    "stt_ky [mô tả]"
+   ],
+   [
+    "[\"ten_don_vi\", true]",
+    "ten_don_vi [tăng]"
+   ],
+   [
+    "[\"ten_don_vi\", false]",
+    "ten_don_vi [mô tả]"
+   ],
+   [
+    "[\"ten_ky\", true]",
+    "ten_ky [tăng]"
+   ],
+   [
+    "[\"ten_ky\", false]",
+    "ten_ky [mô tả]"
+   ],
+   [
+    "[\"trang_thai\", true]",
+    "trang_thai [tăng]"
+   ],
+   [
+    "[\"trang_thai\", false]",
+    "trang_thai [mô tả]"
+   ],
+   [
+    "[\"ts_gui_duyet\", true]",
+    "ts_gui_duyet [tăng]"
+   ],
+   [
+    "[\"ts_gui_duyet\", false]",
+    "ts_gui_duyet [mô tả]"
+   ],
+   [
+    "[\"ts_nhap_dau\", true]",
+    "ts_nhap_dau [tăng]"
+   ],
+   [
+    "[\"ts_nhap_dau\", false]",
+    "ts_nhap_dau [mô tả]"
+   ],
+   [
+    "[\"ts_phat_hanh\", true]",
+    "ts_phat_hanh [tăng]"
+   ],
+   [
+    "[\"ts_phat_hanh\", false]",
+    "ts_phat_hanh [mô tả]"
+   ],
+   [
+    "[\"tt_don_vi\", true]",
+    "tt_don_vi [tăng]"
+   ],
+   [
+    "[\"tt_don_vi\", false]",
+    "tt_don_vi [mô tả]"
+   ]
+  ],
+  "owners": [
+   {
+    "first_name": "Superset",
+    "id": 3,
+    "last_name": "Admin"
+   }
+  ],
+  "schema": "datamart_hanoi",
+  "select_star": "SELECT\n  *\nFROM datamart_hanoi.bcd57_thidiem_trienkhai_mau\nLIMIT 100",
+  "sql": "-- Tình hình triển khai thí điểm — KỲ THÁNG, nguồn eForm (datamart_hanoi.nq57_eform_chuyen_de)\n-- 1 dòng = 1 xã/phường × 1 tháng. Cột giữ đúng tên chart 1069 đang đọc.\n-- NGUYÊN TẮC: chỉ điền cái nguồn có; cột nguồn chưa có thì để NULL (chart hiện \"—\"), không tự đặt giá trị.\n--   * Có số: xã có ≥1 dòng NOI_DUNG_XA hoặc DIEM_NGHEN_XA trong tháng → o_kiem_dem = 'da_nop' (chưa rõ đúng hạn hay muộn).\n--     Không có dòng nào → 'chua_nop' (chưa biết hạn nên không xếp còn hạn / quá hạn).\n--     XA_QUAN_TAM (có nhiệm vụ quá hạn) là số TDNV tính ra, không phải xã nộp → không tính.\n--   * so_bieu_hoan_tat = số phần (NOI_DUNG_XA, DIEM_NGHEN_XA) xã đã có trong tháng.\n--   * NULL vì eForm chưa có: han_nop, den_han, ts_nhap_dau, ts_gui_duyet, ts_phat_hanh, trang_thai,\n--     so_bieu, so_lan_tra_lai, lech_han_phut.\n--   * moc_chup = lần đồng bộ gần nhất của bảng.\nSELECT\n  dv.don_vi                                                           AS ma_don_vi,\n  dv.ten                                                              AS ten_don_vi,\n  dv.tt                                                               AS tt_don_vi,\n  dv.khoi                                                             AS khoi,\n  k.ma_ky                                                             AS ma_ky,\n  'Kỳ tháng'                                                          AS loai_ky,\n  CONCAT('T', k.ky)                                                   AS nhan_ky,\n  CONCAT('Báo cáo tháng ', k.ky)                                      AS ten_ky,\n  k.stt                                                               AS stt_ky,\n  CAST(NULL AS CHAR)                                                  AS han_nop,\n  CAST(NULL AS SIGNED)                                                AS den_han,\n  CAST(NULL AS CHAR)                                                  AS ts_nhap_dau,\n  CAST(NULL AS CHAR)                                                  AS ts_gui_duyet,\n  CAST(NULL AS CHAR)                                                  AS ts_phat_hanh,\n  CAST(NULL AS CHAR)                                                  AS trang_thai,\n  IF(n.so_phan > 0, 'da_nop', 'chua_nop')                             AS o_kiem_dem,\n  CAST(NULL AS SIGNED)                                                AS so_bieu,\n  IFNULL(n.so_phan, 0)                                                AS so_bieu_hoan_tat,\n  CAST(NULL AS SIGNED)                                                AS so_lan_tra_lai,\n  CAST(NULL AS SIGNED)                                                AS lech_han_phut,\n  (SELECT DATE_FORMAT(MAX(sync_date), '%Y-%m-%d %H:%i:%s') FROM datamart_hanoi.nq57_eform_chuyen_de) AS moc_chup\nFROM (\n  -- 126 xã/phường: \"Thường trực BCĐ57 phường Xuân Đỉnh\" → \"Phường Xuân Đỉnh\"\n  SELECT d.don_vi,\n         CONCAT(UPPER(LEFT(d.t, 1)), SUBSTRING(d.t, 2))               AS ten,\n         IF(d.t LIKE 'phường%', 'Phường', 'Xã')                       AS khoi,\n         IF(d.t LIKE 'phường%', 1, 2)                                 AS tt\n  FROM (SELECT DISTINCT don_vi, TRIM(REPLACE(don_vi, 'Thường trực BCĐ57', '')) AS t\n        FROM datamart_hanoi.nq57_eform_chuyen_de WHERE don_vi IS NOT NULL) d\n) dv\nCROSS JOIN (\n  -- các tháng có dữ liệu theo xã; stt liên tục 1..n (chart dùng để đếm số kỳ chưa nộp liên tiếp)\n  SELECT a.ky, a.ma_ky, a.thu_tu_ky,\n         (SELECT COUNT(DISTINCT b.thu_tu_ky) FROM datamart_hanoi.nq57_eform_chuyen_de b\n           WHERE b.don_vi IS NOT NULL AND b.thu_tu_ky <= a.thu_tu_ky)  AS stt\n  FROM (SELECT DISTINCT ky, ma_ky, thu_tu_ky FROM datamart_hanoi.nq57_eform_chuyen_de WHERE don_vi IS NOT NULL) a\n) k\nLEFT JOIN (\n  SELECT don_vi, ma_ky, COUNT(DISTINCT nhom_du_lieu) AS so_phan\n  FROM datamart_hanoi.nq57_eform_chuyen_de\n  WHERE nhom_du_lieu IN ('NOI_DUNG_XA', 'DIEM_NGHEN_XA') AND don_vi IS NOT NULL\n  GROUP BY don_vi, ma_ky\n) n ON n.don_vi = dv.don_vi AND n.ma_ky = k.ma_ky\n",
+  "table_name": "bcd57_thidiem_trienkhai_mau",
+  "template_params": null,
+  "time_grain_sqla": [
+   [
+    "PT1S",
+    "Thứ hai"
+   ],
+   [
+    "PT1M",
+    "Phút"
+   ],
+   [
+    "PT1H",
+    "Giờ"
+   ],
+   [
+    "P1D",
+    "Ngày"
+   ],
+   [
+    "P1W",
+    "Tuần"
+   ],
+   [
+    "P1M",
+    "Tháng"
+   ],
+   [
+    "P3M",
+    "Phần tư"
+   ],
+   [
+    "P1Y",
+    "Năm"
+   ],
+   [
+    "1969-12-29T00:00:00Z/P1W",
+    "Tuần bắt đầu từ thứ Hai"
+   ]
+  ],
+  "uid": "160__table",
+  "url": "/tablemodelview/edit/160",
+  "verbose_map": {
+   "__timestamp": "Time",
+   "count": "COUNT(*)",
+   "den_han": "den_han",
+   "han_nop": "han_nop",
+   "khoi": "khoi",
+   "lech_han_phut": "lech_han_phut",
+   "loai_ky": "loai_ky",
+   "ma_don_vi": "ma_don_vi",
+   "ma_ky": "ma_ky",
+   "moc_chup": "moc_chup",
+   "nhan_ky": "nhan_ky",
+   "o_kiem_dem": "o_kiem_dem",
+   "so_bieu": "so_bieu",
+   "so_bieu_hoan_tat": "so_bieu_hoan_tat",
+   "so_lan_tra_lai": "so_lan_tra_lai",
+   "stt_ky": "stt_ky",
+   "ten_don_vi": "ten_don_vi",
+   "ten_ky": "ten_ky",
+   "trang_thai": "trang_thai",
+   "ts_gui_duyet": "ts_gui_duyet",
+   "ts_nhap_dau": "ts_nhap_dau",
+   "ts_phat_hanh": "ts_phat_hanh",
+   "tt_don_vi": "tt_don_vi"
+  }
+ },
+ "show_columns": [
+  "id",
+  "database.database_name",
+  "database.id",
+  "table_name",
+  "sql",
+  "filter_select_enabled",
+  "fetch_values_predicate",
+  "catalog",
+  "schema",
+  "description",
+  "main_dttm_col",
+  "normalize_columns",
+  "always_filter_main_dttm",
+  "offset",
+  "default_endpoint",
+  "cache_timeout",
+  "is_sqllab_view",
+  "template_params",
+  "select_star",
+  "owners.id",
+  "owners.first_name",
+  "owners.last_name",
+  "columns.advanced_data_type",
+  "columns.changed_on",
+  "columns.column_name",
+  "columns.created_on",
+  "columns.description",
+  "columns.expression",
+  "columns.filterable",
+  "columns.groupby",
+  "columns.id",
+  "columns.is_active",
+  "columns.extra",
+  "columns.is_dttm",
+  "columns.python_date_format",
+  "columns.type",
+  "columns.uuid",
+  "columns.verbose_name",
+  "metrics.changed_on",
+  "metrics.created_on",
+  "metrics.d3format",
+  "metrics.currency",
+  "metrics.description",
+  "metrics.expression",
+  "metrics.extra",
+  "metrics.id",
+  "metrics.metric_name",
+  "metrics.metric_type",
+  "metrics.verbose_name",
+  "metrics.warning_text",
+  "datasource_type",
+  "url",
+  "extra",
+  "kind",
+  "created_on",
+  "created_on_humanized",
+  "created_by.first_name",
+  "created_by.last_name",
+  "changed_on",
+  "changed_on_humanized",
+  "changed_by.first_name",
+  "changed_by.last_name",
+  "columns.type_generic",
+  "database.backend",
+  "database.allow_multi_catalog",
+  "columns.advanced_data_type",
+  "is_managed_externally",
+  "uid",
+  "datasource_name",
+  "name",
+  "column_formats",
+  "currency_formats",
+  "granularity_sqla",
+  "time_grain_sqla",
+  "order_by_choices",
+  "verbose_map"
+ ],
+ "show_title": "Show Sqla Table"
+}

@@ -1,0 +1,339 @@
+{
+ "revision": {
+  "version": 14
+ },
+ "id": "142f3e95-6ef6-1fc2-5b4c-b08f5bee47c3",
+ "uri": "https://bdw-theodoinhiemvu.hanoi.gov.vn:443/nifi-api/processors/142f3e95-6ef6-1fc2-5b4c-b08f5bee47c3",
+ "position": {
+  "x": 576.0,
+  "y": 72.0
+ },
+ "permissions": {
+  "canRead": true,
+  "canWrite": true
+ },
+ "bulletins": [],
+ "component": {
+  "id": "142f3e95-6ef6-1fc2-5b4c-b08f5bee47c3",
+  "versionedComponentId": "7c10c2d0-bee4-3486-b45d-786e6a3b8e61",
+  "parentGroupId": "142f3e8c-6ef6-1fc2-ede8-4c1172022351",
+  "position": {
+   "x": 576.0,
+   "y": 72.0
+  },
+  "name": "qlnv_tonghop_chitiet_tiepnhan [upsert]",
+  "type": "org.apache.nifi.processors.standard.PutSQL",
+  "bundle": {
+   "group": "org.apache.nifi",
+   "artifact": "nifi-standard-nar",
+   "version": "1.27.0"
+  },
+  "state": "RUNNING",
+  "style": {},
+  "relationships": [
+   {
+    "name": "failure",
+    "description": "A FlowFile is routed to this relationship if the database cannot be updated and retrying the operation will also fail, such as an invalid query or an integrity constraint violation",
+    "autoTerminate": false,
+    "retry": false
+   },
+   {
+    "name": "retry",
+    "description": "A FlowFile is routed to this relationship if the database cannot be updated but attempting the operation again may succeed",
+    "autoTerminate": false,
+    "retry": false
+   },
+   {
+    "name": "success",
+    "description": "A FlowFile is routed to this relationship after the database is successfully updated",
+    "autoTerminate": false,
+    "retry": false
+   }
+  ],
+  "supportsParallelProcessing": true,
+  "supportsEventDriven": false,
+  "supportsBatching": true,
+  "supportsSensitiveDynamicProperties": false,
+  "persistsState": false,
+  "restricted": false,
+  "deprecated": false,
+  "executionNodeRestricted": false,
+  "multipleVersionsAvailable": false,
+  "inputRequirement": "INPUT_REQUIRED",
+  "config": {
+   "properties": {
+    "JDBC Connection Pool": "0bfb327e-8a21-1e6a-776c-e17610335bef",
+    "putsql-sql-statement": "/* [RT 12/11] upsert + delete theo syncdate (sync_ts của NiFi) — bảng không bao giờ rỗng */\nSET TRANSACTION ISOLATION LEVEL READ COMMITTED;\nINSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan \n\nSELECT\n\t\tmain.monthkey AS monthkey,\n\t\tmain.`date` AS `date`,\n\t\tmain.`month` AS `month`,\n\t\tmain.`year` AS `year`,\n\t\tmain.nhomvb_ma AS nhomvb_ma,\n\t\tmain.nhomvb AS nhomvb,\n\t\tmain.NhomNhiemVu AS NhomNhiemVu,\n\t\tmain.ma_nv_cha AS ma_nv_cha,\n\t\tmain.`Code` AS `Code`,\t\t\n\t\tCONCAT(LEFT(main.monthkey,4),'-',main.VanBanGiaoNhiemVu,'-',main.Ma) AS idnv,\n\t\tCONCAT(LEFT(main.monthkey,4),'-',main.VanBanGiaoNhiemVu,'-',LEFT(MD5(main.TenNhiemVu), 12)) AS tennv_viettat,\n\t\tmain.Ma AS Ma,\n\t\tmain.TenNhiemVu AS TenNhiemVu,\n\t\tmain.SanPhamChuYeu AS SanPhamChuYeu,\n\t\tmain.ThoiHanHoanThanh AS ThoiHanHoanThanh,\n\t\tmain.NgayHoanThanh AS NgayHoanThanh,\n\t\tmain.TinhTrang AS TinhTrang,\n\t\tmain.nhiem_vu_cho_duyet AS nhiem_vu_cho_duyet,\n\t\tmain.TienDoHoanThanh AS TienDoHoanThanh,\n\t\tmain.songayquahan AS songayquahan,\n\t\tmain.tongtg_canxuly AS tongtg_canxuly,\n\t\tmain.tongtg_daxuly AS tongtg_daxuly,\n\t\tmain.don_vi_cap_01_dvgiao AS don_vi_cap_01_dvgiao,\n\t\tmain.loaicapcha_dvgiao AS loaicapcha_dvgiao,\n\t\tmain.loaicap_dvgiao AS loaicap_dvgiao,\n\t\tmain.iddv_dvgiao AS iddv_dvgiao,\n\t\tmain.donvi_dvgiao AS donvi_dvgiao,\n\t\tmain.tenviettat_dvgiao AS tenviettat_dvgiao,\n\t\tmain.iddv_captren_dvgiao AS iddv_captren_dvgiao,\n\t\tmain.NguoiGiaoNhiemVuID AS NguoiGiaoNhiemVuID,\n\t\tmain.NguoiGiaoNhiemVu AS NguoiGiaoNhiemVu,\n\t\tmain.don_vi_cap_01 AS don_vi_cap_01,\n\t\tmain.loaicapcha AS loaicapcha,\n\t\tmain.loaicap AS loaicap,\n\t\tmain.iddv AS iddv,\n\t\tmain.donvi AS donvi,\n\t\tmain.tenviettat AS tenviettat,\n\t\tmain.iddv_captren AS iddv_captren,\n\t\tmain.NguoiThucHienID AS NguoiThucHienID,\n\t\tmain.NguoiThucHien AS NguoiThucHien,\n\t\tmain.DonViPhoiHop AS DonViPhoiHop,\n\t\tmain.iddv_dvchutri AS iddv_dvchutri,\n\t\tmain.DonViChuTri AS DonViChuTri,\n\t\tmain.don_vi_cap_01_dvtaonv AS don_vi_cap_01_dvtaonv,\n\t\tmain.loaicapcha_dvtaonv AS loaicapcha_dvtaonv,\n\t\tmain.loaicap_dvtaonv AS loaicap_dvtaonv,\n\t\tmain.iddv_dvtaonv AS iddv_dvtaonv,\n\t\tmain.donvi_dvtaonv AS donvi_dvtaonv,\n\t\tmain.tenviettat_dvtaonv AS tenviettat_dvtaonv,\n\t\tmain.iddv_captren_dvtaonv AS iddv_captren_dvtaonv,\n\t\tmain.NguoiTaoNhiemVuID AS NguoiTaoNhiemVuID,\n\t\tmain.NguoiTaoNhiemVu AS NguoiTaoNhiemVu,\n\t\tmain.VanBanGiaoNhiemVu AS VanBanGiaoNhiemVu,\n\t\tmain.NgayVanBan AS NgayVanBan,\n\t\tmain.LinhVuc AS LinhVuc,\n\t\tmain.Kieu AS Kieu,\n\t\tmain.UuTien AS UuTien,\n\t\tmain.KetQuaGhiChu AS KetQuaGhiChu,\n\t\tCASE  \n        WHEN main.loaicapcha = main.loaicapcha_dvgiao THEN\n                'Nhiệm vụ nội bộ'\n        ELSE\n                'Nhiệm vụ ngoài khối'\n    END AS NhomPhamViNhiemVu,\n\t\tNULL AS NhomCauTrucNhiemVu,\n\t\tCASE\n\t\t\t\tWHEN main.TrangThai IN ( 'Không xác định', 'Chưa xác định') AND main.TinhTrang = 'Đã hoàn thành' THEN\n\t\t\t\t\tCONCAT(main.TinhTrang,' đúng hạn')\n\t\t\t\tWHEN main.TrangThai IN ( 'Không xác định', 'Chưa xác định') AND main.TinhTrang = 'Chưa hoàn thành' THEN\n\t\t\t\t\tCONCAT(main.TinhTrang,' trong hạn')\n\t\t\t\tELSE\n\t\t\t\t\tmain.TrangThai\n\t\tEND AS TrangThai,\n    CASE\n        WHEN main.TrangThai = 'Đã hoàn thành đúng hạn' THEN 'HT đúng hạn'\n        WHEN main.TrangThai = 'Đã hoàn thành quá hạn' THEN 'HT quá hạn'\n        WHEN main.TrangThai = 'Chưa hoàn thành trong hạn' THEN 'Chưa HT trong hạn'\n        WHEN main.TrangThai = 'Chưa hoàn thành quá hạn' THEN 'Chưa HT quá hạn'\n\t\t\t\tWHEN main.TrangThai = 'Chưa hoàn thành sắp quá hạn'THEN 'Chưa HT sắp quá hạn'\n\t\t\t\tWHEN main.TrangThai IN ( 'Không xác định', 'Chưa xác định') AND main.TinhTrang = 'Đã hoàn thành' THEN 'HT đúng hạn'\n\t\t\t\tWHEN main.TrangThai IN ( 'Không xác định', 'Chưa xác định') AND main.TinhTrang = 'Chưa hoàn thành' THEN 'Chưa HT trong hạn'\n        ELSE 'Chưa xác định'\n    END AS TrangThaiVietTat,\n\t\tCASE\n        WHEN main.TrangThai = 'Đã hoàn thành đúng hạn' THEN 'Đã hoàn thành'\n        WHEN main.TrangThai = 'Đã hoàn thành quá hạn' THEN 'Đã hoàn thành'\n        WHEN main.TrangThai = 'Chưa hoàn thành trong hạn' THEN 'Chưa HT trong hạn'\n        WHEN main.TrangThai = 'Chưa hoàn thành quá hạn' THEN 'Chưa HT quá hạn'\n\t\t\t\tWHEN main.TrangThai = 'Chưa hoàn thành sắp quá hạn' THEN 'Chưa HT sắp quá hạn'\n\t\t\t\tWHEN main.TrangThai IN ( 'Không xác định', 'Chưa xác định') AND main.TinhTrang = 'Đã hoàn thành' THEN 'Đã hoàn thành'\n\t\t\t\tWHEN main.TrangThai IN ( 'Không xác định', 'Chưa xác định') AND main.TinhTrang = 'Chưa hoàn thành' THEN 'Chưa HT trong hạn'\n        ELSE 'Chưa xác định'\n    END AS TrangThaiVietTat2,\n\t\tNULL AS TenNhiemVu_Mobile,\n\t\t'${sync_ts}' AS syncdate\nFROM (\n    SELECT\n        /* 01 - monthkey: lấy theo ExpireDate dạng YYYYMM */\n        DATE_FORMAT( COALESCE( t.CompletedDate, t.ExpireDate, t.CreatedDate), '%Y%m') + 0 AS monthkey,\n        DATE_FORMAT( COALESCE( t.CompletedDate, t.ExpireDate, t.CreatedDate), '%Y%m%d') + 0 AS `date`,\n\t\t\t\tDATE_FORMAT( COALESCE( t.CompletedDate, t.ExpireDate, t.CreatedDate), '%m/%Y') AS `month`,\n        DATE_FORMAT( COALESCE( t.CompletedDate, t.ExpireDate, t.CreatedDate), '%Y') + 0 AS `year`,\n        /* 04 - Group + VB */\n        /* COALESCE(rg4.ResolutionGroupId, rg3.ResolutionGroupId, rg2.ResolutionGroupId, rg1.ResolutionGroupId, rg.ResolutionGroupId) AS nhomvb_ma,\n\t\t\t\tCASE \n\t\t\t\t\t\tWHEN COALESCE(rg4.`Name`, rg3.`Name`, rg2.`Name`, rg1.`Name`, rg.`Name`) = 'Văn bản chỉ đạo theo NQ 57' THEN 'Nghị quyết 57'\n\t\t\t\t\t\tELSE COALESCE(rg4.`Name`, rg3.`Name`, rg2.`Name`, rg1.`Name`, rg.`Name`)\n\t\t\t\tEND AS nhomvb, */\n        rg.ResolutionGroupId AS nhomvb_ma,\n\t\t\t\tCASE \n\t\t\t\t\t\tWHEN rg.`Name` = 'Văn bản chỉ đạo theo NQ 57' THEN 'Nghị quyết 57'\n\t\t\t\t\t\tELSE  rg.`Name`\n\t\t\t\tEND AS nhomvb,\n\t\t\t\tt.NameGroup AS NhomNhiemVu,\n        r.DocCode AS ma_vb,\n        r.Compendium AS vb,\n\t\t\t\t\n        /* 05 - Mã nhiệm vụ */\n\t\t\t\tt.`Code` AS `Code`,\n        t.TaskId AS Ma,\n\t\t\t\tt.ParentId AS ma_nv_cha,\n\n\n        /* 06 - Tên nhiệm vụ */\n        CASE \n\t\t\t\t\t\tWHEN t.Title LIKE '%<script>%' THEN TRIM(SUBSTRING_INDEX(t.Title, '<script>', 1))\n\t\t\t\t\t\tELSE t.Title\n\t\t\t\tEND AS TenNhiemVu,\n        NULL AS SanPhamChuYeu,\n\n        /* 07 - Thời hạn hoàn thành */\n        t.ExpireDate AS ThoiHanHoanThanh,\n\t\t\t\tCOALESCE(t.CompletedDate,t.ApprovedDate) AS NgayHoanThanh,\n\n        /* 08 - Tình trạng */\n        CASE \n            WHEN t.Status IN (3,4) THEN 'Đã hoàn thành'\n            ELSE 'Chưa hoàn thành'\n        END AS TinhTrang,\n\t\t\t\tnvcd.nhiem_vu_cho_duyet AS nhiem_vu_cho_duyet,\n\n        /* 09 - Tiến độ hoàn thành */\n        CONCAT(t.Progress, '%') AS TienDoHoanThanh,\n\n        /* 10 - Số ngày quá hạn */\n        CASE \n            WHEN t.Status NOT IN (3,4) AND t.ExpireDate < NOW() \n                THEN DATEDIFF(NOW(), t.ExpireDate)\n            WHEN t.Status IN (3,4) AND t.CompletedDate > t.ExpireDate\n                THEN DATEDIFF(t.CompletedDate, t.ExpireDate)\n            ELSE NULL\n        END AS songayquahan,\n\n        /* 11 - Đơn vị */\n\t\t\t\tCAST(\n\t\t\t\tCASE\n\t\t\t\t\t\tWHEN t.AssignDepartment IS NULL OR t.AssignDepartment = 'Chưa xác định'\n\t\t\t\t\t\t\t\tTHEN 'Chưa xác định'\n\t\t\t\t\t\tWHEN  dv_giao.Level = 1 THEN dv_giao.DepartmentName\n\t\t\t\t\t\tWHEN dv_giao1.Level = 1 THEN dv_giao1.DepartmentName\n\t\t\t\t\t\tWHEN dv_giao2.Level = 1 THEN dv_giao2.DepartmentName\n\t\t\t\t\t\tWHEN dv_giao3.Level = 1 THEN dv_giao3.DepartmentName\n\t\t\t\t\t\tWHEN dv_giao4.Level = 1 THEN dv_giao4.DepartmentName\n\t\t\t\t\t\tELSE NULL\n\t\t\t\tEND AS CHAR(255)) AS don_vi_cap_01_dvgiao,\n\t\t\t\tCAST(\n\t\t\t\tCASE\n\t\t\t\t\t\tWHEN t.AssignDepartment IS NULL OR t.AssignDepartment = 'Chưa xác định'\n\t\t\t\t\t\t\t\tTHEN 'Chưa xác định'\n\t\t\t\t\t\tWHEN  dv_giao.Level = 2 THEN dv_giao.DepartmentName\n\t\t\t\t\t\tWHEN dv_giao1.Level = 2 THEN dv_giao1.DepartmentName\n\t\t\t\t\t\tWHEN dv_giao2.Level = 2 THEN dv_giao2.DepartmentName\n\t\t\t\t\t\tWHEN dv_giao3.Level = 2 THEN dv_giao3.DepartmentName\n\t\t\t\t\t\tWHEN dv_giao4.Level = 2 THEN dv_giao4.DepartmentName\n\t\t\t\t\t\tELSE NULL\n\t\t\t\tEND AS CHAR(255)) AS loaicapcha_dvgiao,\n\t\t\t\tCAST(\n\t\t\t\tCASE\n\t\t\t\t\t\tWHEN t.AssignDepartment IS NULL OR t.AssignDepartment = 'Chưa xác định'\n\t\t\t\t\t\t\t\tTHEN 'Chưa xác định'\n\t\t\t\t\t\tWHEN  dv_giao.Level = 3 THEN dv_giao.DepartmentName\n\t\t\t\t\t\tWHEN dv_giao1.Level = 3 THEN dv_giao1.DepartmentName\n\t\t\t\t\t\tWHEN dv_giao2.Level = 3 THEN dv_giao2.DepartmentName\n\t\t\t\t\t\tWHEN dv_giao3.Level = 3 THEN dv_giao3.DepartmentName\n\t\t\t\t\t\tWHEN dv_giao4.Level = 3 THEN dv_giao4.DepartmentName\n\t\t\t\t\t\tELSE NULL\n\t\t\t\tEND AS CHAR(255)) AS loaicap_dvgiao,\n\t\t\t\tdv_giao.DepartmentId AS iddv_dvgiao,\n\t\t\t\tIFNULL(dv_giao.DepartmentName, 'Chưa xác định') AS donvi_dvgiao,\n\t\t\t\tIFNULL(dv_giao.DepartmentShortName, 'Chưa xác định')  AS tenviettat_dvgiao,\n\t\t\t\tdv_giao.ParentId AS iddv_captren_dvgiao,\n\t\t\t\tt.AssignUser AS NguoiGiaoNhiemVuID,\n\t\t\t\tIFNULL(u_giao.FullName, 'Chưa xác định') AS NguoiGiaoNhiemVu,\n\t\t\t\t\n\t\t\t\tCASE\n\t\t\t\t\t\tWHEN t.TargetDepartment IS NULL OR t.TargetDepartment = 'Chưa xác định'\n\t\t\t\t\t\t\t\tTHEN 'Chưa xác định'\n\t\t\t\t\t\tWHEN  d.Level = 1 THEN d.DepartmentName\n\t\t\t\t\t\tWHEN d1.Level = 1 THEN d1.DepartmentName\n\t\t\t\t\t\tWHEN d2.Level = 1 THEN d2.DepartmentName\n\t\t\t\t\t\tWHEN d3.Level = 1 THEN d3.DepartmentName\n\t\t\t\t\t\tWHEN d4.Level = 1 THEN d4.DepartmentName\n\t\t\t\t\t\tELSE NULL\n\t\t\t\tEND AS don_vi_cap_01,\n\t\t\t\t\n\t\t\t\tCASE\n\t\t\t\t\t\tWHEN t.TargetDepartment IS NULL OR t.TargetDepartment = 'Chưa xác định'\n\t\t\t\t\t\t\t\tTHEN 'Chưa xác định'\n\t\t\t\t\t\tWHEN  d.Level = 2 THEN d.DepartmentName\n\t\t\t\t\t\tWHEN d1.Level = 2 THEN d1.DepartmentName\n\t\t\t\t\t\tWHEN d2.Level = 2 THEN d2.DepartmentName\n\t\t\t\t\t\tWHEN d3.Level = 2 THEN d3.DepartmentName\n\t\t\t\t\t\tWHEN d4.Level = 2 THEN d4.DepartmentName\n\t\t\t\t\t\tELSE NULL\n\t\t\t\tEND AS loaicapcha,\n\t\t\t\tCASE\n\t\t\t\t\t\tWHEN t.TargetDepartment IS NULL OR t.TargetDepartment = 'Chưa xác định'\n\t\t\t\t\t\t\t\tTHEN 'Chưa xác định'\n\t\t\t\t\t\tWHEN  d.Level = 3 THEN d.DepartmentName\n\t\t\t\t\t\tWHEN d1.Level = 3 THEN d1.DepartmentName\n\t\t\t\t\t\tWHEN d2.Level = 3 THEN d2.DepartmentName\n\t\t\t\t\t\tWHEN d3.Level = 3 THEN d3.DepartmentName\n\t\t\t\t\t\tWHEN d4.Level = 3 THEN d4.DepartmentName\n\t\t\t\t\t\tELSE NULL\n\t\t\t\tEND AS loaicap,\n\t\t\t\td.DepartmentId AS iddv,\n\t\t\t\tIFNULL(d.DepartmentName ,'Chưa xác định') AS donvi,\n\t\t\t\tIFNULL(d.DepartmentShortName ,'Chưa xác định')  AS tenviettat,\n\t\t\t\td.ParentId AS iddv_captren,\n\t\t\t\tt.TargetUser AS NguoiThucHienID,\n\t\t\t\tIFNULL(u_thuchien.FullName, 'Chưa xác định') AS NguoiThucHien,\n        NULL AS DonViPhoiHop,\n\t\t\t\tNULL AS iddv_dvchutri,\n\t\t\t\tNULL AS DonViChuTri,\n\t\t\t\t/* Bên tạo nhiệm vụ */\n\t\t\t\tIFNULL(u_taonv.don_vi_cap_01, 'Chưa xác định') AS don_vi_cap_01_dvtaonv,\n\t\t\t\tIFNULL(u_taonv.loaicapcha, 'Chưa xác định') AS loaicapcha_dvtaonv,\n\t\t\t\tIFNULL(u_taonv.loaicap, 'Chưa xác định') AS loaicap_dvtaonv,\n\t\t\t\tu_taonv.iddv AS iddv_dvtaonv,\n\t\t\t\tIFNULL(u_taonv.donvi, 'Chưa xác định') AS donvi_dvtaonv,\n\t\t\t\tIFNULL(u_taonv.tenviettat, 'Chưa xác định')  AS tenviettat_dvtaonv,\n\t\t\t\tu_taonv.iddv_captren AS iddv_captren_dvtaonv,\n\t\t\t\tt.CreateUser AS NguoiTaoNhiemVuID,\n\t\t\t\tIFNULL(u_taonv.canbo_hoten, 'Chưa xác định') AS NguoiTaoNhiemVu,\n\n        /* 12 - Văn bản giao */\n        CASE\n            WHEN t.DocCode LIKE \"Số %\" THEN REPLACE(t.DocCode ,\"Số \", \"\")\n\t\t\t\t\t\tWHEN t.DocCode IS NOT NULL AND t.DocCode <> \"\" AND t.DocCode <> \" \" THEN t.DocCode\n            ELSE 'Chưa xác định'\n        END AS VanBanGiaoNhiemVu,\n\t\t\t\tr.StartDate AS NgayVanBan,\n\t\t\t\tIFNULL(s.SectorName, 'Chưa xác định') AS LinhVuc,\n\n        /* 13 - Ghi chú */\n        NULL AS KetQuaGhiChu,\n\n        /* 14 - Trạng thái chi tiết */\n        CASE\n\t\t\t\t\t\tWHEN t.Status IN (3,4) AND DATE( COALESCE(t.CompletedDate, t.ApprovedDate) )  <= DATE(t.ExpireDate)\n\t\t\t\t\t\t\t\tTHEN 'Đã hoàn thành đúng hạn'\n\t\t\t\t\t\tWHEN t.Status IN (3,4) AND DATE(COALESCE(t.CompletedDate, t.ApprovedDate) )  > DATE(t.ExpireDate)\n\t\t\t\t\t\t\t\tTHEN 'Đã hoàn thành quá hạn'\n\t\t\t\t\t\tWHEN t.Status IN (-1,0,1,2) AND DATE(t.ExpireDate) >= DATE( NOW() ) AND DATEDIFF(t.ExpireDate, NOW() ) > 5 \n\t\t\t\t\t\t\t\tTHEN 'Chưa hoàn thành trong hạn'\n\t\t\t\t\t\tWHEN t.Status IN (-1,0,1,2) AND DATE(t.ExpireDate) < DATE( NOW() )\n\t\t\t\t\t\t\t\tTHEN 'Chưa hoàn thành quá hạn'\n\t\t\t\t\t\tWHEN t.Status IN (-1,0,1,2) AND DATE(t.ExpireDate) >= DATE( NOW() ) AND DATEDIFF(t.ExpireDate, NOW() ) <= 5 \n\t\t\t\t\t\t\t\tTHEN 'Chưa hoàn thành sắp quá hạn'\n\t\t\t\t\t\tELSE 'Chưa xác định'\n\t\t\t\tEND AS TrangThai,\n\t\t\t\t\n\t\t\t\tCASE\n\t\t\t\t\t\tWHEN t.Status IN (3,4) THEN\n\t\t\t\t\t\t\t\tDATEDIFF(\n\t\t\t\t\t\t\t\t\t\tCOALESCE(t.CompletedDate, t.ApprovedDate),\n\t\t\t\t\t\t\t\t\t\tt.CreatedDate\n\t\t\t\t\t\t\t\t)\n\t\t\t\t\t\tELSE NULL\n\t\t\t\tEND AS tongtg_daxuly,\n\t\t\t\tDATEDIFF(\n\t\t\t\t\t\tt.ExpireDate,\n\t\t\t\t\t\tt.CreatedDate\n\t\t\t\t) AS tongtg_canxuly,\n\t\t\t\tCASE\n\t\t\t\t\t\tWHEN r.Type = 1  THEN 'Chỉ thị'\n\t\t\t\t\t\tWHEN r.Type = 2  THEN 'Nghị quyết'\n\t\t\t\t\t\tWHEN r.Type = 3  THEN 'Công văn'\n\t\t\t\t\t\tWHEN r.Type = 4  THEN 'Kết luận'\n\t\t\t\t\t\tWHEN r.Type = 5  THEN 'Thông báo'\n\t\t\t\t\t\tWHEN r.Type = 6  THEN 'Đề nghị'\n\t\t\t\t\t\tWHEN r.Type = 7  THEN 'Quyết định'\n\t\t\t\t\t\tWHEN r.Type = 8  THEN 'Báo cáo'\n\t\t\t\t\t\tWHEN r.Type = 9  THEN 'Quy định'\n\t\t\t\t\t\tWHEN r.Type = 10 THEN 'Hợp đồng'\n\t\t\t\t\t\tWHEN r.Type = 11 THEN 'Đăng ký'\n\t\t\t\t\t\tWHEN r.Type = 12 THEN 'Biên bản'\n\t\t\t\t\t\tWHEN r.Type = 13 THEN 'Quy trình'\n\t\t\t\t\t\tWHEN r.Type = 14 THEN 'Hướng dẫn'\n\t\t\t\t\t\tWHEN r.Type = 15 THEN 'Kiến nghị'\n\t\t\t\t\t\tWHEN r.Type = 16 THEN 'Thanh tra'\n\t\t\t\t\t\tWHEN r.Type = 17 THEN 'Tờ trình'\n\t\t\t\t\t\tWHEN r.Type = 18 THEN 'Giấy phép'\n\t\t\t\t\t\tWHEN r.Type = 19 THEN 'Giấy mời'\n\t\t\t\t\t\tWHEN r.Type = 20 THEN 'Danh sách'\n\t\t\t\t\t\tWHEN r.Type = 21 THEN 'Kế hoạch'\n\t\t\t\t\t\tWHEN r.Type = 22 THEN 'Chương trình'\n\t\t\t\t\t\tWHEN r.Type = 23 THEN 'Giấy uỷ quyền'\n\t\t\t\t\t\tWHEN r.Type = 24 THEN 'Đề án'\n\t\t\t\t\t\tWHEN r.Type = 25 THEN 'Thông tư'\n\t\t\t\t\t\tWHEN r.Type = 26 THEN 'Quy chế'\n\t\t\t\t\t\tELSE 'Chưa xác định'\n\t\t\t\tEND AS Kieu,\n\t\t\t\tCASE\n            WHEN t.Priority = 3 THEN 'Hỏa tốc'\n            WHEN t.Priority = 2 THEN 'Thượng khẩn'\n\t\t\t\t\t\tWHEN t.Priority = 1 THEN 'Khẩn'\n            ELSE 'Thường'\n        END AS UuTien\n\n    FROM ( SELECT * FROM db_theodoinv_hn.qlnv_task WHERE `Status` <> 5 AND DeletedDate IS NULL ) t\n    LEFT JOIN datamart_hanoi.department d \n           ON d.DepartmentIdExt = t.TargetDepartment\n\t\tLEFT JOIN datamart_hanoi.department d1\n\t\t\t\tON d1.DepartmentId = d.ParentId\n\t\t/* Cha */\n\t\tLEFT JOIN datamart_hanoi.department d2\n\t\t\t\tON d2.DepartmentId = d1.ParentId\n\t\t/* Ông */\n\t\tLEFT JOIN datamart_hanoi.department d3\n\t\t\t\tON d3.DepartmentId = d2.ParentId\n\t\t/* Cụ */\n\t\tLEFT JOIN datamart_hanoi.department d4\n\t\t\t\tON d4.DepartmentId = d3.ParentId\n\n\t\tLEFT JOIN datamart_hanoi.department dv_giao\n        ON dv_giao.DepartmentIdExt = t.AssignDepartment\n\t\tLEFT JOIN datamart_hanoi.department dv_giao1\n\t\t\t\tON dv_giao1.DepartmentId = dv_giao.ParentId\n\t\t/* Cha */\n\t\tLEFT JOIN datamart_hanoi.department dv_giao2\n\t\t\t\tON dv_giao2.DepartmentId = dv_giao1.ParentId\n\t\t/* Ông */\n\t\tLEFT JOIN datamart_hanoi.department dv_giao3\n\t\t\t\tON dv_giao3.DepartmentId = dv_giao2.ParentId\n\t\t/* Cụ */\n\t\tLEFT JOIN datamart_hanoi.department dv_giao4\n\t\t\t\tON dv_giao4.DepartmentId = dv_giao3.ParentId\n\t\t\t\t\n\t\t/* Đơn vị tạo nhiệm vụ */\n\t\tLEFT JOIN datamart_hanoi.department dv_taonv\n        ON dv_taonv.DepartmentIdExt = t.CreateUserDepartment\n\t\tLEFT JOIN datamart_hanoi.department dv_taonv1\n\t\t\t\tON dv_taonv1.DepartmentId = dv_taonv.ParentId\n\t\t/* Cha */\n\t\tLEFT JOIN datamart_hanoi.department dv_taonv2\n\t\t\t\tON dv_taonv2.DepartmentId = dv_taonv1.ParentId\n\t\t/* Ông */\n\t\tLEFT JOIN datamart_hanoi.department dv_taonv3\n\t\t\t\tON dv_taonv3.DepartmentId = dv_taonv2.ParentId\n\t\t/* Cụ */\n\t\tLEFT JOIN datamart_hanoi.department dv_taonv4\n\t\t\t\tON dv_taonv4.DepartmentId = dv_taonv3.ParentId\n\t\t/* Người giao nhiệm vụ */\n\t\tLEFT JOIN egov_hanoi.user u_giao\n           ON u_giao.UserId = t.AssignUser\n \t\t/* Người nhận nhiệm vụ */\n\t\tLEFT JOIN egov_hanoi.user u_thuchien\n           ON u_thuchien.UserId = t.TargetUser\n \t\t/* Người tạo nhiệm vụ */\n\t\tLEFT JOIN datamart_hanoi.dm_user u_taonv\n           ON u_taonv.canbo_id = t.CreateUser\n\t\t\t\t\t \n    LEFT JOIN db_theodoinv_hn.qlnv_resolution r \n           ON t.ResolutionId = r.ResolutionId\n\t\tLEFT JOIN db_theodoinv_hn.qlnv_sector s\n           ON s.SectorId = r.SectorId\n    LEFT JOIN db_theodoinv_hn.qlnv_resolution_group rg\n           ON r.ResolutionGroupId = rg.ResolutionGroupId\n\t\tLEFT JOIN db_theodoinv_hn.qlnv_resolution_group rg1 ON rg1.ResolutionGroupId = rg.ParentGroupId \n\t\tAND rg1.IsRoot = 0 -- mức 2: cha của cha\n\t\tLEFT JOIN db_theodoinv_hn.qlnv_resolution_group rg2 ON rg2.ResolutionGroupId = rg1.ParentGroupId \n\t\tAND rg2.IsRoot = 0 -- mức 3: cha của cha\n\t\tLEFT JOIN db_theodoinv_hn.qlnv_resolution_group rg3 ON rg3.ResolutionGroupId = rg2.ParentGroupId \n\t\tAND rg3.IsRoot = 0 -- mức 4: cha của cha\n\t\tLEFT JOIN db_theodoinv_hn.qlnv_resolution_group rg4 ON rg4.ResolutionGroupId = rg3.ParentGroupId \n\t\tAND rg4.IsRoot = 0\n    LEFT JOIN datamart_hanoi.qlnv_tonghop_chitiet_nhiem_vu_cho_duyet_copy nvcd\n           ON nvcd.taskid = t.Taskid\n\t /*\n    WHERE \n        t.Status <> 5\n        AND t.DeletedDate IS NULL\n\t\t*/\n) main\n-- WHERE main.TinhTrang ='Đã hoàn thành'\nWHERE (\n\t\t(main.loaicapcha_dvgiao = 'UBND Thành phố'\n\t\tAND main.iddv_dvgiao NOT IN (1307, 1310, 1841) -- [cách A 16/11] chỉ loại đúng nút Sở ngành / Xã, Phường / Nhóm Sở ngành MR\n\t\t)\n\t\tOR\n\t\t(main.loaicapcha_dvgiao = 'Thành ủy Hà Nội'\n\t\tAND main.iddv_dvgiao <> 1558 -- [cách A 16/11] chỉ loại đúng nút Đảng bộ trực thuộc\n\t\t)\n\t\tOR\n\t\t(\n\t\tmain.loaicapcha_dvgiao = 'HĐND Thành phố'\n\t\t)\n\t\tOR\n\t\t(\n\t\tmain.loaicapcha_dvgiao = 'Ủy ban MTTQ Việt Nam thành phố Hà Nội'\n\t\t) )\n\t\t-- OR ( main.don_vi_cap_01 = 'BAN TỔ CHỨC TRUNG ƯƠNG')\nORDER BY \n    main.`year`,\n    main.monthkey,\n    main.`date`,\n    main.Ma\nON DUPLICATE KEY UPDATE\n    `monthkey` = VALUES(`monthkey`),\n    `date` = VALUES(`date`),\n    `month` = VALUES(`month`),\n    `year` = VALUES(`year`),\n    `nhomvb_ma` = VALUES(`nhomvb_ma`),\n    `nhomvb` = VALUES(`nhomvb`),\n    `NhomNhiemVu` = VALUES(`NhomNhiemVu`),\n    `ma_nv_cha` = VALUES(`ma_nv_cha`),\n    `Code` = VALUES(`Code`),\n    `idnv` = VALUES(`idnv`),\n    `tennv_viettat` = VALUES(`tennv_viettat`),\n    `TenNhiemVu` = VALUES(`TenNhiemVu`),\n    `SanPhamChuYeu` = VALUES(`SanPhamChuYeu`),\n    `ThoiHanHoanThanh` = VALUES(`ThoiHanHoanThanh`),\n    `NgayHoanThanh` = VALUES(`NgayHoanThanh`),\n    `TinhTrang` = VALUES(`TinhTrang`),\n    `nhiem_vu_cho_duyet` = VALUES(`nhiem_vu_cho_duyet`),\n    `TienDoHoanThanh` = VALUES(`TienDoHoanThanh`),\n    `songayquahan` = VALUES(`songayquahan`),\n    `tongtg_canxuly` = VALUES(`tongtg_canxuly`),\n    `tongtg_daxuly` = VALUES(`tongtg_daxuly`),\n    `don_vi_cap_01_dvgiao` = VALUES(`don_vi_cap_01_dvgiao`),\n    `loaicapcha_dvgiao` = VALUES(`loaicapcha_dvgiao`),\n    `loaicap_dvgiao` = VALUES(`loaicap_dvgiao`),\n    `iddv_dvgiao` = VALUES(`iddv_dvgiao`),\n    `donvi_dvgiao` = VALUES(`donvi_dvgiao`),\n    `tenviettat_dvgiao` = VALUES(`tenviettat_dvgiao`),\n    `iddv_captren_dvgiao` = VALUES(`iddv_captren_dvgiao`),\n    `NguoiGiaoNhiemVuID` = VALUES(`NguoiGiaoNhiemVuID`),\n    `NguoiGiaoNhiemVu` = VALUES(`NguoiGiaoNhiemVu`),\n    `don_vi_cap_01` = VALUES(`don_vi_cap_01`),\n    `loaicapcha` = VALUES(`loaicapcha`),\n    `loaicap` = VALUES(`loaicap`),\n    `iddv` = VALUES(`iddv`),\n    `donvi` = VALUES(`donvi`),\n    `tenviettat` = VALUES(`tenviettat`),\n    `iddv_captren` = VALUES(`iddv_captren`),\n    `NguoiThucHienID` = VALUES(`NguoiThucHienID`),\n    `NguoiThucHien` = VALUES(`NguoiThucHien`),\n    `DonViPhoiHop` = VALUES(`DonViPhoiHop`),\n    `don_vi_cap_01_dvtaonv` = VALUES(`don_vi_cap_01_dvtaonv`),\n    `loaicapcha_dvtaonv` = VALUES(`loaicapcha_dvtaonv`),\n    `loaicap_dvtaonv` = VALUES(`loaicap_dvtaonv`),\n    `iddv_dvtaonv` = VALUES(`iddv_dvtaonv`),\n    `donvi_dvtaonv` = VALUES(`donvi_dvtaonv`),\n    `tenviettat_dvtaonv` = VALUES(`tenviettat_dvtaonv`),\n    `iddv_captren_dvtaonv` = VALUES(`iddv_captren_dvtaonv`),\n    `NguoiTaoNhiemVuID` = VALUES(`NguoiTaoNhiemVuID`),\n    `NguoiTaoNhiemVu` = VALUES(`NguoiTaoNhiemVu`),\n    `VanBanGiaoNhiemVu` = VALUES(`VanBanGiaoNhiemVu`),\n    `NgayVanBan` = VALUES(`NgayVanBan`),\n    `LinhVuc` = VALUES(`LinhVuc`),\n    `Kieu` = VALUES(`Kieu`),\n    `UuTien` = VALUES(`UuTien`),\n    `KetQuaGhiChu` = VALUES(`KetQuaGhiChu`),\n    `NhomPhamViNhiemVu` = VALUES(`NhomPhamViNhiemVu`),\n    `TrangThai` = VALUES(`TrangThai`),\n    `TrangThaiVietTat` = VALUES(`TrangThaiVietTat`),\n    `TrangThaiVietTat2` = VALUES(`TrangThaiVietTat2`),\n    `TenNhiemVu_Mobile` = VALUES(`TenNhiemVu_Mobile`),\n    `syncdate` = VALUES(`syncdate`);\n/* Xóa bản ghi không còn trong nguồn ở chu kỳ này */\nDELETE FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan WHERE syncdate < '${sync_ts}' OR syncdate IS NULL;",
+    "Support Fragmented Transactions": "true",
+    "database-session-autocommit": "false",
+    "Transaction Timeout": null,
+    "Batch Size": "100",
+    "Obtain Generated Keys": "false",
+    "rollback-on-failure": "false"
+   },
+   "descriptors": {
+    "JDBC Connection Pool": {
+     "name": "JDBC Connection Pool",
+     "displayName": "JDBC Connection Pool",
+     "description": "Specifies the JDBC Connection Pool to use in order to convert the JSON message to a SQL statement. The Connection Pool is necessary in order to determine the appropriate database column types.",
+     "allowableValues": [
+      {
+       "allowableValue": {
+        "displayName": "HN-Datamart-NEW",
+        "value": "acf51838-116f-119e-c09b-1b31f6c8d1ae"
+       },
+       "canRead": true
+      },
+      {
+       "allowableValue": {
+        "displayName": "HaNoi_DB_HNI_KNCT",
+        "value": "bee45711-c2d0-1c10-9b4b-33febf757b70"
+       },
+       "canRead": true
+      },
+      {
+       "allowableValue": {
+        "displayName": "HaNoi_Datamart",
+        "value": "0bfb327e-8a21-1e6a-776c-e17610335bef"
+       },
+       "canRead": true
+      },
+      {
+       "allowableValue": {
+        "displayName": "HaNoi_Datamart_5s",
+        "value": "73bb3774-cea7-1f5d-629d-4e34862120ab"
+       },
+       "canRead": true
+      },
+      {
+       "allowableValue": {
+        "displayName": "HaNoi_ThanhUy_DB",
+        "value": "a06e038b-019a-1000-f4f2-fdf9e5995ada"
+       },
+       "canRead": true
+      }
+     ],
+     "required": true,
+     "sensitive": false,
+     "dynamic": false,
+     "supportsEl": false,
+     "expressionLanguageScope": "Not Supported",
+     "identifiesControllerService": "org.apache.nifi.dbcp.DBCPService",
+     "identifiesControllerServiceBundle": {
+      "group": "org.apache.nifi",
+      "artifact": "nifi-standard-services-api-nar",
+      "version": "1.27.0"
+     },
+     "dependencies": []
+    },
+    "putsql-sql-statement": {
+     "name": "putsql-sql-statement",
+     "displayName": "SQL Statement",
+     "description": "The SQL statement to execute. The statement can be empty, a constant value, or built from attributes using Expression Language. If this property is specified, it will be used regardless of the content of incoming FlowFiles. If this property is empty, the content of the incoming FlowFile is expected to contain a valid SQL statement, to be issued by the processor to the database.",
+     "required": false,
+     "sensitive": false,
+     "dynamic": false,
+     "supportsEl": true,
+     "expressionLanguageScope": "Variable Registry and FlowFile Attributes",
+     "dependencies": []
+    },
+    "Support Fragmented Transactions": {
+     "name": "Support Fragmented Transactions",
+     "displayName": "Support Fragmented Transactions",
+     "description": "If true, when a FlowFile is consumed by this Processor, the Processor will first check the fragment.identifier and fragment.count attributes of that FlowFile. If the fragment.count value is greater than 1, the Processor will not process any FlowFile with that fragment.identifier until all are available; at that point, it will process all FlowFiles with that fragment.identifier as a single transaction, in the order specified by the FlowFiles' fragment.index attributes. This Provides atomicity of those SQL statements. Once any statement of this transaction throws exception when executing, this transaction will be rolled back. When transaction rollback happened, none of these FlowFiles would be routed to 'success'. If the <Rollback On Failure> is set true, these FlowFiles will stay in the input relationship. When the <Rollback On Failure> is set false,, if any of these FlowFiles will be routed to 'retry', all of these FlowFiles will be routed to 'retry'.Otherwise, they will be routed to 'failure'. If this value is false, these attributes will be ignored and the updates will occur independent of one another.",
+     "defaultValue": "true",
+     "allowableValues": [
+      {
+       "allowableValue": {
+        "displayName": "true",
+        "value": "true"
+       },
+       "canRead": true
+      },
+      {
+       "allowableValue": {
+        "displayName": "false",
+        "value": "false"
+       },
+       "canRead": true
+      }
+     ],
+     "required": false,
+     "sensitive": false,
+     "dynamic": false,
+     "supportsEl": false,
+     "expressionLanguageScope": "Not Supported",
+     "dependencies": []
+    },
+    "database-session-autocommit": {
+     "name": "database-session-autocommit",
+     "displayName": "Database Session AutoCommit",
+     "description": "The autocommit mode to set on the database connection being used. If set to false, the operation(s) will be explicitly committed or rolled back (based on success or failure respectively), if set to true the driver/database handles the commit/rollback.",
+     "defaultValue": "false",
+     "allowableValues": [
+      {
+       "allowableValue": {
+        "displayName": "true",
+        "value": "true"
+       },
+       "canRead": true
+      },
+      {
+       "allowableValue": {
+        "displayName": "false",
+        "value": "false"
+       },
+       "canRead": true
+      }
+     ],
+     "required": false,
+     "sensitive": false,
+     "dynamic": false,
+     "supportsEl": false,
+     "expressionLanguageScope": "Not Supported",
+     "dependencies": []
+    },
+    "Transaction Timeout": {
+     "name": "Transaction Timeout",
+     "displayName": "Transaction Timeout",
+     "description": "If the <Support Fragmented Transactions> property is set to true, specifies how long to wait for all FlowFiles for a particular fragment.identifier attribute to arrive before just transferring all of the FlowFiles with that identifier to the 'failure' relationship",
+     "required": false,
+     "sensitive": false,
+     "dynamic": false,
+     "supportsEl": false,
+     "expressionLanguageScope": "Not Supported",
+     "dependencies": []
+    },
+    "Batch Size": {
+     "name": "Batch Size",
+     "displayName": "Batch Size",
+     "description": "The preferred number of FlowFiles to put to the database in a single transaction",
+     "defaultValue": "100",
+     "required": true,
+     "sensitive": false,
+     "dynamic": false,
+     "supportsEl": false,
+     "expressionLanguageScope": "Not Supported",
+     "dependencies": []
+    },
+    "Obtain Generated Keys": {
+     "name": "Obtain Generated Keys",
+     "displayName": "Obtain Generated Keys",
+     "description": "If true, any key that is automatically generated by the database will be added to the FlowFile that generated it using the sql.generate.key attribute. This may result in slightly slower performance and is not supported by all databases.",
+     "defaultValue": "false",
+     "allowableValues": [
+      {
+       "allowableValue": {
+        "displayName": "true",
+        "value": "true"
+       },
+       "canRead": true
+      },
+      {
+       "allowableValue": {
+        "displayName": "false",
+        "value": "false"
+       },
+       "canRead": true
+      }
+     ],
+     "required": false,
+     "sensitive": false,
+     "dynamic": false,
+     "supportsEl": false,
+     "expressionLanguageScope": "Not Supported",
+     "dependencies": []
+    },
+    "rollback-on-failure": {
+     "name": "rollback-on-failure",
+     "displayName": "Rollback On Failure",
+     "description": "Specify how to handle error. By default (false), if an error occurs while processing a FlowFile, the FlowFile will be routed to 'failure' or 'retry' relationship based on error type, and processor can continue with next FlowFile. Instead, you may want to rollback currently processed FlowFiles and stop further processing immediately. In that case, you can do so by enabling this 'Rollback On Failure' property.  If enabled, failed FlowFiles will stay in the input relationship without penalizing it and being processed repeatedly until it gets processed successfully or removed by other means. It is important to set adequate 'Yield Duration' to avoid retrying too frequently.",
+     "defaultValue": "false",
+     "allowableValues": [
+      {
+       "allowableValue": {
+        "displayName": "true",
+        "value": "true"
+       },
+       "canRead": true
+      },
+      {
+       "allowableValue": {
+        "displayName": "false",
+        "value": "false"
+       },
+       "canRead": true
+      }
+     ],
+     "required": true,
+     "sensitive": false,
+     "dynamic": false,
+     "supportsEl": false,
+     "expressionLanguageScope": "Not Supported",
+     "dependencies": []
+    }
+   },
+   "schedulingPeriod": "0 sec",
+   "schedulingStrategy": "TIMER_DRIVEN",
+   "executionNode": "ALL",
+   "penaltyDuration": "30 sec",
+   "yieldDuration": "1 sec",
+   "bulletinLevel": "WARN",
+   "runDurationMillis": 0,
+   "concurrentlySchedulableTaskCount": 1,
+   "comments": "",
+   "lossTolerant": false,
+   "defaultConcurrentTasks": {
+    "TIMER_DRIVEN": "1",
+    "EVENT_DRIVEN": "0",
+    "CRON_DRIVEN": "1"
+   },
+   "defaultSchedulingPeriod": {
+    "TIMER_DRIVEN": "0 sec",
+    "CRON_DRIVEN": "* * * * * ?"
+   },
+   "retryCount": 10,
+   "retriedRelationships": [],
+   "backoffMechanism": "PENALIZE_FLOWFILE",
+   "maxBackoffPeriod": "10 mins"
+  },
+  "validationStatus": "VALID",
+  "extensionMissing": false
+ },
+ "inputRequirement": "INPUT_REQUIRED",
+ "status": {
+  "groupId": "142f3e8c-6ef6-1fc2-ede8-4c1172022351",
+  "id": "142f3e95-6ef6-1fc2-5b4c-b08f5bee47c3",
+  "name": "qlnv_tonghop_chitiet_tiepnhan [upsert]",
+  "runStatus": "Running",
+  "statsLastRefreshed": "13:57:02 ICT",
+  "aggregateSnapshot": {
+   "id": "142f3e95-6ef6-1fc2-5b4c-b08f5bee47c3",
+   "groupId": "142f3e8c-6ef6-1fc2-ede8-4c1172022351",
+   "name": "qlnv_tonghop_chitiet_tiepnhan [upsert]",
+   "type": "PutSQL",
+   "runStatus": "Running",
+   "executionNode": "ALL",
+   "bytesRead": 0,
+   "bytesWritten": 0,
+   "read": "0 bytes",
+   "written": "0 bytes",
+   "flowFilesIn": 5,
+   "bytesIn": 0,
+   "input": "5 (0 bytes)",
+   "flowFilesOut": 5,
+   "bytesOut": 0,
+   "output": "5 (0 bytes)",
+   "taskCount": 5,
+   "tasksDurationNanos": 73782845961,
+   "tasks": "5",
+   "tasksDuration": "00:01:13.782",
+   "activeThreadCount": 0,
+   "terminatedThreadCount": 0
+  }
+ },
+ "operatePermissions": {
+  "canRead": true,
+  "canWrite": true
+ }
+}

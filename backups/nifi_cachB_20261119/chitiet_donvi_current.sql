@@ -1,0 +1,231 @@
+/* [RT 12/11 full] ghi *; TRUNCATE+INSERT → staging + RENAME swap */
+CREATE TABLE IF NOT EXISTS datamart_hanoi.qlnv_tonghop_chitiet_donvi__stg LIKE datamart_hanoi.qlnv_tonghop_chitiet_donvi;
+TRUNCATE TABLE datamart_hanoi.qlnv_tonghop_chitiet_donvi__stg;
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+INSERT INTO datamart_hanoi.qlnv_tonghop_chitiet_donvi__stg (
+    monthkey,
+		`year`,
+    `month`,
+    nhomvb_ma,
+    nhomvb,
+    ma_nv_cha,
+    Ma,
+    Code,
+    TenNhiemVu,
+    SanPhamChuYeu,
+    ThoiHanHoanThanh,
+    NgayHoanThanh,
+    TinhTrang,
+    TienDoHoanThanh,
+    SoNgayQuaHan,
+
+    don_vi_cap_01_dvgiao,
+		loaicapcha_dvgiao,
+    loaicap_dvgiao,
+    iddv_dvgiao,
+    donvi_dvgiao,
+    tenviettat_dvgiao,
+		iddv_captren_dvgiao,
+    NguoiGiaoNhiemVu,
+
+    don_vi_cap_01_dvthuchien,
+		loaicapcha_dvthuchien,
+    loaicap_dvthuchien,
+    iddv_dvthuchien,
+    donvi_dvthuchien,
+    tenviettat_dvthuchien,
+		iddv_captren_dvthuchien,
+    NguoiThucHien,
+
+    don_vi_cap_01,
+		loaicapcha,
+    loaicap,
+    iddv,
+    donvi,
+    tenviettat,
+		iddv_captren,
+
+    DonViPhoiHop,
+    iddv_dvchutri,
+    DonViChuTri,
+		
+		don_vi_cap_01_dvtaonv,
+		loaicapcha_dvtaonv,
+    loaicap_dvtaonv,
+    iddv_dvtaonv,
+    donvi_dvtaonv,
+    tenviettat_dvtaonv,
+    iddv_captren_dvtaonv,
+    NguoiTaoNhiemVuID,
+    NguoiTaoNhiemVu,
+
+		
+    VanBanGiaoNhiemVu,
+		NgayVanBan,
+    LinhVuc,
+    Kieu,
+		UuTien,
+    KetQuaGhiChu,
+    NhomPhamViNhiemVu,
+    TrangThai,
+    TrangThaiVietTat,
+    TrangThaiVietTat2,
+    TenNhiemVu_Mobile,
+    NhomGiaoNhan,
+    syncdate
+)
+
+-- ================== PHẦN 1: ĐÃ GIAO ==================
+SELECT
+    t.monthkey,
+		LEFT(t.monthkey,4) AS `year`,
+    t.`month`,
+    t.nhomvb_ma,
+    t.nhomvb,
+    t.ma_nv_cha,
+    t.Ma,
+		t.Code,
+    t.TenNhiemVu,
+    t.SanPhamChuYeu,
+    t.ThoiHanHoanThanh,
+    t.NgayHoanThanh,
+    t.TinhTrang,
+    t.TienDoHoanThanh,
+    t.songayquahan AS SoNgayQuaHan,
+
+    -- đơn vị giao = đơn vị hiện tại
+    t.don_vi_cap_01     AS don_vi_cap_01_dvgiao,
+    t.loaicapcha        AS loaicapcha_dvgiao,
+    t.loaicap           AS loaicap_dvgiao,
+    t.iddv              AS iddv_dvgiao,
+    t.donvi             AS donvi_dvgiao,
+    t.tenviettat        AS tenviettat_dvgiao,
+		t.iddv_captren,
+    t.NguoiGiaoNhiemVu,
+
+    -- đơn vị thực hiện chưa có
+    t.don_vi_cap_01_dvthuchien,
+    t.loaicapcha_dvthuchien,
+    t.loaicap_dvthuchien,
+    t.iddv_dvthuchien,
+		t.donvi_dvthuchien,
+    t.tenviettat_dvthuchien,
+		t.iddv_captren_dvthuchien,
+    t.NguoiThucHien,
+
+    t.don_vi_cap_01,
+		t.loaicapcha,
+    t.loaicap,
+    t.iddv,
+    t.donvi,
+    t.tenviettat,
+		t.iddv_captren,
+
+    t.DonViPhoiHop,
+    t.iddv_dvchutri,
+    t.DonViChuTri,
+		
+		t.don_vi_cap_01_dvtaonv,
+		t.loaicapcha_dvtaonv,
+    t.loaicap_dvtaonv,
+    t.iddv_dvtaonv,
+    t.donvi_dvtaonv,
+    t.tenviettat_dvtaonv,
+    t.iddv_captren_dvtaonv,
+    t.NguoiTaoNhiemVuID,
+    t.NguoiTaoNhiemVu,
+		
+    t.VanBanGiaoNhiemVu,
+		t.NgayVanBan,
+    t.LinhVuc,
+    t.Kieu,
+		t.UuTien,
+    t.KetQuaGhiChu,
+    t.NhomPhamViNhiemVu,
+    t.TrangThai,
+    REPLACE(t.TrangThaiVietTat,'Chưa HT ','CHT '),
+    t.TrangThaiVietTat2,
+    t.TenNhiemVu_Mobile,
+    'Đã giao' AS NhomGiaoNhan,
+    NOW()     AS syncdate
+FROM datamart_hanoi.qlnv_tonghop_chitiet_giaonv t
+
+UNION ALL
+
+-- ================== PHẦN 2: ĐƯỢC GIAO ==================
+SELECT
+    t.monthkey,
+		LEFT(t.monthkey,4) AS `year`,
+    t.`month` AS `Month`,
+    t.nhomvb_ma AS MaNhomVanBan,
+    t.nhomvb AS NhomVanBan,
+    t.ma_nv_cha AS MaNhiemVuCha,
+    t.Ma AS MaNhiemVu,
+		t.Code,
+    t.TenNhiemVu,
+    t.SanPhamChuYeu,
+    t.ThoiHanHoanThanh,
+    t.NgayHoanThanh,
+    t.TinhTrang,
+    t.TienDoHoanThanh,
+    t.songayquahan AS SoNgayQuaHan,
+
+    t.don_vi_cap_01_dvgiao,
+		t.loaicapcha_dvgiao,
+    t.loaicap_dvgiao,
+    t.iddv_dvgiao,
+    t.donvi_dvgiao,
+    t.tenviettat_dvgiao,
+		t.iddv_captren_dvgiao,
+    t.NguoiGiaoNhiemVu,
+
+    -- đơn vị thực hiện = đơn vị hiện tại
+    t.don_vi_cap_01,
+		t.loaicapcha,
+    t.loaicap,
+    t.iddv,
+    t.donvi,
+    t.tenviettat,
+		t.iddv_captren,
+    t.NguoiThucHien,
+
+    t.don_vi_cap_01,
+		t.loaicapcha,
+    t.loaicap,
+    t.iddv,
+    t.donvi,
+    t.tenviettat,
+		t.iddv_captren,
+
+    t.DonViPhoiHop,
+    t.iddv_dvchutri,
+    t.DonViChuTri,
+		
+		t.don_vi_cap_01_dvtaonv,
+		t.loaicapcha_dvtaonv,
+    t.loaicap_dvtaonv,
+    t.iddv_dvtaonv,
+    t.donvi_dvtaonv,
+    t.tenviettat_dvtaonv,
+    t.iddv_captren_dvtaonv,
+    t.NguoiTaoNhiemVuID,
+    t.NguoiTaoNhiemVu,
+		
+    t.VanBanGiaoNhiemVu,
+		t.NgayVanBan,
+    t.LinhVuc,
+    t.Kieu,
+		t.UuTien,
+    t.KetQuaGhiChu,
+		t.NhomPhamViNhiemVu,
+    t.TrangThai,
+    REPLACE(t.TrangThaiVietTat,'Chưa HT ','CHT '),
+    t.TrangThaiVietTat2,
+    t.TenNhiemVu_Mobile,
+    'Được giao' AS NhomGiaoNhan,
+    NOW()       AS syncdate
+FROM datamart_hanoi.qlnv_tonghop_chitiet_tiepnhan t;
+/* đổi chỗ nguyên tử, chờ khóa tối đa 10s */
+SET SESSION lock_wait_timeout = 10;
+RENAME TABLE datamart_hanoi.qlnv_tonghop_chitiet_donvi TO datamart_hanoi.qlnv_tonghop_chitiet_donvi__old, datamart_hanoi.qlnv_tonghop_chitiet_donvi__stg TO datamart_hanoi.qlnv_tonghop_chitiet_donvi, datamart_hanoi.qlnv_tonghop_chitiet_donvi__old TO datamart_hanoi.qlnv_tonghop_chitiet_donvi__stg;
+SET SESSION lock_wait_timeout = 31536000;

@@ -1,0 +1,25 @@
+{
+ "gff": "142f4722-6ef6-1fc2-8093-95915587e727",
+ "replace": "142f4723-6ef6-1fc2-1df3-fe8680c292ab",
+ "c_gff": "142f4724-6ef6-1fc2-d537-6da0d0c6b65f",
+ "c_ok": "142f4725-6ef6-1fc2-a56d-63ab3a773a03",
+ "c_fail": "142f4726-6ef6-1fc2-9f60-ed3143ec7ed3",
+ "bc": {
+  "esr": "142f4750-6ef6-1fc2-af9f-41c411c47ad4",
+  "route": "142f4751-6ef6-1fc2-9948-025e80c5aa3b",
+  "upsert": "142f4752-6ef6-1fc2-7257-86e5dbc2c00b",
+  "replace": "142f4753-6ef6-1fc2-557c-0505f6b95042",
+  "inner_conns": [
+   "142f4754-6ef6-1fc2-9fd3-17345e34f133",
+   "142f4755-6ef6-1fc2-4be9-abb31385b388",
+   "142f4756-6ef6-1fc2-fd86-705b9ea7c1a9"
+  ],
+  "conns": [
+   "142f4757-6ef6-1fc2-73b3-ee46c5c747e6",
+   "142f4758-6ef6-1fc2-4e50-9d69abcfae99",
+   "142f4759-6ef6-1fc2-ffea-c95f7603e42d",
+   "142f475a-6ef6-1fc2-8bd0-21d9c689f44e"
+  ],
+  "c_gff": "142f475d-6ef6-1fc2-6524-00ddcf7683dc"
+ }
+}
